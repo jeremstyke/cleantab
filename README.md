@@ -76,8 +76,6 @@ CleanTab nettoie votre navigateur Chrome en un seul clic — ou automatiquement,
 
 CleanTab ne collecte, ne stocke et ne transmet aucune donnée personnelle. Tout se passe localement dans votre navigateur.
 
-En savoir plus sur CleanTab :
-https://jeremstyke.github.io/cleantab/
 ---
 
 <div align="center">
