@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/jeremstyke/cleantab/main/logo-horizontal.png" width="420" alt="CleanTab" />
+<img src="https://raw.githubusercontent.com/jeremstyke/cleantab/main/logo.png" width="420" alt="CleanTab" />
 
 **Clean your browser in one click — or automatically.**
 
