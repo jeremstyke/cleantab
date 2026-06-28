@@ -3,8 +3,39 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CleanTab - Browser Cleaner</title>
-<meta name="description" content="CleanTab - A free, private, lightweight Chrome extension to clean your browser in one click or automatically." />
+<title>CleanTab - Free Browser Cleaner for Chrome | Clear Cache, Cookies & History</title>
+<meta name="description" content="CleanTab is a free, private and lightweight Chrome extension to clean your browser cache, cookies and history in one click or automatically. No ads, no tracking, 12 languages." />
+<meta name="keywords" content="browser cleaner, chrome extension, clear cache, clear cookies, clear history, clean browser, auto clean, privacy, ccleaner alternative" />
+<meta name="author" content="Jeremstyke" />
+<link rel="canonical" href="https://jeremstyke.github.io/cleantab/" />
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="CleanTab - Free Browser Cleaner for Chrome" />
+<meta property="og:description" content="Clean your browser cache, cookies and history in one click or automatically. Free, private, no tracking. Available in 12 languages." />
+<meta property="og:url" content="https://jeremstyke.github.io/cleantab/" />
+<meta property="og:image" content="https://jeremstyke.github.io/cleantab/logo.png" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CleanTab - Free Browser Cleaner for Chrome" />
+<meta name="twitter:description" content="Clean your browser in one click or automatically. Free, private, no tracking." />
+<meta name="twitter:image" content="https://jeremstyke.github.io/cleantab/logo.png" />
+
+<!-- Structured data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CleanTab - Browser Cleaner",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A free, private and lightweight Chrome extension to clean your browser cache, cookies and history in one click or automatically.",
+  "url": "https://jeremstyke.github.io/cleantab/",
+  "author": { "@type": "Person", "name": "Jeremstyke" }
+}
+</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root { --navy:#0d2440; --blue:#2563eb; --muted:#5a6b82; --border:#e3e9f2; }
@@ -17,7 +48,6 @@
     background: #fff; border: 1px solid var(--border); border-radius: 28px;
     box-shadow: 0 30px 80px rgba(13,36,64,0.12); padding: 50px 40px 40px; max-width: 480px; width: 100%; text-align: center;
   }
-  .logo { width: 92px; height: 92px; border-radius: 22px; margin: 0 auto 22px; display: block; box-shadow: 0 10px 30px rgba(37,99,235,0.18); }
   h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
   h1 .tab { color: var(--blue); }
   .tagline { font-size: 16px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; min-height: 24px; }
@@ -55,7 +85,6 @@
 </head>
 <body>
   <div class="card">
-    <img class="logo" src="logo.png" alt="CleanTab" onerror="this.style.display='none'" />
     <h1>Clean<span class="tab">Tab</span></h1>
     <p class="tagline" id="tagline">Your browser, clean. Automatically.</p>
     <div class="features">
