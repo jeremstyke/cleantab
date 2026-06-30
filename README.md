@@ -5,7 +5,7 @@
 **Clean your browser in one click — or automatically.**
 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Install-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
-[![Version](https://img.shields.io/badge/version-1.6.2-2563eb?style=for-the-badge)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
+[![Version](https://img.shields.io/badge/version-1.6.7-2563eb?style=for-the-badge)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/cleantab)
 [![License](https://img.shields.io/badge/license-All%20rights%20reserved-0d2440?style=for-the-badge)](#)
 
