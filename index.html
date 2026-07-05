@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CleanTab - Free Browser Cleaner for Chrome | Clear Cache, Cookies & History</title>
+<meta name="description" content="CleanTab is a free, private and lightweight Chrome extension to clean your browser cache, cookies and history in one click or automatically. No tracking, 22 languages." />
+<meta name="keywords" content="browser cleaner, chrome extension, clear cache, clear cookies, clear history, clean browser, auto clean, privacy, ccleaner alternative" />
+<meta name="author" content="Jeremstyke" />
+<link rel="canonical" href="https://jeremstyke.github.io/cleantab/" />
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="CleanTab - Free Browser Cleaner for Chrome" />
+<meta property="og:description" content="Clean your browser cache, cookies and history in one click or automatically. Free, private, no tracking. Available in 22 languages." />
+<meta property="og:url" content="https://jeremstyke.github.io/cleantab/" />
+<meta property="og:image" content="https://jeremstyke.github.io/cleantab/logo.png" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CleanTab - Free Browser Cleaner for Chrome" />
+<meta name="twitter:description" content="Clean your browser in one click or automatically. Free, private, no tracking." />
+<meta name="twitter:image" content="https://jeremstyke.github.io/cleantab/logo.png" />
+
+<!-- Structured data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CleanTab - Browser Cleaner",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A free, private and lightweight Chrome extension to clean your browser cache, cookies and history in one click or automatically.",
+  "url": "https://jeremstyke.github.io/cleantab/",
+  "author": { "@type": "Person", "name": "Jeremstyke" }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --navy:#0d2440; --blue:#2563eb; --muted:#5a6b82; --border:#e3e9f2; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: radial-gradient(circle at 50% 0%, rgba(37,99,235,0.10), transparent 55%), linear-gradient(160deg, #eef4fc 0%, #f7faff 100%);
+    color: var(--navy); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+  }
+  .card {
+    background: #fff; border: 1px solid var(--border); border-radius: 28px;
+    box-shadow: 0 30px 80px rgba(13,36,64,0.12); padding: 50px 40px 40px; max-width: 480px; width: 100%; text-align: center;
+  }
+  h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+  h1 .tab { color: var(--blue); }
+  .tagline { font-size: 16px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; min-height: 24px; }
+  .features { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .chip { font-size: 12px; font-weight: 600; color: var(--muted); background: #f1f5fb; border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; }
+  .btn-install {
+    display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 22px 24px; margin-bottom: 16px;
+    border-radius: 17px; font-size: 18.5px; font-weight: 800; text-decoration: none; color: #fff;
+    background: linear-gradient(135deg, #2563eb, #1a73e8); box-shadow: 0 14px 34px rgba(37,99,235,0.40); transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-install:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(37,99,235,0.50); }
+  .btn-install .chrome-ico { font-size: 24px; }
+  .btn-install .sub { display: block; font-size: 11.5px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
+  .btn-kofi {
+    display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; padding: 14px 20px; margin-bottom: 18px;
+    border-radius: 13px; font-size: 15px; font-weight: 700; text-decoration: none; color: #fff;
+    background: linear-gradient(135deg, #ff5e5b, #ff7a47); box-shadow: 0 8px 22px rgba(255,94,91,0.30); transition: transform 0.18s;
+  }
+  .btn-kofi:hover { transform: translateY(-2px); }
+  .secondary-row { display: flex; gap: 12px; margin-bottom: 4px; }
+  .btn-secondary {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 12px 14px; border-radius: 12px;
+    font-size: 14px; font-weight: 600; text-decoration: none; color: #2d3b52; background: #f7faff; border: 1px solid var(--border); transition: background 0.15s;
+  }
+  .btn-secondary:hover { background: #eef4fc; }
+  .lang-wrap { margin-top: 30px; padding-top: 24px; border-top: 1px solid #eef2f8; }
+  select {
+    font-family: inherit; font-size: 14px; font-weight: 600; color: var(--blue);
+    background: #eef4fc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;
+    border: 1px solid #dbe6f5; border-radius: 10px; padding: 10px 38px 10px 14px; cursor: pointer; -webkit-appearance: none; appearance: none;
+  }
+  select:focus { outline: none; border-color: var(--blue); }
+  .footer { margin-top: 22px; font-size: 12px; color: #9aa8bd; }
+  .feature-list { margin: 22px 0 4px; text-align: left; display: flex; flex-direction: column; gap: 10px; }
+  .feat { display: flex; align-items: center; gap: 11px; font-size: 14px; color: #3a4a60; font-weight: 500; }
+  .feat-ico { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Clean<span class="tab">Tab</span></h1>
+    <p class="tagline" id="tagline">Your browser, clean. Automatically.</p>
+    <div class="features">
+      <span class="chip" id="chip1">🔒 Private</span>
+      <span class="chip" id="chip2">⚡ Lightweight</span>
+      <span class="chip" id="chip3">🆓 Free</span>
+      <span class="chip" id="chip4">🌍 22 languages</span>
+    </div>
+    <a class="btn-install" id="btnInstall" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+      <img class="chrome-ico" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome" width="26" height="26" style="vertical-align:middle;" />
+      <span>
+        <span id="txtInstall">Add to Chrome — it's free</span>
+        <span class="sub" id="txtInstallSub">Chrome Web Store</span>
+      </span>
+    </a>
+    <a class="btn-kofi" id="btnKofi" href="https://ko-fi.com/cleantab" target="_blank" rel="noopener">☕ <span id="txtKofi">Buy me a coffee</span></a>
+
+    <div class="feature-list" id="featureList">
+      <div class="feat"><span class="feat-ico">🧹</span><span id="feat1">One-click cleaning of cache, cookies & history</span></div>
+      <div class="feat"><span class="feat-ico">⏰</span><span id="feat2">Automatic scheduled cleaning</span></div>
+      <div class="feat"><span class="feat-ico">🛡️</span><span id="feat3">Protect your favorite sites (whitelist)</span></div>
+      <div class="feat"><span class="feat-ico">📊</span><span id="feat4">Statistics, badges & 7-day activity chart</span></div>
+      <div class="feat"><span class="feat-ico">🎮</span><span id="feat5">Exclusive Tab Rush mini-game</span></div>
+      <div class="feat"><span class="feat-ico">🔒</span><span id="feat6">100% private — no data leaves your browser</span></div>
+    </div>
+
+    <div class="secondary-row">
+      <a class="btn-secondary" id="btnPrivacy" href="privacy.html">🔒 <span id="txtPrivacy">Privacy</span></a>
+      <a class="btn-secondary" id="btnSupport" href="support.html">🛟 <span id="txtSupport">Support</span></a>
+    </div>
+    <div class="lang-wrap">
+      <select id="langSelect" onchange="setLang(this.value)">
+        <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="es">🇪🇸 Español</option>
+        <option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="pt">🇵🇹 Português</option>
+        <option value="nl">🇳🇱 Nederlands</option><option value="pl">🇵🇱 Polski</option><option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option><option value="hi">🇮🇳 हिन्दी</option><option value="ar">🇸🇦 العربية</option>
+        <option value="id">🇮🇩 Indonesia</option><option value="vi">🇻🇳 Tiếng Việt</option><option value="th">🇹🇭 ไทย</option>
+        <option value="uk">🇺🇦 Українська</option><option value="sv">🇸🇪 Svenska</option><option value="el">🇬🇷 Ελληνικά</option>
+        <option value="cs">🇨🇿 Čeština</option><option value="ro">🇷🇴 Română</option>
+      </select>
+    </div>
+    <div class="footer">
+      <div id="dmPartner" style="margin-bottom:8px; font-size:11px; line-height:1.4;">Official partner of <a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:600;">DeleteMe</a> — remove your personal data from the web (affiliate).</div>
+      © 2026 Jeremstyke
+    </div>
+  </div>
+<script>
+  var T = {
+    en:{tagline:"Your browser, clean. Automatically.",install:"Add to Chrome — it's free",sub:"Chrome Web Store",kofi:"Buy me a coffee",privacy:"Privacy",support:"Support",dm:"Official partner of <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — remove your personal data from the web (affiliate).",c:["🔒 Private","⚡ Lightweight","🆓 Free","🌍 22 languages"],f:["One-click cleaning of cache, cookies & history","Automatic scheduled cleaning","Protect your favorite sites (whitelist)","Statistics, badges & 7-day activity chart","Exclusive Tab Rush mini-game","100% private — no data leaves your browser"]},
+    fr:{tagline:"Votre navigateur, propre. Automatiquement.",install:"Ajouter à Chrome — gratuit",sub:"Chrome Web Store",kofi:"Offrez-moi un café",privacy:"Confidentialité",support:"Support",dm:"Partenaire officiel de <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — supprimez vos données personnelles du web (affilié).",c:["🔒 Privé","⚡ Léger","🆓 Gratuit","🌍 22 langues"],f:["Nettoyage en 1 clic du cache, cookies & historique","Nettoyage automatique programmé","Protégez vos sites favoris (liste blanche)","Statistiques, badges & graphique d'activité 7 jours","Mini-jeu exclusif Tab Rush","100% privé — aucune donnée ne quitte votre navigateur"]},
+    es:{tagline:"Tu navegador, limpio. Automáticamente.",install:"Añadir a Chrome — gratis",sub:"Chrome Web Store",kofi:"Invítame a un café",privacy:"Privacidad",support:"Soporte",dm:"Socio oficial de <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — elimina tus datos personales de la web (afiliado).",c:["🔒 Privado","⚡ Ligero","🆓 Gratis","🌍 22 idiomas"],f:["Limpieza en 1 clic de caché, cookies e historial","Limpieza automática programada","Protege tus sitios favoritos (lista blanca)","Estadísticas, insignias y gráfico de actividad de 7 días","Minijuego exclusivo Tab Rush","100% privado — ningún dato sale de tu navegador"]},
+    de:{tagline:"Dein Browser, sauber. Automatisch.",install:"Zu Chrome hinzufügen — gratis",sub:"Chrome Web Store",kofi:"Spendier mir einen Kaffee",privacy:"Datenschutz",support:"Support",dm:"Offizieller Partner von <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — entferne deine persönlichen Daten aus dem Web (Affiliate).",c:["🔒 Privat","⚡ Leicht","🆓 Gratis","🌍 22 Sprachen"],f:["Reinigung von Cache, Cookies & Verlauf mit 1 Klick","Automatische geplante Reinigung","Schütze deine Lieblingsseiten (Whitelist)","Statistiken, Abzeichen & 7-Tage-Aktivitätsdiagramm","Exklusives Tab-Rush-Minispiel","100% privat — keine Daten verlassen deinen Browser"]},
+    it:{tagline:"Il tuo browser, pulito. Automaticamente.",install:"Aggiungi a Chrome — gratis",sub:"Chrome Web Store",kofi:"Offrimi un caffè",privacy:"Privacy",support:"Supporto",dm:"Partner ufficiale di <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — rimuovi i tuoi dati personali dal web (affiliato).",c:["🔒 Privato","⚡ Leggero","🆓 Gratis","🌍 22 lingue"],f:["Pulizia in 1 clic di cache, cookie e cronologia","Pulizia automatica programmata","Proteggi i tuoi siti preferiti (lista bianca)","Statistiche, badge e grafico attività 7 giorni","Mini-gioco esclusivo Tab Rush","100% privato — nessun dato lascia il browser"]},
+    pt:{tagline:"Seu navegador, limpo. Automaticamente.",install:"Adicionar ao Chrome — grátis",sub:"Chrome Web Store",kofi:"Pague-me um café",privacy:"Privacidade",support:"Suporte",dm:"Parceiro oficial do <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — remova seus dados pessoais da web (afiliado).",c:["🔒 Privado","⚡ Leve","🆓 Grátis","🌍 22 idiomas"],f:["Limpeza em 1 clique de cache, cookies e histórico","Limpeza automática programada","Proteja seus sites favoritos (lista branca)","Estatísticas, selos e gráfico de atividade de 7 dias","Minijogo exclusivo Tab Rush","100% privado — nenhum dado sai do seu navegador"]},
+    nl:{tagline:"Je browser, schoon. Automatisch.",install:"Toevoegen aan Chrome — gratis",sub:"Chrome Web Store",kofi:"Trakteer me op koffie",privacy:"Privacy",support:"Ondersteuning",dm:"Officiële partner van <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — verwijder je persoonlijke gegevens van het web (affiliate).",c:["🔒 Privé","⚡ Licht","🆓 Gratis","🌍 22 talen"],f:["Cache, cookies & geschiedenis met 1 klik opschonen","Automatische geplande schoonmaak","Bescherm je favoriete sites (witte lijst)","Statistieken, badges & 7-daagse activiteitengrafiek","Exclusieve Tab Rush mini-game","100% privé — geen data verlaat je browser"]},
+    pl:{tagline:"Twoja przeglądarka, czysta. Automatycznie.",install:"Dodaj do Chrome — za darmo",sub:"Chrome Web Store",kofi:"Postaw mi kawę",privacy:"Prywatność",support:"Wsparcie",dm:"Oficjalny partner <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — usuń swoje dane osobowe z sieci (afiliacja).",c:["🔒 Prywatne","⚡ Lekkie","🆓 Darmowe","🌍 22 języków"],f:["Czyszczenie pamięci, cookie i historii 1 kliknięciem","Automatyczne zaplanowane czyszczenie","Chroń ulubione strony (biała lista)","Statystyki, odznaki i wykres aktywności 7 dni","Ekskluzywna minigra Tab Rush","100% prywatne — żadne dane nie opuszczają przeglądarki"]},
+    tr:{tagline:"Tarayıcın, temiz. Otomatik olarak.",install:"Chrome'a ekle — ücretsiz",sub:"Chrome Web Store",kofi:"Bana bir kahve ısmarla",privacy:"Gizlilik",support:"Destek",dm:"<a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> resmi ortağı — kişisel verilerinizi web'den kaldırın (iş ortağı).",c:["🔒 Gizli","⚡ Hafif","🆓 Ücretsiz","🌍 22 dil"],f:["Önbellek, çerez ve geçmişi tek tıkla temizle","Otomatik zamanlanmış temizleme","Favori sitelerini koru (beyaz liste)","İstatistikler, rozetler ve 7 günlük etkinlik grafiği","Özel Tab Rush mini oyunu","100% gizli — veriler tarayıcından çıkmaz"]},
+    ru:{tagline:"Ваш браузер чист. Автоматически.",install:"Добавить в Chrome — бесплатно",sub:"Chrome Web Store",kofi:"Купить мне кофе",privacy:"Конфиденциальность",support:"Поддержка",dm:"Официальный партнёр <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — удалите свои данные из сети (партнёрская ссылка).",c:["🔒 Приватно","⚡ Легко","🆓 Бесплатно","🌍 22 языков"],f:["Очистка кэша, cookie и истории в 1 клик","Автоматическая очистка по расписанию","Защита избранных сайтов (белый список)","Статистика, значки и график активности за 7 дней","Эксклюзивная мини-игра Tab Rush","100% приватно — данные не покидают браузер"]},
+    zh:{tagline:"您的浏览器，干净。自动。",install:"添加到 Chrome — 免费",sub:"Chrome 应用商店",kofi:"请我喝杯咖啡",privacy:"隐私",support:"支持",c:["🔒 私密","⚡ 轻量","🆓 免费","🌍 22 种语言"],f:["一键清理缓存、Cookie 和历史记录","自动定时清理","保护你喜爱的网站（白名单）","统计、徽章和 7 天活动图表","独家 Tab Rush 小游戏","100% 私密 — 数据不会离开浏览器"]},
+    ja:{tagline:"あなたのブラウザを、自動でクリーンに。",install:"Chrome に追加 — 無料",sub:"Chrome ウェブストア",kofi:"コーヒーをおごる",privacy:"プライバシー",support:"サポート",dm:"<a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> の公式パートナー — あなたの個人データをウェブから削除（アフィリエイト）。",c:["🔒 プライベート","⚡ 軽量","🆓 無料","🌍 22言語"],f:["キャッシュ・Cookie・履歴をワンクリックで削除","自動スケジュール清掃","お気に入りサイトを保護（ホワイトリスト）","統計・バッジ・7日間アクティビティグラフ","限定ミニゲーム Tab Rush","100%プライベート — データは外部に出ません"]},
+    ko:{tagline:"브라우저를 자동으로 깨끗하게.",install:"Chrome에 추가 — 무료",sub:"Chrome 웹 스토어",kofi:"커피 한 잔 사주기",privacy:"개인정보",support:"지원",dm:"<a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> 공식 파트너 — 웹에서 개인 데이터를 삭제하세요 (제휴).",c:["🔒 비공개","⚡ 가벼움","🆓 무료","🌍 22개 언어"],f:["캐시, 쿠키, 기록을 원클릭으로 정리","자동 예약 청소","즐겨찾는 사이트 보호 (화이트리스트)","통계, 배지 및 7일 활동 차트","독점 Tab Rush 미니게임","100% 비공개 — 데이터가 브라우저를 떠나지 않음"]},
+    hi:{tagline:"आपका ब्राउज़र, साफ़। स्वचालित रूप से।",install:"Chrome में जोड़ें — मुफ़्त",sub:"Chrome वेब स्टोर",kofi:"मुझे कॉफ़ी पिलाएँ",privacy:"गोपनीयता",support:"सहायता",dm:"<a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> का आधिकारिक साझेदार — अपना व्यक्तिगत डेटा वेब से हटाएँ (एफिलिएट)।",c:["🔒 निजी","⚡ हल्का","🆓 मुफ़्त","🌍 22 भाषाएँ"],f:["कैश, कुकीज़ और इतिहास एक क्लिक में साफ़","स्वचालित निर्धारित सफ़ाई","अपनी पसंदीदा साइटें सुरक्षित रखें (व्हाइटलिस्ट)","आँकड़े, बैज और 7-दिन गतिविधि चार्ट","विशेष Tab Rush मिनी-गेम","100% निजी — कोई डेटा बाहर नहीं जाता"]},
+    ar:{tagline:"متصفحك، نظيف. تلقائيًا.",install:"أضف إلى Chrome — مجانًا",sub:"متجر Chrome الإلكتروني",kofi:"اشترِ لي قهوة",privacy:"الخصوصية",support:"الدعم",dm:"شريك رسمي لـ <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — احذف بياناتك الشخصية من الويب (تابع).",c:["🔒 خاص","⚡ خفيف","🆓 مجاني","🌍 22 لغة"],f:["تنظيف الذاكرة المؤقتة وملفات الارتباط والسجل بنقرة","تنظيف تلقائي مجدول","احمِ مواقعك المفضلة (القائمة البيضاء)","إحصائيات وشارات ومخطط نشاط 7 أيام","لعبة Tab Rush الحصرية","خاص 100% — لا تغادر البيانات متصفحك"]},
+    id:{tagline:"Browser Anda, bersih. Otomatis.",install:"Tambahkan ke Chrome — gratis",sub:"Chrome Web Store",kofi:"Belikan saya kopi",privacy:"Privasi",support:"Dukungan",dm:"Mitra resmi <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — hapus data pribadi Anda dari web (afiliasi).",c:["🔒 Privat","⚡ Ringan","🆓 Gratis","🌍 22 bahasa"],f:["Bersihkan cache, cookie & riwayat dengan 1 klik","Pembersihan otomatis terjadwal","Lindungi situs favorit Anda (daftar putih)","Statistik, lencana & grafik aktivitas 7 hari","Mini-game Tab Rush eksklusif","100% privat — tidak ada data keluar dari browser"]},
+    vi:{tagline:"Trình duyệt của bạn, sạch sẽ. Tự động.",install:"Thêm vào Chrome — miễn phí",sub:"Chrome Web Store",kofi:"Mời tôi một ly cà phê",privacy:"Quyền riêng tư",support:"Hỗ trợ",dm:"Đối tác chính thức của <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — xóa dữ liệu cá nhân của bạn khỏi web (tiếp thị).",c:["🔒 Riêng tư","⚡ Nhẹ","🆓 Miễn phí","🌍 22 ngôn ngữ"],f:["Dọn cache, cookie & lịch sử chỉ với 1 cú nhấp","Dọn dẹp tự động theo lịch","Bảo vệ trang yêu thích (danh sách trắng)","Thống kê, huy hiệu & biểu đồ hoạt động 7 ngày","Mini-game Tab Rush độc quyền","100% riêng tư — không dữ liệu nào rời trình duyệt"]},
+    th:{tagline:"เบราว์เซอร์ของคุณ สะอาด โดยอัตโนมัติ",install:"เพิ่มลงใน Chrome — ฟรี",sub:"Chrome เว็บสโตร์",kofi:"เลี้ยงกาแฟฉันสักแก้ว",privacy:"ความเป็นส่วนตัว",support:"การสนับสนุน",dm:"พันธมิตรอย่างเป็นทางการของ <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — ลบข้อมูลส่วนตัวของคุณออกจากเว็บ (พันธมิตร)",c:["🔒 ส่วนตัว","⚡ เบา","🆓 ฟรี","🌍 22 ภาษา"],f:["ล้างแคช คุกกี้ และประวัติในคลิกเดียว","ล้างอัตโนมัติตามกำหนด","ปกป้องเว็บโปรดของคุณ (รายการอนุญาต)","สถิติ ตราสัญลักษณ์ และกราฟกิจกรรม 7 วัน","มินิเกม Tab Rush สุดพิเศษ","ส่วนตัว 100% — ไม่มีข้อมูลออกจากเบราว์เซอร์"]},
+    uk:{tagline:"Ваш браузер чистий. Автоматично.",install:"Додати в Chrome — безкоштовно",sub:"Chrome Web Store",kofi:"Купити мені каву",privacy:"Конфіденційність",support:"Підтримка",dm:"Офіційний партнер <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — видаліть свої дані з мережі (партнерське посилання).",c:["🔒 Приватно","⚡ Легко","🆓 Безкоштовно","🌍 22 мов"],f:["Очищення кешу, cookie та історії в 1 клік","Автоматичне заплановане очищення","Захист улюблених сайтів (білий список)","Статистика, значки та графік активності за 7 днів","Ексклюзивна міні-гра Tab Rush","100% приватно — дані не залишають браузер"]},
+    sv:{tagline:"Din webbläsare, ren. Automatiskt.",install:"Lägg till i Chrome — gratis",sub:"Chrome Web Store",kofi:"Bjud mig på en kaffe",privacy:"Integritet",support:"Support",dm:"Officiell partner till <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — ta bort dina personuppgifter från webben (affiliate).",c:["🔒 Privat","⚡ Lätt","🆓 Gratis","🌍 22 språk"],f:["Rensa cache, cookies & historik med 1 klick","Automatisk schemalagd rensning","Skydda dina favoritsajter (vitlista)","Statistik, märken & 7-dagars aktivitetsdiagram","Exklusivt Tab Rush-minispel","100% privat — inga data lämnar din webbläsare"]},
+    el:{tagline:"Ο browser σας, καθαρός. Αυτόματα.",install:"Προσθήκη στο Chrome — δωρεάν",sub:"Chrome Web Store",kofi:"Κέρασέ με έναν καφέ",privacy:"Απόρρητο",support:"Υποστήριξη",dm:"Επίσημος συνεργάτης του <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — αφαίρεσε τα προσωπικά σου δεδομένα από το web (affiliate).",c:["🔒 Ιδιωτικό","⚡ Ελαφρύ","🆓 Δωρεάν","🌍 22 γλώσσες"],f:["Καθαρισμός cache, cookies & ιστορικού με 1 κλικ","Αυτόματος προγραμματισμένος καθαρισμός","Προστάτεψε τους αγαπημένους ιστότοπους (λευκή λίστα)","Στατιστικά, σήματα & γράφημα δραστηριότητας 7 ημερών","Αποκλειστικό mini-game Tab Rush","100% ιδιωτικό — κανένα δεδομένο δεν φεύγει"]},
+    cs:{tagline:"Váš prohlížeč, čistý. Automaticky.",install:"Přidat do Chrome — zdarma",sub:"Internetový obchod Chrome",kofi:"Kup mi kávu",privacy:"Soukromí",support:"Podpora",dm:"Oficiální partner <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — odstraňte svá osobní data z webu (affiliate).",c:["🔒 Soukromé","⚡ Lehké","🆓 Zdarma","🌍 22 jazyků"],f:["Vyčištění mezipaměti, cookies a historie 1 kliknutím","Automatické naplánované čištění","Chraňte své oblíbené weby (bílá listina)","Statistiky, odznaky a graf aktivity 7 dní","Exkluzivní minihra Tab Rush","100% soukromé — žádná data neopouštějí prohlížeč"]},
+    ro:{tagline:"Browserul tău, curat. Automat.",install:"Adaugă în Chrome — gratuit",sub:"Magazin web Chrome",kofi:"Fă-mi cinste cu o cafea",privacy:"Confidențialitate",support:"Asistență",dm:"Partener oficial <a href=\"https://www.de33watrk.com/WCKMXS/KMKS9/\" target=\"_blank\" rel=\"noopener\" style=\"color:#e8534e;text-decoration:none;font-weight:600;\">DeleteMe</a> — elimină-ți datele personale de pe web (afiliat).",c:["🔒 Privat","⚡ Ușor","🆓 Gratuit","🌍 22 limbi"]}
+  };
+  function setLang(l) {
+    var d = T[l] || T.en;
+    document.getElementById('tagline').textContent = d.tagline;
+    document.getElementById('txtInstall').textContent = d.install;
+    document.getElementById('txtInstallSub').textContent = d.sub;
+    document.getElementById('txtKofi').textContent = d.kofi;
+    document.getElementById('txtPrivacy').textContent = d.privacy;
+    var dmEl = document.getElementById('dmPartner'); if (dmEl) dmEl.innerHTML = d.dm || T.en.dm;
+    document.getElementById('txtSupport').textContent = d.support;
+    document.getElementById('chip1').textContent = d.c[0];
+    document.getElementById('chip2').textContent = d.c[1];
+    document.getElementById('chip3').textContent = d.c[2];
+    document.getElementById('chip4').textContent = d.c[3];
+    var f = d.f || T.en.f;
+    for (var i = 0; i < 6; i++) { var fe = document.getElementById('feat' + (i+1)); if (fe && f[i]) fe.textContent = f[i]; }
+    document.getElementById('langSelect').value = l;
+    document.documentElement.lang = l;
+    document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  }
+  (function() {
+    var supported = ['en','fr','es','de','it','pt','nl','pl','tr','ru','zh','ja','ko','hi','ar','id','vi','th','uk','sv','el','cs','ro'];
+    var nav = (navigator.language || 'en').slice(0,2);
+    setLang(supported.indexOf(nav) >= 0 ? nav : 'en');
+  })();
+</script>
+</body>
+</html>
