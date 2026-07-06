@@ -29,10 +29,10 @@
 <body>
 <nav style="max-width:900px;margin:0 auto;padding:16px 20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:'DM Sans',system-ui,sans-serif;border-bottom:1px solid #eef2f8;">
   <a href="index.html" style="font-weight:800;font-size:18px;color:#0d2440;text-decoration:none;margin-right:auto;">Clean<span style="color:#2563eb;">Tab</span></a>
-  <a href="index.html" style="padding:7px 13px;border-radius:8px;color:#3a4a60;text-decoration:none;font-size:14px;font-weight:600;">🏠 Home</a>
-  <a href="privacy.html" style="padding:7px 13px;border-radius:8px;color:#3a4a60;text-decoration:none;font-size:14px;font-weight:600;">🔒 Privacy</a>
-  <a href="support.html" style="padding:7px 13px;border-radius:8px;color:#3a4a60;text-decoration:none;font-size:14px;font-weight:600;">🛟 Support</a>
-  <a href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener" style="padding:7px 13px;border-radius:8px;background:#2563eb;color:#fff;text-decoration:none;font-size:14px;font-weight:700;">Add to Chrome</a>
+  <a href="index.html" id="navHome" style="padding:7px 13px;border-radius:8px;color:#3a4a60;text-decoration:none;font-size:14px;font-weight:600;">🏠 Home</a>
+  <a href="privacy.html" id="navPrivacy" style="padding:7px 13px;border-radius:8px;color:#3a4a60;text-decoration:none;font-size:14px;font-weight:600;">🔒 Privacy</a>
+  <a href="support.html" id="navSupport" style="padding:7px 13px;border-radius:8px;color:#3a4a60;text-decoration:none;font-size:14px;font-weight:600;">🛟 Support</a>
+  <a href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener" id="navInstall" style="padding:7px 13px;border-radius:8px;background:#2563eb;color:#fff;text-decoration:none;font-size:14px;font-weight:700;">Add to Chrome</a>
 </nav>
 
 <div class="brand-header">
@@ -453,6 +453,7 @@
     uk:'☕ Купити мені каву', sv:'☕ Bjud mig på kaffe', el:'☕ Κέρασέ με καφέ',
     cs:'☕ Kup mi kávu', ro:'☕ Fă-mi cinste cu o cafea'
   };
+var MENU_TR = {"en": ["Home", "Privacy", "Support", "Add to Chrome"], "fr": ["Accueil", "Confidentialité", "Assistance", "Ajouter à Chrome"], "es": ["Inicio", "Privacidad", "Soporte", "Añadir a Chrome"], "de": ["Start", "Datenschutz", "Support", "Zu Chrome hinzufügen"], "it": ["Home", "Privacy", "Supporto", "Aggiungi a Chrome"], "pt": ["Início", "Privacidade", "Suporte", "Adicionar ao Chrome"], "nl": ["Home", "Privacy", "Ondersteuning", "Toevoegen aan Chrome"], "pl": ["Start", "Prywatność", "Wsparcie", "Dodaj do Chrome"], "tr": ["Ana Sayfa", "Gizlilik", "Destek", "Chrome'a Ekle"], "ru": ["Главная", "Конфиденциальность", "Поддержка", "Добавить в Chrome"], "zh": ["首页", "隐私", "支持", "添加到 Chrome"], "ja": ["ホーム", "プライバシー", "サポート", "Chrome に追加"], "ko": ["홈", "개인정보", "지원", "Chrome에 추가"], "hi": ["होम", "गोपनीयता", "समर्थन", "Chrome में जोड़ें"], "ar": ["الرئيسية", "الخصوصية", "الدعم", "إضافة إلى Chrome"], "id": ["Beranda", "Privasi", "Dukungan", "Tambahkan ke Chrome"], "vi": ["Trang chủ", "Quyền riêng tư", "Hỗ trợ", "Thêm vào Chrome"], "th": ["หน้าแรก", "ความเป็นส่วนตัว", "สนับสนุน", "เพิ่มใน Chrome"], "uk": ["Головна", "Конфіденційність", "Підтримка", "Додати в Chrome"], "sv": ["Hem", "Integritet", "Support", "Lägg till i Chrome"], "el": ["Αρχική", "Απόρρητο", "Υποστήριξη", "Προσθήκη στο Chrome"], "cs": ["Domů", "Soukromí", "Podpora", "Přidat do Chrome"], "ro": ["Acasă", "Confidențialitate", "Suport", "Adaugă în Chrome"]};
   function setLang(l) {
     document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.lang === l));
     document.querySelectorAll('.langbar button').forEach(b => b.classList.remove('active'));
@@ -460,6 +461,11 @@
     document.documentElement.lang = l;
     var kofi = document.getElementById('kofiBadge');
     if (kofi) kofi.textContent = KOFI_TEXT[l] || KOFI_TEXT.en;
+    var mt = MENU_TR[l] || MENU_TR.en;
+    var nh=document.getElementById('navHome'); if(nh) nh.innerHTML='🏠 '+mt[0];
+    var np=document.getElementById('navPrivacy'); if(np) np.innerHTML='🔒 '+mt[1];
+    var ns=document.getElementById('navSupport'); if(ns) ns.innerHTML='🛟 '+mt[2];
+    var ni=document.getElementById('navInstall'); if(ni) ni.textContent=mt[3];
   }
   (function() {
     var supported = ['en', 'fr', 'es', 'de', 'it', 'pt', 'nl', 'pl', 'tr', 'ru', 'zh', 'ja', 'ko', 'hi', 'ar', 'id', 'vi', 'th', 'uk', 'sv', 'el', 'cs', 'ro'];
