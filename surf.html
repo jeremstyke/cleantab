@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CleanTab — Clean your browser after surfing</title>
+<meta name="description" content="Been surfing? Clear the cache, cookies and history you just picked up — in one click. Free browser cleaner for Chrome and Microsoft Edge." />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="https://raw.githubusercontent.com/jeremstyke/cleantab/main/icons/icon128.png" />
+<style>
+  :root { --navy:#0d2440; --blue:#2563eb; --muted:#5a6b82; --border:#e3e9f2; --warn:#e8534e; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: linear-gradient(160deg, #eef3fb 0%, #e4ecf8 100%);
+    color: var(--navy); min-height: 100vh;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .card {
+    background: #fff; border-radius: 22px; padding: 34px 30px 26px;
+    max-width: 440px; width: 100%;
+    box-shadow: 0 18px 50px rgba(13,36,64,0.13);
+    text-align: center;
+  }
+
+  h1 { font-size: 27px; margin: 0 0 8px; letter-spacing: -0.5px; line-height: 1.2; }
+  h1 .tab { color: var(--blue); }
+  .tagline { font-size: 15px; color: var(--muted); margin: 0 0 20px; line-height: 1.5; min-height: 22px; }
+
+  /* Signature: the trail you're leaving right now */
+  .trail {
+    background: #fdf4f3; border: 1px solid #f6d9d6; border-radius: 15px;
+    padding: 16px 18px; margin-bottom: 20px; text-align: left;
+  }
+  .trail-head {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase;
+    color: var(--warn); margin-bottom: 10px; display: flex; align-items: center; gap: 7px;
+  }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--warn);
+    animation: pulse 1.6s ease-in-out infinite; flex-shrink: 0;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+  .trail-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 13px; color: #7a5c58; padding: 3px 0;
+  }
+  .trail-num {
+    font-family: 'Courier New', monospace; font-weight: 700; font-size: 15px; color: var(--warn);
+    font-variant-numeric: tabular-nums;
+  }
+  .trail-note { font-size: 11px; color: #a08380; margin-top: 9px; line-height: 1.45; }
+
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 17px 20px; margin-bottom: 10px;
+    border-radius: 14px; font-size: 16px; font-weight: 800;
+    text-decoration: none; color: #fff; transition: transform 0.18s, box-shadow 0.18s;
+  }
+  .btn .sub { display: block; font-size: 10.5px; font-weight: 600; opacity: 0.85; margin-top: 1px; }
+  .btn-chrome { background: linear-gradient(135deg, #2563eb, #4f8bf0); box-shadow: 0 10px 26px rgba(37,99,235,0.34); }
+  .btn-chrome:hover { transform: translateY(-2px); box-shadow: 0 15px 34px rgba(37,99,235,0.44); }
+  .btn-edge { background: linear-gradient(135deg, #0c85d0, #33b1e1); box-shadow: 0 10px 26px rgba(12,133,208,0.34); }
+  .btn-edge:hover { transform: translateY(-2px); box-shadow: 0 15px 34px rgba(12,133,208,0.44); }
+
+  .edge-hint { font-size: 11.5px; color: var(--muted); margin: 2px 0 18px; line-height: 1.5; }
+
+  .feats { text-align: left; display: grid; gap: 8px; margin-bottom: 18px; }
+  .feat { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: #3a4a60; font-weight: 500; }
+  .feat-ico { width: 20px; text-align: center; flex-shrink: 0; }
+
+  .foot { border-top: 1px solid var(--border); padding-top: 14px; }
+  select {
+    appearance: none; -webkit-appearance: none;
+    background: #f8fafd url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235a6b82' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+    border: 1px solid var(--border); border-radius: 9px; padding: 7px 30px 7px 12px;
+    font-family: inherit; font-size: 13px; font-weight: 600; color: var(--blue); cursor: pointer;
+  }
+  select:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+  .copy { font-size: 10.5px; color: #9aa8bd; margin-top: 10px; }
+  .copy a { color: var(--muted); text-decoration: none; }
+
+  @media (max-width: 420px) {
+    .card { padding: 26px 20px 20px; }
+    h1 { font-size: 23px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <h1>Clean<span class="tab">Tab</span></h1>
+  <p class="tagline" id="tagline">Been surfing? Your browser kept everything.</p>
+
+  <div class="trail">
+    <div class="trail-head"><span class="dot"></span><span id="trailHead">Piling up right now</span></div>
+    <div class="trail-row"><span id="lblCache">Cached files</span><span class="trail-num" id="numCache">0</span></div>
+    <div class="trail-row"><span id="lblCookies">Cookies dropped</span><span class="trail-num" id="numCookies">0</span></div>
+    <div class="trail-row"><span id="lblHistory">Pages in history</span><span class="trail-num" id="numHistory">0</span></div>
+    <div class="trail-note" id="trailNote">Rough estimate while this page is open. Every site you visit adds more.</div>
+  </div>
+
+  <a class="btn btn-chrome" id="btnChrome" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 48 48" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="20" fill="#fff"/>
+      <path fill="#4caf50" d="M24 4a20 20 0 0 1 17.3 10H24a10 10 0 0 0-9.4 6.6L7.3 12A20 20 0 0 1 24 4z"/>
+      <path fill="#f44336" d="M41.3 14A20 20 0 0 1 24 44l8.6-14.9A10 10 0 0 0 34 24a10 10 0 0 0-1.4-5H41z"/>
+      <path fill="#ffc107" d="M24 44A20 20 0 0 1 7.3 12l8.6 14.9A10 10 0 0 0 24 34a10 10 0 0 0 2.4-.3z"/>
+      <circle cx="24" cy="24" r="8" fill="#2196f3"/>
+    </svg>
+    <span><span id="txtChrome">Clean it — free</span><span class="sub" id="subChrome">Chrome Web Store</span></span>
+  </a>
+
+  <a class="btn btn-edge" id="btnEdge" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 48 48" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="eA" x1="8" y1="34" x2="40" y2="34" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0c59a4"/><stop offset="1" stop-color="#114a8b"/></linearGradient>
+        <linearGradient id="eB" x1="30" y1="20" x2="10" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1b9de2"/><stop offset="0.6" stop-color="#1595df"/><stop offset="1" stop-color="#0680d7"/></linearGradient>
+        <linearGradient id="eC" x1="12" y1="6" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#35c1f1"/><stop offset="0.5" stop-color="#34c1ed"/><stop offset="1" stop-color="#5eeb69"/></linearGradient>
+      </defs>
+      <path fill="url(#eA)" d="M40.7 32c-.5 2.6-1.8 5.4-3.9 7.6-3 3.2-7 4.4-10.2 4.4-8 0-13.9-5.6-13.9-13 0-3.4 2-6 4-6.9-1 3.5.2 6.7 2.3 8.7 3.6 3.5 10.5 3.9 15.9 1.9 2.4-.9 4.6-1.9 5.7-2.7z"/>
+      <path fill="url(#eB)" d="M20 43.3c-2.5-.5-4.7-1.6-6.5-3-6-4.8-5.6-13.4.7-17.4 1.7-1 3.3-1.2 4.5-1.2 1.3 0 2.7.4 3.7 1-2.4.1-4.6 1.5-5.7 3.6-1.6 3-.9 6.6 1.4 8.8 3 2.9 7.5 4.6 12.4 4.6-2.9 1-6.6 1.3-10 1z"/>
+      <path fill="url(#eC)" d="M24 4c5.5 0 10.5 2.2 14 5.9 2.6 2.7 4 6.2 4 9.6 0 3.4-2.2 5.7-5.4 5.7-2.6 0-5-1.5-5-4.4 0-.9.3-1.7.3-2.6 0-3.5-3-6.8-8.2-6.8-5.6 0-10.3 3.7-12.6 8.3C9.7 12 16.2 4 24 4z"/>
+    </svg>
+    <span><span id="txtEdge">Clean it — free</span><span class="sub" id="subEdge">Chrome Web Store</span></span>
+  </a>
+
+  <p class="edge-hint" id="edgeHint">Edge runs Chrome extensions — install from the Chrome Web Store and click "Allow" if asked.</p>
+
+  <div class="feats">
+    <div class="feat"><span class="feat-ico">🧹</span><span id="f1">Cache, cookies and history — gone in one click</span></div>
+    <div class="feat"><span class="feat-ico">⏰</span><span id="f2">Or set it to clean automatically after every session</span></div>
+    <div class="feat"><span class="feat-ico">🛡️</span><span id="f3">Whitelist keeps you logged into the sites you pick</span></div>
+    <div class="feat"><span class="feat-ico">🔒</span><span id="f4">Nothing leaves your browser — no account, no tracking</span></div>
+  </div>
+
+  <div class="foot">
+    <select id="langSelect" onchange="setLang(this.value)" aria-label="Language">
+      <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="es">🇪🇸 Español</option>
+      <option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="pt">🇵🇹 Português</option>
+      <option value="nl">🇳🇱 Nederlands</option><option value="pl">🇵🇱 Polski</option><option value="tr">🇹🇷 Türkçe</option>
+      <option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option>
+      <option value="ko">🇰🇷 한국어</option><option value="hi">🇮🇳 हिन्दी</option><option value="ar">🇸🇦 العربية</option>
+      <option value="id">🇮🇩 Indonesia</option><option value="vi">🇻🇳 Tiếng Việt</option><option value="th">🇹🇭 ไทย</option>
+      <option value="uk">🇺🇦 Українська</option><option value="sv">🇸🇪 Svenska</option><option value="el">🇬🇷 Ελληνικά</option>
+      <option value="cs">🇨🇿 Čeština</option><option value="ro">🇷🇴 Română</option>
+    </select>
+    <div class="copy">© 2026 Jeremstyke · <a href="index.html" id="homeLink">CleanTab</a></div>
+  </div>
+
+</div>
+
+<script>
+var T = {"en": {"tagline": "Been surfing? Your browser kept everything.", "trailHead": "Piling up right now", "lblCache": "Cached files", "lblCookies": "Cookies dropped", "lblHistory": "Pages in history", "trailNote": "Rough estimate while this page is open. Every site you visit adds more.", "cta": "Clean it — free", "store": "Chrome Web Store", "edgeHint": "Edge runs Chrome extensions — install from the Chrome Web Store and click \"Allow\" if asked.", "f1": "Cache, cookies and history — gone in one click", "f2": "Or set it to clean automatically after every session", "f3": "Whitelist keeps you logged into the sites you pick", "f4": "Nothing leaves your browser — no account, no tracking"}, "fr": {"tagline": "Vous venez de surfer ? Votre navigateur a tout gardé.", "trailHead": "Ça s'accumule en ce moment", "lblCache": "Fichiers en cache", "lblCookies": "Cookies déposés", "lblHistory": "Pages dans l'historique", "trailNote": "Estimation approximative pendant que cette page est ouverte. Chaque site visité en ajoute.", "cta": "Nettoyer — gratuit", "store": "Chrome Web Store", "edgeHint": "Edge utilise les extensions Chrome — installez depuis le Chrome Web Store et cliquez sur « Autoriser » si demandé.", "f1": "Cache, cookies et historique — effacés en 1 clic", "f2": "Ou réglez-le pour nettoyer après chaque session", "f3": "La liste blanche garde vos connexions aux sites choisis", "f4": "Rien ne quitte votre navigateur — sans compte, sans suivi"}, "es": {"tagline": "¿Has estado navegando? Tu navegador lo guardó todo.", "trailHead": "Acumulándose ahora mismo", "lblCache": "Archivos en caché", "lblCookies": "Cookies dejadas", "lblHistory": "Páginas en el historial", "trailNote": "Estimación aproximada mientras esta página está abierta. Cada sitio que visitas añade más.", "cta": "Limpiar — gratis", "store": "Chrome Web Store", "edgeHint": "Edge usa extensiones de Chrome — instala desde la Chrome Web Store y pulsa \"Permitir\" si aparece.", "f1": "Caché, cookies e historial — fuera en un clic", "f2": "O configúralo para limpiar tras cada sesión", "f3": "La lista blanca mantiene tus sesiones en los sitios que elijas", "f4": "Nada sale de tu navegador — sin cuenta, sin rastreo"}, "de": {"tagline": "Gerade gesurft? Dein Browser hat alles behalten.", "trailHead": "Sammelt sich gerade an", "lblCache": "Dateien im Cache", "lblCookies": "Gesetzte Cookies", "lblHistory": "Seiten im Verlauf", "trailNote": "Grobe Schätzung, solange diese Seite offen ist. Jede besuchte Website kommt dazu.", "cta": "Aufräumen — gratis", "store": "Chrome Web Store", "edgeHint": "Edge nutzt Chrome-Erweiterungen — im Chrome Web Store installieren und ggf. auf „Zulassen\" klicken.", "f1": "Cache, Cookies und Verlauf — mit einem Klick weg", "f2": "Oder automatisch nach jeder Sitzung aufräumen lassen", "f3": "Die Whitelist hält dich auf gewählten Seiten angemeldet", "f4": "Nichts verlässt deinen Browser — kein Konto, kein Tracking"}, "it": {"tagline": "Hai navigato? Il tuo browser ha tenuto tutto.", "trailHead": "Si accumula proprio ora", "lblCache": "File in cache", "lblCookies": "Cookie rilasciati", "lblHistory": "Pagine nella cronologia", "trailNote": "Stima approssimativa mentre questa pagina è aperta. Ogni sito visitato ne aggiunge.", "cta": "Pulisci — gratis", "store": "Chrome Web Store", "edgeHint": "Edge usa le estensioni Chrome — installa dal Chrome Web Store e clicca \"Consenti\" se richiesto.", "f1": "Cache, cookie e cronologia — via con un clic", "f2": "Oppure imposta la pulizia dopo ogni sessione", "f3": "La whitelist ti tiene connesso ai siti che scegli", "f4": "Niente esce dal tuo browser — nessun account, nessun tracciamento"}, "pt": {"tagline": "Andou navegando? Seu navegador guardou tudo.", "trailHead": "Acumulando agora mesmo", "lblCache": "Arquivos em cache", "lblCookies": "Cookies deixados", "lblHistory": "Páginas no histórico", "trailNote": "Estimativa aproximada enquanto esta página está aberta. Cada site visitado adiciona mais.", "cta": "Limpar — grátis", "store": "Chrome Web Store", "edgeHint": "O Edge usa extensões Chrome — instale pela Chrome Web Store e clique em \"Permitir\" se solicitado.", "f1": "Cache, cookies e histórico — fora num clique", "f2": "Ou configure para limpar após cada sessão", "f3": "A lista branca mantém você logado nos sites que escolher", "f4": "Nada sai do seu navegador — sem conta, sem rastreamento"}, "nl": {"tagline": "Net gesurft? Je browser heeft alles bewaard.", "trailHead": "Loopt nu op", "lblCache": "Bestanden in cache", "lblCookies": "Geplaatste cookies", "lblHistory": "Pagina's in geschiedenis", "trailNote": "Ruwe schatting zolang deze pagina open is. Elke site die je bezoekt komt erbij.", "cta": "Opruimen — gratis", "store": "Chrome Web Store", "edgeHint": "Edge gebruikt Chrome-extensies — installeer via de Chrome Web Store en klik op \"Toestaan\" indien gevraagd.", "f1": "Cache, cookies en geschiedenis — weg met één klik", "f2": "Of laat het automatisch opruimen na elke sessie", "f3": "De whitelist houdt je ingelogd op sites die jij kiest", "f4": "Niets verlaat je browser — geen account, geen tracking"}, "pl": {"tagline": "Surfowałeś? Przeglądarka zachowała wszystko.", "trailHead": "Rośnie właśnie teraz", "lblCache": "Pliki w pamięci podręcznej", "lblCookies": "Zostawione ciasteczka", "lblHistory": "Strony w historii", "trailNote": "Przybliżone oszacowanie, gdy ta strona jest otwarta. Każda odwiedzona strona dokłada więcej.", "cta": "Wyczyść — za darmo", "store": "Chrome Web Store", "edgeHint": "Edge używa rozszerzeń Chrome — zainstaluj ze sklepu Chrome Web Store i kliknij „Zezwól\", jeśli pojawi się monit.", "f1": "Pamięć podręczna, ciasteczka i historia — znikają jednym kliknięciem", "f2": "Albo ustaw czyszczenie po każdej sesji", "f3": "Biała lista utrzymuje logowanie na wybranych stronach", "f4": "Nic nie opuszcza przeglądarki — bez konta, bez śledzenia"}, "tr": {"tagline": "Geziniyordun, değil mi? Tarayıcın hepsini sakladı.", "trailHead": "Şu anda birikiyor", "lblCache": "Önbellek dosyaları", "lblCookies": "Bırakılan çerezler", "lblHistory": "Geçmişteki sayfalar", "trailNote": "Bu sayfa açıkken kabaca tahmin. Ziyaret ettiğin her site üstüne ekler.", "cta": "Temizle — ücretsiz", "store": "Chrome Web Store", "edgeHint": "Edge, Chrome uzantılarını kullanır — Chrome Web Store'dan yükleyin ve istenirse \"İzin Ver\"e tıklayın.", "f1": "Önbellek, çerezler ve geçmiş — tek tıkla gider", "f2": "Ya da her oturumdan sonra otomatik temizlensin", "f3": "Beyaz liste seçtiğin sitelerde oturumunu açık tutar", "f4": "Hiçbir şey tarayıcından çıkmaz — hesap yok, takip yok"}, "ru": {"tagline": "Только что сёрфили? Браузер сохранил всё.", "trailHead": "Накапливается прямо сейчас", "lblCache": "Файлов в кэше", "lblCookies": "Оставлено куки", "lblHistory": "Страниц в истории", "trailNote": "Примерная оценка, пока эта страница открыта. Каждый посещённый сайт добавляет ещё.", "cta": "Очистить — бесплатно", "store": "Chrome Web Store", "edgeHint": "Edge использует расширения Chrome — установите из Chrome Web Store и нажмите «Разрешить», если появится запрос.", "f1": "Кэш, куки и история — исчезают за один клик", "f2": "Или настройте очистку после каждой сессии", "f3": "Белый список сохраняет вход на выбранных сайтах", "f4": "Ничего не покидает браузер — без аккаунта, без слежки"}, "zh": {"tagline": "刚刚在冲浪？浏览器把一切都留下了。", "trailHead": "此刻正在堆积", "lblCache": "缓存文件", "lblCookies": "投放的 Cookie", "lblHistory": "历史记录页面", "trailNote": "本页打开期间的粗略估算。你访问的每个网站都会增加。", "cta": "清理 — 免费", "store": "Chrome 应用商店", "edgeHint": "Edge 使用 Chrome 扩展 — 从 Chrome 应用商店安装，如有提示请点击\"允许\"。", "f1": "缓存、Cookie 和历史记录 — 一键清空", "f2": "或设置为每次上网后自动清理", "f3": "白名单让你在选定网站保持登录", "f4": "数据不离开浏览器 — 无需账号，无追踪"}, "ja": {"tagline": "サーフィンしていた？ブラウザは全部覚えています。", "trailHead": "いま溜まっています", "lblCache": "キャッシュファイル", "lblCookies": "保存されたCookie", "lblHistory": "履歴のページ", "trailNote": "このページを開いている間のおおよその推定です。訪問するたびに増えます。", "cta": "きれいにする — 無料", "store": "Chrome ウェブストア", "edgeHint": "Edge は Chrome 拡張機能に対応 — Chrome ウェブストアからインストールし、表示されたら「許可」をクリック。", "f1": "キャッシュ・Cookie・履歴をワンクリックで削除", "f2": "セッションごとの自動クリーニングも設定可能", "f3": "ホワイトリストで選んだサイトはログインを維持", "f4": "データはブラウザ外に出ません — アカウント不要、追跡なし"}, "ko": {"tagline": "서핑 중이셨죠? 브라우저는 전부 기억합니다.", "trailHead": "지금도 쌓이는 중", "lblCache": "캐시 파일", "lblCookies": "저장된 쿠키", "lblHistory": "기록의 페이지", "trailNote": "이 페이지가 열려 있는 동안의 대략적인 추정치입니다. 방문할 때마다 늘어납니다.", "cta": "청소하기 — 무료", "store": "Chrome 웹 스토어", "edgeHint": "Edge는 Chrome 확장을 지원합니다 — Chrome 웹 스토어에서 설치하고 안내가 나오면 \"허용\"을 클릭하세요.", "f1": "캐시, 쿠키, 기록 — 한 번의 클릭으로 삭제", "f2": "또는 세션이 끝날 때마다 자동 청소 설정", "f3": "화이트리스트로 선택한 사이트는 로그인 유지", "f4": "데이터가 브라우저를 벗어나지 않음 — 계정 불필요, 추적 없음"}, "hi": {"tagline": "सर्फ़िंग कर रहे थे? ब्राउज़र ने सब कुछ रख लिया।", "trailHead": "अभी जमा हो रहा है", "lblCache": "कैश फ़ाइलें", "lblCookies": "छोड़ी गई कुकीज़", "lblHistory": "इतिहास में पेज", "trailNote": "यह पेज खुला रहने तक का मोटा अनुमान। हर विज़िट की गई साइट इसमें जोड़ती है।", "cta": "साफ़ करें — मुफ़्त", "store": "Chrome वेब स्टोर", "edgeHint": "Edge, Chrome एक्सटेंशन का उपयोग करता है — Chrome वेब स्टोर से इंस्टॉल करें और पूछे जाने पर \"अनुमति दें\" पर क्लिक करें।", "f1": "कैश, कुकीज़ और इतिहास — एक क्लिक में साफ़", "f2": "या हर सत्र के बाद अपने-आप साफ़ करने पर सेट करें", "f3": "व्हाइटलिस्ट आपकी चुनी साइटों पर लॉगिन बनाए रखती है", "f4": "कुछ भी ब्राउज़र से बाहर नहीं जाता — कोई खाता नहीं, कोई ट्रैकिंग नहीं"}, "ar": {"tagline": "كنت تتصفّح؟ متصفّحك احتفظ بكل شيء.", "trailHead": "يتراكم الآن", "lblCache": "ملفات مؤقتة", "lblCookies": "كوكيز مُسجّلة", "lblHistory": "صفحات في السجل", "trailNote": "تقدير تقريبي ما دامت هذه الصفحة مفتوحة. كل موقع تزوره يضيف المزيد.", "cta": "نظّف — مجانًا", "store": "متجر Chrome الإلكتروني", "edgeHint": "يستخدم Edge إضافات Chrome — ثبّت من متجر Chrome الإلكتروني وانقر على \"سماح\" إذا طُلب منك.", "f1": "الملفات المؤقتة والكوكيز والسجل — تُمحى بنقرة واحدة", "f2": "أو اضبطه لينظّف تلقائيًا بعد كل جلسة", "f3": "القائمة البيضاء تُبقيك مسجّلاً في المواقع التي تختارها", "f4": "لا شيء يغادر متصفّحك — بلا حساب، بلا تتبّع"}, "id": {"tagline": "Habis berselancar? Peramban Anda menyimpan semuanya.", "trailHead": "Menumpuk sekarang juga", "lblCache": "Berkas cache", "lblCookies": "Cookie tertinggal", "lblHistory": "Halaman di riwayat", "trailNote": "Perkiraan kasar selama halaman ini terbuka. Setiap situs yang Anda kunjungi menambahnya.", "cta": "Bersihkan — gratis", "store": "Chrome Web Store", "edgeHint": "Edge menggunakan ekstensi Chrome — instal dari Chrome Web Store dan klik \"Izinkan\" jika diminta.", "f1": "Cache, cookie, dan riwayat — hilang dalam satu klik", "f2": "Atau atur agar bersih otomatis setelah tiap sesi", "f3": "Daftar putih menjaga Anda tetap masuk di situs pilihan", "f4": "Tidak ada yang keluar dari peramban — tanpa akun, tanpa pelacakan"}, "vi": {"tagline": "Vừa lướt web? Trình duyệt đã giữ lại tất cả.", "trailHead": "Đang chất đống ngay lúc này", "lblCache": "Tệp trong bộ nhớ đệm", "lblCookies": "Cookie đã đặt", "lblHistory": "Trang trong lịch sử", "trailNote": "Ước tính sơ bộ khi trang này còn mở. Mỗi trang bạn ghé thăm lại thêm vào.", "cta": "Dọn sạch — miễn phí", "store": "Chrome Web Store", "edgeHint": "Edge dùng tiện ích Chrome — cài từ Chrome Web Store và nhấn \"Cho phép\" nếu được hỏi.", "f1": "Bộ nhớ đệm, cookie và lịch sử — biến mất trong một cú nhấp", "f2": "Hoặc đặt dọn tự động sau mỗi phiên", "f3": "Danh sách trắng giữ bạn đăng nhập ở các trang bạn chọn", "f4": "Không gì rời khỏi trình duyệt — không tài khoản, không theo dõi"}, "th": {"tagline": "เพิ่งท่องเว็บมาใช่ไหม? เบราว์เซอร์เก็บไว้หมดแล้ว", "trailHead": "กำลังสะสมอยู่ตอนนี้", "lblCache": "ไฟล์แคช", "lblCookies": "คุกกี้ที่ถูกวาง", "lblHistory": "หน้าในประวัติ", "trailNote": "ประมาณคร่าวๆ ขณะเปิดหน้านี้ ทุกเว็บที่คุณเข้าจะเพิ่มขึ้นอีก", "cta": "ล้างเลย — ฟรี", "store": "Chrome เว็บสโตร์", "edgeHint": "Edge ใช้ส่วนขยายของ Chrome — ติดตั้งจาก Chrome เว็บสโตร์ แล้วคลิก \"อนุญาต\" หากมีข้อความแจ้ง", "f1": "แคช คุกกี้ และประวัติ — หายไปในคลิกเดียว", "f2": "หรือตั้งให้ล้างอัตโนมัติหลังทุกเซสชัน", "f3": "ไวต์ลิสต์ช่วยให้คุณยังล็อกอินเว็บที่เลือกไว้", "f4": "ไม่มีอะไรออกจากเบราว์เซอร์ — ไม่ต้องมีบัญชี ไม่มีการติดตาม"}, "uk": {"tagline": "Щойно серфили? Браузер зберіг усе.", "trailHead": "Накопичується просто зараз", "lblCache": "Файлів у кеші", "lblCookies": "Залишено куків", "lblHistory": "Сторінок в історії", "trailNote": "Приблизна оцінка, поки ця сторінка відкрита. Кожен відвіданий сайт додає ще.", "cta": "Очистити — безкоштовно", "store": "Chrome Web Store", "edgeHint": "Edge використовує розширення Chrome — установіть із Chrome Web Store і натисніть «Дозволити», якщо буде запит.", "f1": "Кеш, куки та історія — зникають за один клік", "f2": "Або налаштуйте очищення після кожної сесії", "f3": "Білий список зберігає вхід на обраних сайтах", "f4": "Нічого не покидає браузер — без акаунта, без стеження"}, "sv": {"tagline": "Surfat nyss? Webbläsaren sparade allt.", "trailHead": "Byggs upp just nu", "lblCache": "Filer i cachen", "lblCookies": "Lämnade kakor", "lblHistory": "Sidor i historiken", "trailNote": "Grov uppskattning medan den här sidan är öppen. Varje sajt du besöker lägger till mer.", "cta": "Rensa — gratis", "store": "Chrome Web Store", "edgeHint": "Edge använder Chrome-tillägg — installera från Chrome Web Store och klicka \"Tillåt\" om du blir tillfrågad.", "f1": "Cache, kakor och historik — borta med ett klick", "f2": "Eller låt den rensa automatiskt efter varje session", "f3": "Vitlistan håller dig inloggad på sajter du väljer", "f4": "Inget lämnar din webbläsare — inget konto, ingen spårning"}, "el": {"tagline": "Έκανες σερφ; Ο browser τα κράτησε όλα.", "trailHead": "Μαζεύεται αυτή τη στιγμή", "lblCache": "Αρχεία στην cache", "lblCookies": "Cookies που μπήκαν", "lblHistory": "Σελίδες στο ιστορικό", "trailNote": "Χονδρική εκτίμηση όσο αυτή η σελίδα είναι ανοιχτή. Κάθε ιστότοπος που επισκέπτεσαι προσθέτει κι άλλα.", "cta": "Καθάρισε — δωρεάν", "store": "Chrome Web Store", "edgeHint": "Το Edge χρησιμοποιεί επεκτάσεις Chrome — εγκατέστησε από το Chrome Web Store και κάνε κλικ στο \"Να επιτρέπεται\" αν σου ζητηθεί.", "f1": "Cache, cookies και ιστορικό — φεύγουν με ένα κλικ", "f2": "Ή ρύθμισέ το να καθαρίζει μετά από κάθε συνεδρία", "f3": "Η λευκή λίστα σε κρατά συνδεδεμένο στους ιστότοπους που διαλέγεις", "f4": "Τίποτα δεν φεύγει από τον browser — χωρίς λογαριασμό, χωρίς παρακολούθηση"}, "cs": {"tagline": "Surfoval jsi? Prohlížeč si nechal všechno.", "trailHead": "Právě teď se to hromadí", "lblCache": "Souborů v mezipaměti", "lblCookies": "Uložených cookies", "lblHistory": "Stránek v historii", "trailNote": "Hrubý odhad, dokud je tato stránka otevřená. Každý navštívený web přidá další.", "cta": "Uklidit — zdarma", "store": "Chrome Web Store", "edgeHint": "Edge používá rozšíření Chrome — nainstalujte z Chrome Web Store a klikněte na „Povolit\", pokud budete vyzváni.", "f1": "Mezipaměť, cookies a historie — pryč jedním kliknutím", "f2": "Nebo nastavte úklid po každé relaci", "f3": "Bílá listina vás udrží přihlášené na vybraných webech", "f4": "Nic neopustí váš prohlížeč — bez účtu, bez sledování"}, "ro": {"tagline": "Ai navigat? Browserul a păstrat tot.", "trailHead": "Se adună chiar acum", "lblCache": "Fișiere în cache", "lblCookies": "Cookie-uri lăsate", "lblHistory": "Pagini în istoric", "trailNote": "Estimare aproximativă cât timp pagina e deschisă. Fiecare site vizitat adaugă mai mult.", "cta": "Curăță — gratuit", "store": "Chrome Web Store", "edgeHint": "Edge folosește extensii Chrome — instalează din Chrome Web Store și apasă „Permite\" dacă ți se cere.", "f1": "Cache, cookie-uri și istoric — dispar dintr-un clic", "f2": "Sau setează-l să curețe automat după fiecare sesiune", "f3": "Lista albă te ține autentificat pe site-urile alese", "f4": "Nimic nu îți părăsește browserul — fără cont, fără urmărire"}};
+function setLang(l) {
+  var d = T[l] || T.en;
+  document.documentElement.lang = l;
+  document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  var sel = document.getElementById('langSelect'); if (sel) sel.value = l;
+  var set = function(id, v) { var e = document.getElementById(id); if (e) e.textContent = v; };
+  set('tagline', d.tagline);
+  set('trailHead', d.trailHead);
+  set('lblCache', d.lblCache);
+  set('lblCookies', d.lblCookies);
+  set('lblHistory', d.lblHistory);
+  set('trailNote', d.trailNote);
+  set('txtChrome', d.cta); set('subChrome', d.store);
+  set('txtEdge', d.cta); set('subEdge', d.store);
+  set('edgeHint', d.edgeHint);
+  set('f1', d.f1); set('f2', d.f2); set('f3', d.f3); set('f4', d.f4);
+}
+
+// Signature: an estimate of the trail building up while the page is open.
+// Deliberately labelled as an estimate — we cannot read the real browser state.
+(function() {
+  var start = Date.now();
+  var seedC = 40 + Math.floor(Math.random() * 25);
+  var seedK = 12 + Math.floor(Math.random() * 9);
+  var seedH = 3 + Math.floor(Math.random() * 3);
+  function tick() {
+    var s = (Date.now() - start) / 1000;
+    var set = function(id, v) { var e = document.getElementById(id); if (e) e.textContent = v.toLocaleString(); };
+    set('numCache', seedC + Math.floor(s * 2.3));
+    set('numCookies', seedK + Math.floor(s * 0.8));
+    set('numHistory', seedH + Math.floor(s * 0.15));
+  }
+  tick();
+  setInterval(tick, 400);
+})();
+
+(function() {
+  var supported = ['en','fr','es','de','it','pt','nl','pl','tr','ru','zh','ja','ko','hi','ar','id','vi','th','uk','sv','el','cs','ro'];
+  var nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
+  setLang(supported.indexOf(nav) >= 0 ? nav : 'en');
+})();
+</script>
+</body>
+</html>
