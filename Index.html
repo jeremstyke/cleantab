@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CleanTab - Free Browser Cleaner for Chrome | Clear Cache, Cookies & History</title>
+<meta name="description" content="CleanTab is a free, private and lightweight browser extension for Chrome and Microsoft Edge to clean your cache, cookies and history in one click or automatically. No tracking, 22 languages." />
+<meta name="keywords" content="browser cleaner, chrome extension, edge extension, clear cache, clear cookies, clear history, clean browser, auto clean, privacy, ccleaner alternative" />
+<meta name="author" content="Jeremstyke" />
+<link rel="canonical" href="https://jeremstyke.github.io/cleantab/" />
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="CleanTab - Free Browser Cleaner for Chrome" />
+<meta property="og:description" content="Clean your browser cache, cookies and history in one click or automatically. Free, private, no tracking. Available in 22 languages." />
+<meta property="og:url" content="https://jeremstyke.github.io/cleantab/" />
+<meta property="og:image" content="https://jeremstyke.github.io/cleantab/logo.png" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CleanTab - Free Browser Cleaner for Chrome" />
+<meta name="twitter:description" content="Clean your browser in one click or automatically. Free, private, no tracking." />
+<meta name="twitter:image" content="https://jeremstyke.github.io/cleantab/logo.png" />
+
+<!-- Structured data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CleanTab - Browser Cleaner",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome, Microsoft Edge",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A free, private and lightweight Chrome extension to clean your browser cache, cookies and history in one click or automatically.",
+  "url": "https://jeremstyke.github.io/cleantab/",
+  "author": { "@type": "Person", "name": "Jeremstyke" }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --navy:#0d2440; --blue:#2563eb; --muted:#5a6b82; --border:#e3e9f2; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: radial-gradient(circle at 50% 0%, rgba(37,99,235,0.10), transparent 55%), linear-gradient(160deg, #eef4fc 0%, #f7faff 100%);
+    color: var(--navy); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+  }
+  .card {
+    background: #fff; border: 1px solid var(--border); border-radius: 28px;
+    box-shadow: 0 30px 80px rgba(13,36,64,0.12); padding: 50px 40px 40px; max-width: 480px; width: 100%; text-align: center;
+  }
+  h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+  h1 .tab { color: var(--blue); }
+  .tagline { font-size: 16px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; min-height: 24px; }
+  .features { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .chip { font-size: 12px; font-weight: 600; color: var(--muted); background: #f1f5fb; border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; }
+  .btn-install {
+    display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 22px 24px; margin-bottom: 16px;
+    border-radius: 17px; font-size: 18.5px; font-weight: 800; text-decoration: none; color: #fff;
+    background: linear-gradient(135deg, #2563eb, #1a73e8); box-shadow: 0 14px 34px rgba(37,99,235,0.40); transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-install:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(37,99,235,0.50); }
+  .btn-install .chrome-ico { font-size: 24px; }
+  .btn-install .sub { display: block; font-size: 11.5px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
+  .btn-kofi {
+    display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; padding: 14px 20px; margin-bottom: 18px;
+    border-radius: 13px; font-size: 15px; font-weight: 700; text-decoration: none; color: #fff;
+    background: linear-gradient(135deg, #ff5e5b, #ff7a47); box-shadow: 0 8px 22px rgba(255,94,91,0.30); transition: transform 0.18s;
+  }
+  .btn-kofi:hover { transform: translateY(-2px); }
+  .secondary-row { display: flex; gap: 12px; margin-bottom: 4px; }
+  .btn-secondary {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 12px 14px; border-radius: 12px;
+    font-size: 14px; font-weight: 600; text-decoration: none; color: #2d3b52; background: #f7faff; border: 1px solid var(--border); transition: background 0.15s;
+  }
+  .btn-secondary:hover { background: #eef4fc; }
+  .lang-wrap { margin-top: 30px; padding-top: 24px; border-top: 1px solid #eef2f8; }
+  select {
+    font-family: inherit; font-size: 14px; font-weight: 600; color: var(--blue);
+    background: #eef4fc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;
+    border: 1px solid #dbe6f5; border-radius: 10px; padding: 10px 38px 10px 14px; cursor: pointer; -webkit-appearance: none; appearance: none;
+  }
+  select:focus { outline: none; border-color: var(--blue); }
+  .footer { margin-top: 22px; font-size: 12px; color: #9aa8bd; }
+  .feature-list { margin: 22px 0 4px; text-align: left; display: flex; flex-direction: column; gap: 10px; }
+  .feat { display: flex; align-items: center; gap: 11px; font-size: 14px; color: #3a4a60; font-weight: 500; }
+  .feat-ico { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
+  .btn-edge {
+    display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 22px 24px; margin-bottom: 18px;
+    border-radius: 17px; font-size: 18.5px; font-weight: 800; text-decoration: none; color: #fff;
+    background: linear-gradient(135deg, #0c85d0, #33b1e1); box-shadow: 0 14px 34px rgba(12,133,208,0.38); transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-edge:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(12,133,208,0.48); }
+  .btn-edge .sub { display: block; font-size: 11.5px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
+  .edge-hint { font-size: 12px; color: var(--muted); margin: -6px 0 16px; line-height: 1.5; padding: 0 8px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Clean<span class="tab">Tab</span></h1>
+    <p class="tagline" id="tagline">Your browser, clean. Automatically.</p>
+    <div class="features">
+      <span class="chip" id="chip1">🔒 Private</span>
+      <span class="chip" id="chip2">⚡ Lightweight</span>
+      <span class="chip" id="chip3">🆓 Free</span>
+      <span class="chip" id="chip4">🌍 22 languages</span>
+    </div>
+    <a class="btn-install" id="btnInstall" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+      <svg class="chrome-ico" width="26" height="26" viewBox="0 0 24 24" style="vertical-align:middle;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="#fff"/><circle cx="12" cy="12" r="4" fill="#1a73e8"/><path fill="#ea4335" d="M12 8h8.5A11 11 0 0 0 3.2 6.4L7 12a5 5 0 0 1 5-4z"/><path fill="#4285f4" d="M15.5 12a3.5 3.5 0 0 1-3.5 3.5c-.6 0-1.2-.16-1.7-.43L6.5 21.8A11 11 0 0 0 20.5 8h-7.9a3.5 3.5 0 0 1 2.9 4z"/><path fill="#34a853" d="M7 12 3.2 6.4A11 11 0 0 0 6.5 21.8l3.8-6.73A3.5 3.5 0 0 1 7 12z"/><path fill="#fbbc04" d="M12 8.5a3.5 3.5 0 0 1 0 7 3.5 3.5 0 0 1 0-7z" opacity="0"/></svg>
+      <span>
+        <span id="txtInstall">Add to Chrome — it's free</span>
+        <span class="sub" id="txtInstallSub">Chrome Web Store</span>
+      </span>
+    </a>
+    <a class="btn-edge" id="btnEdge" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+      <svg class="edge-ico" width="26" height="26" viewBox="0 0 48 48" style="vertical-align:middle;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="edgeA" x1="8" y1="34" x2="40" y2="34" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0c59a4"/><stop offset="1" stop-color="#114a8b"/>
+          </linearGradient>
+          <linearGradient id="edgeB" x1="30" y1="20" x2="10" y2="40" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#1b9de2"/><stop offset="0.6" stop-color="#1595df"/><stop offset="1" stop-color="#0680d7"/>
+          </linearGradient>
+          <linearGradient id="edgeC" x1="12" y1="6" x2="40" y2="22" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#35c1f1"/><stop offset="0.5" stop-color="#34c1ed"/><stop offset="1" stop-color="#5eeb69"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#edgeA)" d="M40.7 32c-.5 2.6-1.8 5.4-3.9 7.6-3 3.2-7 4.4-10.2 4.4-8 0-13.9-5.6-13.9-13 0-3.4 2-6 4-6.9-1 3.5.2 6.7 2.3 8.7 3.6 3.5 10.5 3.9 15.9 1.9 2.4-.9 4.6-1.9 5.7-2.7z"/>
+        <path fill="url(#edgeB)" d="M20 43.3c-2.5-.5-4.7-1.6-6.5-3-6-4.8-5.6-13.4.7-17.4 1.7-1 3.3-1.2 4.5-1.2 1.3 0 2.7.4 3.7 1-2.4.1-4.6 1.5-5.7 3.6-1.6 3-.9 6.6 1.4 8.8 3 2.9 7.5 4.6 12.4 4.6-2.9 1-6.6 1.3-10 1z"/>
+        <path fill="url(#edgeC)" d="M24 4c5.5 0 10.5 2.2 14 5.9 2.6 2.7 4 6.2 4 9.6 0 3.4-2.2 5.7-5.4 5.7-2.6 0-5-1.5-5-4.4 0-.9.3-1.7.3-2.6 0-3.5-3-6.8-8.2-6.8-5.6 0-10.3 3.7-12.6 8.3C9.7 12 16.2 4 24 4z"/>
+      </svg>
+      <span>
+        <span id="txtEdgeInstall">Add to Edge — it's free</span>
+        <span class="sub" id="txtEdgeSub">Chrome Web Store</span>
+      </span>
+    </a>
+
+    <div class="edge-hint" id="edgeHint">ℹ️ <span id="txtEdgeHint">Edge uses Chrome extensions — install from the Chrome Web Store and click "Allow" if prompted.</span></div>
+
+    <a class="btn-kofi" id="btnKofi" href="https://ko-fi.com/cleantab" target="_blank" rel="noopener">☕ <span id="txtKofi">Buy me a coffee</span></a>
+
+    <div class="feature-list" id="featureList">
+      <div class="feat"><span class="feat-ico">🧹</span><span id="feat1">One-click cleaning of cache, cookies & history</span></div>
+      <div class="feat"><span class="feat-ico">⏰</span><span id="feat2">Automatic scheduled cleaning</span></div>
+      <div class="feat"><span class="feat-ico">🛡️</span><span id="feat3">Protect your favorite sites (whitelist)</span></div>
+      <div class="feat"><span class="feat-ico">📊</span><span id="feat4">Statistics, badges & 7-day activity chart</span></div>
+      <div class="feat"><span class="feat-ico">🎮</span><span id="feat5">Exclusive Tab Rush mini-game</span></div>
+      <div class="feat"><span class="feat-ico">🔒</span><span id="feat6">100% private — no data leaves your browser</span></div>
+    </div>
+
+    <div class="secondary-row">
+      <a class="btn-secondary" id="btnPrivacy" href="privacy.html">🔒 <span id="txtPrivacy">Privacy</span></a>
+      <a class="btn-secondary" id="btnSupport" href="support.html">🛟 <span id="txtSupport">Support</span></a>
+    </div>
+    <div class="lang-wrap">
+      <select id="langSelect" onchange="setLang(this.value)">
+        <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="es">🇪🇸 Español</option>
+        <option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="pt">🇵🇹 Português</option>
+        <option value="nl">🇳🇱 Nederlands</option><option value="pl">🇵🇱 Polski</option><option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option><option value="hi">🇮🇳 हिन्दी</option><option value="ar">🇸🇦 العربية</option>
+        <option value="id">🇮🇩 Indonesia</option><option value="vi">🇻🇳 Tiếng Việt</option><option value="th">🇹🇭 ไทย</option>
+        <option value="uk">🇺🇦 Українська</option><option value="sv">🇸🇪 Svenska</option><option value="el">🇬🇷 Ελληνικά</option>
+        <option value="cs">🇨🇿 Čeština</option><option value="ro">🇷🇴 Română</option>
+      </select>
+    </div>
+    <div class="footer">
+      <div id="dmPartner" style="margin-bottom:10px; font-size:11px; line-height:1.5;">
+        <div style="font-weight:700; color:#6a7a90; margin-bottom:5px;" id="pTitle">🤝 Official partners</div>
+        <div style="margin-bottom:3px;"><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> — <span id="pDm">removes your personal data from data brokers and people-search sites</span></div>
+        <div><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> — <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
+        <div style="margin-top:5px; opacity:0.75; font-size:10px;" id="pAff">Affiliate links</div>
+      </div>
+      © 2026 Jeremstyke
+    </div>
+  </div>
+<script>
+  var T = {
+    en:{pTitle:"🤝 Official partners",pDm:"removes your personal data from data brokers and people-search sites",pIpv:"VPN that encrypts your connection and hides your IP address",pAff:"Affiliate links",edge:"Add to Edge — it's free",edgeHint:"Edge uses Chrome extensions — install from the Chrome Web Store and click \"Allow\" if prompted.",tagline:"Your browser, clean. Automatically.",install:"Add to Chrome — it's free",sub:"Chrome Web Store",kofi:"Buy me a coffee",privacy:"Privacy",support:"Support",c:["🔒 Private","⚡ Lightweight","🆓 Free","🌍 22 languages"],f:["One-click cleaning of cache, cookies & history","Automatic scheduled cleaning","Protect your favorite sites (whitelist)","Statistics, badges & 7-day activity chart","Exclusive Tab Rush mini-game","100% private — no data leaves your browser"]},
+    fr:{pTitle:"🤝 Partenaires officiels",pDm:"supprime vos données personnelles des sites de courtage et annuaires en ligne",pIpv:"VPN qui chiffre votre connexion et masque votre adresse IP",pAff:"Liens affiliés",edge:"Ajouter à Edge — gratuit",edgeHint:"Edge utilise les extensions Chrome — installez depuis le Chrome Web Store et cliquez sur « Autoriser » si demandé.",tagline:"Votre navigateur, propre. Automatiquement.",install:"Ajouter à Chrome — gratuit",sub:"Chrome Web Store",kofi:"Offrez-moi un café",privacy:"Confidentialité",support:"Support",c:["🔒 Privé","⚡ Léger","🆓 Gratuit","🌍 22 langues"],f:["Nettoyage en 1 clic du cache, cookies & historique","Nettoyage automatique programmé","Protégez vos sites favoris (liste blanche)","Statistiques, badges & graphique d'activité 7 jours","Mini-jeu exclusif Tab Rush","100% privé — aucune donnée ne quitte votre navigateur"]},
+    es:{pTitle:"🤝 Socios oficiales",pDm:"elimina tus datos personales de los brókeres de datos y directorios en línea",pIpv:"VPN que cifra tu conexión y oculta tu dirección IP",pAff:"Enlaces de afiliado",edge:"Añadir a Edge — gratis",edgeHint:"Edge usa extensiones de Chrome — instala desde la Chrome Web Store y pulsa \"Permitir\" si aparece.",tagline:"Tu navegador, limpio. Automáticamente.",install:"Añadir a Chrome — gratis",sub:"Chrome Web Store",kofi:"Invítame a un café",privacy:"Privacidad",support:"Soporte",c:["🔒 Privado","⚡ Ligero","🆓 Gratis","🌍 22 idiomas"],f:["Limpieza en 1 clic de caché, cookies e historial","Limpieza automática programada","Protege tus sitios favoritos (lista blanca)","Estadísticas, insignias y gráfico de actividad de 7 días","Minijuego exclusivo Tab Rush","100% privado — ningún dato sale de tu navegador"]},
+    de:{pTitle:"🤝 Offizielle Partner",pDm:"entfernt deine persönlichen Daten von Datenhändlern und Personensuchseiten",pIpv:"VPN, das deine Verbindung verschlüsselt und deine IP-Adresse verbirgt",pAff:"Affiliate-Links",edge:"Zu Edge hinzufügen — gratis",edgeHint:"Edge nutzt Chrome-Erweiterungen — im Chrome Web Store installieren und ggf. auf „Zulassen\" klicken.",tagline:"Dein Browser, sauber. Automatisch.",install:"Zu Chrome hinzufügen — gratis",sub:"Chrome Web Store",kofi:"Spendier mir einen Kaffee",privacy:"Datenschutz",support:"Support",c:["🔒 Privat","⚡ Leicht","🆓 Gratis","🌍 22 Sprachen"],f:["Reinigung von Cache, Cookies & Verlauf mit 1 Klick","Automatische geplante Reinigung","Schütze deine Lieblingsseiten (Whitelist)","Statistiken, Abzeichen & 7-Tage-Aktivitätsdiagramm","Exklusives Tab-Rush-Minispiel","100% privat — keine Daten verlassen deinen Browser"]},
+    it:{pTitle:"🤝 Partner ufficiali",pDm:"rimuove i tuoi dati personali dai data broker e dagli elenchi online",pIpv:"VPN che cifra la tua connessione e nasconde il tuo indirizzo IP",pAff:"Link di affiliazione",edge:"Aggiungi a Edge — gratis",edgeHint:"Edge usa le estensioni Chrome — installa dal Chrome Web Store e clicca \"Consenti\" se richiesto.",tagline:"Il tuo browser, pulito. Automaticamente.",install:"Aggiungi a Chrome — gratis",sub:"Chrome Web Store",kofi:"Offrimi un caffè",privacy:"Privacy",support:"Supporto",c:["🔒 Privato","⚡ Leggero","🆓 Gratis","🌍 22 lingue"],f:["Pulizia in 1 clic di cache, cookie e cronologia","Pulizia automatica programmata","Proteggi i tuoi siti preferiti (lista bianca)","Statistiche, badge e grafico attività 7 giorni","Mini-gioco esclusivo Tab Rush","100% privato — nessun dato lascia il browser"]},
+    pt:{pTitle:"🤝 Parceiros oficiais",pDm:"remove seus dados pessoais de corretores de dados e sites de busca",pIpv:"VPN que criptografa sua conexão e oculta seu endereço IP",pAff:"Links de afiliado",edge:"Adicionar ao Edge — grátis",edgeHint:"O Edge usa extensões Chrome — instale pela Chrome Web Store e clique em \"Permitir\" se solicitado.",tagline:"Seu navegador, limpo. Automaticamente.",install:"Adicionar ao Chrome — grátis",sub:"Chrome Web Store",kofi:"Pague-me um café",privacy:"Privacidade",support:"Suporte",c:["🔒 Privado","⚡ Leve","🆓 Grátis","🌍 22 idiomas"],f:["Limpeza em 1 clique de cache, cookies e histórico","Limpeza automática programada","Proteja seus sites favoritos (lista branca)","Estatísticas, selos e gráfico de atividade de 7 dias","Minijogo exclusivo Tab Rush","100% privado — nenhum dado sai do seu navegador"]},
+    nl:{pTitle:"🤝 Officiële partners",pDm:"verwijdert je persoonlijke gegevens bij datahandelaren en zoeksites",pIpv:"VPN die je verbinding versleutelt en je IP-adres verbergt",pAff:"Affiliate links",edge:"Toevoegen aan Edge — gratis",edgeHint:"Edge gebruikt Chrome-extensies — installeer via de Chrome Web Store en klik op \"Toestaan\" indien gevraagd.",tagline:"Je browser, schoon. Automatisch.",install:"Toevoegen aan Chrome — gratis",sub:"Chrome Web Store",kofi:"Trakteer me op koffie",privacy:"Privacy",support:"Ondersteuning",c:["🔒 Privé","⚡ Licht","🆓 Gratis","🌍 22 talen"],f:["Cache, cookies & geschiedenis met 1 klik opschonen","Automatische geplande schoonmaak","Bescherm je favoriete sites (witte lijst)","Statistieken, badges & 7-daagse activiteitengrafiek","Exclusieve Tab Rush mini-game","100% privé — geen data verlaat je browser"]},
+    pl:{pTitle:"🤝 Oficjalni partnerzy",pDm:"usuwa Twoje dane osobowe od brokerów danych i z wyszukiwarek osób",pIpv:"VPN, który szyfruje połączenie i ukrywa Twój adres IP",pAff:"Linki afiliacyjne",edge:"Dodaj do Edge — za darmo",edgeHint:"Edge używa rozszerzeń Chrome — zainstaluj ze sklepu Chrome Web Store i kliknij „Zezwól\", jeśli pojawi się monit.",tagline:"Twoja przeglądarka, czysta. Automatycznie.",install:"Dodaj do Chrome — za darmo",sub:"Chrome Web Store",kofi:"Postaw mi kawę",privacy:"Prywatność",support:"Wsparcie",c:["🔒 Prywatne","⚡ Lekkie","🆓 Darmowe","🌍 22 języków"],f:["Czyszczenie pamięci, cookie i historii 1 kliknięciem","Automatyczne zaplanowane czyszczenie","Chroń ulubione strony (biała lista)","Statystyki, odznaki i wykres aktywności 7 dni","Ekskluzywna minigra Tab Rush","100% prywatne — żadne dane nie opuszczają przeglądarki"]},
+    tr:{pTitle:"🤝 Resmi ortaklar",pDm:"kişisel verilerinizi veri simsarlarından ve kişi arama sitelerinden kaldırır",pIpv:"bağlantınızı şifreleyen ve IP adresinizi gizleyen VPN",pAff:"Ortaklık bağlantıları",edge:"Edge'e ekle — ücretsiz",edgeHint:"Edge, Chrome uzantılarını kullanır — Chrome Web Store'dan yükleyin ve istenirse \"İzin Ver\"e tıklayın.",tagline:"Tarayıcın, temiz. Otomatik olarak.",install:"Chrome'a ekle — ücretsiz",sub:"Chrome Web Store",kofi:"Bana bir kahve ısmarla",privacy:"Gizlilik",support:"Destek",c:["🔒 Gizli","⚡ Hafif","🆓 Ücretsiz","🌍 22 dil"],f:["Önbellek, çerez ve geçmişi tek tıkla temizle","Otomatik zamanlanmış temizleme","Favori sitelerini koru (beyaz liste)","İstatistikler, rozetler ve 7 günlük etkinlik grafiği","Özel Tab Rush mini oyunu","100% gizli — veriler tarayıcından çıkmaz"]},
+    ru:{pTitle:"🤝 Официальные партнёры",pDm:"удаляет ваши личные данные у брокеров данных и в онлайн-справочниках",pIpv:"VPN, который шифрует соединение и скрывает ваш IP-адрес",pAff:"Партнёрские ссылки",edge:"Добавить в Edge — бесплатно",edgeHint:"Edge использует расширения Chrome — установите из Chrome Web Store и нажмите «Разрешить», если появится запрос.",tagline:"Ваш браузер чист. Автоматически.",install:"Добавить в Chrome — бесплатно",sub:"Chrome Web Store",kofi:"Купить мне кофе",privacy:"Конфиденциальность",support:"Поддержка",c:["🔒 Приватно","⚡ Легко","🆓 Бесплатно","🌍 22 языков"],f:["Очистка кэша, cookie и истории в 1 клик","Автоматическая очистка по расписанию","Защита избранных сайтов (белый список)","Статистика, значки и график активности за 7 дней","Эксклюзивная мини-игра Tab Rush","100% приватно — данные не покидают браузер"]},
+    zh:{pTitle:"🤝 官方合作伙伴",pDm:"从数据经纪商和人肉搜索网站删除你的个人信息",pIpv:"加密你的连接并隐藏 IP 地址的 VPN",pAff:"联盟链接",edge:"添加到 Edge — 免费",edgeHint:"Edge 使用 Chrome 扩展 — 从 Chrome 应用商店安装，如有提示请点击\"允许\"。",tagline:"您的浏览器，干净。自动。",install:"添加到 Chrome — 免费",sub:"Chrome 应用商店",kofi:"请我喝杯咖啡",privacy:"隐私",support:"支持",c:["🔒 私密","⚡ 轻量","🆓 免费","🌍 22 种语言"],f:["一键清理缓存、Cookie 和历史记录","自动定时清理","保护你喜爱的网站（白名单）","统计、徽章和 7 天活动图表","独家 Tab Rush 小游戏","100% 私密 — 数据不会离开浏览器"]},
+    ja:{pTitle:"🤝 公式パートナー",pDm:"データブローカーや人物検索サイトから個人情報を削除",pIpv:"通信を暗号化しIPアドレスを隠すVPN",pAff:"アフィリエイトリンク",edge:"Edge に追加 — 無料",edgeHint:"Edge は Chrome 拡張機能に対応 — Chrome ウェブストアからインストールし、表示されたら「許可」をクリック。",tagline:"あなたのブラウザを、自動でクリーンに。",install:"Chrome に追加 — 無料",sub:"Chrome ウェブストア",kofi:"コーヒーをおごる",privacy:"プライバシー",support:"サポート",c:["🔒 プライベート","⚡ 軽量","🆓 無料","🌍 22言語"],f:["キャッシュ・Cookie・履歴をワンクリックで削除","自動スケジュール清掃","お気に入りサイトを保護（ホワイトリスト）","統計・バッジ・7日間アクティビティグラフ","限定ミニゲーム Tab Rush","100%プライベート — データは外部に出ません"]},
+    ko:{pTitle:"🤝 공식 파트너",pDm:"데이터 브로커와 인물 검색 사이트에서 개인정보를 삭제",pIpv:"연결을 암호화하고 IP 주소를 숨기는 VPN",pAff:"제휴 링크",edge:"Edge에 추가 — 무료",edgeHint:"Edge는 Chrome 확장을 지원합니다 — Chrome 웹 스토어에서 설치하고 안내가 나오면 \"허용\"을 클릭하세요.",tagline:"브라우저를 자동으로 깨끗하게.",install:"Chrome에 추가 — 무료",sub:"Chrome 웹 스토어",kofi:"커피 한 잔 사주기",privacy:"개인정보",support:"지원",c:["🔒 비공개","⚡ 가벼움","🆓 무료","🌍 22개 언어"],f:["캐시, 쿠키, 기록을 원클릭으로 정리","자동 예약 청소","즐겨찾는 사이트 보호 (화이트리스트)","통계, 배지 및 7일 활동 차트","독점 Tab Rush 미니게임","100% 비공개 — 데이터가 브라우저를 떠나지 않음"]},
+    hi:{pTitle:"🤝 आधिकारिक साझेदार",pDm:"डेटा ब्रोकर और पीपल-सर्च साइटों से आपका निजी डेटा हटाता है",pIpv:"VPN जो आपके कनेक्शन को एन्क्रिप्ट करता है और IP पता छिपाता है",pAff:"एफ़िलिएट लिंक",edge:"Edge में जोड़ें — मुफ़्त",edgeHint:"Edge, Chrome एक्सटेंशन का उपयोग करता है — Chrome वेब स्टोर से इंस्टॉल करें और पूछे जाने पर \"अनुमति दें\" पर क्लिक करें।",tagline:"आपका ब्राउज़र, साफ़। स्वचालित रूप से।",install:"Chrome में जोड़ें — मुफ़्त",sub:"Chrome वेब स्टोर",kofi:"मुझे कॉफ़ी पिलाएँ",privacy:"गोपनीयता",support:"सहायता",c:["🔒 निजी","⚡ हल्का","🆓 मुफ़्त","🌍 22 भाषाएँ"],f:["कैश, कुकीज़ और इतिहास एक क्लिक में साफ़","स्वचालित निर्धारित सफ़ाई","अपनी पसंदीदा साइटें सुरक्षित रखें (व्हाइटलिस्ट)","आँकड़े, बैज और 7-दिन गतिविधि चार्ट","विशेष Tab Rush मिनी-गेम","100% निजी — कोई डेटा बाहर नहीं जाता"]},
+    ar:{pTitle:"🤝 الشركاء الرسميون",pDm:"يحذف بياناتك الشخصية من وسطاء البيانات ومواقع البحث عن الأشخاص",pIpv:"شبكة VPN تُشفّر اتصالك وتُخفي عنوان IP الخاص بك",pAff:"روابط تابعة",edge:"أضف إلى Edge — مجانًا",edgeHint:"يستخدم Edge إضافات Chrome — ثبّت من متجر Chrome الإلكتروني وانقر على \"سماح\" إذا طُلب منك.",tagline:"متصفحك، نظيف. تلقائيًا.",install:"أضف إلى Chrome — مجانًا",sub:"متجر Chrome الإلكتروني",kofi:"اشترِ لي قهوة",privacy:"الخصوصية",support:"الدعم",c:["🔒 خاص","⚡ خفيف","🆓 مجاني","🌍 22 لغة"],f:["تنظيف الذاكرة المؤقتة وملفات الارتباط والسجل بنقرة","تنظيف تلقائي مجدول","احمِ مواقعك المفضلة (القائمة البيضاء)","إحصائيات وشارات ومخطط نشاط 7 أيام","لعبة Tab Rush الحصرية","خاص 100% — لا تغادر البيانات متصفحك"]},
+    id:{pTitle:"🤝 Mitra resmi",pDm:"menghapus data pribadi Anda dari broker data dan situs pencarian orang",pIpv:"VPN yang mengenkripsi koneksi dan menyembunyikan alamat IP Anda",pAff:"Tautan afiliasi",edge:"Tambahkan ke Edge — gratis",edgeHint:"Edge menggunakan ekstensi Chrome — instal dari Chrome Web Store dan klik \"Izinkan\" jika diminta.",tagline:"Browser Anda, bersih. Otomatis.",install:"Tambahkan ke Chrome — gratis",sub:"Chrome Web Store",kofi:"Belikan saya kopi",privacy:"Privasi",support:"Dukungan",c:["🔒 Privat","⚡ Ringan","🆓 Gratis","🌍 22 bahasa"],f:["Bersihkan cache, cookie & riwayat dengan 1 klik","Pembersihan otomatis terjadwal","Lindungi situs favorit Anda (daftar putih)","Statistik, lencana & grafik aktivitas 7 hari","Mini-game Tab Rush eksklusif","100% privat — tidak ada data keluar dari browser"]},
+    vi:{pTitle:"🤝 Đối tác chính thức",pDm:"xóa dữ liệu cá nhân của bạn khỏi các nhà môi giới dữ liệu và trang tìm người",pIpv:"VPN mã hóa kết nối và ẩn địa chỉ IP của bạn",pAff:"Liên kết tiếp thị",edge:"Thêm vào Edge — miễn phí",edgeHint:"Edge dùng tiện ích Chrome — cài từ Chrome Web Store và nhấn \"Cho phép\" nếu được hỏi.",tagline:"Trình duyệt của bạn, sạch sẽ. Tự động.",install:"Thêm vào Chrome — miễn phí",sub:"Chrome Web Store",kofi:"Mời tôi một ly cà phê",privacy:"Quyền riêng tư",support:"Hỗ trợ",c:["🔒 Riêng tư","⚡ Nhẹ","🆓 Miễn phí","🌍 22 ngôn ngữ"],f:["Dọn cache, cookie & lịch sử chỉ với 1 cú nhấp","Dọn dẹp tự động theo lịch","Bảo vệ trang yêu thích (danh sách trắng)","Thống kê, huy hiệu & biểu đồ hoạt động 7 ngày","Mini-game Tab Rush độc quyền","100% riêng tư — không dữ liệu nào rời trình duyệt"]},
+    th:{pTitle:"🤝 พันธมิตรอย่างเป็นทางการ",pDm:"ลบข้อมูลส่วนตัวของคุณออกจากนายหน้าข้อมูลและเว็บค้นหาบุคคล",pIpv:"VPN ที่เข้ารหัสการเชื่อมต่อและซ่อนที่อยู่ IP ของคุณ",pAff:"ลิงก์พันธมิตร",edge:"เพิ่มลงใน Edge — ฟรี",edgeHint:"Edge ใช้ส่วนขยายของ Chrome — ติดตั้งจาก Chrome เว็บสโตร์ แล้วคลิก \"อนุญาต\" หากมีข้อความแจ้ง",tagline:"เบราว์เซอร์ของคุณ สะอาด โดยอัตโนมัติ",install:"เพิ่มลงใน Chrome — ฟรี",sub:"Chrome เว็บสโตร์",kofi:"เลี้ยงกาแฟฉันสักแก้ว",privacy:"ความเป็นส่วนตัว",support:"การสนับสนุน",c:["🔒 ส่วนตัว","⚡ เบา","🆓 ฟรี","🌍 22 ภาษา"],f:["ล้างแคช คุกกี้ และประวัติในคลิกเดียว","ล้างอัตโนมัติตามกำหนด","ปกป้องเว็บโปรดของคุณ (รายการอนุญาต)","สถิติ ตราสัญลักษณ์ และกราฟกิจกรรม 7 วัน","มินิเกม Tab Rush สุดพิเศษ","ส่วนตัว 100% — ไม่มีข้อมูลออกจากเบราว์เซอร์"]},
+    uk:{pTitle:"🤝 Офіційні партнери",pDm:"видаляє ваші особисті дані у брокерів даних і в онлайн-довідниках",pIpv:"VPN, який шифрує з'єднання та приховує вашу IP-адресу",pAff:"Партнерські посилання",edge:"Додати в Edge — безкоштовно",edgeHint:"Edge використовує розширення Chrome — установіть із Chrome Web Store і натисніть «Дозволити», якщо буде запит.",tagline:"Ваш браузер чистий. Автоматично.",install:"Додати в Chrome — безкоштовно",sub:"Chrome Web Store",kofi:"Купити мені каву",privacy:"Конфіденційність",support:"Підтримка",c:["🔒 Приватно","⚡ Легко","🆓 Безкоштовно","🌍 22 мов"],f:["Очищення кешу, cookie та історії в 1 клік","Автоматичне заплановане очищення","Захист улюблених сайтів (білий список)","Статистика, значки та графік активності за 7 днів","Ексклюзивна міні-гра Tab Rush","100% приватно — дані не залишають браузер"]},
+    sv:{pTitle:"🤝 Officiella partners",pDm:"tar bort dina personuppgifter från datamäklare och personsöksajter",pIpv:"VPN som krypterar din anslutning och döljer din IP-adress",pAff:"Affiliatelänkar",edge:"Lägg till i Edge — gratis",edgeHint:"Edge använder Chrome-tillägg — installera från Chrome Web Store och klicka \"Tillåt\" om du blir tillfrågad.",tagline:"Din webbläsare, ren. Automatiskt.",install:"Lägg till i Chrome — gratis",sub:"Chrome Web Store",kofi:"Bjud mig på en kaffe",privacy:"Integritet",support:"Support",c:["🔒 Privat","⚡ Lätt","🆓 Gratis","🌍 22 språk"],f:["Rensa cache, cookies & historik med 1 klick","Automatisk schemalagd rensning","Skydda dina favoritsajter (vitlista)","Statistik, märken & 7-dagars aktivitetsdiagram","Exklusivt Tab Rush-minispel","100% privat — inga data lämnar din webbläsare"]},
+    el:{pTitle:"🤝 Επίσημοι συνεργάτες",pDm:"αφαιρεί τα προσωπικά σου δεδομένα από data brokers και ιστότοπους αναζήτησης ατόμων",pIpv:"VPN που κρυπτογραφεί τη σύνδεσή σου και κρύβει τη διεύθυνση IP σου",pAff:"Σύνδεσμοι συνεργατών",edge:"Προσθήκη στο Edge — δωρεάν",edgeHint:"Το Edge χρησιμοποιεί επεκτάσεις Chrome — εγκατέστησε από το Chrome Web Store και κάνε κλικ στο \"Να επιτρέπεται\" αν σου ζητηθεί.",tagline:"Ο browser σας, καθαρός. Αυτόματα.",install:"Προσθήκη στο Chrome — δωρεάν",sub:"Chrome Web Store",kofi:"Κέρασέ με έναν καφέ",privacy:"Απόρρητο",support:"Υποστήριξη",c:["🔒 Ιδιωτικό","⚡ Ελαφρύ","🆓 Δωρεάν","🌍 22 γλώσσες"],f:["Καθαρισμός cache, cookies & ιστορικού με 1 κλικ","Αυτόματος προγραμματισμένος καθαρισμός","Προστάτεψε τους αγαπημένους ιστότοπους (λευκή λίστα)","Στατιστικά, σήματα & γράφημα δραστηριότητας 7 ημερών","Αποκλειστικό mini-game Tab Rush","100% ιδιωτικό — κανένα δεδομένο δεν φεύγει"]},
+    cs:{pTitle:"🤝 Oficiální partneři",pDm:"odstraní vaše osobní údaje od datových brokerů a z vyhledávačů osob",pIpv:"VPN, která šifruje vaše připojení a skrývá vaši IP adresu",pAff:"Partnerské odkazy",edge:"Přidat do Edge — zdarma",edgeHint:"Edge používá rozšíření Chrome — nainstalujte z Chrome Web Store a klikněte na „Povolit\", pokud budete vyzváni.",tagline:"Váš prohlížeč, čistý. Automaticky.",install:"Přidat do Chrome — zdarma",sub:"Internetový obchod Chrome",kofi:"Kup mi kávu",privacy:"Soukromí",support:"Podpora",c:["🔒 Soukromé","⚡ Lehké","🆓 Zdarma","🌍 22 jazyků"],f:["Vyčištění mezipaměti, cookies a historie 1 kliknutím","Automatické naplánované čištění","Chraňte své oblíbené weby (bílá listina)","Statistiky, odznaky a graf aktivity 7 dní","Exkluzivní minihra Tab Rush","100% soukromé — žádná data neopouštějí prohlížeč"]},
+    ro:{pTitle:"🤝 Parteneri oficiali",pDm:"îți elimină datele personale de la brokerii de date și site-urile de căutare persoane",pIpv:"VPN care îți criptează conexiunea și îți ascunde adresa IP",pAff:"Linkuri afiliate",edge:"Adaugă în Edge — gratuit",edgeHint:"Edge folosește extensii Chrome — instalează din Chrome Web Store și apasă „Permite\" dacă ți se cere.",tagline:"Browserul tău, curat. Automat.",install:"Adaugă în Chrome — gratuit",sub:"Magazin web Chrome",kofi:"Fă-mi cinste cu o cafea",privacy:"Confidențialitate",support:"Asistență",c:["🔒 Privat","⚡ Ușor","🆓 Gratuit","🌍 22 limbi"]}
+  };
+  function setLang(l) {
+    var d = T[l] || T.en;
+    document.getElementById('tagline').textContent = d.tagline;
+    document.getElementById('txtInstall').textContent = d.install;
+    document.getElementById('txtInstallSub').textContent = d.sub;
+    document.getElementById('txtKofi').textContent = d.kofi;
+    document.getElementById('txtPrivacy').textContent = d.privacy;
+    var e1 = document.getElementById('pTitle'); if (e1) e1.textContent = d.pTitle || T.en.pTitle;
+    var e2 = document.getElementById('pDm'); if (e2) e2.textContent = d.pDm || T.en.pDm;
+    var e3 = document.getElementById('pIpv'); if (e3) e3.textContent = d.pIpv || T.en.pIpv;
+    var e4 = document.getElementById('pAff'); if (e4) e4.textContent = d.pAff || T.en.pAff;
+    var edgeEl = document.getElementById('txtEdgeInstall'); if (edgeEl) edgeEl.textContent = d.edge || T.en.edge;
+    var edgeSubEl = document.getElementById('txtEdgeSub'); if (edgeSubEl) edgeSubEl.textContent = d.sub;
+    var edgeHintEl = document.getElementById('txtEdgeHint'); if (edgeHintEl) edgeHintEl.textContent = d.edgeHint || T.en.edgeHint;
+    document.getElementById('txtSupport').textContent = d.support;
+    document.getElementById('chip1').textContent = d.c[0];
+    document.getElementById('chip2').textContent = d.c[1];
+    document.getElementById('chip3').textContent = d.c[2];
+    document.getElementById('chip4').textContent = d.c[3];
+    var f = d.f || T.en.f;
+    for (var i = 0; i < 6; i++) { var fe = document.getElementById('feat' + (i+1)); if (fe && f[i]) fe.textContent = f[i]; }
+    document.getElementById('langSelect').value = l;
+    document.documentElement.lang = l;
+    document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  }
+  (function() {
+    var supported = ['en','fr','es','de','it','pt','nl','pl','tr','ru','zh','ja','ko','hi','ar','id','vi','th','uk','sv','el','cs','ro'];
+    var nav = (navigator.language || 'en').slice(0,2);
+    setLang(supported.indexOf(nav) >= 0 ? nav : 'en');
+  })();
+</script>
+</body>
+</html>
