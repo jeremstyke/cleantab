@@ -148,6 +148,7 @@
     </div>
 
     <div class="secondary-row">
+      <a class="btn-secondary" id="btnGuide" href="guide.html">📖 <span id="txtGuide">Guide</span></a>
       <a class="btn-secondary" id="btnPrivacy" href="privacy.html">🔒 <span id="txtPrivacy">Privacy</span></a>
       <a class="btn-secondary" id="btnSupport" href="support.html">🛟 <span id="txtSupport">Support</span></a>
     </div>
@@ -206,6 +207,8 @@
     document.getElementById('txtInstallSub').textContent = d.sub;
     document.getElementById('txtKofi').textContent = d.kofi;
     document.getElementById('txtPrivacy').textContent = d.privacy;
+    var guideLabels = {en:'Guide',fr:'Guide',es:'Guía',de:'Ratgeber',it:'Guida',pt:'Guia',nl:'Gids',pl:'Poradnik',tr:'Rehber',ru:'Гид',zh:'指南',ja:'ガイド',ko:'가이드',hi:'गाइड',ar:'دليل',id:'Panduan',vi:'Hướng dẫn',th:'คู่มือ',uk:'Гід',sv:'Guide',el:'Οδηγός',cs:'Průvodce',ro:'Ghid'};
+    var gEl = document.getElementById('txtGuide'); if (gEl) gEl.textContent = guideLabels[l] || 'Guide';
     var e1 = document.getElementById('pTitle'); if (e1) e1.textContent = d.pTitle || T.en.pTitle;
     var e2 = document.getElementById('pDm'); if (e2) e2.textContent = d.pDm || T.en.pDm;
     var e3 = document.getElementById('pIpv'); if (e3) e3.textContent = d.pIpv || T.en.pIpv;
