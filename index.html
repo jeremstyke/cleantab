@@ -149,7 +149,8 @@
     </div>
 
     <div class="secondary-row">
-      <a class="btn-secondary" id="btnGuide" href="guide.html" style="flex:1 1 100%;">📖 <span id="txtGuide">Guide</span></a>
+      <a class="btn-secondary" id="btnGuide" href="guide.html">📖 <span id="txtGuide">Guide</span></a>
+      <a class="btn-secondary" id="btnHowto" href="how-to-use.html">🚀 <span id="txtHowto">How to use</span></a>
     </div>
     <div class="secondary-row">
       <a class="btn-secondary" id="btnPrivacy" href="privacy.html">🔒 <span id="txtPrivacy">Privacy</span></a>
@@ -213,6 +214,8 @@
     document.getElementById('txtPrivacy').textContent = d.privacy;
     var guideLabels = {en:'Guide',fr:'Guide',es:'Guía',de:'Ratgeber',it:'Guida',pt:'Guia',nl:'Gids',pl:'Poradnik',tr:'Rehber',ru:'Гид',zh:'指南',ja:'ガイド',ko:'가이드',hi:'गाइड',ar:'دليل',id:'Panduan',vi:'Hướng dẫn',th:'คู่มือ',uk:'Гід',sv:'Guide',el:'Οδηγός',cs:'Průvodce',ro:'Ghid'};
     var gEl = document.getElementById('txtGuide'); if (gEl) gEl.textContent = guideLabels[l] || 'Guide';
+    var howtoLabels = {en:'How to use',fr:'Mode d\u2019emploi',es:'Cómo usar',de:'Anleitung',it:'Come usare',pt:'Como usar',nl:'Gebruik',pl:'Jak używać',tr:'Nasıl kullanılır',ru:'Как пользоваться',zh:'使用方法',ja:'使い方',ko:'사용법',hi:'कैसे उपयोग करें',ar:'كيفية الاستخدام',id:'Cara pakai',vi:'Cách dùng',th:'วิธีใช้',uk:'Як користуватися',sv:'Så funkar det',el:'Πώς λειτουργεί',cs:'Jak používat',ro:'Cum se folosește'};
+    var hEl = document.getElementById('txtHowto'); if (hEl) hEl.textContent = howtoLabels[l] || 'How to use';
     var cmpLabels = {en:'CleanTab vs CCleaner & alternatives',fr:'CleanTab face à CCleaner & alternatives',es:'CleanTab vs CCleaner y alternativas',de:'CleanTab vs CCleaner & Alternativen',it:'CleanTab vs CCleaner e alternative',pt:'CleanTab vs CCleaner e alternativas'};
     var cEl = document.getElementById('lnkCompare'); if (cEl) cEl.textContent = cmpLabels[l] || cmpLabels.en;
     var wnLabels = {en:"What's new",fr:'Nouveautés',es:'Novedades',de:'Neuigkeiten',it:'Novità',pt:'Novidades',nl:'Nieuw',pl:'Nowości',tr:'Yenilikler',ru:'Что нового',zh:'更新内容',ja:'新着情報',ko:'새로운 기능',hi:'नया क्या है',ar:'ما الجديد',id:'Yang baru',vi:'Có gì mới',th:'มีอะไรใหม่',uk:'Що нового',sv:'Nyheter',el:'Τι νέο',cs:'Novinky',ro:'Noutăți'};
