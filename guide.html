@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Browser Cleaning Guide — Cache, Cookies & History Explained | CleanTab</title>
+<meta name="description" content="What cache, cookies and history actually do, what breaks when you clear them, how to stay logged in, and how to automate it all in Chrome and Edge." />
+<link rel="canonical" href="https://jeremstyke.github.io/cleantab/guide.html" />
+<meta property="og:title" content="The Browser Cleaning Guide" />
+<meta property="og:description" content="Cache, cookies and history — what they do, what breaks, and how to automate the cleaning." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://jeremstyke.github.io/cleantab/icon128.png" />
+<link rel="icon" href="icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Browser Cleaning Guide — Cache, Cookies & History Explained",
+  "description": "What cache, cookies and history actually do, what breaks when you clear them, and how to automate it.",
+  "author": { "@type": "Person", "name": "Jeremstyke" },
+  "datePublished": "2026-07-18",
+  "publisher": { "@type": "Person", "name": "Jeremstyke" }
+}
+</script>
+<style>
+  :root {
+    --navy: #0d2440;
+    --ink: #1c2e47;
+    --blue: #2563eb;
+    --blue-dark: #1d4fd8;
+    --muted: #62748e;
+    --border: #e6ecf5;
+    --bg: #fdfdfb;
+    --code-bg: #f4f7fb;
+    --accent: #f5b638;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; font-family: var(--sans); background: var(--bg); color: var(--ink);
+    line-height: 1.72; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+
+  /* Header */
+  .site-head {
+    border-bottom: 1px solid var(--border);
+    background: rgba(253,253,251,0.9); backdrop-filter: saturate(180%) blur(12px);
+    position: sticky; top: 0; z-index: 30;
+  }
+  .site-head-in {
+    max-width: 1120px; margin: 0 auto; padding: 12px 26px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .logo-link { display: flex; align-items: center; text-decoration: none; }
+  .logo-link img { height: 30px; width: auto; display: block; }
+  .head-right { display: flex; align-items: center; gap: 12px; }
+  .lang-switch {
+    display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+    background: #fff;
+  }
+  .lang-switch button {
+    border: 0; background: transparent; cursor: pointer;
+    font-family: inherit; font-size: 12px; font-weight: 600; color: var(--muted);
+    padding: 6px 11px; transition: all 0.15s;
+  }
+  .lang-switch button.on { background: var(--blue); color: #fff; }
+  .lang-switch button:not(.on):hover { background: #f2f6fe; color: var(--blue); }
+  .head-cta {
+    font-size: 12.5px; font-weight: 600; text-decoration: none; color: #fff;
+    background: var(--blue); padding: 8px 15px; border-radius: 100px;
+    white-space: nowrap; transition: background 0.18s;
+  }
+  .head-cta:hover { background: var(--blue-dark); }
+
+  /* Hero */
+  .hero { max-width: 1120px; margin: 0 auto; padding: 60px 26px 10px; }
+  .hero-in { max-width: 700px; }
+  .eyebrow {
+    font-size: 11.5px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 15px;
+  }
+  h1 {
+    font-family: var(--serif); font-size: 48px; line-height: 1.1; letter-spacing: -1.4px;
+    font-weight: 700; color: var(--navy); margin: 0 0 18px;
+  }
+  .hero-lede { font-size: 20px; line-height: 1.6; color: #3d5170; margin: 0 0 18px; }
+  .hero-meta { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 9px; }
+  .dot { width: 3px; height: 3px; border-radius: 50%; background: #c3cede; }
+
+  /* Layout with rail */
+  .shell {
+    max-width: 1120px; margin: 0 auto; padding: 30px 26px 70px;
+    display: grid; grid-template-columns: 200px 1fr; gap: 54px; align-items: start;
+  }
+  .rail { position: sticky; top: 84px; }
+  .rail-title {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+    color: #9aa8bd; margin-bottom: 14px;
+  }
+  .rail ol { list-style: none; margin: 0; padding: 0; counter-reset: r; }
+  .rail li { counter-increment: r; }
+  .rail a {
+    display: flex; gap: 11px; align-items: baseline;
+    padding: 8px 0 8px 13px; border-left: 2px solid var(--border);
+    font-size: 13.5px; color: var(--muted); text-decoration: none;
+    transition: all 0.18s; line-height: 1.4;
+  }
+  .rail a::before {
+    content: counter(r); font-size: 10.5px; font-weight: 700; color: #b6c3d6;
+    flex-shrink: 0; transition: color 0.18s;
+  }
+  .rail a:hover { color: var(--navy); border-left-color: #b9cdf2; }
+  .rail a.on { color: var(--blue); border-left-color: var(--blue); font-weight: 600; }
+  .rail a.on::before { color: var(--blue); }
+
+  main { max-width: 700px; min-width: 0; }
+
+  section { scroll-margin-top: 84px; }
+  section + section { margin-top: 70px; padding-top: 8px; }
+  h2 {
+    font-family: var(--serif); font-size: 32px; letter-spacing: -0.7px; font-weight: 700;
+    color: var(--navy); margin: 0 0 8px; line-height: 1.22;
+  }
+  .sec-sub {
+    font-size: 15px; color: var(--muted); margin: 0 0 26px;
+    padding-bottom: 18px; border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-family: var(--serif); font-size: 23px; font-weight: 600; color: var(--navy);
+    margin: 36px 0 12px; line-height: 1.3;
+  }
+  p { margin: 0 0 18px; font-size: 17px; }
+  ul, ol { margin: 0 0 18px; padding-left: 4px; list-style: none; }
+  ol { counter-reset: step; }
+  li { margin-bottom: 11px; font-size: 17px; padding-left: 27px; position: relative; }
+  ul li::before {
+    content: ''; position: absolute; left: 6px; top: 12px;
+    width: 6px; height: 6px; border-radius: 50%; background: #b9cdf2;
+  }
+  ol li { counter-increment: step; }
+  ol li::before {
+    content: counter(step); position: absolute; left: 0; top: 3px;
+    width: 19px; height: 19px; border-radius: 50%; background: #eaf1fe; color: var(--blue);
+    font-size: 11.5px; font-weight: 700; line-height: 19px; text-align: center;
+  }
+  a { color: var(--blue); }
+  strong { font-weight: 600; color: var(--navy); }
+
+  kbd {
+    background: #fff; border: 1px solid #d8e2f0; border-bottom-width: 2px; border-radius: 5px;
+    padding: 2px 6px; font-size: 12.5px; color: var(--ink);
+    font-family: 'SF Mono', Menlo, Consolas, monospace; white-space: nowrap;
+  }
+  code {
+    background: var(--code-bg); border-radius: 5px; padding: 2px 6px; font-size: 14px;
+    font-family: 'SF Mono', Menlo, Consolas, monospace; color: #3c5378;
+  }
+
+  .note {
+    background: linear-gradient(180deg, #fffdf6, #fffcf0); border: 1px solid #f5e6bd;
+    border-radius: 12px; padding: 17px 20px; margin: 26px 0; font-size: 16px; position: relative;
+  }
+  .note::before {
+    content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px;
+    background: var(--accent); border-radius: 0 3px 3px 0;
+  }
+  .note p { margin: 0; font-size: 16px; }
+
+  .table-wrap { overflow-x: auto; margin: 24px 0; }
+  table {
+    width: 100%; border-collapse: collapse; font-size: 15.5px; background: #fff;
+    border: 1px solid var(--border); border-radius: 11px; overflow: hidden;
+  }
+  th, td { text-align: left; padding: 11px 15px; border-bottom: 1px solid var(--border); }
+  th {
+    font-weight: 600; background: #f7f9fd; color: var(--navy);
+    font-size: 12px; letter-spacing: 0.4px; text-transform: uppercase;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .cta-box {
+    background: linear-gradient(145deg, #f6f9ff, #eef4ff); border: 1px solid #dce8fb;
+    border-radius: 16px; padding: 24px 26px; margin: 36px 0;
+    display: flex; gap: 18px; align-items: flex-start;
+  }
+  .cta-box img { width: 44px; height: 44px; flex-shrink: 0; }
+  .cta-box h3 { font-size: 19px; margin: 0 0 8px; }
+  .cta-box p { font-size: 15.5px; color: #4a5f7e; margin: 0 0 15px; }
+  .cta-btn {
+    display: inline-block; background: var(--blue); color: #fff; padding: 10px 20px;
+    border-radius: 10px; font-weight: 600; font-size: 14.5px; text-decoration: none;
+    box-shadow: 0 5px 16px rgba(37,99,235,0.26); transition: all 0.18s;
+  }
+  .cta-btn:hover { background: var(--blue-dark); transform: translateY(-1px); }
+  .cta-sub { font-size: 12px; color: #8d9cb4; margin-top: 10px; }
+
+  /* Final CTA */
+  .end {
+    margin-top: 70px; padding: 34px 30px; border-radius: 18px; text-align: center;
+    background: linear-gradient(150deg, #0d2440, #17365f); color: #fff;
+  }
+  .end img { width: 52px; height: 52px; margin-bottom: 12px; }
+  .end h2 { font-size: 26px; color: #fff; margin: 0 0 8px; }
+  .end p { color: #a9bdd8; font-size: 16px; margin: 0 auto 20px; max-width: 420px; }
+  .end .cta-btn { background: #fff; color: var(--navy); box-shadow: 0 6px 20px rgba(0,0,0,0.22); }
+  .end .cta-btn:hover { background: #eaf1fe; }
+  .end-sub { font-size: 12px; color: #7e93b3; margin-top: 13px; }
+
+  .site-foot {
+    max-width: 1120px; margin: 0 auto; padding: 26px;
+    border-top: 1px solid var(--border); font-size: 13px; color: var(--muted);
+  }
+  .site-foot a { color: var(--muted); text-decoration: none; }
+  .site-foot a:hover { color: var(--blue); }
+  .foot-c { font-size: 12px; color: #9aa8bd; margin-top: 10px; }
+
+  [data-en], [data-fr] { display: none; }
+  html[lang="en"] [data-en] { display: revert; }
+  html[lang="fr"] [data-fr] { display: revert; }
+
+  @media (max-width: 940px) {
+    .shell { grid-template-columns: 1fr; gap: 0; }
+    .rail { display: none; }
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 33px; letter-spacing: -0.9px; }
+    .hero { padding: 40px 20px 6px; }
+    .hero-lede { font-size: 17.5px; }
+    h2 { font-size: 25px; }
+    h3 { font-size: 20px; }
+    p, li { font-size: 16.5px; }
+    .shell { padding: 24px 20px 50px; }
+    .cta-box { flex-direction: column; gap: 12px; padding: 20px; }
+    .site-head-in { padding: 10px 18px; }
+    .logo-link img { height: 25px; }
+    .head-cta { padding: 7px 12px; font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>Complete guide</span><span data-fr>Guide complet</span></div>
+    <h1>
+      <span data-en>The browser cleaning guide</span>
+      <span data-fr>Le guide du nettoyage de navigateur</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-en>What cache, cookies and history actually do, what breaks when you clear them, and how to stop doing it by hand. No "boost your speed" nonsense.</span>
+      <span data-fr>Ce que font vraiment le cache, les cookies et l'historique, ce qui casse quand on les efface, et comment arrêter de le faire à la main. Sans le baratin du « boostez votre vitesse ».</span>
+    </p>
+    <div class="hero-meta">
+      <span data-en>Updated July 2026</span><span data-fr>Mis à jour en juillet 2026</span>
+      <span class="dot"></span>
+      <span data-en>15 min read</span><span data-fr>15 min de lecture</span>
+      <span class="dot"></span>
+      <span>Chrome &amp; Edge</span>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+
+  <nav class="rail" aria-label="Sections">
+    <div class="rail-title"><span data-en>Contents</span><span data-fr>Sommaire</span></div>
+    <ol>
+      <li><a href="#basics" class="rail-a"><span data-en>Cache, cookies &amp; history</span><span data-fr>Cache, cookies, historique</span></a></li>
+      <li><a href="#logins" class="rail-a"><span data-en>Clearing without losing logins</span><span data-fr>Effacer sans perdre ses connexions</span></a></li>
+      <li><a href="#auto" class="rail-a"><span data-en>Automating it</span><span data-fr>Automatiser</span></a></li>
+      <li><a href="#speed" class="rail-a"><span data-en>Does it speed things up?</span><span data-fr>Est-ce que ça accélère ?</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- ===== 1 ===== -->
+    <section id="basics">
+      <h2><span data-en>Cache, cookies &amp; history</span><span data-fr>Cache, cookies, historique</span></h2>
+      <p class="sec-sub">
+        <span data-en>Chrome's delete dialog gives you eight checkboxes and explains almost none of them. Here's what's behind each one.</span>
+        <span data-fr>La fenêtre de suppression de Chrome propose huit cases et n'en explique presque aucune. Voici ce qu'il y a derrière chacune.</span>
+      </p>
+
+      <h3><span data-en>Cache — the speed one</span><span data-fr>Le cache — celui de la vitesse</span></h3>
+      <p>
+        <span data-en>When you visit a site, your browser downloads the logo, the fonts, the stylesheets, the scripts. Cache is where it keeps copies so it doesn't have to download them again next time.</span>
+        <span data-fr>Quand vous visitez un site, votre navigateur télécharge le logo, les polices, les feuilles de style, les scripts. Le cache, c'est l'endroit où il garde des copies pour ne pas avoir à tout retélécharger la fois d'après.</span>
+      </p>
+      <p>
+        <span data-en><strong>What you lose by clearing it:</strong> almost nothing. Sites load a bit slower once, then they're back to normal.</span>
+        <span data-fr><strong>Ce que vous perdez en l'effaçant :</strong> quasiment rien. Les sites se chargent un peu plus lentement une fois, puis tout revient à la normale.</span>
+      </p>
+      <p>
+        <span data-en><strong>Why you'd clear it:</strong> when a site looks broken or shows old content. You updated your profile picture but still see the old one? Cache. A page looks scrambled after a site redesign? Cache. It also gets big — several gigabytes after a few months is normal.</span>
+        <span data-fr><strong>Pourquoi l'effacer :</strong> quand un site paraît cassé ou affiche du contenu périmé. Vous avez changé votre photo de profil mais l'ancienne s'affiche encore ? Cache. Une page en vrac après une refonte ? Cache. Il grossit aussi — plusieurs gigaoctets après quelques mois, c'est normal.</span>
+      </p>
+
+      <h3><span data-en>Cookies — the memory one</span><span data-fr>Les cookies — celui de la mémoire</span></h3>
+      <p>
+        <span data-en>Cookies are small files sites use to remember you. Two very different kinds live in the same box:</span>
+        <span data-fr>Les cookies sont de petits fichiers que les sites utilisent pour se souvenir de vous. Deux types très différents cohabitent dans la même case :</span>
+      </p>
+      <ul>
+        <li>
+          <span data-en><strong>The useful ones:</strong> "this person is logged in", "their cart has 3 items", "they prefer dark mode"</span>
+          <span data-fr><strong>Les utiles :</strong> « cette personne est connectée », « son panier contient 3 articles », « elle préfère le mode sombre »</span>
+        </li>
+        <li>
+          <span data-en><strong>The tracking ones:</strong> "this person visited a shoe site, show them shoe ads for the next month"</span>
+          <span data-fr><strong>Les traceurs :</strong> « cette personne a visité un site de chaussures, montrez-lui des pubs de chaussures pendant un mois »</span>
+        </li>
+      </ul>
+      <p>
+        <span data-en><strong>What you lose:</strong> your logins. All of them. This is the checkbox that makes clearing feel expensive.</span>
+        <span data-fr><strong>Ce que vous perdez :</strong> vos connexions. Toutes. C'est la case qui rend le nettoyage coûteux.</span>
+      </p>
+      <div class="note">
+        <p>
+          <span data-en><strong>Common confusion:</strong> clearing cookies does <em>not</em> delete your saved passwords. Those live somewhere else entirely. You'll be logged out, but Chrome will still autofill your password when you log back in.</span>
+          <span data-fr><strong>Confusion fréquente :</strong> effacer les cookies ne supprime <em>pas</em> vos mots de passe enregistrés. Ils sont stockés ailleurs. Vous serez déconnecté, mais Chrome remplira toujours votre mot de passe à la reconnexion.</span>
+        </p>
+      </div>
+
+      <h3><span data-en>History — the list one</span><span data-fr>L'historique — celui de la liste</span></h3>
+      <p>
+        <span data-en>Just a list of pages you've visited, with timestamps. Clearing it means losing your ability to find that page you saw last Tuesday. The reason to clear it is simple: someone else uses this computer.</span>
+        <span data-fr>Juste une liste des pages visitées, avec les horaires. L'effacer, c'est perdre la possibilité de retrouver cette page vue mardi dernier. La raison de le faire est simple : quelqu'un d'autre utilise cet ordinateur.</span>
+      </p>
+      <p>
+        <span data-en>Worth being clear about what this doesn't do: clearing your history hides your browsing from people using your computer. It doesn't hide anything from your internet provider, your employer's network, or the sites themselves.</span>
+        <span data-fr>Autant être clair sur ce que ça ne fait pas : effacer votre historique cache votre navigation aux gens qui utilisent votre ordinateur. Ça ne la cache pas à votre fournisseur d'accès, au réseau de votre employeur, ni aux sites eux-mêmes.</span>
+      </p>
+
+      <h3><span data-en>The other checkboxes nobody explains</span><span data-fr>Les autres cases que personne n'explique</span></h3>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th><span data-en>Item</span><span data-fr>Élément</span></th>
+            <th><span data-en>What it is</span><span data-fr>Ce que c'est</span></th>
+            <th><span data-en>Safe to clear?</span><span data-fr>Sans risque ?</span></th>
+          </tr>
+          <tr>
+            <td><span data-en>Download history</span><span data-fr>Historique des téléchargements</span></td>
+            <td><span data-en>The list, not the files</span><span data-fr>La liste, pas les fichiers</span></td>
+            <td><span data-en>Yes — your files stay</span><span data-fr>Oui — vos fichiers restent</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Passwords</span><span data-fr>Mots de passe</span></td>
+            <td><span data-en>Your saved passwords</span><span data-fr>Vos mots de passe enregistrés</span></td>
+            <td><span data-en><strong>No</strong> — think first</span><span data-fr><strong>Non</strong> — réfléchissez</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Autofill form data</span><span data-fr>Saisie automatique</span></td>
+            <td><span data-en>Addresses, card details</span><span data-fr>Adresses, cartes bancaires</span></td>
+            <td><span data-en>Mildly annoying to lose</span><span data-fr>Un peu pénible à perdre</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Site settings</span><span data-fr>Paramètres des sites</span></td>
+            <td><span data-en>Camera/mic/notification permissions</span><span data-fr>Autorisations caméra/micro/notifs</span></td>
+            <td><span data-en>Yes, you'll re-approve</span><span data-fr>Oui, il faudra ré-autoriser</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <p>
+        <span data-en><strong>Site acting broken?</strong> Cache only. <strong>Worried about tracking?</strong> Cookies and cache. <strong>Shared computer?</strong> History and cookies. <strong>Never tick passwords</strong> unless you specifically mean it.</span>
+        <span data-fr><strong>Un site est cassé ?</strong> Cache uniquement. <strong>Inquiet du pistage ?</strong> Cookies et cache. <strong>Ordinateur partagé ?</strong> Historique et cookies. <strong>Ne cochez jamais les mots de passe</strong> sauf si c'est vraiment votre intention.</span>
+      </p>
+    </section>
+
+    <!-- ===== 2 ===== -->
+    <section id="logins">
+      <h2><span data-en>Clearing without losing your logins</span><span data-fr>Effacer sans perdre ses connexions</span></h2>
+      <p class="sec-sub">
+        <span data-en>This is why most people never clear their cookies. The price is getting logged out of everything — so they close the dialog and don't.</span>
+        <span data-fr>C'est LA raison pour laquelle personne n'efface jamais ses cookies. Le prix, c'est d'être déconnecté de partout — alors on ferme la fenêtre et on ne fait rien.</span>
+      </p>
+
+      <p>
+        <span data-en>Chrome's delete dialog treats cookies as one lump. The tracking pixel from an ad network you've never heard of, and the session cookie keeping you logged into your bank. Same box, same fate. That's a bad deal, so people take the rational option and never clear anything.</span>
+        <span data-fr>La fenêtre de suppression de Chrome traite les cookies comme un bloc. Le pixel traceur d'une régie pub inconnue, et le cookie de session qui vous garde connecté à votre banque. Même case, même sort. C'est un mauvais deal, alors les gens font le choix rationnel et n'effacent jamais rien.</span>
+      </p>
+
+      <h3><span data-en>Chrome's built-in exception list</span><span data-fr>La liste d'exceptions de Chrome</span></h3>
+      <ol>
+        <li>
+          <span data-en>Go to <code>chrome://settings/content/cookies</code></span>
+          <span data-fr>Allez sur <code>chrome://settings/content/cookies</code></span>
+        </li>
+        <li>
+          <span data-en>Turn on <strong>"Delete cookies and site data when you close all windows"</strong></span>
+          <span data-fr>Activez <strong>« Supprimer les cookies et les données de sites à la fermeture de toutes les fenêtres »</strong></span>
+        </li>
+        <li>
+          <span data-en>Scroll to <strong>"Sites that can always use cookies"</strong> and click <strong>Add</strong></span>
+          <span data-fr>Descendez à <strong>« Sites pouvant toujours utiliser des cookies »</strong> et cliquez sur <strong>Ajouter</strong></span>
+        </li>
+      </ol>
+      <div class="note">
+        <p>
+          <span data-en><strong>Two real limits.</strong> It only runs when you close <em>every</em> Chrome window — if you never close the browser, it never fires. And the exception list applies only to this on-exit clearing: use the normal delete dialog and your exceptions are ignored.</span>
+          <span data-fr><strong>Deux vraies limites.</strong> Ça ne se déclenche qu'à la fermeture de <em>toutes</em> les fenêtres — si vous ne fermez jamais Chrome, ça ne tourne jamais. Et la liste d'exceptions ne s'applique qu'à ce nettoyage-là : avec la fenêtre classique, vos exceptions sont ignorées.</span>
+        </p>
+      </div>
+      <p>
+        <span data-en>When adding a site, use the <code>[*.]example.com</code> format to cover subdomains. Just <code>example.com</code> often misses the login subdomain and you get logged out anyway.</span>
+        <span data-fr>Quand vous ajoutez un site, utilisez le format <code>[*.]exemple.com</code> pour couvrir les sous-domaines. Un simple <code>exemple.com</code> rate souvent le sous-domaine de connexion, et vous êtes déconnecté quand même.</span>
+      </p>
+
+      <h3><span data-en>Clearing one site at a time</span><span data-fr>Effacer un seul site</span></h3>
+      <p>
+        <span data-en>If one specific site is misbehaving, don't touch anything global. Click the icon left of the address bar → <strong>Cookies and site data</strong> → <strong>Manage on-device site data</strong>, and delete just that site. You'll be logged out of that one and nothing else.</span>
+        <span data-fr>Si c'est un site précis qui déconne, ne touchez à rien de global. Cliquez sur l'icône à gauche de la barre d'adresse → <strong>Cookies et données de sites</strong> → <strong>Gérer les données sur l'appareil</strong>, et supprimez juste ce site. Vous serez déconnecté de celui-là et de rien d'autre.</span>
+      </p>
+
+      <h3><span data-en>Which sites are worth protecting?</span><span data-fr>Quels sites protéger ?</span></h3>
+      <p>
+        <span data-en>Fewer than you'd think. Your email, your bank, work tools you open daily, anything with two-factor that's a pain to redo. That's usually it. Shopping sites, news sites, anything you visit monthly — let those go. Those are exactly the cookies most worth clearing.</span>
+        <span data-fr>Moins que vous ne le pensez. Votre mail, votre banque, les outils de travail quotidiens, tout ce qui a une double authentification pénible. C'est en général tout. Les sites d'e-commerce, d'actu, tout ce que vous visitez une fois par mois — laissez tomber. Ce sont justement les cookies les plus utiles à effacer.</span>
+      </p>
+    </section>
+
+    <!-- ===== 3 ===== -->
+    <section id="auto">
+      <h2><span data-en>Automating it</span><span data-fr>Automatiser</span></h2>
+      <p class="sec-sub">
+        <span data-en>If you're looking this up for the third time this month, you don't want instructions. You want it to stop being your job.</span>
+        <span data-fr>Si vous cherchez ça pour la troisième fois ce mois-ci, vous ne voulez pas une marche à suivre. Vous voulez que ça arrête d'être votre problème.</span>
+      </p>
+
+      <p>
+        <span data-en>Let's be clear: <strong>Chrome has no built-in setting to clear your cache on a schedule.</strong> There's no "clear every day at 6pm" option hiding in the settings. People search for it constantly, and it simply doesn't exist.</span>
+        <span data-fr>Disons-le clairement : <strong>Chrome n'a aucun réglage pour vider le cache à intervalles réguliers.</strong> Pas d'option « nettoyer tous les jours à 18h » cachée quelque part. Les gens la cherchent en permanence, elle n'existe pas.</span>
+      </p>
+      <p>
+        <span data-en>The on-exit setting we just covered is the closest built-in option — but it only handles cookies, not cache, and only when you close everything.</span>
+        <span data-fr>Le nettoyage à la fermeture vu plus haut est l'option intégrée la plus proche — mais il ne gère que les cookies, pas le cache, et seulement quand vous fermez tout.</span>
+      </p>
+      <p>
+        <span data-en>The shortcut helps for manual clearing: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Del</kbd> (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>Del</kbd> on Mac) opens the dialog directly, and Chrome remembers your last selection. Three seconds. Fine if you clear occasionally — not if you want it to happen reliably, without thinking.</span>
+        <span data-fr>Le raccourci aide pour le manuel : <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>Suppr</kbd> (<kbd>Cmd</kbd>+<kbd>Maj</kbd>+<kbd>Suppr</kbd> sur Mac) ouvre directement la fenêtre, et Chrome mémorise votre dernière sélection. Trois secondes. Très bien si vous nettoyez de temps en temps — pas si vous voulez que ce soit fiable, sans y penser.</span>
+      </p>
+
+      <h3><span data-en>Why automation changes the maths</span><span data-fr>Pourquoi l'automatisation change le calcul</span></h3>
+      <p>
+        <span data-en>Here's the part that matters more than it sounds: automation changes <em>what you can safely clear</em>. When clearing is manual, you hesitate to wipe cookies because logging back into everything is annoying. When it's automatic and you've whitelisted the five sites you care about, you can wipe everything else aggressively without ever noticing.</span>
+        <span data-fr>Voilà ce qui compte plus qu'il n'y paraît : l'automatisation change <em>ce que vous pouvez vous permettre d'effacer</em>. Quand c'est manuel, vous hésitez à supprimer les cookies parce que se reconnecter est pénible. Quand c'est automatique et que vous avez protégé les cinq sites qui comptent, vous pouvez tout effacer sans jamais vous en rendre compte.</span>
+      </p>
+      <p>
+        <span data-en>The whitelist is what makes the trade-off disappear. Once your important logins are safe, "should I clear cookies?" stops being a real question. You just clear them.</span>
+        <span data-fr>La liste blanche fait disparaître le dilemme. Une fois vos connexions importantes à l'abri, « est-ce que je devrais effacer mes cookies ? » cesse d'être une vraie question. Vous les effacez, c'est tout.</span>
+      </p>
+
+      <div class="cta-box">
+        <img src="icon128.png" alt="" />
+        <div>
+          <h3 style="margin-top:0"><span data-en>That's what CleanTab does</span><span data-fr>C'est ce que fait CleanTab</span></h3>
+          <p>
+            <span data-en>Set a schedule, pick what gets cleared, and whitelist the sites you want to stay logged into. Free, Chrome and Edge, 22 languages — and nothing ever leaves your browser.</span>
+            <span data-fr>Choisissez une fréquence, cochez ce qui doit partir, et protégez les sites où vous voulez rester connecté. Gratuit, Chrome et Edge, 22 langues — et aucune donnée ne quitte votre navigateur.</span>
+          </p>
+          <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+            <span data-en>Add to Chrome — free</span><span data-fr>Ajouter à Chrome — gratuit</span>
+          </a>
+          <div class="cta-sub">
+            <span data-en>Made by an independent developer. No account, no tracking.</span>
+            <span data-fr>Créée par un développeur indépendant. Sans compte, sans suivi.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <p>
+          <span data-en><strong>Don't overdo the cache.</strong> Clearing it every hour means re-downloading the same images and scripts all day — slower browsing, more data. Daily is already plenty. Cookies and history are different: those are about privacy, and clearing them often costs you nothing once you've whitelisted what matters.</span>
+          <span data-fr><strong>N'en faites pas trop avec le cache.</strong> Le vider toutes les heures, c'est retélécharger les mêmes images et scripts toute la journée — navigation plus lente, plus de données. Une fois par jour suffit largement. Les cookies et l'historique, c'est autre chose : ils relèvent de la vie privée, et les effacer souvent ne coûte rien une fois l'essentiel protégé.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 4 ===== -->
+    <section id="speed">
+      <h2><span data-en>Does clearing actually speed things up?</span><span data-fr>Est-ce que ça accélère vraiment ?</span></h2>
+      <p class="sec-sub">
+        <span data-en>A hundred pages promise a faster browser. I build a cleaner, so I have every reason to tell you the same. I'm not going to.</span>
+        <span data-fr>Cent pages promettent un navigateur plus rapide. Je développe un nettoyeur, j'aurais tout intérêt à vous dire pareil. Je ne vais pas le faire.</span>
+      </p>
+
+      <p>
+        <span data-en><strong>Clearing your cache usually makes Chrome slightly slower, not faster.</strong> At least at first.</span>
+        <span data-fr><strong>Vider le cache rend généralement Chrome un peu plus lent, pas plus rapide.</strong> Du moins au début.</span>
+      </p>
+      <p>
+        <span data-en>That's not a twist — it's just what cache is. It's a pile of files your browser already downloaded so it doesn't have to download them again. Delete the pile, and the next visit re-downloads everything. The speed comes back as the cache refills. So the real effect is: worse for an hour, then identical.</span>
+        <span data-fr>Ce n'est pas un scoop — c'est juste ce qu'est le cache. Un tas de fichiers déjà téléchargés pour ne pas recommencer. Supprimez le tas, et la prochaine visite retélécharge tout. La vitesse revient à mesure que le cache se remplit. L'effet réel : moins bien pendant une heure, puis identique.</span>
+      </p>
+
+      <h3><span data-en>So why does everyone say it speeds things up?</span><span data-fr>Alors pourquoi tout le monde dit le contraire ?</span></h3>
+      <p>
+        <span data-en>Because of a real thing, misattributed. Sometimes a cached file goes stale or corrupt — the site updated its code, but your browser is still using yesterday's copy. Now the page is genuinely broken. You clear the cache, the browser fetches fresh files, and it works again.</span>
+        <span data-fr>À cause d'un phénomène réel, mal attribué. Parfois un fichier en cache devient périmé ou corrompu — le site a mis son code à jour, mais votre navigateur utilise la copie d'hier. La page est vraiment cassée. Vous videz le cache, le navigateur récupère les fichiers frais, et ça refonctionne.</span>
+      </p>
+      <p>
+        <span data-en>That felt like a speed boost. It wasn't. It was a <em>fix</em>. Nothing got faster; something broken got repaired.</span>
+        <span data-fr>Ça a donné l'impression d'un gain de vitesse. C'en était pas un. C'était une <em>réparation</em>. Rien n'est devenu plus rapide ; quelque chose de cassé a été réparé.</span>
+      </p>
+
+      <div class="note">
+        <p>
+          <span data-en><strong>The one that actually works:</strong> press <kbd>Shift</kbd>+<kbd>Esc</kbd> in Chrome. That's Chrome's own task manager. It shows exactly which tab or extension is eating your memory — more useful in ten seconds than any amount of cache clearing.</span>
+          <span data-fr><strong>Celui qui marche vraiment :</strong> faites <kbd>Maj</kbd>+<kbd>Échap</kbd> dans Chrome. C'est le gestionnaire de tâches intégré. Il montre quel onglet ou quelle extension bouffe votre mémoire — plus utile en dix secondes que n'importe quel nettoyage de cache.</span>
+        </p>
+      </div>
+
+      <h3><span data-en>Then why clear anything?</span><span data-fr>Alors pourquoi nettoyer ?</span></h3>
+      <p>
+        <span data-en>Because speed was never the good reason. <strong>Privacy is.</strong> Tracking cookies are how ad networks follow you from site to site, building a profile. That's a genuine reason to clear regularly — and it has nothing to do with performance.</span>
+        <span data-fr>Parce que la vitesse n'a jamais été la bonne raison. <strong>La vie privée, si.</strong> Les cookies traceurs, c'est le moyen qu'ont les régies pub de vous suivre de site en site et de construire un profil. Ça, c'est une vraie raison de nettoyer régulièrement — et ça n'a rien à voir avec la performance.</span>
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th><span data-en>You want to...</span><span data-fr>Vous voulez...</span></th>
+            <th><span data-en>Clear</span><span data-fr>Effacez</span></th>
+            <th><span data-en>How often</span><span data-fr>Fréquence</span></th>
+          </tr>
+          <tr>
+            <td><span data-en>Fix a broken page</span><span data-fr>Réparer une page cassée</span></td>
+            <td><span data-en>Cache (that site)</span><span data-fr>Le cache (de ce site)</span></td>
+            <td><span data-en>When it happens</span><span data-fr>Quand ça arrive</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Free disk space</span><span data-fr>Libérer de l'espace</span></td>
+            <td><span data-en>Cache</span><span data-fr>Le cache</span></td>
+            <td><span data-en>Occasionally</span><span data-fr>De temps en temps</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Limit tracking</span><span data-fr>Limiter le pistage</span></td>
+            <td><span data-en>Cookies</span><span data-fr>Les cookies</span></td>
+            <td><span data-en>Regularly</span><span data-fr>Régulièrement</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Hide activity from others</span><span data-fr>Cacher votre activité</span></td>
+            <td><span data-en>History + cookies</span><span data-fr>Historique + cookies</span></td>
+            <td><span data-en>Regularly</span><span data-fr>Régulièrement</span></td>
+          </tr>
+          <tr>
+            <td><span data-en>Make Chrome faster</span><span data-fr>Accélérer Chrome</span></td>
+            <td colspan="2"><span data-en>Close tabs, audit extensions</span><span data-fr>Fermez des onglets, triez vos extensions</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <p>
+        <span data-en>If a cleaning extension promises to "boost your browser speed," be a little suspicious. The honest pitch is smaller: it saves you from doing something tedious by hand.</span>
+        <span data-fr>Si une extension de nettoyage promet de « booster la vitesse de votre navigateur », méfiez-vous un peu. La promesse honnête est plus modeste : elle vous évite de faire un truc pénible à la main.</span>
+      </p>
+    </section>
+
+    <div class="end">
+      <img src="icon128.png" alt="" />
+      <h2><span data-en>Stop doing it by hand</span><span data-fr>Arrêtez de le faire à la main</span></h2>
+      <p>
+        <span data-en>One click, or on a schedule. Whitelist the sites that matter. Free, Chrome &amp; Edge, 22 languages, and nothing ever leaves your browser.</span>
+        <span data-fr>En un clic, ou automatiquement. Protégez les sites qui comptent. Gratuit, Chrome &amp; Edge, 22 langues, et rien ne quitte votre navigateur.</span>
+      </p>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome — free</span><span data-fr>Ajouter à Chrome — gratuit</span>
+      </a>
+      <div class="end-sub">
+        <span data-en>Made by an independent developer. No account, no tracking.</span>
+        <span data-fr>Créée par un développeur indépendant. Sans compte, sans suivi.</span>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0, 2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+
+/* Highlight the section currently on screen in the rail */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) {
+      if (s && s.getBoundingClientRect().top <= 130) best = i;
+    });
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
