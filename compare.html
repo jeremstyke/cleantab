@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CleanTab vs CCleaner &amp; Other Browser Cleaners — An Honest Comparison</title>
+<meta name="description" content="How CleanTab compares to CCleaner, Click&Clean and other browser cleaners. An honest look at what each one is for — desktop suite vs lightweight extension — so you pick the right tool." />
+<meta name="keywords" content="ccleaner alternative, browser cleaner extension, clear cache chrome, click&clean alternative, cleantab comparison" />
+<link rel="canonical" href="https://jeremstyke.github.io/cleantab/compare.html" />
+<meta property="og:title" content="CleanTab vs CCleaner & Other Browser Cleaners" />
+<meta property="og:description" content="An honest comparison — desktop suite vs lightweight extension. Pick the right tool for the job." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://jeremstyke.github.io/cleantab/icon128.png" />
+<link rel="icon" href="icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CleanTab vs CCleaner & Other Browser Cleaners — An Honest Comparison",
+  "description": "How CleanTab compares to CCleaner, Click&Clean and other browser cleaners.",
+  "author": { "@type": "Person", "name": "Jeremstyke" },
+  "datePublished": "2026-07-18",
+  "publisher": { "@type": "Person", "name": "Jeremstyke" }
+}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --green:#16a34a; --red:#e8534e;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:860px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .wrap { max-width:760px; margin:0 auto; padding:56px 26px 70px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:44px; line-height:1.12; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0 0 20px;
+    padding-left:20px; border-left:3px solid var(--accent); }
+  .meta { font-size:13px; color:var(--muted); margin-bottom:36px; }
+
+  h2 { font-family:var(--serif); font-size:30px; letter-spacing:-0.6px; font-weight:700;
+    color:var(--navy); margin:52px 0 14px; line-height:1.24; }
+  h3 { font-family:var(--serif); font-size:22px; font-weight:600; color:var(--navy); margin:32px 0 10px; }
+  p { margin:0 0 18px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ul { margin:0 0 18px; padding-left:4px; list-style:none; }
+  li { margin-bottom:11px; font-size:17px; padding-left:27px; position:relative; }
+  ul li::before { content:''; position:absolute; left:6px; top:12px; width:6px; height:6px;
+    border-radius:50%; background:#b9cdf2; }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:17px 20px; margin:26px 0; font-size:16px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:16px; }
+
+  /* Comparison table */
+  .cmp-wrap { overflow-x:auto; margin:28px 0; }
+  table.cmp { width:100%; border-collapse:collapse; font-size:15px; background:#fff;
+    border:1px solid var(--border); border-radius:12px; overflow:hidden; min-width:560px; }
+  table.cmp th, table.cmp td { padding:12px 14px; border-bottom:1px solid var(--border); text-align:left; }
+  table.cmp thead th { background:#f7f9fd; color:var(--navy); font-size:12px;
+    letter-spacing:0.4px; text-transform:uppercase; font-weight:700; }
+  table.cmp thead th.ct { background:#eef4ff; color:var(--blue); }
+  table.cmp td.feat { font-weight:600; color:var(--navy); }
+  table.cmp td.ct { background:#f8fbff; }
+  table.cmp tr:last-child td { border-bottom:none; }
+  .yes { color:var(--green); font-weight:700; }
+  .no  { color:var(--red);  font-weight:700; }
+  .partial { color:#b8860b; font-weight:600; font-size:13.5px; }
+  .cell-note { display:block; font-size:12px; color:var(--muted); font-weight:400; margin-top:2px; }
+
+  .verdict { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:28px 0; }
+  .vcard { border:1px solid var(--border); border-radius:14px; padding:20px 22px; background:#fff; }
+  .vcard h3 { margin:0 0 8px; font-size:18px; }
+  .vcard p { font-size:15px; color:#4a5f7e; margin:0; }
+  .vcard.pick { border-color:#bfdbfe; background:linear-gradient(160deg,#f6f9ff,#eef4ff); }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:40px 0; display:flex; gap:18px; align-items:flex-start; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box h3 { font-size:19px; margin:0 0 8px; }
+  .cta-box p { font-size:15.5px; color:#4a5f7e; margin:0 0 15px; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 22px;
+    border-radius:10px; font-weight:600; font-size:14.5px; text-decoration:none;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+  .cta-sub { font-size:12px; color:#8d9cb4; margin-top:10px; }
+
+  .site-foot { max-width:760px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+
+  @media (max-width:640px) {
+    h1 { font-size:32px; letter-spacing:-0.8px; }
+    h2 { font-size:25px; }
+    .lede { font-size:17.5px; }
+    p,li { font-size:16.5px; }
+    .wrap { padding:38px 20px 50px; }
+    .verdict { grid-template-columns:1fr; }
+    .cta-box { flex-direction:column; gap:12px; padding:20px; }
+    .logo-link img { height:25px; }
+  }
+  @media (prefers-reduced-motion:reduce) { * { transition:none!important; scroll-behavior:auto!important; } }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="eyebrow"><span data-en>Comparison</span><span data-fr>Comparatif</span></div>
+  <h1>
+    <span data-en>CleanTab vs CCleaner and other browser cleaners</span>
+    <span data-fr>CleanTab face à CCleaner et aux autres nettoyeurs</span>
+  </h1>
+  <p class="lede">
+    <span data-en>An honest comparison — because these tools aren't all the same thing. Some clean your whole PC; CleanTab cleans your browser. Here's how to pick the right one.</span>
+    <span data-fr>Un comparatif honnête — parce que ces outils ne font pas tous la même chose. Certains nettoient tout le PC ; CleanTab nettoie le navigateur. Voici comment choisir le bon.</span>
+  </p>
+  <div class="meta"><span data-en>Updated July 2026</span><span data-fr>Mis à jour en juillet 2026</span></div>
+
+  <p>
+    <span data-en>If you searched for a "CCleaner alternative," you'll want to know something first: <strong>CCleaner and CleanTab aren't really competitors.</strong> One is a desktop program that cleans your entire computer — registry, disk, system files. The other is a browser extension that cleans one thing: your browsing data. Comparing them head-to-head would be dishonest, so this page won't.</span>
+    <span data-fr>Si vous avez cherché une « alternative à CCleaner », sachez d'abord une chose : <strong>CCleaner et CleanTab ne sont pas vraiment concurrents.</strong> L'un est un logiciel de bureau qui nettoie tout l'ordinateur — registre, disque, fichiers système. L'autre est une extension qui nettoie une seule chose : vos données de navigation. Les comparer frontalement serait malhonnête, donc cette page ne le fera pas.</span>
+  </p>
+  <p>
+    <span data-en>Instead, the real question is: <strong>do you need a whole-PC cleaner, or just a browser cleaner?</strong> For most people, the answer is the second — and that's where CleanTab fits, alongside extensions like Click&amp;Clean or Clear Cache.</span>
+    <span data-fr>La vraie question est plutôt : <strong>avez-vous besoin d'un nettoyeur pour tout le PC, ou juste pour le navigateur ?</strong> Pour la plupart des gens, c'est la seconde option — et c'est là que se situe CleanTab, aux côtés d'extensions comme Click&amp;Clean ou Clear Cache.</span>
+  </p>
+
+  <h2><span data-en>Desktop suite vs browser extension</span><span data-fr>Suite de bureau ou extension</span></h2>
+  <p>
+    <span data-en>The honest split is by category, not by brand:</span>
+    <span data-fr>La vraie distinction se fait par catégorie, pas par marque :</span>
+  </p>
+  <div class="verdict">
+    <div class="vcard">
+      <h3><span data-en>Desktop cleaners (CCleaner, BleachBit…)</span><span data-fr>Nettoyeurs de bureau (CCleaner, BleachBit…)</span></h3>
+      <p><span data-en>Clean the whole system: registry, disk junk, all browsers at once. Powerful, but heavier — and on modern Windows, some experts now advise against registry cleaning entirely. You install a full program.</span>
+      <span data-fr>Nettoient tout le système : registre, fichiers disque, tous les navigateurs d'un coup. Puissants, mais plus lourds — et sur Windows moderne, certains experts déconseillent désormais le nettoyage du registre. Vous installez un vrai logiciel.</span></p>
+    </div>
+    <div class="vcard pick">
+      <h3><span data-en>Browser extensions (CleanTab, Click&amp;Clean…)</span><span data-fr>Extensions (CleanTab, Click&amp;Clean…)</span></h3>
+      <p><span data-en>Live inside Chrome or Edge. Clean cache, cookies and history in a click — nothing to install beyond the extension, and they can run automatically. Lighter, focused, and enough for most people.</span>
+      <span data-fr>Vivent dans Chrome ou Edge. Nettoient cache, cookies et historique en un clic — rien à installer d'autre, et ça peut tourner automatiquement. Plus léger, ciblé, et suffisant pour la plupart des gens.</span></p>
+    </div>
+  </div>
+
+  <h2><span data-en>CleanTab vs other browser cleaners</span><span data-fr>CleanTab face aux autres extensions</span></h2>
+  <p>
+    <span data-en>Now the fair comparison — CleanTab against the extensions it actually competes with. Here's where it differs.</span>
+    <span data-fr>Maintenant la comparaison équitable — CleanTab face aux extensions avec lesquelles elle est vraiment en concurrence. Voici ce qui la distingue.</span>
+  </p>
+
+  <div class="cmp-wrap">
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th><span data-en>Feature</span><span data-fr>Fonction</span></th>
+          <th class="ct">CleanTab</th>
+          <th><span data-en>Typical cleaner extension</span><span data-fr>Extension classique</span></th>
+          <th>CCleaner <span data-en>(desktop)</span><span data-fr>(bureau)</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="feat"><span data-en>One-click clean</span><span data-fr>Nettoyage en 1 clic</span></td>
+          <td class="ct"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat"><span data-en>Scheduled auto-clean</span><span data-fr>Nettoyage auto programmé</span></td>
+          <td class="ct"><span class="yes">✓</span></td>
+          <td><span class="partial" data-en>Some</span><span class="partial" data-fr>Certaines</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat"><span data-en>Whitelist (keep some logins)</span><span data-fr>Liste blanche (garder des connexions)</span></td>
+          <td class="ct"><span class="yes">✓</span></td>
+          <td><span class="partial" data-en>Rare</span><span class="partial" data-fr>Rare</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat"><span data-en>Works fully offline / local</span><span data-fr>100% local / hors ligne</span></td>
+          <td class="ct"><span class="yes">✓</span><span class="cell-note" data-en>nothing leaves the browser</span><span class="cell-note" data-fr>rien ne quitte le navigateur</span></td>
+          <td><span class="partial" data-en>Varies</span><span class="partial" data-fr>Variable</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat"><span data-en>No account needed</span><span data-fr>Sans compte</span></td>
+          <td class="ct"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="partial" data-en>Free tier</span><span class="partial" data-fr>Version gratuite</span></td>
+        </tr>
+        <tr>
+          <td class="feat"><span data-en>Free, no ads in the tool</span><span data-fr>Gratuit, sans pub dans l'outil</span></td>
+          <td class="ct"><span class="yes">✓</span></td>
+          <td><span class="partial" data-en>Often ads</span><span class="partial" data-fr>Souvent des pubs</span></td>
+          <td><span class="partial" data-en>Upsells</span><span class="partial" data-fr>Incitations payantes</span></td>
+        </tr>
+        <tr>
+          <td class="feat"><span data-en>Interface languages</span><span data-fr>Langues de l'interface</span></td>
+          <td class="ct"><strong>22</strong></td>
+          <td><span data-en>Usually 1–2</span><span data-fr>1 à 2 en général</span></td>
+          <td><span data-en>Many</span><span data-fr>Nombreuses</span></td>
+        </tr>
+        <tr>
+          <td class="feat"><span data-en>Cleans whole PC (disk, registry)</span><span data-fr>Nettoie tout le PC (disque, registre)</span></td>
+          <td class="ct"><span class="no">✗</span><span class="cell-note" data-en>browser only, by design</span><span class="cell-note" data-fr>navigateur seul, volontairement</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <p>
+      <span data-en>Notice the last row: CCleaner does something CleanTab doesn't — clean your whole computer. That's not a weakness we're hiding. If you need disk and registry cleaning, a desktop tool is the right choice. CleanTab is deliberately just a browser cleaner.</span>
+      <span data-fr>Regardez la dernière ligne : CCleaner fait une chose que CleanTab ne fait pas — nettoyer tout l'ordinateur. Ce n'est pas une faiblesse qu'on cache. Si vous avez besoin de nettoyer disque et registre, un logiciel de bureau est le bon choix. CleanTab est volontairement un simple nettoyeur de navigateur.</span>
+    </p>
+  </div>
+
+  <h2><span data-en>So which should you use?</span><span data-fr>Alors, lequel choisir ?</span></h2>
+
+  <ul>
+    <li><span data-en><strong>You just want your browser clean</strong> — cache, cookies, history, maybe on a schedule, without losing your logins → a browser extension like CleanTab.</span>
+    <span data-fr><strong>Vous voulez juste un navigateur propre</strong> — cache, cookies, historique, éventuellement en automatique, sans perdre vos connexions → une extension comme CleanTab.</span></li>
+    <li><span data-en><strong>You want to clean your entire PC</strong> — free up disk space, remove system junk across every app → a desktop cleaner like CCleaner or the open-source BleachBit.</span>
+    <span data-fr><strong>Vous voulez nettoyer tout le PC</strong> — libérer de l'espace disque, supprimer les fichiers inutiles de toutes les applis → un logiciel de bureau comme CCleaner ou BleachBit (open source).</span></li>
+    <li><span data-en><strong>You care mostly about privacy</strong> — limiting tracking cookies without a heavy install → a lightweight, local extension is the better fit.</span>
+    <span data-fr><strong>Vous tenez surtout à la vie privée</strong> — limiter les cookies traceurs sans gros logiciel → une extension légère et locale est plus adaptée.</span></li>
+  </ul>
+
+  <div class="cta-box">
+    <img src="icon128.png" alt="" />
+    <div>
+      <h3 style="margin-top:0"><span data-en>Where CleanTab fits</span><span data-fr>Là où CleanTab se place</span></h3>
+      <p>
+        <span data-en>If a browser cleaner is what you need, CleanTab keeps it simple: one click or on a schedule, a whitelist for the logins you keep, 22 languages, and nothing ever leaves your browser. Free, Chrome &amp; Edge.</span>
+        <span data-fr>Si c'est un nettoyeur de navigateur qu'il vous faut, CleanTab fait simple : en un clic ou programmé, une liste blanche pour garder vos connexions, 22 langues, et rien ne quitte votre navigateur. Gratuit, Chrome &amp; Edge.</span>
+      </p>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome — free</span><span data-fr>Ajouter à Chrome — gratuit</span>
+      </a>
+      <div class="cta-sub">
+        <span data-en>Made by an independent developer. No account, no tracking.</span>
+        <span data-fr>Créée par un développeur indépendant. Sans compte, sans suivi.</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:14px;color:#8d9cb4;">
+    <span data-en>Product names and trademarks belong to their respective owners. This comparison reflects general category differences at the time of writing and is not affiliated with or endorsed by any other tool mentioned.</span>
+    <span data-fr>Les noms de produits et marques appartiennent à leurs propriétaires respectifs. Ce comparatif reflète des différences générales de catégorie au moment de la rédaction et n'est ni affilié ni approuvé par les autres outils mentionnés.</span>
+  </p>
+
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+</script>
+
+</body>
+</html>

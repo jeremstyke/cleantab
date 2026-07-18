@@ -174,6 +174,7 @@
         <div><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> — <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
         <div style="margin-top:5px; opacity:0.75; font-size:10px;" id="pAff">Affiliate links</div>
       </div>
+      <div style="margin-bottom:8px;"><a href="compare.html" id="lnkCompare" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">CleanTab vs CCleaner &amp; alternatives</a></div>
       © 2026 Jeremstyke
     </div>
   </div>
@@ -212,6 +213,8 @@
     document.getElementById('txtPrivacy').textContent = d.privacy;
     var guideLabels = {en:'Guide',fr:'Guide',es:'Guía',de:'Ratgeber',it:'Guida',pt:'Guia',nl:'Gids',pl:'Poradnik',tr:'Rehber',ru:'Гид',zh:'指南',ja:'ガイド',ko:'가이드',hi:'गाइड',ar:'دليل',id:'Panduan',vi:'Hướng dẫn',th:'คู่มือ',uk:'Гід',sv:'Guide',el:'Οδηγός',cs:'Průvodce',ro:'Ghid'};
     var gEl = document.getElementById('txtGuide'); if (gEl) gEl.textContent = guideLabels[l] || 'Guide';
+    var cmpLabels = {en:'CleanTab vs CCleaner & alternatives',fr:'CleanTab face à CCleaner & alternatives',es:'CleanTab vs CCleaner y alternativas',de:'CleanTab vs CCleaner & Alternativen',it:'CleanTab vs CCleaner e alternative',pt:'CleanTab vs CCleaner e alternativas'};
+    var cEl = document.getElementById('lnkCompare'); if (cEl) cEl.textContent = cmpLabels[l] || cmpLabels.en;
     var e1 = document.getElementById('pTitle'); if (e1) e1.textContent = d.pTitle || T.en.pTitle;
     var e2 = document.getElementById('pDm'); if (e2) e2.textContent = d.pDm || T.en.pDm;
     var e3 = document.getElementById('pIpv'); if (e3) e3.textContent = d.pIpv || T.en.pIpv;
