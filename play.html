@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Play Tab Rush — The CleanTab Mini-Game</title>
+<meta name="description" content="Play Tab Rush, the free CleanTab mini-game: close the tabs as fast as you can. Then get the real CleanTab extension to clean your browser in one click." />
+<link rel="canonical" href="https://jeremstyke.github.io/cleantab/play.html" />
+<meta property="og:title" content="Play Tab Rush — The CleanTab Mini-Game" />
+<meta property="og:description" content="Close the tabs as fast as you can — then clean your real browser with CleanTab." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jeremstyke.github.io/cleantab/icon128.png" />
+<link rel="icon" href="icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --accent:#f5b638;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.7; -webkit-font-smoothing:antialiased; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:760px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .wrap { max-width:760px; margin:0 auto; padding:44px 26px 60px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:13px; text-align:center; }
+  h1 { font-family:var(--serif); font-size:40px; line-height:1.12; letter-spacing:-1.2px;
+    font-weight:700; color:var(--navy); margin:0 0 12px; text-align:center; }
+  .sub { font-size:18px; color:#3d5170; margin:0 auto 30px; text-align:center; max-width:520px; }
+
+  /* Game frame */
+  .game-shell { background:#fff; border:1px solid var(--border); border-radius:18px;
+    overflow:hidden; box-shadow:0 14px 40px rgba(13,36,64,0.08); }
+  .game-frame { width:100%; height:640px; border:0; display:block; }
+
+  /* CTA below the game */
+  .cta { margin-top:40px; text-align:center; }
+  .cta h2 { font-family:var(--serif); font-size:28px; font-weight:700; color:var(--navy);
+    margin:0 0 10px; letter-spacing:-0.5px; }
+  .cta p { font-size:17px; color:#4a5f7e; margin:0 auto 24px; max-width:500px; }
+  .btn-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn { display:inline-flex; align-items:center; gap:10px; padding:15px 26px; border-radius:13px;
+    font-size:16px; font-weight:700; text-decoration:none; color:#fff; transition:transform .18s, box-shadow .18s; }
+  .btn .sub2 { display:block; font-size:10.5px; font-weight:600; opacity:0.85; margin-top:1px; text-align:left; }
+  .btn-chrome { background:linear-gradient(135deg,#2563eb,#4f8bf0); box-shadow:0 10px 26px rgba(37,99,235,0.32); }
+  .btn-chrome:hover { transform:translateY(-2px); box-shadow:0 15px 34px rgba(37,99,235,0.42); }
+  .btn-edge { background:linear-gradient(135deg,#0c85d0,#33b1e1); box-shadow:0 10px 26px rgba(12,133,208,0.32); }
+  .btn-edge:hover { transform:translateY(-2px); box-shadow:0 15px 34px rgba(12,133,208,0.42); }
+  .edge-hint { font-size:12px; color:var(--muted); margin:16px 0 0; }
+
+  .site-foot { max-width:760px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); text-align:center; }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+
+  @media (max-width:640px) {
+    h1 { font-size:31px; }
+    .sub { font-size:16px; }
+    .game-frame { height:600px; }
+    .cta h2 { font-size:23px; }
+    .btn { width:100%; justify-content:center; }
+    .wrap { padding:32px 18px 46px; }
+    .logo-link img { height:25px; }
+  }
+  @media (prefers-reduced-motion:reduce) { * { transition:none!important; scroll-behavior:auto!important; } }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="eyebrow"><span data-en>Mini-game</span><span data-fr>Mini-jeu</span></div>
+  <h1><span data-en>Tab Rush</span><span data-fr>Tab Rush</span></h1>
+  <p class="sub">
+    <span data-en>Close the tabs as fast as you can. It's the little game hidden inside CleanTab — try it right here.</span>
+    <span data-fr>Fermez les onglets le plus vite possible. C'est le petit jeu caché dans CleanTab — essayez-le ici.</span>
+  </p>
+
+  <div class="game-shell">
+    <iframe class="game-frame" src="tab-rush-embed.html" title="Tab Rush game" loading="lazy"></iframe>
+  </div>
+
+  <div class="cta">
+    <h2><span data-en>Now clean your real browser</span><span data-fr>Maintenant, nettoyez votre vrai navigateur</span></h2>
+    <p>
+      <span data-en>Closing tabs is fun — clearing cache, cookies and history is even better. Get CleanTab and do it in one click, or automatically.</span>
+      <span data-fr>Fermer des onglets, c'est amusant — effacer cache, cookies et historique, c'est encore mieux. Installez CleanTab et faites-le en un clic, ou automatiquement.</span>
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-chrome" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 48 48" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" fill="#fff"/>
+          <path fill="#4caf50" d="M24 4a20 20 0 0 1 17.3 10H24a10 10 0 0 0-9.4 6.6L7.3 12A20 20 0 0 1 24 4z"/>
+          <path fill="#f44336" d="M41.3 14A20 20 0 0 1 24 44l8.6-14.9A10 10 0 0 0 34 24a10 10 0 0 0-1.4-5H41z"/>
+          <path fill="#ffc107" d="M24 44A20 20 0 0 1 7.3 12l8.6 14.9A10 10 0 0 0 24 34a10 10 0 0 0 2.4-.3z"/>
+          <circle cx="24" cy="24" r="8" fill="#2196f3"/>
+        </svg>
+        <span><span data-en>Add to Chrome</span><span data-fr>Ajouter à Chrome</span><span class="sub2">Chrome Web Store</span></span>
+      </a>
+      <a class="btn btn-edge" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 48 48" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="eA" x1="8" y1="34" x2="40" y2="34" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0c59a4"/><stop offset="1" stop-color="#114a8b"/></linearGradient>
+            <linearGradient id="eB" x1="30" y1="20" x2="10" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1b9de2"/><stop offset="0.6" stop-color="#1595df"/><stop offset="1" stop-color="#0680d7"/></linearGradient>
+            <linearGradient id="eC" x1="12" y1="6" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#35c1f1"/><stop offset="0.5" stop-color="#34c1ed"/><stop offset="1" stop-color="#5eeb69"/></linearGradient>
+          </defs>
+          <path fill="url(#eA)" d="M40.7 32c-.5 2.6-1.8 5.4-3.9 7.6-3 3.2-7 4.4-10.2 4.4-8 0-13.9-5.6-13.9-13 0-3.4 2-6 4-6.9-1 3.5.2 6.7 2.3 8.7 3.6 3.5 10.5 3.9 15.9 1.9 2.4-.9 4.6-1.9 5.7-2.7z"/>
+          <path fill="url(#eB)" d="M20 43.3c-2.5-.5-4.7-1.6-6.5-3-6-4.8-5.6-13.4.7-17.4 1.7-1 3.3-1.2 4.5-1.2 1.3 0 2.7.4 3.7 1-2.4.1-4.6 1.5-5.7 3.6-1.6 3-.9 6.6 1.4 8.8 3 2.9 7.5 4.6 12.4 4.6-2.9 1-6.6 1.3-10 1z"/>
+          <path fill="url(#eC)" d="M24 4c5.5 0 10.5 2.2 14 5.9 2.6 2.7 4 6.2 4 9.6 0 3.4-2.2 5.7-5.4 5.7-2.6 0-5-1.5-5-4.4 0-.9.3-1.7.3-2.6 0-3.5-3-6.8-8.2-6.8-5.6 0-10.3 3.7-12.6 8.3C9.7 12 16.2 4 24 4z"/>
+        </svg>
+        <span><span data-en>Add to Edge</span><span data-fr>Ajouter à Edge</span><span class="sub2">Chrome Web Store</span></span>
+      </a>
+    </div>
+    <p class="edge-hint">
+      <span data-en>Edge runs Chrome extensions — install from the Chrome Web Store and click "Allow" if asked.</span>
+      <span data-fr>Edge utilise les extensions Chrome — installez depuis le Chrome Web Store et cliquez sur « Autoriser » si demandé.</span>
+    </p>
+  </div>
+
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="how-to-use.html"><span data-en>How to use</span><span data-fr>Mode d'emploi</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+</script>
+
+</body>
+</html>

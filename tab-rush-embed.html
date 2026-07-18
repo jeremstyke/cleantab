@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanTab — Tab Rush</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #2563eb;
+      --accent2: #1a73e8;
+      --navy: #0d2440;
+      --muted: #5a6b82;
+      --bg: #eef3fb;
+      --card: #ffffff;
+      --border: #e3e9f2;
+    }
+    body.dark {
+      --navy: #e8eef7;
+      --muted: #94a3b8;
+      --bg: #0d1421;
+      --card: #16202f;
+      --border: #24324a;
+      --accent: #4f8ff7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+    }
+    .header { text-align: center; margin-bottom: 20px; }
+    .brand { font-family: 'Space Mono', monospace; font-size: 26px; font-weight: 700; }
+    .brand span { color: var(--accent); }
+    .game-title { font-size: 15px; color: var(--muted); margin-top: 4px; font-weight: 600; }
+    .container { width: 100%; max-width: 560px; }
+
+    /* Mode selection */
+    .modes { display: flex; gap: 12px; margin-bottom: 18px; }
+    .mode-btn {
+      flex: 1; padding: 16px; background: var(--card); border: 2px solid var(--border);
+      border-radius: 14px; cursor: pointer; text-align: center; transition: all 0.15s;
+    }
+    .mode-btn.active { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--card)); }
+    .mode-btn:hover { transform: translateY(-2px); }
+    .mode-icon { font-size: 26px; margin-bottom: 6px; }
+    .mode-name { font-weight: 700; font-size: 14px; }
+    .mode-desc { font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+
+    /* HUD */
+    .hud { display: flex; justify-content: space-around; margin-bottom: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
+    .hud-item { text-align: center; }
+    .hud-value { font-family: 'Space Mono', monospace; font-size: 24px; font-weight: 700; color: var(--accent); }
+    .hud-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Play area */
+    .play-area {
+      position: relative; background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; height: 420px; overflow: hidden; padding: 12px;
+    }
+    .tab {
+      position: absolute; display: flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #ffffff, #f1f5fc);
+      border: 1px solid #d8e2f0; border-radius: 10px 10px 4px 4px;
+      padding: 10px 12px; cursor: pointer; user-select: none;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08); transition: transform 0.1s;
+      width: 160px; overflow: hidden;
+    }
+    body.dark .tab { background: linear-gradient(135deg, #1e293b, #172032); border-color: #2c3a52; }
+    .tab:active { transform: scale(0.92); }
+    .tab.closing { animation: tabClose 0.25s forwards; pointer-events: none; }
+    @keyframes tabClose {
+      to { transform: scale(0) rotate(15deg); opacity: 0; }
+    }
+    .tab-favicon { font-size: 16px; flex-shrink: 0; }
+    .tab-title { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--navy); }
+    .tab-x { margin-left: auto; font-size: 14px; color: var(--muted); flex-shrink: 0; }
+
+    /* Overlays */
+    .overlay {
+      position: absolute; inset: 0; display: none; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      background: color-mix(in srgb, var(--card) 92%, transparent); z-index: 10; padding: 20px;
+    }
+    .overlay.show { display: flex; }
+    .overlay-emoji { font-size: 54px; margin-bottom: 12px; }
+    .overlay-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .overlay-sub { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+    .overlay-score { font-family: 'Space Mono', monospace; font-size: 40px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+
+    .btn {
+      background: var(--accent); color: #fff; border: none; border-radius: 10px;
+      padding: 13px 28px; font-size: 15px; font-weight: 700; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; transition: all 0.15s;
+    }
+    .btn:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-big { font-size: 17px; padding: 15px 40px; }
+
+    .countdown {
+      font-family: 'Space Mono', monospace; font-size: 80px; font-weight: 700;
+      color: var(--accent); animation: pulse 0.5s ease;
+    }
+    @keyframes pulse { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+    .best { text-align: center; margin-top: 14px; font-size: 13px; color: var(--muted); }
+    .best strong { color: var(--accent); }
+    .footer { margin-top: 20px; text-align: center; font-size: 12px; color: var(--muted); }
+    .footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
+    .back-link { display: inline-block; margin-bottom: 16px; color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; }
+    .back-link:hover { color: var(--accent); }
+  </style>
+
+<style>
+  /* Embedded mode: hide the standalone chrome, the wrapper provides it */
+  #backLink, .header { display: none !important; }
+  body { padding-top: 8px !important; }
+</style>
+</head>
+<body>
+  <a href="#" class="back-link" id="backLink" data-i18n="game_back">← Retour</a>
+  <div class="header">
+    <div class="brand">Clean<span>Tab</span></div>
+    <div class="game-title" data-i18n="game_subtitle">🎮 Tab Rush — Fermez les onglets le plus vite possible !</div>
+  </div>
+
+  <div class="container">
+    <div id="topBanner" style="display:none; align-items:center; gap:10px; margin-bottom:18px; padding:11px 14px; border-radius:12px; font-size:13px;"></div>
+    <!-- Mode selection -->
+    <div class="modes" id="modeSelect">
+      <div class="mode-btn active" data-mode="timeattack">
+        <div class="mode-icon">⏱️</div>
+        <div class="mode-name" data-i18n="game_mode_time">Temps limité</div>
+        <div class="mode-desc" data-i18n="game_mode_time_desc">Max d'onglets en 30s</div>
+      </div>
+      <div class="mode-btn" data-mode="sprint">
+        <div class="mode-icon">🏁</div>
+        <div class="mode-name" data-i18n="game_mode_sprint">Contre-la-montre</div>
+        <div class="mode-desc" data-i18n="game_mode_sprint_desc">30 onglets le + vite</div>
+      </div>
+    </div>
+
+    <!-- HUD -->
+    <div class="hud">
+      <div class="hud-item">
+        <div class="hud-value" id="hudScore">0</div>
+        <div class="hud-label" id="hudScoreLabel" data-i18n="game_closed">Fermés</div>
+      </div>
+      <div class="hud-item">
+        <div class="hud-value" id="hudTime">30.0</div>
+        <div class="hud-label" data-i18n="game_time">Temps</div>
+      </div>
+    </div>
+
+    <!-- Play area -->
+    <div class="play-area" id="playArea">
+      <!-- Start overlay -->
+      <div class="overlay show" id="startOverlay">
+        <div class="overlay-emoji">🎮</div>
+        <div class="overlay-title" data-i18n="game_ready">Prêt à jouer ?</div>
+        <div class="overlay-sub" id="startSub" data-i18n="game_ready_sub">Cliquez sur les onglets pour les fermer le plus vite possible !</div>
+        <button class="btn btn-big" id="startBtn" data-i18n="game_start">▶ Jouer</button>
+      </div>
+      <!-- Countdown overlay -->
+      <div class="overlay" id="countdownOverlay">
+        <div class="countdown" id="countdownNum">3</div>
+      </div>
+      <!-- End overlay -->
+      <div class="overlay" id="endOverlay">
+        <div class="overlay-emoji" id="endEmoji">🏆</div>
+        <div class="overlay-score" id="endScore">0</div>
+        <div class="overlay-sub" id="endSub" data-i18n="game_result">onglets fermés !</div>
+        <button class="btn btn-big" id="replayBtn" data-i18n="game_replay">↻ Rejouer</button>
+      </div>
+    </div>
+
+    <div class="best" id="bestLine"></div>
+  </div>
+
+  <div class="footer">
+    <span data-i18n="game_footer">Un petit jeu pour se détendre 🧹</span>
+  </div>
+
+  <script>
+// ─── Tab Rush mini-game ──
+const I18N = {
+  fr: {
+    game_back: '← Retour', game_subtitle: '🎮 Tab Rush — Fermez les onglets le plus vite possible !',
+    game_mode_time: 'Temps limité', game_mode_time_desc: "Max d'onglets en 30s",
+    game_mode_sprint: 'Contre-la-montre', game_mode_sprint_desc: '30 onglets le + vite',
+    game_closed: 'Fermés', game_time: 'Temps', game_ready: 'Prêt à jouer ?',
+    game_ready_sub: 'Cliquez sur les onglets pour les fermer le plus vite possible !',
+    game_start: '▶ Jouer', game_replay: '↻ Rejouer', game_result: 'onglets fermés !',
+    game_result_sprint: 'Temps final', game_footer: 'Un petit jeu pour se détendre 🧹',
+    game_best_time: 'Meilleur score', game_best_sprint: 'Meilleur temps', game_tabs: 'onglets',
+    game_new_record: '🎉 Nouveau record !',
+    topbanner_review: 'Votre avis fait vivre CleanTab ❤️ Laissez 5 étoiles', topbanner_review_btn: 'Noter',
+    topbanner_support: 'CleanTab est gratuit — un café m\'aide à continuer ☕❤️', topbanner_support_btn: 'Faire un don',
+    topbanner_dm: 'Protégez vos données : supprimez-les du web avec DeleteMe', topbanner_dm_btn: 'Découvrir',
+  },
+  en: {
+    game_back: '← Back', game_subtitle: '🎮 Tab Rush — Close tabs as fast as you can!',
+    game_mode_time: 'Time attack', game_mode_time_desc: 'Max tabs in 30s',
+    game_mode_sprint: 'Sprint', game_mode_sprint_desc: '30 tabs as fast as you can',
+    game_closed: 'Closed', game_time: 'Time', game_ready: 'Ready to play?',
+    game_ready_sub: 'Click the tabs to close them as fast as you can!',
+    game_start: '▶ Play', game_replay: '↻ Replay', game_result: 'tabs closed!',
+    game_result_sprint: 'Final time', game_footer: 'A little game to relax 🧹',
+    game_best_time: 'Best score', game_best_sprint: 'Best time', game_tabs: 'tabs',
+    game_new_record: '🎉 New record!',
+    topbanner_review: 'Your review keeps CleanTab alive ❤️ Leave 5 stars', topbanner_review_btn: 'Rate',
+    topbanner_support: 'CleanTab is free — a coffee helps me keep going ☕❤️', topbanner_support_btn: 'Donate',
+    topbanner_dm: 'Protect your data: remove it from the web with DeleteMe', topbanner_dm_btn: 'Learn more',
+  },
+  es: {
+    game_back: '← Volver', game_subtitle: '🎮 Tab Rush — ¡Cierra las pestañas lo más rápido posible!',
+    game_mode_time: 'Contrarreloj', game_mode_time_desc: 'Máx. pestañas en 30s',
+    game_mode_sprint: 'Sprint', game_mode_sprint_desc: '30 pestañas lo más rápido',
+    game_closed: 'Cerradas', game_time: 'Tiempo', game_ready: '¿Listo para jugar?',
+    game_ready_sub: '¡Haz clic en las pestañas para cerrarlas lo más rápido posible!',
+    game_start: '▶ Jugar', game_replay: '↻ Repetir', game_result: '¡pestañas cerradas!',
+    game_result_sprint: 'Tiempo final', game_footer: 'Un pequeño juego para relajarse 🧹',
+    game_best_time: 'Mejor puntuación', game_best_sprint: 'Mejor tiempo', game_tabs: 'pestañas',
+    game_new_record: '🎉 ¡Nuevo récord!',
+  },
+  de: {
+    game_back: '← Zurück', game_subtitle: '🎮 Tab Rush — Schließe Tabs so schnell wie möglich!',
+    game_mode_time: 'Zeitangriff', game_mode_time_desc: 'Max. Tabs in 30s',
+    game_mode_sprint: 'Sprint', game_mode_sprint_desc: '30 Tabs so schnell wie möglich',
+    game_closed: 'Geschlossen', game_time: 'Zeit', game_ready: 'Bereit zu spielen?',
+    game_ready_sub: 'Klicke auf die Tabs, um sie so schnell wie möglich zu schließen!',
+    game_start: '▶ Spielen', game_replay: '↻ Nochmal', game_result: 'Tabs geschlossen!',
+    game_result_sprint: 'Endzeit', game_footer: 'Ein kleines Spiel zum Entspannen 🧹',
+    game_best_time: 'Bestwert', game_best_sprint: 'Bestzeit', game_tabs: 'Tabs',
+    game_new_record: '🎉 Neuer Rekord!',
+  },
+  it: {
+    game_back: '← Indietro', game_subtitle: '🎮 Tab Rush — Chiudi le schede il più velocemente possibile!',
+    game_mode_time: 'Contro il tempo', game_mode_time_desc: 'Max schede in 30s',
+    game_mode_sprint: 'Sprint', game_mode_sprint_desc: '30 schede il più veloce',
+    game_closed: 'Chiuse', game_time: 'Tempo', game_ready: 'Pronto a giocare?',
+    game_ready_sub: 'Clicca sulle schede per chiuderle il più velocemente possibile!',
+    game_start: '▶ Gioca', game_replay: '↻ Rigioca', game_result: 'schede chiuse!',
+    game_result_sprint: 'Tempo finale', game_footer: 'Un piccolo gioco per rilassarsi 🧹',
+    game_best_time: 'Miglior punteggio', game_best_sprint: 'Miglior tempo', game_tabs: 'schede',
+    game_new_record: '🎉 Nuovo record!',
+  },
+};
+
+let LANG = 'en';
+function t(key) {
+  return (I18N[LANG] && I18N[LANG][key]) || I18N.en[key] || key;
+}
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    const v = t(k);
+    if (v) el.textContent = v;
+  });
+  document.documentElement.lang = LANG;
+}
+
+// Fake tab titles + favicons for the simulated tabs
+const FAKE_TABS = [
+  { icon: '🌐', title: 'example.com' }, { icon: '📺', title: 'VideoTube' },
+  { icon: '🛒', title: 'ShopNow' }, { icon: '📧', title: 'MailBox' },
+  { icon: '📰', title: 'Daily News' }, { icon: '🎵', title: 'MusicPlay' },
+  { icon: '💬', title: 'ChatApp' }, { icon: '📷', title: 'PhotoGram' },
+  { icon: '🔍', title: 'SearchIt' }, { icon: '📚', title: 'WikiPedia' },
+  { icon: '🎮', title: 'GameZone' }, { icon: '💼', title: 'WorkSpace' },
+  { icon: '🍕', title: 'FoodOrder' }, { icon: '✈️', title: 'TravelGo' },
+  { icon: '🏦', title: 'MyBank' }, { icon: '⚽', title: 'SportLive' },
+];
+
+const TIME_LIMIT = 30; // seconds for time attack
+const SPRINT_TARGET = 30; // tabs to close in sprint
+
+let mode = 'timeattack';
+let score = 0;
+let timeLeft = TIME_LIMIT;
+let sprintTime = 0;
+let running = false;
+let timerInterval = null;
+let spawnInterval = null;
+let startTime = 0;
+
+const playArea = document.getElementById('playArea');
+const hudScore = document.getElementById('hudScore');
+const hudTime = document.getElementById('hudTime');
+
+function fmtTime(s) { return s.toFixed(1); }
+
+function spawnTab() {
+  if (!running) return;
+  const data = FAKE_TABS[Math.floor(Math.random() * FAKE_TABS.length)];
+  const tab = document.createElement('div');
+  tab.className = 'tab';
+  tab.innerHTML = `<span class="tab-favicon">${data.icon}</span><span class="tab-title">${data.title}</span><span class="tab-x">✕</span>`;
+  const areaW = playArea.clientWidth - 172;
+  const areaH = playArea.clientHeight - 60;
+  tab.style.left = Math.max(6, Math.random() * areaW) + 'px';
+  tab.style.top = Math.max(6, Math.random() * areaH) + 'px';
+  tab.addEventListener('click', () => closeTab(tab));
+  playArea.appendChild(tab);
+}
+
+function closeTab(tab) {
+  if (!running || tab.classList.contains('closing')) return;
+  tab.classList.add('closing');
+  playClickSound();
+  setTimeout(() => tab.remove(), 250);
+  score++;
+  hudScore.textContent = score;
+  if (mode === 'sprint' && score >= SPRINT_TARGET) {
+    endGame();
+  }
+}
+
+function playClickSound() {
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return;
+    const ctx = new Ctx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = 660 + Math.random() * 220;
+    gain.gain.setValueAtTime(0.14, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(); osc.stop(ctx.currentTime + 0.12);
+    setTimeout(() => ctx.close(), 300);
+  } catch (e) {}
+}
+
+function startGame() {
+  score = 0;
+  hudScore.textContent = '0';
+  running = false;
+  // Clear any tabs
+  playArea.querySelectorAll('.tab').forEach(t => t.remove());
+  document.getElementById('startOverlay').classList.remove('show');
+  document.getElementById('endOverlay').classList.remove('show');
+
+  // Countdown 3-2-1
+  const cdOverlay = document.getElementById('countdownOverlay');
+  const cdNum = document.getElementById('countdownNum');
+  cdOverlay.classList.add('show');
+  let c = 3;
+  cdNum.textContent = c;
+  const cd = setInterval(() => {
+    c--;
+    if (c > 0) {
+      cdNum.textContent = c;
+      cdNum.style.animation = 'none'; void cdNum.offsetWidth; cdNum.style.animation = 'pulse 0.5s ease';
+    } else {
+      clearInterval(cd);
+      cdOverlay.classList.remove('show');
+      runGame();
+    }
+  }, 800);
+}
+
+function runGame() {
+  running = true;
+  score = 0;
+  hudScore.textContent = '0';
+  startTime = Date.now();
+
+  if (mode === 'timeattack') {
+    timeLeft = TIME_LIMIT;
+    hudTime.textContent = fmtTime(timeLeft);
+    timerInterval = setInterval(() => {
+      timeLeft -= 0.1;
+      if (timeLeft <= 0) { timeLeft = 0; hudTime.textContent = '0.0'; endGame(); }
+      else hudTime.textContent = fmtTime(timeLeft);
+    }, 100);
+  } else {
+    // sprint: count up
+    hudTime.textContent = '0.0';
+    timerInterval = setInterval(() => {
+      sprintTime = (Date.now() - startTime) / 1000;
+      hudTime.textContent = fmtTime(sprintTime);
+    }, 100);
+  }
+
+  // Spawn tabs progressively (keep a bunch on screen)
+  for (let i = 0; i < 6; i++) spawnTab();
+  spawnInterval = setInterval(() => {
+    const current = playArea.querySelectorAll('.tab:not(.closing)').length;
+    const target = mode === 'sprint' ? 10 : 8;
+    if (current < target) {
+      const toAdd = target - current;
+      for (let i = 0; i < toAdd; i++) spawnTab();
+    }
+  }, 250);
+}
+
+function endGame() {
+  running = false;
+  clearInterval(timerInterval);
+  clearInterval(spawnInterval);
+  playArea.querySelectorAll('.tab').forEach(t => t.remove());
+
+  const endOverlay = document.getElementById('endOverlay');
+  const endScore = document.getElementById('endScore');
+  const endSub = document.getElementById('endSub');
+  const endEmoji = document.getElementById('endEmoji');
+
+  let isRecord = false;
+  if (mode === 'timeattack') {
+    endScore.textContent = score;
+    endSub.textContent = t('game_result');
+    isRecord = saveBest('timeattack', score, true);
+  } else {
+    const finalTime = (Date.now() - startTime) / 1000;
+    endScore.textContent = fmtTime(finalTime) + 's';
+    endSub.textContent = t('game_result_sprint');
+    isRecord = saveBest('sprint', finalTime, false);
+  }
+  endEmoji.textContent = isRecord ? '🎉' : '🏆';
+  if (isRecord) endSub.textContent = t('game_new_record');
+  endOverlay.classList.add('show');
+  renderBest();
+}
+
+// ─── Best scores (persisted via chrome.storage or localStorage fallback) ──
+function getStore(cb) {
+  try {
+    if (window.chrome && chrome.storage && chrome.storage.local) {
+      chrome.storage.local.get(['gameBest'], (r) => cb(r.gameBest || {}));
+      return;
+    }
+  } catch (e) {}
+  try { cb(JSON.parse(localStorage.getItem('gameBest') || '{}')); }
+  catch (e) { cb({}); }
+}
+function setStore(best) {
+  try {
+    if (window.chrome && chrome.storage && chrome.storage.local) {
+      chrome.storage.local.set({ gameBest: best });
+      return;
+    }
+  } catch (e) {}
+  try { localStorage.setItem('gameBest', JSON.stringify(best)); } catch (e) {}
+}
+
+let bestCache = {};
+function saveBest(key, value, higherIsBetter) {
+  let isRecord = false;
+  const prev = bestCache[key];
+  if (prev === undefined || (higherIsBetter ? value > prev : value < prev)) {
+    bestCache[key] = value;
+    setStore(bestCache);
+    isRecord = prev !== undefined; // only a "record" if there was a previous best
+  }
+  return isRecord;
+}
+function renderBest() {
+  const line = document.getElementById('bestLine');
+  const bt = bestCache.timeattack;
+  const bs = bestCache.sprint;
+  let html = '';
+  if (bt !== undefined) html += `⏱️ ${t('game_best_time')}: <strong>${bt} ${t('game_tabs')}</strong>`;
+  if (bs !== undefined) html += `${html ? ' &nbsp;·&nbsp; ' : ''}🏁 ${t('game_best_sprint')}: <strong>${bs.toFixed(1)}s</strong>`;
+  line.innerHTML = html;
+}
+
+// ─── Init ──
+function detectLang() {
+  try {
+    if (window.chrome && chrome.storage && chrome.storage.local) {
+      chrome.storage.local.get(['lang'], (r) => {
+        LANG = (r.lang && I18N[r.lang]) ? r.lang : (navigator.language || 'en').slice(0, 2);
+        if (!I18N[LANG]) LANG = 'en';
+        finishInit();
+      });
+      return;
+    }
+  } catch (e) {}
+  LANG = (navigator.language || 'en').slice(0, 2);
+  if (!I18N[LANG]) LANG = 'en';
+  finishInit();
+}
+
+function finishInit() {
+  applyI18n();
+  getStore((best) => { bestCache = best; renderBest(); });
+  // Theme
+  try {
+    if (window.chrome && chrome.storage && chrome.storage.local) {
+      chrome.storage.local.get(['theme'], (r) => {
+        if (r.theme === 'dark') document.body.classList.add('dark');
+      });
+    }
+  } catch (e) {}
+}
+
+// Mode buttons
+document.querySelectorAll('.mode-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    mode = btn.getAttribute('data-mode');
+    // Update HUD labels
+    document.getElementById('hudTime').textContent = mode === 'timeattack' ? fmtTime(TIME_LIMIT) : '0.0';
+    document.getElementById('startSub').textContent = mode === 'sprint'
+      ? (LANG === 'fr' ? `Fermez ${SPRINT_TARGET} onglets le plus vite possible !` : `Close ${SPRINT_TARGET} tabs as fast as you can!`)
+      : t('game_ready_sub');
+  });
+});
+
+document.getElementById('startBtn').addEventListener('click', startGame);
+document.getElementById('replayBtn').addEventListener('click', startGame);
+document.getElementById('backLink').addEventListener('click', (e) => {
+  e.preventDefault();
+  try {
+    if (window.chrome && chrome.runtime && chrome.runtime.openOptionsPage) { window.close(); return; }
+  } catch (e) {}
+  window.history.back();
+});
+
+detectLang();
+
+// Rotating banner under title: review 50 / donation 30 / DeleteMe 20
+(function initGameBanner() {
+  function tt(k, fb) { try { var v = t(k); return (v && v !== k) ? v : fb; } catch(e){ return fb; } }
+  function setup() {
+    var banner = document.getElementById('topBanner');
+    if (!banner) return;
+    var rnd = Math.random();
+    var variant = rnd < 0.50 ? 'review' : (rnd < 0.80 ? 'support' : 'deleteme');
+    banner.style.background = '#f5f8fd';
+    banner.style.border = '1px solid #e3e9f2';
+    if (variant === 'review') {
+      banner.innerHTML = '<span style="font-size:15px;letter-spacing:1px;">⭐⭐⭐⭐⭐</span>' +
+        '<span style="flex:1;font-weight:700;color:#0d2440;">' + tt('topbanner_review','Your review keeps CleanTab alive ❤️ Leave 5 stars') + '</span>' +
+        '<a href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod/reviews" target="_blank" rel="noopener" style="background:#2563eb;color:#fff;border-radius:7px;padding:7px 13px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;">' + tt('topbanner_review_btn','Rate') + '</a>';
+    } else if (variant === 'support') {
+      banner.innerHTML = '<span style="font-size:18px;">☕</span>' +
+        '<span style="flex:1;font-weight:700;color:#0d2440;">' + tt('topbanner_support','CleanTab is free — a coffee helps me keep going ☕❤️') + '</span>' +
+        '<a href="https://ko-fi.com/cleantab" target="_blank" rel="noopener" style="background:#29abe0;color:#fff;border-radius:7px;padding:7px 13px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;">' + tt('topbanner_support_btn','Donate') + '</a>';
+    } else {
+      banner.innerHTML = '<span style="font-size:18px;">🔒</span>' +
+        '<span style="flex:1;font-weight:700;color:#0d2440;">' + tt('topbanner_dm','Protect your data: remove it from the web with DeleteMe') + '</span>' +
+        '<a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="background:#e8534e;color:#fff;border-radius:7px;padding:7px 13px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;">' + tt('topbanner_dm_btn','Learn more') + '</a>';
+    }
+    banner.style.display = 'flex';
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup);
+  else setup();
+})();
+
+</script>
+</body>
+</html>
