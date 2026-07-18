@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Use CleanTab — Getting the Most From Your Browser Cleaner</title>
+<meta name="description" content="A quick guide to using CleanTab: one-click cleaning, automatic schedules, the whitelist to keep your logins, statistics, notifications and more." />
+<link rel="canonical" href="https://jeremstyke.github.io/cleantab/how-to-use.html" />
+<meta property="og:title" content="How to Use CleanTab" />
+<meta property="og:description" content="Get the most from your browser cleaner — auto-clean, whitelist, statistics and more." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://jeremstyke.github.io/cleantab/icon128.png" />
+<link rel="icon" href="icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use CleanTab",
+  "description": "A quick guide to using CleanTab: one-click cleaning, automatic schedules, whitelist, statistics and notifications.",
+  "author": { "@type": "Person", "name": "Jeremstyke" },
+  "datePublished": "2026-07-18",
+  "publisher": { "@type": "Person", "name": "Jeremstyke" }
+}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:1120px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .hero { max-width:1120px; margin:0 auto; padding:56px 26px 8px; }
+  .hero-in { max-width:700px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:46px; line-height:1.1; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
+
+  .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
+    display:grid; grid-template-columns:200px 1fr; gap:54px; align-items:start; }
+  .rail { position:sticky; top:84px; }
+  .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:#9aa8bd; margin-bottom:14px; }
+  .rail ol { list-style:none; margin:0; padding:0; counter-reset:r; }
+  .rail li { counter-increment:r; }
+  .rail a { display:flex; gap:11px; align-items:baseline; padding:8px 0 8px 13px;
+    border-left:2px solid var(--border); font-size:13.5px; color:var(--muted);
+    text-decoration:none; transition:all .18s; line-height:1.4; }
+  .rail a::before { content:counter(r); font-size:10.5px; font-weight:700; color:#b6c3d6;
+    flex-shrink:0; transition:color .18s; }
+  .rail a:hover { color:var(--navy); border-left-color:#b9cdf2; }
+  .rail a.on { color:var(--blue); border-left-color:var(--blue); font-weight:600; }
+  .rail a.on::before { color:var(--blue); }
+
+  main { max-width:700px; min-width:0; }
+  section { scroll-margin-top:84px; }
+  section + section { margin-top:56px; }
+  .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
+  .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
+    font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
+    color:var(--navy); margin:0; line-height:1.24; }
+  .sec-body { padding-left:47px; }
+  p { margin:0 0 16px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ul { margin:0 0 16px; padding-left:4px; list-style:none; }
+  li { margin-bottom:10px; font-size:17px; padding-left:26px; position:relative; }
+  ul li::before { content:''; position:absolute; left:6px; top:12px; width:6px; height:6px;
+    border-radius:50%; background:#b9cdf2; }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:15.5px; }
+
+  .tip { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:16px 19px; margin:20px 0; font-size:15.5px; }
+  .tip p { margin:0; font-size:15.5px; color:#33455e; }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:18px; margin:0 0 5px; color:var(--navy); }
+  .cta-box p { font-size:14.5px; color:#4a5f7e; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+
+  @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .hero { padding:38px 20px 6px; }
+    .hero-lede { font-size:17px; }
+    h2 { font-size:22px; }
+    .sec-body { padding-left:0; }
+    p,li { font-size:16.5px; }
+    .shell { padding:24px 20px 50px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+  }
+  @media (prefers-reduced-motion:reduce) { * { transition:none!important; scroll-behavior:auto!important; } }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>How to use</span><span data-fr>Mode d'emploi</span></div>
+    <h1><span data-en>Getting the most from CleanTab</span><span data-fr>Bien utiliser CleanTab</span></h1>
+    <p class="hero-lede">
+      <span data-en>You've installed it — now here's how to make it work for you. Two minutes to set up, then it looks after your browser on its own.</span>
+      <span data-fr>Vous l'avez installé — voici comment le régler à votre main. Deux minutes de configuration, puis il s'occupe de votre navigateur tout seul.</span>
+    </p>
+  </div>
+</div>
+
+<div class="shell">
+
+  <nav class="rail" aria-label="Steps">
+    <div class="rail-title"><span data-en>Steps</span><span data-fr>Étapes</span></div>
+    <ol>
+      <li><a href="#pin" class="rail-a"><span data-en>Pin it</span><span data-fr>Épingler</span></a></li>
+      <li><a href="#clean" class="rail-a"><span data-en>Clean in one click</span><span data-fr>Nettoyer en 1 clic</span></a></li>
+      <li><a href="#auto" class="rail-a"><span data-en>Auto-clean</span><span data-fr>Auto-nettoyage</span></a></li>
+      <li><a href="#whitelist" class="rail-a"><span data-en>Whitelist</span><span data-fr>Liste blanche</span></a></li>
+      <li><a href="#notifs" class="rail-a"><span data-en>Notifications</span><span data-fr>Notifications</span></a></li>
+      <li><a href="#stats" class="rail-a"><span data-en>Statistics</span><span data-fr>Statistiques</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="pin">
+      <div class="step-head"><div class="step-num">1</div>
+        <h2><span data-en>Pin CleanTab to your toolbar</span><span data-fr>Épinglez CleanTab à la barre d'outils</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>After installing, click the puzzle-piece icon in the top-right of Chrome, find CleanTab, and click the pin. Now its icon stays visible — one click away whenever you need it.</span>
+        <span data-fr>Après l'installation, cliquez sur l'icône puzzle en haut à droite de Chrome, trouvez CleanTab, et cliquez sur l'épingle. Son icône reste alors visible — accessible en un clic dès que vous en avez besoin.</span></p>
+      </div>
+    </section>
+
+    <section id="clean">
+      <div class="step-head"><div class="step-num">2</div>
+        <h2><span data-en>Clean in one click</span><span data-fr>Nettoyez en un clic</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>Click the CleanTab icon and hit the clean button. That's the whole thing — cache, cookies, history and anything else you've selected are gone instantly.</span>
+        <span data-fr>Cliquez sur l'icône CleanTab et appuyez sur le bouton de nettoyage. C'est tout — cache, cookies, historique et tout ce que vous avez coché disparaissent aussitôt.</span></p>
+        <p><span data-en>You choose what gets cleared. Open the options to tick or untick each item — for example, keep your history but clear cache and cookies.</span>
+        <span data-fr>Vous choisissez ce qui est effacé. Ouvrez les options pour cocher ou décocher chaque élément — par exemple, garder l'historique mais effacer cache et cookies.</span></p>
+        <div class="tip"><p><span data-en><strong>Tip:</strong> if a site looks broken or shows old content, clearing just the cache usually fixes it — no need to clear everything.</span>
+        <span data-fr><strong>Astuce :</strong> si un site paraît cassé ou affiche du vieux contenu, effacer seulement le cache suffit généralement — pas besoin de tout supprimer.</span></p></div>
+      </div>
+    </section>
+
+    <section id="auto">
+      <div class="step-head"><div class="step-num">3</div>
+        <h2><span data-en>Set up automatic cleaning</span><span data-fr>Activez le nettoyage automatique</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>This is where CleanTab earns its place. Instead of remembering to clean, let it run on its own. In the options, turn on auto-clean and pick how often it should run.</span>
+        <span data-fr>C'est là que CleanTab prend tout son sens. Au lieu de penser à nettoyer, laissez-le tourner seul. Dans les options, activez l'auto-nettoyage et choisissez la fréquence.</span></p>
+        <p><span data-en>Once it's on, your browser stays clean in the background — you never have to think about it again.</span>
+        <span data-fr>Une fois activé, votre navigateur reste propre en arrière-plan — vous n'avez plus à y penser.</span></p>
+        <div class="note"><p><span data-en><strong>Good to know:</strong> clearing cache too often can slow browsing slightly, since sites re-download their files. Once a day is plenty for most people. Cookies and history can be cleared more freely.</span>
+        <span data-fr><strong>Bon à savoir :</strong> effacer le cache trop souvent peut légèrement ralentir la navigation, car les sites retéléchargent leurs fichiers. Une fois par jour suffit à la plupart. Cookies et historique peuvent l'être plus librement.</span></p></div>
+      </div>
+    </section>
+
+    <section id="whitelist">
+      <div class="step-head"><div class="step-num">4</div>
+        <h2><span data-en>Protect your logins with the whitelist</span><span data-fr>Protégez vos connexions avec la liste blanche</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>The whitelist is what makes automatic cleaning painless. Add the sites you want to stay logged into — your email, your bank, your work tools — and CleanTab will never touch their cookies, even during an auto-clean.</span>
+        <span data-fr>La liste blanche est ce qui rend le nettoyage automatique indolore. Ajoutez les sites où vous voulez rester connecté — votre mail, votre banque, vos outils de travail — et CleanTab ne touchera jamais à leurs cookies, même pendant un auto-nettoyage.</span></p>
+        <p><span data-en>Everything else gets cleaned. So you can wipe aggressively without ever losing the logins that matter.</span>
+        <span data-fr>Tout le reste est nettoyé. Vous pouvez donc effacer sans retenue sans jamais perdre les connexions qui comptent.</span></p>
+        <div class="tip"><p><span data-en><strong>Keep it short:</strong> most people only need four or five sites whitelisted. Everything else takes five seconds to log back into — and those are the cookies most worth clearing.</span>
+        <span data-fr><strong>Restez concis :</strong> quatre ou cinq sites suffisent généralement. Se reconnecter au reste prend cinq secondes — et ce sont justement les cookies les plus utiles à effacer.</span></p></div>
+      </div>
+    </section>
+
+    <section id="notifs">
+      <div class="step-head"><div class="step-num">5</div>
+        <h2><span data-en>Tune your notifications</span><span data-fr>Réglez vos notifications</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>CleanTab can let you know what it's doing, and you're in full control. In the options you'll find three independent toggles:</span>
+        <span data-fr>CleanTab peut vous tenir informé de ce qu'il fait, et vous gardez la main. Dans les options, vous trouverez trois interrupteurs indépendants :</span></p>
+        <ul>
+          <li><span data-en><strong>Auto-clean notice</strong> — a small confirmation each time an automatic clean runs.</span>
+          <span data-fr><strong>Avis d'auto-nettoyage</strong> — une petite confirmation à chaque nettoyage automatique.</span></li>
+          <li><span data-en><strong>Reminder</strong> — a nudge after a few days if you haven't cleaned.</span>
+          <span data-fr><strong>Rappel</strong> — un petit rappel après quelques jours sans nettoyage.</span></li>
+          <li><span data-en><strong>Weekly summary</strong> — a recap of what's been cleaned over the week.</span>
+          <span data-fr><strong>Résumé hebdomadaire</strong> — un récapitulatif de ce qui a été nettoyé dans la semaine.</span></li>
+        </ul>
+        <p><span data-en>Turn on the ones you find useful, switch off the rest. They don't affect each other.</span>
+        <span data-fr>Activez ceux qui vous sont utiles, coupez les autres. Ils sont indépendants les uns des autres.</span></p>
+      </div>
+    </section>
+
+    <section id="stats">
+      <div class="step-head"><div class="step-num">6</div>
+        <h2><span data-en>Check your statistics</span><span data-fr>Consultez vos statistiques</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>CleanTab keeps track of how much it's cleaned — number of cleans, what was removed, your streak. It's a nice way to see the extension quietly working for you.</span>
+        <span data-fr>CleanTab garde une trace de tout ce qu'il a nettoyé — nombre de nettoyages, ce qui a été supprimé, votre série. Une façon sympa de voir l'extension travailler pour vous.</span></p>
+        <p><span data-en>If you'd like a deeper breakdown, there's an optional <strong>Advanced Statistics</strong> add-on with more detailed charts. It's a small one-time unlock that also helps support development.</span>
+        <span data-fr>Si vous voulez un détail plus poussé, un module optionnel <strong>Statistiques avancées</strong> propose des graphiques plus complets. C'est un petit déblocage unique qui aide aussi à soutenir le développement.</span></p>
+        <div class="tip"><p><span data-en><strong>One more thing:</strong> there's a little cleaning mini-game tucked inside too. Find it and see how you do.</span>
+        <span data-fr><strong>Petit bonus :</strong> un mini-jeu de nettoyage est aussi caché à l'intérieur. Trouvez-le et voyez ce que vous valez.</span></p></div>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <img src="icon128.png" alt="" />
+      <div class="txt">
+        <h3><span data-en>Not installed yet?</span><span data-fr>Pas encore installé ?</span></h3>
+        <p><span data-en>Free, Chrome &amp; Edge, 22 languages, nothing leaves your browser.</span>
+        <span data-fr>Gratuit, Chrome &amp; Edge, 22 langues, rien ne quitte votre navigateur.</span></p>
+      </div>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome</span><span data-fr>Ajouter à Chrome</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="whatsnew.html"><span data-en>What's new</span><span data-fr>Nouveautés</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
+    // If we've reached the bottom, highlight the last section (it may be too short to cross the threshold)
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
