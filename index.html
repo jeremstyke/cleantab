@@ -68,6 +68,7 @@
   }
   .btn-kofi:hover { transform: translateY(-2px); }
   .secondary-row { display: flex; gap: 12px; margin-bottom: 4px; }
+  .secondary-row + .secondary-row { margin-top: 8px; }
   .btn-secondary {
     flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 12px 14px; border-radius: 12px;
     font-size: 14px; font-weight: 600; text-decoration: none; color: #2d3b52; background: #f7faff; border: 1px solid var(--border); transition: background 0.15s;
@@ -148,7 +149,9 @@
     </div>
 
     <div class="secondary-row">
-      <a class="btn-secondary" id="btnGuide" href="guide.html">📖 <span id="txtGuide">Guide</span></a>
+      <a class="btn-secondary" id="btnGuide" href="guide.html" style="flex:1 1 100%;">📖 <span id="txtGuide">Guide</span></a>
+    </div>
+    <div class="secondary-row">
       <a class="btn-secondary" id="btnPrivacy" href="privacy.html">🔒 <span id="txtPrivacy">Privacy</span></a>
       <a class="btn-secondary" id="btnSupport" href="support.html">🛟 <span id="txtSupport">Support</span></a>
     </div>
