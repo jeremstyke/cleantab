@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>What's New in CleanTab</title>
+<meta name="description" content="The latest updates and new features in CleanTab — the free browser cleaner for Chrome and Edge." />
+<link rel="canonical" href="https://jeremstyke.github.io/cleantab/whatsnew.html" />
+<meta property="og:title" content="What's New in CleanTab" />
+<meta property="og:description" content="The latest updates and new features in CleanTab." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://jeremstyke.github.io/cleantab/icon128.png" />
+<link rel="icon" href="icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --accent:#f5b638;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.7; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:680px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .wrap { max-width:680px; margin:0 auto; padding:56px 26px 70px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:44px; line-height:1.12; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 16px; }
+  .intro { font-size:18.5px; line-height:1.6; color:#3d5170; margin:0 0 40px; }
+
+  /* ===== VERSION CARD — this is the block to update each release ===== */
+  .release { background:#fff; border:1px solid var(--border); border-radius:18px;
+    padding:30px 30px 26px; box-shadow:0 10px 30px rgba(13,36,64,0.05); }
+  .release-top { display:flex; align-items:center; gap:14px; margin-bottom:6px; }
+  .release-top img { width:46px; height:46px; }
+  .vtag { display:inline-block; background:#eaf1fe; color:var(--blue);
+    font-size:13px; font-weight:700; padding:4px 12px; border-radius:100px; }
+  .vdate { font-size:13px; color:var(--muted); margin-left:2px; }
+  .release h2 { font-family:var(--serif); font-size:25px; font-weight:600; color:var(--navy);
+    margin:16px 0 20px; letter-spacing:-0.4px; }
+
+  .change { display:flex; gap:15px; padding:15px 0; border-top:1px solid #f0f4f9; }
+  .change:first-of-type { border-top:0; }
+  .change-ico { width:42px; height:42px; border-radius:11px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:21px; }
+  .i-vpn { background:#e7f7f0; }
+  .i-partners { background:#fef1ef; }
+  .i-polish { background:#eef4ff; }
+  .change-body h3 { font-size:16.5px; font-weight:700; color:var(--navy); margin:2px 0 4px; }
+  .change-body p { font-size:14.5px; color:#5a6b82; margin:0; line-height:1.55; }
+  /* ===== end version card ===== */
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:22px 24px; margin:34px 0 0; display:flex; gap:16px; align-items:center; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:17px; margin:0 0 4px; color:var(--navy); }
+  .cta-box p { font-size:14px; color:#5a6b82; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .archive-note { text-align:center; font-size:13px; color:#9aa8bd; margin-top:34px; }
+
+  .site-foot { max-width:680px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .intro { font-size:16.5px; }
+    .release { padding:24px 20px 20px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+    .wrap { padding:38px 20px 50px; }
+  }
+  @media (prefers-reduced-motion:reduce) { * { transition:none!important; scroll-behavior:auto!important; } }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="eyebrow"><span data-en>What's new</span><span data-fr>Nouveautés</span></div>
+  <h1><span data-en>What's new in CleanTab</span><span data-fr>Quoi de neuf dans CleanTab</span></h1>
+  <p class="intro">
+    <span data-en>The latest improvements to your browser cleaner. Here's what changed in the most recent update.</span>
+    <span data-fr>Les dernières améliorations de votre nettoyeur de navigateur. Voici ce qui a changé dans la mise à jour la plus récente.</span>
+  </p>
+
+  <!-- ============================================================= -->
+  <!--  LATEST VERSION — update THIS block at each release           -->
+  <!--  1) change the version + date                                 -->
+  <!--  2) replace the .change items with what's new                 -->
+  <!-- ============================================================= -->
+  <div class="release">
+    <div class="release-top">
+      <img src="icon128.png" alt="" />
+      <div>
+        <span class="vtag">v1.7.11</span>
+        <span class="vdate"><span data-en>July 2026</span><span data-fr>Juillet 2026</span></span>
+      </div>
+    </div>
+    <h2><span data-en>Privacy partners &amp; a lighter interface</span><span data-fr>Partenaires vie privée &amp; interface allégée</span></h2>
+
+    <div class="change">
+      <div class="change-ico i-vpn">🔓</div>
+      <div class="change-body">
+        <h3><span data-en>New partner: IPVanish (VPN)</span><span data-fr>Nouveau partenaire : IPVanish (VPN)</span></h3>
+        <p><span data-en>A VPN option now appears in the popup — encrypt your connection and hide your IP address, if you want to go a step further on privacy.</span>
+        <span data-fr>Une option VPN apparaît désormais dans le popup — chiffrez votre connexion et masquez votre adresse IP, si vous voulez aller plus loin côté vie privée.</span></p>
+      </div>
+    </div>
+
+    <div class="change">
+      <div class="change-ico i-partners">🤝</div>
+      <div class="change-body">
+        <h3><span data-en>Official partners, cleanly grouped</span><span data-fr>Partenaires officiels, regroupés proprement</span></h3>
+        <p><span data-en>DeleteMe (removes your personal data from the web) and IPVanish are now presented together in one tidy block, with a clear explanation of each.</span>
+        <span data-fr>DeleteMe (supprime vos données personnelles du web) et IPVanish sont maintenant présentés ensemble dans un bloc clair, avec une explication de chacun.</span></p>
+      </div>
+    </div>
+
+    <div class="change">
+      <div class="change-ico i-polish">✨</div>
+      <div class="change-body">
+        <h3><span data-en>Lighter, faster interface</span><span data-fr>Interface plus légère et rapide</span></h3>
+        <p><span data-en>We removed old unused code under the hood, so the extension is a little leaner and snappier — same features, less weight.</span>
+        <span data-fr>Nous avons retiré de l'ancien code inutilisé en interne : l'extension est un peu plus légère et réactive — mêmes fonctions, moins de poids.</span></p>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <div class="txt">
+        <h3><span data-en>Enjoying CleanTab?</span><span data-fr>CleanTab vous plaît ?</span></h3>
+        <p><span data-en>Make sure you're on the latest version.</span><span data-fr>Vérifiez que vous avez la dernière version.</span></p>
+      </div>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Open in Chrome Web Store</span><span data-fr>Ouvrir dans le Chrome Web Store</span>
+      </a>
+    </div>
+  </div>
+  <!-- ============ end latest version block ============ -->
+
+  <p class="archive-note">
+    <span data-en>CleanTab is free, works on Chrome &amp; Edge, and nothing ever leaves your browser.</span>
+    <span data-fr>CleanTab est gratuit, fonctionne sur Chrome &amp; Edge, et rien ne quitte jamais votre navigateur.</span>
+  </p>
+
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+</script>
+
+</body>
+</html>
