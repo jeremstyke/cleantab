@@ -149,6 +149,9 @@
     </div>
 
     <div class="secondary-row">
+      <a class="btn-secondary btn-play" id="btnPlay" href="play.html" style="flex:1 1 100%; background:linear-gradient(135deg,#eef4ff,#e5eeff); border-color:#cfe0fb; color:#1d4fd8; font-weight:700;">🎮 <span id="txtPlay">Play Tab Rush</span></a>
+    </div>
+    <div class="secondary-row">
       <a class="btn-secondary" id="btnGuide" href="guide.html">📖 <span id="txtGuide">Guide</span></a>
       <a class="btn-secondary" id="btnHowto" href="how-to-use.html">🚀 <span id="txtHowto">How to use</span></a>
     </div>
@@ -216,6 +219,8 @@
     var gEl = document.getElementById('txtGuide'); if (gEl) gEl.textContent = guideLabels[l] || 'Guide';
     var howtoLabels = {en:'How to use',fr:'Mode d\u2019emploi',es:'Cómo usar',de:'Anleitung',it:'Come usare',pt:'Como usar',nl:'Gebruik',pl:'Jak używać',tr:'Nasıl kullanılır',ru:'Как пользоваться',zh:'使用方法',ja:'使い方',ko:'사용법',hi:'कैसे उपयोग करें',ar:'كيفية الاستخدام',id:'Cara pakai',vi:'Cách dùng',th:'วิธีใช้',uk:'Як користуватися',sv:'Så funkar det',el:'Πώς λειτουργεί',cs:'Jak používat',ro:'Cum se folosește'};
     var hEl = document.getElementById('txtHowto'); if (hEl) hEl.textContent = howtoLabels[l] || 'How to use';
+    var playLabels = {en:'Play Tab Rush',fr:'Jouer à Tab Rush',es:'Jugar a Tab Rush',de:'Tab Rush spielen',it:'Gioca a Tab Rush',pt:'Jogar Tab Rush',nl:'Speel Tab Rush',pl:'Zagraj w Tab Rush',tr:'Tab Rush oyna',ru:'Играть в Tab Rush',zh:'玩 Tab Rush',ja:'Tab Rush で遊ぶ',ko:'Tab Rush 플레이',hi:'Tab Rush खेलें',ar:'العب Tab Rush',id:'Main Tab Rush',vi:'Chơi Tab Rush',th:'เล่น Tab Rush',uk:'Грати в Tab Rush',sv:'Spela Tab Rush',el:'Παίξε Tab Rush',cs:'Hrát Tab Rush',ro:'Joacă Tab Rush'};
+    var pEl = document.getElementById('txtPlay'); if (pEl) pEl.textContent = playLabels[l] || 'Play Tab Rush';
     var cmpLabels = {en:'CleanTab vs CCleaner & alternatives',fr:'CleanTab face à CCleaner & alternatives',es:'CleanTab vs CCleaner y alternativas',de:'CleanTab vs CCleaner & Alternativen',it:'CleanTab vs CCleaner e alternative',pt:'CleanTab vs CCleaner e alternativas'};
     var cEl = document.getElementById('lnkCompare'); if (cEl) cEl.textContent = cmpLabels[l] || cmpLabels.en;
     var wnLabels = {en:"What's new",fr:'Nouveautés',es:'Novedades',de:'Neuigkeiten',it:'Novità',pt:'Novidades',nl:'Nieuw',pl:'Nowości',tr:'Yenilikler',ru:'Что нового',zh:'更新内容',ja:'新着情報',ko:'새로운 기능',hi:'नया क्या है',ar:'ما الجديد',id:'Yang baru',vi:'Có gì mới',th:'มีอะไรใหม่',uk:'Що нового',sv:'Nyheter',el:'Τι νέο',cs:'Novinky',ro:'Noutăți'};
