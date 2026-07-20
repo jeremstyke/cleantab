@@ -82,6 +82,22 @@
   }
   select:focus { outline: none; border-color: var(--blue); }
   .footer { margin-top: 22px; font-size: 12px; color: #9aa8bd; }
+  .blog-teaser { margin-top: 26px; text-align: left; border-top: 1px solid #eef2f7; padding-top: 20px; }
+  .blog-teaser-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+  .blog-teaser-head span { font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 700; color: #0d2440; }
+  .blog-teaser-head a { font-size: 12.5px; font-weight: 600; color: #2563eb; text-decoration: none; }
+  .blog-teaser-head a:hover { text-decoration: underline; }
+  .blog-card { display: flex; align-items: center; gap: 13px; padding: 11px 12px; border-radius: 12px;
+    text-decoration: none; transition: background 0.15s; margin-bottom: 4px; }
+  .blog-card:hover { background: #f4f8ff; }
+  .blog-thumb { width: 46px; height: 46px; border-radius: 11px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 22px; }
+  .bt-auto { background: linear-gradient(135deg, #2563eb, #7cb2f7); }
+  .bt-diff { background: linear-gradient(135deg, #0e7490, #5ed0e6); }
+  .bt-speed { background: linear-gradient(135deg, #b45309, #f5b638); }
+  .blog-card-txt { display: flex; flex-direction: column; gap: 2px; }
+  .blog-card-title { font-size: 13.5px; font-weight: 700; color: #1c2e47; line-height: 1.3; }
+  .blog-card-tag { font-size: 11px; font-weight: 600; color: #93a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
   .feature-list { margin: 22px 0 4px; text-align: left; display: flex; flex-direction: column; gap: 10px; }
   .feat { display: flex; align-items: center; gap: 11px; font-size: 14px; color: #3a4a60; font-weight: 500; }
   .feat-ico { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
@@ -171,6 +187,34 @@
         <option value="cs">🇨🇿 Čeština</option><option value="ro">🇷🇴 Română</option>
       </select>
     </div>
+    <div class="blog-teaser">
+      <div class="blog-teaser-head">
+        <span id="blogTitle">From the blog</span>
+        <a href="blog/index.html" id="blogAll">See all →</a>
+      </div>
+      <a class="blog-card" href="blog/clear-cache-automatically-chrome.html">
+        <span class="blog-thumb bt-auto">⏱️</span>
+        <span class="blog-card-txt">
+          <span class="blog-card-title" id="bc1">Clear cache automatically in Chrome</span>
+          <span class="blog-card-tag" id="bc1t">Automation</span>
+        </span>
+      </a>
+      <a class="blog-card" href="blog/cache-vs-cookies-vs-history.html">
+        <span class="blog-thumb bt-diff">🍪</span>
+        <span class="blog-card-txt">
+          <span class="blog-card-title" id="bc2">Cache vs cookies vs history: the difference</span>
+          <span class="blog-card-tag" id="bc2t">Basics</span>
+        </span>
+      </a>
+      <a class="blog-card" href="blog/does-clearing-cache-speed-up-browser.html">
+        <span class="blog-thumb bt-speed">⚡</span>
+        <span class="blog-card-txt">
+          <span class="blog-card-title" id="bc3">Does clearing cache speed up your browser?</span>
+          <span class="blog-card-tag" id="bc3t">Performance</span>
+        </span>
+      </a>
+    </div>
+
     <div class="footer">
       <div id="dmPartner" style="margin-bottom:10px; font-size:11px; line-height:1.5;">
         <div style="font-weight:700; color:#6a7a90; margin-bottom:5px;" id="pTitle">🤝 Official partners</div>
@@ -225,6 +269,17 @@
     var cEl = document.getElementById('lnkCompare'); if (cEl) cEl.textContent = cmpLabels[l] || cmpLabels.en;
     var wnLabels = {en:"What's new",fr:'Nouveautés',es:'Novedades',de:'Neuigkeiten',it:'Novità',pt:'Novidades',nl:'Nieuw',pl:'Nowości',tr:'Yenilikler',ru:'Что нового',zh:'更新内容',ja:'新着情報',ko:'새로운 기능',hi:'नया क्या है',ar:'ما الجديد',id:'Yang baru',vi:'Có gì mới',th:'มีอะไรใหม่',uk:'Що нового',sv:'Nyheter',el:'Τι νέο',cs:'Novinky',ro:'Noutăți'};
     var wEl = document.getElementById('lnkWhatsnew'); if (wEl) wEl.textContent = wnLabels[l] || wnLabels.en;
+    var blogT = {en:'From the blog',fr:'Du blog',es:'Del blog',de:'Aus dem Blog',it:'Dal blog',pt:'Do blog'};
+    var blogA = {en:'See all →',fr:'Voir tout →',es:'Ver todo →',de:'Alle ansehen →',it:'Vedi tutto →',pt:'Ver tudo →'};
+    var bcard = {
+      en:['Clear cache automatically in Chrome','Automation','Cache vs cookies vs history: the difference','Basics','Does clearing cache speed up your browser?','Performance'],
+      fr:['Vider le cache automatiquement sur Chrome','Automatisation','Cache, cookies, historique : la différence','Bases','Vider le cache accélère-t-il le navigateur ?','Performance']
+    };
+    var bt = document.getElementById('blogTitle'); if (bt) bt.textContent = blogT[l] || blogT.en;
+    var ba = document.getElementById('blogAll'); if (ba) ba.textContent = blogA[l] || blogA.en;
+    var bcd = bcard[l] || bcard.en;
+    var bMap = [['bc1',0],['bc1t',1],['bc2',2],['bc2t',3],['bc3',4],['bc3t',5]];
+    bMap.forEach(function(m){ var el=document.getElementById(m[0]); if(el) el.textContent=bcd[m[1]]; });
     var e1 = document.getElementById('pTitle'); if (e1) e1.textContent = d.pTitle || T.en.pTitle;
     var e2 = document.getElementById('pDm'); if (e2) e2.textContent = d.pDm || T.en.pDm;
     var e3 = document.getElementById('pIpv'); if (e3) e3.textContent = d.pIpv || T.en.pIpv;
