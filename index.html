@@ -84,9 +84,26 @@
   .footer { margin-top: 22px; font-size: 12px; color: #9aa8bd; }
     text-decoration: none; transition: background 0.15s; margin-bottom: 4px; }
     display: flex; align-items: center; justify-content: center; font-size: 22px; }
-  .feature-list { margin: 22px 0 4px; text-align: left; display: flex; flex-direction: column; gap: 10px; }
-  .feat { display: flex; align-items: center; gap: 11px; font-size: 14px; color: #3a4a60; font-weight: 500; }
-  .feat-ico { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
+  .feat-heading { text-align: left; font-size: 15px; font-weight: 800; color: #0d2440; margin: 26px 0 2px; letter-spacing: -0.2px; }
+  .feature-list { margin: 24px 0 8px; text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .feat {
+    display: flex; align-items: center; gap: 11px; font-size: 13.5px; color: #26364d; font-weight: 600;
+    background: #f7faff; border: 1px solid #e8f0fb; border-radius: 13px; padding: 13px 13px;
+    line-height: 1.35; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  }
+  .feat:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,0.09); border-color: #cfe0fb; }
+  .feat-ico {
+    font-size: 18px; flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #eef4ff, #dfeafe);
+  }
+  .feat:nth-child(1) .feat-ico { background: linear-gradient(135deg, #dcfce7, #bbf7d0); }
+  .feat:nth-child(2) .feat-ico { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+  .feat:nth-child(3) .feat-ico { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+  .feat:nth-child(4) .feat-ico { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+  .feat:nth-child(5) .feat-ico { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+  .feat:nth-child(6) .feat-ico { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
+  @media (max-width: 420px) { .feature-list { grid-template-columns: 1fr; } }
   .btn-edge {
     display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 22px 24px; margin-bottom: 18px;
     border-radius: 17px; font-size: 18.5px; font-weight: 800; text-decoration: none; color: #fff;
@@ -141,6 +158,7 @@
 
     <a class="btn-kofi" id="btnKofi" href="https://ko-fi.com/cleantab" target="_blank" rel="noopener">☕ <span id="txtKofi">Buy me a coffee</span></a>
 
+    <div class="feat-heading" id="featHeading">Everything CleanTab does</div>
     <div class="feature-list" id="featureList">
       <div class="feat"><span class="feat-ico">🧹</span><span id="feat1">One-click cleaning of cache, cookies & history</span></div>
       <div class="feat"><span class="feat-ico">⏰</span><span id="feat2">Automatic scheduled cleaning</span></div>
@@ -244,6 +262,8 @@
     document.getElementById('chip4').textContent = d.c[3];
     var f = d.f || T.en.f;
     for (var i = 0; i < 6; i++) { var fe = document.getElementById('feat' + (i+1)); if (fe && f[i]) fe.textContent = f[i]; }
+    var fh = {en:'Everything CleanTab does',fr:'Tout ce que fait CleanTab',es:'Todo lo que hace CleanTab',de:'Alles, was CleanTab kann',it:'Tutto ciò che fa CleanTab',pt:'Tudo o que o CleanTab faz',nl:'Alles wat CleanTab doet',pl:'Wszystko, co robi CleanTab',ru:'Всё, что умеет CleanTab',ja:'CleanTabのすべての機能',zh:'CleanTab 的全部功能',ko:'CleanTab의 모든 기능',ar:'كل ما يفعله CleanTab',hi:'CleanTab जो कुछ करता है','tr':'CleanTab neler yapar','vi':'Mọi thứ CleanTab làm','th':'ทุกสิ่งที่ CleanTab ทำได้','uk':'Усе, що вміє CleanTab','sv':'Allt CleanTab gör','el':'Όλα όσα κάνει το CleanTab','ro':'Tot ce face CleanTab','id':'Semua yang dilakukan CleanTab'};
+    var fhEl = document.getElementById('featHeading'); if (fhEl) fhEl.textContent = fh[l] || fh.en;
     document.getElementById('langSelect').value = l;
     document.documentElement.lang = l;
     document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
