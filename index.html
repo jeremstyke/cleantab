@@ -82,6 +82,8 @@
   }
   select:focus { outline: none; border-color: var(--blue); }
   .footer { margin-top: 22px; font-size: 12px; color: #9aa8bd; }
+    text-decoration: none; transition: background 0.15s; margin-bottom: 4px; }
+    display: flex; align-items: center; justify-content: center; font-size: 22px; }
   .feature-list { margin: 22px 0 4px; text-align: left; display: flex; flex-direction: column; gap: 10px; }
   .feat { display: flex; align-items: center; gap: 11px; font-size: 14px; color: #3a4a60; font-weight: 500; }
   .feat-ico { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
@@ -159,6 +161,9 @@
       <a class="btn-secondary" id="btnPrivacy" href="privacy.html">🔒 <span id="txtPrivacy">Privacy</span></a>
       <a class="btn-secondary" id="btnSupport" href="support.html">🛟 <span id="txtSupport">Support</span></a>
     </div>
+    <div class="secondary-row">
+      <a class="btn-secondary" id="btnPrivacyTools" href="privacy-tools.html" style="flex:1 1 100%;">🛡️ <span id="txtPrivacyTools">Privacy Tools</span></a>
+    </div>
     <div class="lang-wrap">
       <select id="langSelect" onchange="setLang(this.value)">
         <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="es">🇪🇸 Español</option>
@@ -171,7 +176,6 @@
         <option value="cs">🇨🇿 Čeština</option><option value="ro">🇷🇴 Română</option>
       </select>
     </div>
-
     <div class="footer">
       <div id="dmPartner" style="margin-bottom:10px; font-size:11px; line-height:1.5;">
         <div style="font-weight:700; color:#6a7a90; margin-bottom:5px;" id="pTitle">🤝 Official partners</div>
@@ -226,7 +230,7 @@
     var cEl = document.getElementById('lnkCompare'); if (cEl) cEl.textContent = cmpLabels[l] || cmpLabels.en;
     var wnLabels = {en:"What's new",fr:'Nouveautés',es:'Novedades',de:'Neuigkeiten',it:'Novità',pt:'Novidades',nl:'Nieuw',pl:'Nowości',tr:'Yenilikler',ru:'Что нового',zh:'更新内容',ja:'新着情報',ko:'새로운 기능',hi:'नया क्या है',ar:'ما الجديد',id:'Yang baru',vi:'Có gì mới',th:'มีอะไรใหม่',uk:'Що нового',sv:'Nyheter',el:'Τι νέο',cs:'Novinky',ro:'Noutăți'};
     var wEl = document.getElementById('lnkWhatsnew'); if (wEl) wEl.textContent = wnLabels[l] || wnLabels.en;
-        var e1 = document.getElementById('pTitle'); if (e1) e1.textContent = d.pTitle || T.en.pTitle;
+    var e1 = document.getElementById('pTitle'); if (e1) e1.textContent = d.pTitle || T.en.pTitle;
     var e2 = document.getElementById('pDm'); if (e2) e2.textContent = d.pDm || T.en.pDm;
     var e3 = document.getElementById('pIpv'); if (e3) e3.textContent = d.pIpv || T.en.pIpv;
     var e4 = document.getElementById('pAff'); if (e4) e4.textContent = d.pAff || T.en.pAff;
