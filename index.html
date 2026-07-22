@@ -48,6 +48,22 @@
     background: #fff; border: 1px solid var(--border); border-radius: 28px;
     box-shadow: 0 30px 80px rgba(13,36,64,0.12); padding: 50px 40px 40px; max-width: 480px; width: 100%; text-align: center;
   }
+  @media (min-width: 900px) {
+    .card {
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 52px;
+      align-items: start;
+      padding: 56px 52px 44px;
+      text-align: left;
+    }
+    .col-left { position: sticky; top: 40px; }
+    .col-right { padding-top: 4px; }
+    .card h1, .tagline, .features { text-align: center; }
+    .feat-heading { margin-top: 0; }
+    .feature-list { margin-top: 14px; }
+  }
   h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
   h1 .tab { color: var(--blue); }
   .tagline { font-size: 16px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; min-height: 24px; }
@@ -103,6 +119,13 @@
   .feat:nth-child(4) .feat-ico { background: linear-gradient(135deg, #fef3c7, #fde68a); }
   .feat:nth-child(5) .feat-ico { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
   .feat:nth-child(6) .feat-ico { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
+  @media (min-width: 621px) and (max-width: 899px) {
+    .card { max-width: 620px; padding: 46px 44px 38px; }
+  }
+  @media (max-width: 620px) {
+    body { padding: 12px; }
+    .card { padding: 34px 20px 28px; border-radius: 22px; }
+  }
   @media (max-width: 420px) { .feature-list { grid-template-columns: 1fr; } }
   .btn-edge {
     display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 22px 24px; margin-bottom: 18px;
@@ -116,6 +139,7 @@
 </head>
 <body>
   <div class="card">
+    <div class="col-left">
     <h1>Clean<span class="tab">Tab</span></h1>
     <p class="tagline" id="tagline">Your browser, clean. Automatically.</p>
     <div class="features">
@@ -157,6 +181,8 @@
     <div class="edge-hint" id="edgeHint">ℹ️ <span id="txtEdgeHint">Edge uses Chrome extensions — install from the Chrome Web Store and click "Allow" if prompted.</span></div>
 
     <a class="btn-kofi" id="btnKofi" href="https://ko-fi.com/cleantab" target="_blank" rel="noopener">☕ <span id="txtKofi">Buy me a coffee</span></a>
+    </div><!-- /col-left -->
+    <div class="col-right">
 
     <div class="feat-heading" id="featHeading">Everything CleanTab does</div>
     <div class="feature-list" id="featureList">
@@ -204,6 +230,7 @@
       <div style="margin-bottom:8px;"><a href="compare.html" id="lnkCompare" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">CleanTab vs CCleaner &amp; alternatives</a> · <a href="whatsnew.html" id="lnkWhatsnew" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">What's new</a></div>
       © 2026 Jeremstyke
     </div>
+    </div><!-- /col-right -->
   </div>
 <script>
   var T = {
