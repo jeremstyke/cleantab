@@ -8,7 +8,7 @@
 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Install-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
 [![Website](https://img.shields.io/badge/Website-Visit-16a34a?style=for-the-badge)](https://getcleantab.com/)
-[![Version](https://img.shields.io/badge/version-1.8-2563eb?style=for-the-badge)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
+[![Version](https://img.shields.io/badge/version-1.8.1-2563eb?style=for-the-badge)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Donate-ff5e5b?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/cleantab)
 
 [🇬🇧 English](#lang-en) · [🇫🇷 Français](#lang-fr) · [🇪🇸 Español](#lang-es) · [🇵🇹 Português](#lang-pt) · [🇩🇪 Deutsch](#lang-de) · [🇮🇹 Italiano](#lang-it) · [🇯🇵 日本語](#lang-ja) · [🇨🇳 中文](#lang-zh) · [🇷🇺 Русский](#lang-ru) · [🇮🇳 हिन्दी](#lang-hi) · [🇮🇩 Indonesia](#lang-id) · [🇸🇦 العربية](#lang-ar) · [🇰🇷 한국어](#lang-ko) · [🇳🇱 Nederlands](#lang-nl) · [🇵🇱 Polski](#lang-pl) · [🇹🇷 Türkçe](#lang-tr) · [🇻🇳 Tiếng Việt](#lang-vi) · [🇹🇭 ไทย](#lang-th) · [🇺🇦 Українська](#lang-uk) · [🇸🇪 Svenska](#lang-sv) · [🇬🇷 Ελληνικά](#lang-el) · [🇷🇴 Română](#lang-ro)
