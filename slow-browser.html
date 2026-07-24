@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why Is My Browser So Slow? 7 Causes and How to Fix It - CleanTab</title>
+<meta name="description" content="Your browser feels sluggish? Here are the 7 most common reasons a browser slows down - too much cache, cookies, tabs, extensions - and how to make it fast again in minutes." />
+<link rel="canonical" href="https://getcleantab.com/slow-browser.html" />
+<meta property="og:title" content="Why Is My Browser So Slow? 7 Causes and Fixes" />
+<meta property="og:description" content="The 7 most common reasons your browser slows down, and how to fix each one in minutes." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://getcleantab.com/icon128.png" />
+<link rel="icon" href="icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my browser suddenly so slow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common cause is an overloaded cache and too many stored cookies and history entries. Over months of browsing these pile up and slow page loads. Clearing your browsing data usually brings back most of the speed. Too many open tabs and heavy extensions are the next most common causes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does clearing cache make your browser faster?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A bloated cache forces the browser to sift through a large amount of stored files. Clearing it frees memory and disk space and often makes pages load noticeably faster, especially if you have not cleared it in a long time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I clear my browsing data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most people, once a week is a good rhythm. If you browse heavily you can do it more often. A tool like CleanTab can do it automatically on a schedule so you never have to think about it, while keeping you logged in to the sites you choose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will clearing my browser log me out of everything?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if you clear cookies for every site. With a whitelist you can protect the sites you use most, so you stay logged in there while still cleaning everything else."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:1120px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .hero { max-width:1120px; margin:0 auto; padding:56px 26px 8px; }
+  .hero-in { max-width:700px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:46px; line-height:1.1; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
+
+  .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
+    display:grid; grid-template-columns:210px 1fr; gap:54px; align-items:start; }
+  .rail { position:sticky; top:84px; }
+  .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:#9aa8bd; margin-bottom:14px; }
+  .rail ol { list-style:none; margin:0; padding:0; counter-reset:r; }
+  .rail li { counter-increment:r; }
+  .rail a { display:flex; gap:11px; align-items:baseline; padding:8px 0 8px 13px;
+    border-left:2px solid var(--border); font-size:13.5px; color:var(--muted);
+    text-decoration:none; transition:all .18s; line-height:1.4; }
+  .rail a::before { content:counter(r); font-size:10.5px; font-weight:700; color:#b6c3d6;
+    flex-shrink:0; transition:color .18s; }
+  .rail a:hover { color:var(--navy); border-left-color:#b9cdf2; }
+  .rail a.on { color:var(--blue); border-left-color:var(--blue); font-weight:600; }
+  .rail a.on::before { color:var(--blue); }
+
+  main { max-width:700px; min-width:0; }
+  section { scroll-margin-top:84px; }
+  section + section { margin-top:52px; }
+  .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
+  .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
+    font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
+    color:var(--navy); margin:0; line-height:1.24; }
+  .sec-body { padding-left:47px; }
+  .intro-body { margin-top:8px; }
+  p { margin:0 0 16px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ul { margin:0 0 16px; padding-left:4px; list-style:none; }
+  li { margin-bottom:10px; font-size:17px; padding-left:26px; position:relative; }
+  ul li::before { content:''; position:absolute; left:6px; top:12px; width:6px; height:6px;
+    border-radius:50%; background:#b9cdf2; }
+
+  .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
+  .fix p { margin:0; font-size:15.5px; color:#33455e; }
+  .fix strong { color:var(--blue); }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:15.5px; }
+
+  .faq { margin-top:14px; }
+  .faq details { border:1px solid var(--border); border-radius:12px; padding:2px 18px; margin-bottom:12px; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; color:var(--navy); font-size:16.5px; padding:14px 0; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; float:right; color:var(--blue); font-weight:700; font-size:20px; line-height:1; }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq details p { padding:0 0 14px; font-size:16px; margin:0; }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:18px; margin:0 0 5px; color:var(--navy); }
+  .cta-box p { font-size:14.5px; color:#4a5f7e; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .partners { max-width:700px; margin:26px auto 0; padding:0 26px; text-align:center;
+    font-size:11.5px; line-height:1.6; color:#9aa8bd; }
+  .partners strong { color:#6a7891; }
+
+  .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+
+  @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .hero { padding:38px 20px 6px; }
+    .hero-lede { font-size:17px; }
+    h2 { font-size:22px; }
+    .sec-body { padding-left:0; }
+    p,li { font-size:16.5px; }
+    .shell { padding:24px 20px 50px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>Troubleshooting</span><span data-fr>Dépannage</span></div>
+    <h1>
+      <span data-en>Why is my browser so slow?</span>
+      <span data-fr>Pourquoi mon navigateur est-il si lent ?</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-en>A slow browser is almost never a broken computer - it's usually a browser that's carrying too much weight. Here are the 7 most common causes, and a quick fix for each.</span>
+      <span data-fr>Un navigateur lent, ce n'est presque jamais un ordinateur en panne - c'est le plus souvent un navigateur qui traîne trop de poids. Voici les 7 causes les plus fréquentes, et une solution rapide pour chacune.</span>
+    </p>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>Causes</span><span data-fr>Causes</span></div>
+    <ol>
+      <li><a href="#cache" class="rail-a"><span data-en>Overloaded cache</span><span data-fr>Cache surchargé</span></a></li>
+      <li><a href="#cookies" class="rail-a"><span data-en>Too many cookies</span><span data-fr>Trop de cookies</span></a></li>
+      <li><a href="#tabs" class="rail-a"><span data-en>Too many tabs</span><span data-fr>Trop d'onglets</span></a></li>
+      <li><a href="#extensions" class="rail-a"><span data-en>Heavy extensions</span><span data-fr>Extensions lourdes</span></a></li>
+      <li><a href="#history" class="rail-a"><span data-en>Huge history</span><span data-fr>Historique énorme</span></a></li>
+      <li><a href="#updates" class="rail-a"><span data-en>Outdated browser</span><span data-fr>Navigateur obsolète</span></a></li>
+      <li><a href="#ram" class="rail-a"><span data-en>Not enough memory</span><span data-fr>Mémoire insuffisante</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="intro-body">
+      <span data-en>If pages take longer to load than they used to, if typing lags or switching tabs stutters, your browser is probably overloaded. The good news: most causes take just a couple of minutes to fix, and you don't need to reinstall anything. Let's go through them from the most common to the least.</span>
+      <span data-fr>Si les pages mettent plus de temps à charger qu'avant, si la saisie est saccadée ou si passer d'un onglet à l'autre rame, votre navigateur est probablement surchargé. La bonne nouvelle : la plupart des causes se règlent en quelques minutes, sans rien réinstaller. Passons-les en revue, de la plus fréquente à la plus rare.</span>
+    </p>
+
+    <section id="cache">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>An overloaded cache</span><span data-fr>Un cache surchargé</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>Your browser saves images, scripts and files from every site you visit so they load faster next time. That's the cache. But over months it grows into thousands of files, and the browser spends time sifting through them - which ends up slowing things down instead of speeding them up.</span>
+          <span data-fr>Votre navigateur enregistre les images, scripts et fichiers de chaque site visité pour les charger plus vite la prochaine fois. C'est le cache. Mais au fil des mois, il gonfle à des milliers de fichiers, et le navigateur passe du temps à les trier - ce qui finit par ralentir au lieu d'accélérer.</span>
+        </p>
+        <div class="fix">
+          <p><span data-en><strong>The fix:</strong> clear your cache. It's the single most effective thing you can do, and it's completely safe - the files rebuild themselves as you browse. Our <a href="guide.html">step-by-step guide</a> shows you how.</span>
+          <span data-fr><strong>La solution :</strong> videz votre cache. C'est l'action la plus efficace, et sans aucun risque - les fichiers se reconstruisent tout seuls au fil de la navigation. Notre <a href="guide.html">guide pas à pas</a> vous montre comment.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cookies">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>Too many stored cookies</span><span data-fr>Trop de cookies stockés</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>Cookies keep you logged in and remember your settings, which is useful. But tracking and advertising cookies accumulate from every site and ad you encounter, and a browser holding tens of thousands of them takes longer to check them on each page load.</span>
+          <span data-fr>Les cookies vous gardent connecté et mémorisent vos réglages, ce qui est utile. Mais les cookies de suivi et de publicité s'accumulent depuis chaque site et chaque pub rencontrés, et un navigateur qui en stocke des dizaines de milliers met plus de temps à les vérifier à chaque chargement de page.</span>
+        </p>
+        <div class="fix">
+          <p><span data-en><strong>The fix:</strong> clear cookies - but keep the ones for sites you use daily so you stay logged in. A whitelist makes this painless.</span>
+          <span data-fr><strong>La solution :</strong> supprimez les cookies - mais gardez ceux des sites que vous utilisez tous les jours pour rester connecté. Une liste blanche rend ça indolore.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tabs">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>Too many open tabs</span><span data-fr>Trop d'onglets ouverts</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>Every open tab uses memory, even the ones you haven't looked at in hours. Twenty or thirty tabs can quietly eat several gigabytes of RAM, and once your memory fills up, everything slows to a crawl.</span>
+          <span data-fr>Chaque onglet ouvert consomme de la mémoire, même ceux que vous n'avez pas regardés depuis des heures. Vingt ou trente onglets peuvent discrètement dévorer plusieurs gigaoctets de RAM, et une fois la mémoire pleine, tout devient poussif.</span>
+        </p>
+        <div class="fix">
+          <p><span data-en><strong>The fix:</strong> close tabs you're not using, or bookmark them for later. Some people make a game of keeping tab count low - we literally built <a href="play.html">a little game about it</a>.</span>
+          <span data-fr><strong>La solution :</strong> fermez les onglets inutilisés, ou mettez-les en favoris pour plus tard. Certains en font un jeu de garder peu d'onglets ouverts - on en a d'ailleurs fait <a href="play.html">un petit jeu</a>.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="extensions">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2><span data-en>Heavy or unused extensions</span><span data-fr>Extensions lourdes ou inutilisées</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>Extensions run in the background on every page, and some are far heavier than others. An extension you installed once and forgot can keep consuming resources for years. The more you have, the more each page load costs.</span>
+          <span data-fr>Les extensions tournent en arrière-plan sur chaque page, et certaines sont bien plus lourdes que d'autres. Une extension installée une fois puis oubliée peut continuer à consommer des ressources pendant des années. Plus vous en avez, plus chaque page coûte cher à charger.</span>
+        </p>
+        <div class="fix">
+          <p><span data-en><strong>The fix:</strong> review your extensions and remove the ones you don't use. Keep the lightweight, focused ones - CleanTab itself weighs almost nothing, as you can see in our <a href="compare.html">comparison with other cleaners</a>.</span>
+          <span data-fr><strong>La solution :</strong> passez vos extensions en revue et retirez celles que vous n'utilisez pas. Gardez les légères et utiles - CleanTab lui-même ne pèse presque rien, comme le montre notre <a href="compare.html">comparatif avec d'autres nettoyeurs</a>.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="history">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2><span data-en>A huge browsing history</span><span data-fr>Un historique énorme</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>Years of browsing history sit in a database your browser reads from constantly - for autocomplete in the address bar, for suggestions, for search. When that database grows very large, those small operations start to lag.</span>
+          <span data-fr>Des années d'historique reposent dans une base de données que votre navigateur consulte en permanence - pour l'autocomplétion dans la barre d'adresse, pour les suggestions, pour la recherche. Quand cette base devient très volumineuse, ces petites opérations commencent à ramer.</span>
+        </p>
+        <div class="fix">
+          <p><span data-en><strong>The fix:</strong> clear old history. You rarely need pages you visited months ago in your autocomplete.</span>
+          <span data-fr><strong>La solution :</strong> effacez l'ancien historique. Vous avez rarement besoin, dans votre autocomplétion, de pages visitées il y a des mois.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="updates">
+      <div class="step-head">
+        <div class="step-num">6</div>
+        <h2><span data-en>An outdated browser</span><span data-fr>Un navigateur obsolète</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>Browser updates aren't only about security - they include performance improvements too. Running a version that's several releases behind means missing out on speed gains the developers have already shipped.</span>
+          <span data-fr>Les mises à jour de navigateur ne concernent pas que la sécurité - elles apportent aussi des améliorations de performance. Utiliser une version en retard de plusieurs mises à jour, c'est passer à côté de gains de vitesse déjà livrés par les développeurs.</span>
+        </p>
+        <div class="fix">
+          <p><span data-en><strong>The fix:</strong> check for updates in your browser's menu and restart it. This takes under a minute.</span>
+          <span data-fr><strong>La solution :</strong> vérifiez les mises à jour dans le menu de votre navigateur et redémarrez-le. Ça prend moins d'une minute.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ram">
+      <div class="step-head">
+        <div class="step-num">7</div>
+        <h2><span data-en>Not enough free memory</span><span data-fr>Pas assez de mémoire libre</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>If other programs are already using most of your computer's RAM, the browser has little room left to work with. This is common on older machines or when many apps run at once.</span>
+          <span data-fr>Si d'autres programmes utilisent déjà la majeure partie de la RAM de votre ordinateur, il reste peu de place au navigateur pour travailler. C'est fréquent sur les machines anciennes ou quand beaucoup d'applications tournent en même temps.</span>
+        </p>
+        <div class="fix">
+          <p><span data-en><strong>The fix:</strong> close programs you're not using, and restart your computer now and then. Freeing memory helps the browser breathe.</span>
+          <span data-fr><strong>La solution :</strong> fermez les programmes inutilisés, et redémarrez votre ordinateur de temps en temps. Libérer de la mémoire aide le navigateur à respirer.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="note">
+      <p>
+        <span data-en>Notice that four of the seven causes - cache, cookies, history, and the slowdown they create - come down to one thing: <strong>accumulated browsing data</strong>. Clearing it regularly is the biggest single speed boost for most people, and it's the one that creeps back over time. That's exactly what CleanTab automates - <a href="how-to-use.html">set it once</a> and it keeps your browser clean on its own.</span>
+        <span data-fr>Remarquez que quatre des sept causes - cache, cookies, historique, et le ralentissement qu'ils créent - se résument à une seule chose : <strong>les données de navigation accumulées</strong>. Les effacer régulièrement est le plus gros gain de vitesse pour la plupart des gens, et c'est celui qui revient au fil du temps. C'est précisément ce que CleanTab automatise - <a href="how-to-use.html">réglez-le une fois</a> et il garde votre navigateur propre tout seul.</span>
+      </p>
+    </div>
+
+    <div class="cta-box">
+      <img src="icon128.png" alt="CleanTab" />
+      <div class="txt">
+        <h3><span data-en>Keep your browser fast, automatically</span><span data-fr>Gardez un navigateur rapide, automatiquement</span></h3>
+        <p><span data-en>CleanTab clears cache, cookies and history in one click - or on a schedule - while keeping you logged in to the sites you choose. Free.</span>
+        <span data-fr>CleanTab vide cache, cookies et historique en un clic - ou automatiquement - tout en vous gardant connecté aux sites que vous choisissez. Gratuit.</span></p>
+      </div>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome</span><span data-fr>Installer</span>
+      </a>
+    </div>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq" style="margin-top:20px;">
+        <details>
+          <summary><span data-en>Why is my browser suddenly so slow?</span><span data-fr>Pourquoi mon navigateur est-il soudain si lent ?</span></summary>
+          <p><span data-en>The most common cause is an overloaded cache plus too many stored cookies and history entries. Over months these pile up and slow page loads. Clearing your browsing data usually brings back most of the speed. Too many tabs and heavy extensions come next.</span>
+          <span data-fr>La cause la plus fréquente est un cache surchargé, avec trop de cookies et d'historique stockés. Au fil des mois, tout cela s'accumule et ralentit le chargement des pages. Effacer vos données de navigation restaure généralement l'essentiel de la vitesse. Viennent ensuite les onglets trop nombreux et les extensions lourdes.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Does clearing the cache really make it faster?</span><span data-fr>Vider le cache accélère-t-il vraiment ?</span></summary>
+          <p><span data-en>Yes. A bloated cache forces the browser to work through a large pile of stored files. Clearing it frees memory and disk space and often makes pages load noticeably faster, especially if you haven't cleared it in a long time.</span>
+          <span data-fr>Oui. Un cache surchargé oblige le navigateur à parcourir un grand tas de fichiers stockés. Le vider libère de la mémoire et de l'espace disque, et rend souvent le chargement des pages nettement plus rapide, surtout si vous ne l'avez pas fait depuis longtemps.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>How often should I clear my browsing data?</span><span data-fr>À quelle fréquence effacer mes données de navigation ?</span></summary>
+          <p><span data-en>For most people, once a week is a good rhythm. If you browse heavily, do it more often. CleanTab can do it automatically on a schedule so you never have to think about it, while keeping you logged in to the sites you choose.</span>
+          <span data-fr>Pour la plupart des gens, une fois par semaine est un bon rythme. Si vous naviguez beaucoup, faites-le plus souvent. CleanTab peut le faire automatiquement selon une planification, sans que vous ayez à y penser, tout en vous gardant connecté aux sites que vous choisissez.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Will clearing my browser log me out of everything?</span><span data-fr>Effacer mon navigateur va-t-il me déconnecter de tout ?</span></summary>
+          <p><span data-en>Only if you clear cookies for every site. With a whitelist you protect the sites you use most, so you stay logged in there while everything else gets cleaned.</span>
+          <span data-fr>Seulement si vous supprimez les cookies de tous les sites. Avec une liste blanche, vous protégez les sites que vous utilisez le plus : vous y restez connecté pendant que tout le reste est nettoyé.</span></p>
+        </details>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="partners">
+  <span id="dmPartnerText"></span>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="whatsnew.html"><span data-en>What's new</span><span data-fr>Nouveautés</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="dm-partner.js"></script>
+</body>
+</html>
