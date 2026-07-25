@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Delete Your Browsing History (Chrome, Edge, Firefox) - CleanTab</title>
+<meta name="description" content="Step-by-step guide to delete your browsing history on Chrome, Edge and Firefox - manually, with a shortcut, or automatically. Plus how to clear it on every site you visit." />
+<link rel="canonical" href="https://getcleantab.com/delete-history.html" />
+<link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
+<link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
+<meta property="og:title" content="How to Delete Your Browsing History" />
+<meta property="og:description" content="Delete your history on Chrome, Edge and Firefox - manually or automatically." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://getcleantab.com/icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I delete my browsing history quickly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The fastest way in any browser is the keyboard shortcut Ctrl+Shift+Delete (Cmd+Shift+Delete on Mac). It opens the Clear browsing data window directly, where you can pick history and confirm in two clicks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does deleting history delete cookies too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not by default. History and cookies are separate categories in the clear-data window. You can choose to delete only your history, or history plus cookies and cached files. Deleting cookies will log you out of sites, while deleting only history will not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I delete my browsing history automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Chrome and Edge don't do it on a schedule on their own, but an extension like CleanTab can clear your history automatically at startup, hourly, daily or weekly, so you never have to remember to do it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does deleting history free up space and speed up my browser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A very large history database can slow down address-bar autocomplete and suggestions. Clearing old history keeps those fast. For a bigger speed gain, clear cached files and cookies as well."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:1120px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .hero { max-width:1120px; margin:0 auto; padding:56px 26px 8px; }
+  .hero-in { max-width:700px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:46px; line-height:1.1; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
+
+  .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
+    display:grid; grid-template-columns:210px 1fr; gap:54px; align-items:start; }
+  .rail { position:sticky; top:84px; }
+  .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:#9aa8bd; margin-bottom:14px; }
+  .rail ol { list-style:none; margin:0; padding:0; counter-reset:r; }
+  .rail li { counter-increment:r; }
+  .rail a { display:flex; gap:11px; align-items:baseline; padding:8px 0 8px 13px;
+    border-left:2px solid var(--border); font-size:13.5px; color:var(--muted);
+    text-decoration:none; transition:all .18s; line-height:1.4; }
+  .rail a::before { content:counter(r); font-size:10.5px; font-weight:700; color:#b6c3d6;
+    flex-shrink:0; transition:color .18s; }
+  .rail a:hover { color:var(--navy); border-left-color:#b9cdf2; }
+  .rail a.on { color:var(--blue); border-left-color:var(--blue); font-weight:600; }
+  .rail a.on::before { color:var(--blue); }
+
+  main { max-width:700px; min-width:0; }
+  section { scroll-margin-top:84px; }
+  section + section { margin-top:52px; }
+  .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
+  .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
+    font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
+    color:var(--navy); margin:0; line-height:1.24; }
+  .sec-body { padding-left:47px; }
+  .intro-body { margin-top:8px; }
+  p { margin:0 0 16px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
+
+  .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
+  .fix p { margin:0; font-size:15.5px; color:#33455e; }
+  .fix strong { color:var(--blue); }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:15.5px; }
+
+  .faq { margin-top:14px; }
+  .faq details { border:1px solid var(--border); border-radius:12px; padding:2px 18px; margin-bottom:12px; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; color:var(--navy); font-size:16.5px; padding:14px 0; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; float:right; color:var(--blue); font-weight:700; font-size:20px; line-height:1; }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq details p { padding:0 0 14px; font-size:16px; margin:0; }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:18px; margin:0 0 5px; color:var(--navy); }
+  .cta-box p { font-size:14.5px; color:#4a5f7e; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .partners { max-width:700px; margin:26px auto 0; padding:0 26px; text-align:center;
+    font-size:11.5px; line-height:1.6; color:#9aa8bd; }
+  .partners strong { color:#6a7891; }
+
+  .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
+
+  @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .hero { padding:38px 20px 6px; }
+    .hero-lede { font-size:17px; }
+    h2 { font-size:22px; }
+    .sec-body { padding-left:0; }
+    p,ol.steps li { font-size:16.5px; }
+    .shell { padding:24px 20px 50px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>How-to guide</span><span data-fr>Guide pratique</span></div>
+    <h1>
+      <span data-en>How to delete your browsing history</span>
+      <span data-fr>Comment supprimer votre historique de navigation</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-en>Clearing your history takes less than a minute once you know where to look. Here's how to do it on every major browser - manually, with a shortcut, or automatically so you never think about it again.</span>
+      <span data-fr>Effacer votre historique prend moins d'une minute quand on sait où chercher. Voici comment le faire sur chaque navigateur - manuellement, avec un raccourci, ou automatiquement pour ne plus jamais y penser.</span>
+    </p>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
+    <ol>
+      <li><a href="#shortcut" class="rail-a"><span data-en>The quick shortcut</span><span data-fr>Le raccourci rapide</span></a></li>
+      <li><a href="#chrome" class="rail-a"><span data-en>On Chrome</span><span data-fr>Sur Chrome</span></a></li>
+      <li><a href="#edge" class="rail-a"><span data-en>On Edge</span><span data-fr>Sur Edge</span></a></li>
+      <li><a href="#firefox" class="rail-a"><span data-en>On Firefox</span><span data-fr>Sur Firefox</span></a></li>
+      <li><a href="#auto" class="rail-a"><span data-en>Automatically</span><span data-fr>Automatiquement</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <p class="intro-body">
+      <span data-en>Your browsing history is the list of pages you've visited. You might want to clear it for privacy on a shared computer, to stop the address bar suggesting old pages, or just to tidy up. Whatever the reason, here's the fastest way - followed by the exact steps for each browser.</span>
+      <span data-fr>Votre historique de navigation, c'est la liste des pages que vous avez visitées. Vous pouvez vouloir l'effacer pour préserver votre vie privée sur un ordinateur partagé, empêcher la barre d'adresse de suggérer d'anciennes pages, ou simplement faire le ménage. Quelle que soit la raison, voici la méthode la plus rapide - suivie des étapes exactes pour chaque navigateur.</span>
+    </p>
+
+    <section id="shortcut">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>The quick shortcut (any browser)</span><span data-fr>Le raccourci rapide (tout navigateur)</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>This one shortcut works in Chrome, Edge, Firefox and most others. Press:</span>
+          <span data-fr>Ce raccourci fonctionne dans Chrome, Edge, Firefox et la plupart des autres. Appuyez sur :</span>
+        </p>
+        <p style="text-align:center; margin:20px 0;">
+          <kbd data-en>Ctrl</kbd><kbd data-fr>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd data-en>Delete</kbd><kbd data-fr>Suppr</kbd>
+          <br><span style="font-size:13.5px; color:var(--muted);" data-en>(on Mac: Cmd + Shift + Delete)</span>
+          <span style="font-size:13.5px; color:var(--muted);" data-fr>(sur Mac : Cmd + Maj + Suppr)</span>
+        </p>
+        <p>
+          <span data-en>It opens the "Clear browsing data" window directly. Tick <strong>Browsing history</strong>, choose a time range, and confirm. Done in two clicks.</span>
+          <span data-fr>Cela ouvre directement la fenêtre « Effacer les données de navigation ». Cochez <strong>Historique de navigation</strong>, choisissez une période, et confirmez. Réglé en deux clics.</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="chrome">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>On Google Chrome</span><span data-fr>Sur Google Chrome</span></h2>
+      </div>
+      <div class="sec-body">
+        <ol class="steps">
+          <li><span data-en>Click the three-dot menu (⋮) at the top right.</span><span data-fr>Cliquez sur le menu à trois points (⋮) en haut à droite.</span></li>
+          <li><span data-en>Go to <strong>Delete browsing data</strong> (under History).</span><span data-fr>Allez dans <strong>Effacer les données de navigation</strong> (sous Historique).</span></li>
+          <li><span data-en>Pick a time range - "All time" clears everything.</span><span data-fr>Choisissez une période - « Toutes les données » efface tout.</span></li>
+          <li><span data-en>Make sure <strong>Browsing history</strong> is ticked, then click Delete.</span><span data-fr>Vérifiez que <strong>Historique de navigation</strong> est coché, puis cliquez sur Effacer.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="edge">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>On Microsoft Edge</span><span data-fr>Sur Microsoft Edge</span></h2>
+      </div>
+      <div class="sec-body">
+        <ol class="steps">
+          <li><span data-en>Click the three-dot menu (…) at the top right.</span><span data-fr>Cliquez sur le menu à trois points (…) en haut à droite.</span></li>
+          <li><span data-en>Go to <strong>Settings → Privacy, search, and services</strong>.</span><span data-fr>Allez dans <strong>Paramètres → Confidentialité, recherche et services</strong>.</span></li>
+          <li><span data-en>Under "Clear browsing data", click <strong>Choose what to clear</strong>.</span><span data-fr>Sous « Effacer les données de navigation », cliquez sur <strong>Choisir les éléments à effacer</strong>.</span></li>
+          <li><span data-en>Tick <strong>Browsing history</strong>, pick a range, and click Clear now.</span><span data-fr>Cochez <strong>Historique de navigation</strong>, choisissez une période, et cliquez sur Effacer maintenant.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="firefox">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2><span data-en>On Mozilla Firefox</span><span data-fr>Sur Mozilla Firefox</span></h2>
+      </div>
+      <div class="sec-body">
+        <ol class="steps">
+          <li><span data-en>Click the menu (☰) at the top right.</span><span data-fr>Cliquez sur le menu (☰) en haut à droite.</span></li>
+          <li><span data-en>Go to <strong>History → Clear recent history</strong>.</span><span data-fr>Allez dans <strong>Historique → Effacer l'historique récent</strong>.</span></li>
+          <li><span data-en>Choose a time range to clear.</span><span data-fr>Choisissez une période à effacer.</span></li>
+          <li><span data-en>Make sure <strong>Browsing &amp; download history</strong> is ticked, then click OK.</span><span data-fr>Vérifiez que <strong>Historique de navigation et des téléchargements</strong> est coché, puis cliquez sur OK.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="auto">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2><span data-en>Delete it automatically</span><span data-fr>L'effacer automatiquement</span></h2>
+      </div>
+      <div class="sec-body">
+        <p>
+          <span data-en>Doing this by hand every time gets old fast. Browsers don't clear history on a schedule by themselves - but an extension can. <a href="index.html">CleanTab</a> clears your history (and cache and cookies, if you want) automatically at startup, hourly, daily or weekly. You set it once and forget it.</span>
+          <span data-fr>Le faire à la main à chaque fois devient vite lassant. Les navigateurs n'effacent pas l'historique automatiquement - mais une extension le peut. <a href="index.html">CleanTab</a> efface votre historique (et le cache et les cookies, si vous voulez) automatiquement au démarrage, chaque heure, chaque jour ou chaque semaine. Vous le réglez une fois et vous oubliez.</span>
+        </p>
+        <div class="fix">
+          <p><span data-en><strong>Good to know:</strong> with a <a href="guide.html">whitelist</a>, you can keep the sites you care about untouched while everything else gets cleared.</span>
+          <span data-fr><strong>Bon à savoir :</strong> avec une <a href="guide.html">liste blanche</a>, vous gardez intacts les sites qui comptent pendant que tout le reste est effacé.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="note">
+      <p>
+        <span data-en>One thing worth knowing: deleting your history removes it from <em>your</em> browser, but it doesn't hide your activity from your internet provider or the sites themselves. For that you'd need a VPN or private browsing. Deleting history is about tidying your own device - which is exactly what it's good for.</span>
+        <span data-fr>Une chose à savoir : effacer votre historique le retire de <em>votre</em> navigateur, mais ça ne cache pas votre activité à votre fournisseur d'accès ou aux sites eux-mêmes. Pour ça, il faudrait un VPN ou la navigation privée. Effacer l'historique sert à faire le ménage sur votre propre appareil - et c'est précisément à ça que ça sert.</span>
+      </p>
+    </div>
+
+    <div class="cta-box">
+      <img src="icon128.png" alt="CleanTab" />
+      <div class="txt">
+        <h3><span data-en>Clear your history in one click</span><span data-fr>Effacez votre historique en un clic</span></h3>
+        <p><span data-en>CleanTab clears history, cache and cookies in one click - or automatically on a schedule - while keeping you logged in to the sites you choose. Free.</span>
+        <span data-fr>CleanTab efface historique, cache et cookies en un clic - ou automatiquement selon un planning - tout en vous gardant connecté aux sites que vous choisissez. Gratuit.</span></p>
+      </div>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome</span><span data-fr>Installer</span>
+      </a>
+    </div>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq" style="margin-top:20px;">
+        <details>
+          <summary><span data-en>How do I delete my browsing history quickly?</span><span data-fr>Comment supprimer mon historique rapidement ?</span></summary>
+          <p><span data-en>The fastest way in any browser is the shortcut Ctrl+Shift+Delete (Cmd+Shift+Delete on Mac). It opens the Clear browsing data window directly, where you pick history and confirm in two clicks.</span>
+          <span data-fr>Le plus rapide, dans tout navigateur, est le raccourci Ctrl+Maj+Suppr (Cmd+Maj+Suppr sur Mac). Il ouvre directement la fenêtre d'effacement des données, où vous choisissez l'historique et confirmez en deux clics.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Does deleting history also delete cookies?</span><span data-fr>Effacer l'historique supprime-t-il aussi les cookies ?</span></summary>
+          <p><span data-en>Not by default. History and cookies are separate options in the clear-data window. You can delete only history, or history plus cookies and cached files. Deleting cookies logs you out of sites; deleting only history does not.</span>
+          <span data-fr>Pas par défaut. L'historique et les cookies sont des options distinctes dans la fenêtre d'effacement. Vous pouvez effacer seulement l'historique, ou l'historique plus les cookies et fichiers en cache. Supprimer les cookies vous déconnecte des sites ; effacer seulement l'historique, non.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Can I delete my browsing history automatically?</span><span data-fr>Puis-je effacer mon historique automatiquement ?</span></summary>
+          <p><span data-en>Yes. Chrome and Edge don't do it on a schedule by themselves, but an extension like CleanTab can clear your history automatically at startup, hourly, daily or weekly - so you never have to remember.</span>
+          <span data-fr>Oui. Chrome et Edge ne le font pas automatiquement, mais une extension comme CleanTab peut effacer votre historique au démarrage, chaque heure, chaque jour ou chaque semaine - pour ne plus avoir à y penser.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Will deleting history speed up my browser?</span><span data-fr>Effacer l'historique accélère-t-il mon navigateur ?</span></summary>
+          <p><span data-en>A very large history database can slow down address-bar autocomplete and suggestions, so clearing old history keeps those snappy. For a bigger speed gain, clear cached files and cookies too - see our guide on <a href="slow-browser.html">why browsers slow down</a>.</span>
+          <span data-fr>Une base d'historique très volumineuse peut ralentir l'autocomplétion et les suggestions de la barre d'adresse ; effacer l'ancien historique les garde rapides. Pour un gain plus net, effacez aussi le cache et les cookies - voyez notre guide sur <a href="slow-browser.html">pourquoi les navigateurs ralentissent</a>.</span></p>
+        </details>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="partners">
+  <span id="dmPartnerText"></span>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
+  <a href="whatsnew.html"><span data-en>What's new</span><span data-fr>Nouveautés</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="dm-partner.js"></script>
+</body>
+</html>
