@@ -941,3 +941,7 @@ sonobi.com, 0f8997d5a7, RESELLER, d1a215d9eb5aee9e
 trustedstack.com, TSLAU41Q2, RESELLER
 pmc.com, 1243696, RESELLER, 8dd52f825890bb44
 triplelift.com, 14717, RESELLER, 6c33edb13117fd86
+improvedigital.com, 1602_127907, DIRECT
+improvedigital.com, 1033_127907, DIRECT
+connectad.io,586,RESELLER,85ac85a30c93b3e5
+adform.com,768,RESELLER,9f5210a2f0999e32
