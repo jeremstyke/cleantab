@@ -163,18 +163,17 @@
 })();
 </script>
 <!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>What Is a Browser Cleaner? A Simple Explanation - CleanTab</title>
-<meta name="description" content="What is a browser cleaner, what does it actually clean, and do you need one? A plain-language guide to cache, cookies, history and how cleaning them keeps your browser fast and private." />
-<link rel="canonical" href="https://getcleantab.com/what-is-a-browser-cleaner.html" />
+<title>How to Clear Your Browser Cache (Chrome, Edge, Firefox) - CleanTab</title>
+<meta name="description" content="A simple step-by-step guide to clearing your browser cache on Chrome, Edge and Firefox - with a keyboard shortcut, manually, or automatically. Fix slow pages and outdated content." />
+<link rel="canonical" href="https://getcleantab.com/clear-cache.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
 <link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
-<meta property="og:title" content="What Is a Browser Cleaner?" />
-<meta property="og:description" content="What a browser cleaner does, what it cleans, and whether you need one - in plain language." />
+<meta property="og:title" content="How to Clear Your Browser Cache (Chrome, Edge, Firefox) - CleanTab" />
+<meta property="og:description" content="A simple step-by-step guide to clearing your browser cache on Chrome, Edge and Firefox - with a keyboard shortcut, manually, or automatically. Fix slow pages and outdated content." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -185,35 +184,23 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a browser cleaner?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A browser cleaner is a tool that removes the temporary data your browser builds up as you use it - cached files, cookies and browsing history. Clearing this data frees up space, can speed up the browser, and protects your privacy on shared computers. Some cleaners run on demand, others clean automatically on a schedule."
-      }
+      "name": "What is the browser cache?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The cache is a folder of temporary files - images, scripts, styles - that your browser saves to reload sites faster. Over time it grows and can slow browsing or show outdated versions of pages." }
     },
     {
       "@type": "Question",
-      "name": "Do I really need a browser cleaner?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You don't strictly need one - every browser can clear its own data manually. But a dedicated cleaner makes it faster, lets you clean automatically so you never forget, and can protect chosen sites with a whitelist so you stay logged in. It's about convenience and consistency rather than doing something the browser can't."
-      }
+      "name": "Does clearing the cache delete my passwords?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The cache holds no passwords or bookmarks. Clearing it removes only temporary files; your logins and bookmarks stay intact unless you also explicitly tick cookies or passwords." }
     },
     {
       "@type": "Question",
-      "name": "Is it safe to use a browser cleaner?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, when the cleaner only touches standard browsing data and doesn't send anything to external servers. The data it removes - cache, cookies, history - is rebuilt naturally as you browse. Choose a lightweight cleaner with minimal permissions and a clear privacy policy."
-      }
+      "name": "How often should I clear the cache?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For most people, once a week or month is enough. Clear it more often if a site looks broken or the browser feels slow. A tool like CleanTab can do it automatically on a schedule." }
     },
     {
       "@type": "Question",
-      "name": "Will a browser cleaner delete my passwords or bookmarks?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Only if you ask it to. Good cleaners let you choose exactly what to remove. Bookmarks are normally never touched, and passwords are only cleared if you explicitly select that category, usually with a confirmation step."
-      }
+      "name": "Will I lose any data by clearing the cache?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nothing important. Cache files rebuild themselves as you browse. You'll just notice that already-visited sites take a fraction of a second longer to load the first time after cleaning." }
     }
   ]
 }
@@ -282,10 +269,10 @@
   p { margin:0 0 16px; font-size:17px; }
   strong { font-weight:600; color:var(--navy); }
   a { color:var(--blue); }
-  ul { margin:0 0 16px; padding-left:4px; list-style:none; }
-  li { margin-bottom:10px; font-size:17px; padding-left:26px; position:relative; }
-  ul li::before { content:''; position:absolute; left:6px; top:12px; width:6px; height:6px;
-    border-radius:50%; background:#b9cdf2; }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
 
   .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
     padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
@@ -330,6 +317,8 @@
   [data-en],[data-fr] { display:none; }
   html[lang="en"] [data-en] { display:revert; }
   html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
 
   @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
   @media (max-width:600px) {
@@ -338,7 +327,7 @@
     .hero-lede { font-size:17px; }
     h2 { font-size:22px; }
     .sec-body { padding-left:0; }
-    p,li { font-size:16.5px; }
+    p,ol.steps li { font-size:16.5px; }
     .shell { padding:24px 20px 50px; }
     .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
     .logo-link img { height:25px; }
@@ -364,14 +353,14 @@
 
 <div class="hero">
   <div class="hero-in">
-    <div class="eyebrow"><span data-en>Explained</span><span data-fr>Expliqué</span></div>
+    <div class="eyebrow"><span data-en>How-to guide</span><span data-fr>Guide pratique</span></div>
     <h1>
-      <span data-en>What is a browser cleaner?</span>
-      <span data-fr>C'est quoi un nettoyeur de navigateur ?</span>
+      <span data-en>How to clear your browser cache</span>
+      <span data-fr>Comment vider le cache de votre navigateur</span>
     </h1>
     <p class="hero-lede">
-      <span data-en>As you browse, your browser quietly stores a lot of data. A browser cleaner is simply a tool that clears it out. Here's what that means, what gets cleaned, and whether it's something you actually need.</span>
-      <span data-fr>Au fil de votre navigation, votre navigateur stocke discrètement beaucoup de données. Un nettoyeur de navigateur, c'est simplement un outil qui les efface. Voici ce que ça veut dire, ce qui est nettoyé, et si vous en avez vraiment besoin.</span>
+      <span data-en>Clearing your cache fixes slow loading, outdated pages and display glitches, and it takes under a minute. Here's how to do it on every major browser, plus how to automate it.</span>
+      <span data-fr>Vider votre cache corrige les chargements lents, les pages périmées et les bugs d'affichage, et ça prend moins d'une minute. Voici comment faire sur chaque navigateur, et comment l'automatiser.</span>
     </p>
   </div>
 </div>
@@ -380,111 +369,74 @@
   <nav class="rail">
     <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
     <ol>
-      <li><a href="#definition" class="rail-a"><span data-en>The short answer</span><span data-fr>La réponse courte</span></a></li>
-      <li><a href="#what" class="rail-a"><span data-en>What it cleans</span><span data-fr>Ce qu'il nettoie</span></a></li>
-      <li><a href="#why" class="rail-a"><span data-en>Why clean it</span><span data-fr>Pourquoi nettoyer</span></a></li>
-      <li><a href="#need" class="rail-a"><span data-en>Do you need one?</span><span data-fr>En avez-vous besoin ?</span></a></li>
-      <li><a href="#choose" class="rail-a"><span data-en>How to choose one</span><span data-fr>Comment en choisir un</span></a></li>
+      <li><a href="#shortcut" class="rail-a"><span data-en>The quick shortcut</span><span data-fr>Le raccourci rapide</span></a></li>
+      <li><a href="#chrome" class="rail-a"><span data-en>On Chrome</span><span data-fr>Sur Chrome</span></a></li>
+      <li><a href="#edge" class="rail-a"><span data-en>On Edge</span><span data-fr>Sur Edge</span></a></li>
+      <li><a href="#firefox" class="rail-a"><span data-en>On Firefox</span><span data-fr>Sur Firefox</span></a></li>
+      <li><a href="#auto" class="rail-a"><span data-en>Automatically</span><span data-fr>Automatiquement</span></a></li>
       <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
     </ol>
   </nav>
 
   <main>
-    <section id="definition">
-      <div class="step-head">
-        <div class="step-num">?</div>
-        <h2><span data-en>The short answer</span><span data-fr>La réponse courte</span></h2>
-      </div>
-      <div class="sec-body">
-        <p>
-          <span data-en>A <strong>browser cleaner</strong> is a tool that removes the temporary data your browser accumulates as you use it - cached files, cookies and browsing history. Clearing this data frees up space, can make the browser faster, and protects your privacy. Some cleaners work on demand with a single click; others do it automatically on a schedule.</span>
-          <span data-fr>Un <strong>nettoyeur de navigateur</strong> est un outil qui supprime les données temporaires que votre navigateur accumule à l'usage - fichiers en cache, cookies et historique de navigation. Effacer ces données libère de l'espace, peut accélérer le navigateur et protège votre vie privée. Certains nettoyeurs agissent à la demande en un clic ; d'autres le font automatiquement selon un planning.</span>
-        </p>
-      </div>
-    </section>
 
-    <section id="what">
+    <section id="shortcut">
       <div class="step-head">
         <div class="step-num">1</div>
-        <h2><span data-en>What it actually cleans</span><span data-fr>Ce qu'il nettoie réellement</span></h2>
+        <h2><span data-en>The quick shortcut (any browser)</span><span data-fr>Le raccourci rapide (tout navigateur)</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>"Browsing data" sounds vague, so here's what it really covers:</span><span data-fr>« Données de navigation » reste vague, voici concrètement ce que ça recouvre :</span></p>
-        <ul>
-          <li><span data-en><strong>Cache</strong> - copies of images, scripts and files saved to load sites faster next time.</span><span data-fr><strong>Cache</strong> - copies d'images, scripts et fichiers enregistrés pour charger les sites plus vite ensuite.</span></li>
-          <li><span data-en><strong>Cookies</strong> - small files that keep you logged in and remember your preferences (but also track you).</span><span data-fr><strong>Cookies</strong> - petits fichiers qui vous gardent connecté et mémorisent vos préférences (mais vous pistent aussi).</span></li>
-          <li><span data-en><strong>History</strong> - the list of pages you've visited.</span><span data-fr><strong>Historique</strong> - la liste des pages que vous avez visitées.</span></li>
-          <li><span data-en>Not sure how these differ? See <a href="cache-cookies-history-difference.html">cache vs cookies vs history</a>.</span><span data-fr>Pas sûr de la différence ? Voyez <a href="cache-cookies-history-difference.html">cache, cookies, historique</a>.</span></li>
-          <li><span data-en><strong>Local storage</strong> - data websites keep on your device between visits.</span><span data-fr><strong>Stockage local</strong> - données que les sites conservent sur votre appareil entre les visites.</span></li>
-        </ul>
-        <div class="fix">
-          <p><span data-en>Curious how to remove just one of these? See our guide on <a href="delete-history.html">deleting your browsing history</a>.</span>
-          <span data-fr>Envie de n'en supprimer qu'un seul ? Voyez notre guide sur <a href="delete-history.html">comment supprimer l'historique de navigation</a>.</span></p>
-        </div>
+        <span data-en><p>The fastest way to clear your cache works the same in Chrome, Edge and Firefox. Press <strong>Ctrl+Shift+Delete</strong> (or Cmd+Shift+Delete on Mac). This opens the "Clear browsing data" window. Tick <strong>Cached images and files</strong>, choose a time range, and confirm. That's it.</p></span>
+        <span data-fr><p>Le moyen le plus rapide de vider le cache est identique sur Chrome, Edge et Firefox. Appuyez sur <strong>Ctrl+Maj+Suppr</strong> (ou Cmd+Maj+Suppr sur Mac). La fenêtre « Effacer les données de navigation » s'ouvre. Cochez <strong>Images et fichiers en cache</strong>, choisissez une période, et confirmez. C'est tout.</p></span>
       </div>
     </section>
-
-    <section id="why">
+    <section id="chrome">
       <div class="step-head">
         <div class="step-num">2</div>
-        <h2><span data-en>Why clean it at all</span><span data-fr>Pourquoi le nettoyer</span></h2>
+        <h2><span data-en>On Google Chrome</span><span data-fr>Sur Google Chrome</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>Three reasons people clean their browser:</span><span data-fr>Trois raisons pour lesquelles on nettoie son navigateur :</span></p>
-        <ul>
-          <li><span data-en><strong>Speed</strong> - an overloaded cache and huge history can slow the browser down. Clearing them helps. (More on <a href="slow-browser.html">why browsers get slow</a>.)</span><span data-fr><strong>Vitesse</strong> - un cache surchargé et un historique énorme peuvent ralentir le navigateur. Les vider aide. (Plus de détails sur <a href="slow-browser.html">pourquoi les navigateurs ralentissent</a>.)</span></li>
-          <li><span data-en><strong>Privacy</strong> - clearing history and cookies stops the next person on a shared computer from seeing where you've been, and limits tracking.</span><span data-fr><strong>Vie privée</strong> - effacer l'historique et les cookies empêche la personne suivante sur un ordinateur partagé de voir où vous êtes allé, et limite le pistage.</span></li>
-          <li><span data-en><strong>Space</strong> - cached files can grow to hundreds of megabytes. Clearing them frees disk space.</span><span data-fr><strong>Espace</strong> - les fichiers en cache peuvent atteindre des centaines de mégaoctets. Les vider libère de l'espace disque.</span></li>
-        </ul>
+        <span data-en><p>Open the three-dot menu at the top right, go to <strong>Delete browsing data</strong>, pick a time range (choose "All time" to clear everything), make sure <strong>Cached images and files</strong> is ticked, and click Delete. Your logins stay intact as long as you leave cookies unticked.</p></span>
+        <span data-fr><p>Ouvrez le menu à trois points en haut à droite, allez dans <strong>Effacer les données de navigation</strong>, choisissez une période (« Toutes les données » pour tout vider), vérifiez que <strong>Images et fichiers en cache</strong> est coché, et cliquez sur Effacer. Vos connexions restent intactes tant que vous ne cochez pas les cookies.</p></span>
       </div>
     </section>
-
-    <section id="need">
+    <section id="edge">
       <div class="step-head">
         <div class="step-num">3</div>
-        <h2><span data-en>Do you actually need one?</span><span data-fr>En avez-vous vraiment besoin ?</span></h2>
+        <h2><span data-en>On Microsoft Edge</span><span data-fr>Sur Microsoft Edge</span></h2>
       </div>
       <div class="sec-body">
-        <p>
-          <span data-en>Honestly? Not strictly. Every browser can already clear its own data manually - we even show you how. So what does a dedicated cleaner add? Three things: it's <strong>faster</strong> (one click instead of digging through menus), it can run <strong>automatically</strong> so you never forget, and it can <strong>protect chosen sites</strong> with a whitelist so you stay logged in where it matters. It's about convenience and consistency, not doing something impossible.</span>
-          <span data-fr>Honnêtement ? Pas indispensable. Chaque navigateur peut déjà effacer ses données manuellement - on vous montre même comment. Alors qu'apporte un nettoyeur dédié ? Trois choses : il est <strong>plus rapide</strong> (un clic au lieu de fouiller les menus), il peut agir <strong>automatiquement</strong> pour ne jamais oublier, et il peut <strong>protéger certains sites</strong> via une liste blanche pour rester connecté là où ça compte. C'est une question de confort et de régularité, pas de faire l'impossible.</span>
-        </p>
+        <span data-en><p>Open the three-dot menu, go to <strong>Settings, then Privacy, search, and services</strong>. Under "Clear browsing data", click <strong>Choose what to clear</strong>, tick <strong>Cached images and files</strong>, pick a range, and click Clear now.</p></span>
+        <span data-fr><p>Ouvrez le menu à trois points, allez dans <strong>Paramètres, puis Confidentialité, recherche et services</strong>. Sous « Effacer les données de navigation », cliquez sur <strong>Choisir les éléments à effacer</strong>, cochez <strong>Images et fichiers en cache</strong>, choisissez une période, et cliquez sur Effacer maintenant.</p></span>
       </div>
     </section>
-
-    <section id="choose">
+    <section id="firefox">
       <div class="step-head">
         <div class="step-num">4</div>
-        <h2><span data-en>How to choose a good one</span><span data-fr>Comment en choisir un bon</span></h2>
+        <h2><span data-en>On Mozilla Firefox</span><span data-fr>Sur Mozilla Firefox</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>Not all cleaners are equal. A few things to look for:</span><span data-fr>Tous les nettoyeurs ne se valent pas. Quelques points à vérifier :</span></p>
-        <ul>
-          <li><span data-en><strong>Minimal permissions</strong> - it should only ask for what it needs to clean, nothing more.</span><span data-fr><strong>Permissions minimales</strong> - il ne devrait demander que ce qui est nécessaire au nettoyage, rien de plus.</span></li>
-          <li><span data-en><strong>Nothing leaves your device</strong> - a good cleaner processes everything locally and sends no data to external servers.</span><span data-fr><strong>Rien ne quitte votre appareil</strong> - un bon nettoyeur traite tout localement et n'envoie aucune donnée vers des serveurs externes.</span></li>
-          <li><span data-en><strong>Lightweight</strong> - it shouldn't slow down the very browser it's meant to speed up.</span><span data-fr><strong>Léger</strong> - il ne devrait pas ralentir le navigateur qu'il est censé accélérer.</span></li>
-          <li><span data-en><strong>Control</strong> - you choose what gets cleaned and what stays.</span><span data-fr><strong>Contrôle</strong> - vous choisissez ce qui est nettoyé et ce qui reste.</span></li>
-        </ul>
-        <div class="fix">
-          <p><span data-en>Want to see how tools stack up? We put together a <a href="compare.html">comparison of CleanTab and other cleaners</a>.</span>
-          <span data-fr>Envie de comparer les outils ? On a préparé un <a href="compare.html">comparatif de CleanTab et d'autres nettoyeurs</a>.</span></p>
-        </div>
+        <span data-en><p>Open the menu at the top right, go to <strong>Settings, then Privacy & Security</strong>. Scroll to "Cookies and Site Data" and click <strong>Clear Data</strong>. Tick <strong>Cached Web Content</strong> (leave cookies unticked to stay logged in) and confirm.</p></span>
+        <span data-fr><p>Ouvrez le menu en haut à droite, allez dans <strong>Paramètres, puis Vie privée et sécurité</strong>. Descendez jusqu'à « Cookies et données de sites » et cliquez sur <strong>Effacer les données</strong>. Cochez <strong>Contenu web en cache</strong> (laissez les cookies décochés pour rester connecté) et confirmez.</p></span>
       </div>
     </section>
-
-    <div class="note">
-      <p>
-        <span data-en>One honest caveat: a browser cleaner tidies <em>your</em> device. It doesn't hide your activity from your internet provider or the websites themselves - that needs <a href="private-browsing.html">private browsing</a> or a VPN. A cleaner is about keeping your own machine fast, clear and private, which is exactly what it's good at.</span>
-        <span data-fr>Une précision honnête : un nettoyeur de navigateur range <em>votre</em> appareil. Il ne cache pas votre activité à votre fournisseur d'accès ou aux sites eux-mêmes - ça, il faut la <a href="private-browsing.html">navigation privée</a> ou un VPN. Un nettoyeur sert à garder votre propre machine rapide, nette et privée, et c'est précisément ce qu'il fait bien.</span>
-      </p>
-    </div>
+    <section id="auto">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2><span data-en>Clear it automatically</span><span data-fr>Le vider automatiquement</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Clearing the cache by hand every time is tedious. Browsers won't do it on a schedule on their own, but <a href="index.html">CleanTab</a> can clear your cache automatically at startup, hourly, daily or weekly. Set it once and your browser stays fast without you thinking about it. You can also protect chosen sites with a <a href="guide.html">whitelist</a>.</p></span>
+        <span data-fr><p>Vider le cache à la main à chaque fois est fastidieux. Les navigateurs ne le font pas automatiquement, mais <a href="index.html">CleanTab</a> peut vider votre cache automatiquement au démarrage, chaque heure, chaque jour ou chaque semaine. Réglez-le une fois et votre navigateur reste rapide sans y penser. Vous pouvez aussi protéger certains sites avec une <a href="guide.html">liste blanche</a>.</p></span>
+      </div>
+    </section>
 
     <div class="cta-box">
       <img src="icon128.png" alt="CleanTab" />
       <div class="txt">
-        <h3><span data-en>CleanTab is a browser cleaner done right</span><span data-fr>CleanTab, le nettoyeur de navigateur bien fait</span></h3>
-        <p><span data-en>One click or automatic. Minimal permissions, nothing leaves your browser, and a whitelist to stay logged in where you want. Free, in 22 languages.</span>
-        <span data-fr>En un clic ou automatique. Permissions minimales, rien ne quitte votre navigateur, et une liste blanche pour rester connecté où vous voulez. Gratuit, en 22 langues.</span></p>
+        <h3><span data-en>Keep your cache clean automatically</span><span data-fr>Gardez un cache propre automatiquement</span></h3>
+        <p><span data-en>CleanTab clears your cache, cookies and history in one click - or on a schedule - while keeping you logged in to the sites you choose. Free, in 22 languages.</span>
+        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique en un clic - ou automatiquement - tout en vous gardant connecté aux sites que vous choisissez. Gratuit, en 22 langues.</span></p>
       </div>
       <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
         <span data-en>Add to Chrome</span><span data-fr>Installer</span>
@@ -495,24 +447,24 @@
       <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
       <div class="faq" style="margin-top:20px;">
         <details>
-          <summary><span data-en>What is a browser cleaner in simple terms?</span><span data-fr>C'est quoi un nettoyeur de navigateur, simplement ?</span></summary>
-          <p><span data-en>It's a tool that removes the temporary data your browser piles up - cache, cookies and history. That frees space, can speed things up, and protects your privacy. Some clean on demand, others automatically.</span>
-          <span data-fr>C'est un outil qui supprime les données temporaires que votre navigateur accumule - cache, cookies et historique. Ça libère de l'espace, peut accélérer, et protège votre vie privée. Certains nettoient à la demande, d'autres automatiquement.</span></p>
+          <summary><span data-en>What is the browser cache?</span><span data-fr>Qu'est-ce que le cache du navigateur ?</span></summary>
+          <p><span data-en>The cache is a folder of temporary files - images, scripts, styles - that your browser saves to reload sites faster. Over time it grows and can slow browsing or show outdated versions of pages.</span>
+          <span data-fr>Le cache est un dossier de fichiers temporaires (images, scripts, styles) que votre navigateur enregistre pour recharger les sites plus vite. Avec le temps il grossit et peut ralentir la navigation ou afficher des versions périmées des pages.</span></p>
         </details>
         <details>
-          <summary><span data-en>Do I really need a browser cleaner?</span><span data-fr>Ai-je vraiment besoin d'un nettoyeur ?</span></summary>
-          <p><span data-en>Not strictly - every browser can clear its data manually. A dedicated cleaner just makes it faster, can run automatically so you never forget, and protects chosen sites with a whitelist. It's convenience, not something the browser can't do.</span>
-          <span data-fr>Pas indispensable - chaque navigateur peut effacer ses données manuellement. Un nettoyeur dédié rend juste ça plus rapide, peut agir automatiquement pour ne jamais oublier, et protège certains sites via une liste blanche. C'est du confort, pas une fonction impossible autrement.</span></p>
+          <summary><span data-en>Does clearing the cache delete my passwords?</span><span data-fr>Vider le cache supprime-t-il mes mots de passe ?</span></summary>
+          <p><span data-en>No. The cache holds no passwords or bookmarks. Clearing it removes only temporary files; your logins and bookmarks stay intact unless you also explicitly tick cookies or passwords.</span>
+          <span data-fr>Non. Le cache ne contient ni mots de passe ni favoris. Vider le cache n'efface que des fichiers temporaires ; vos identifiants et marque-pages restent intacts, sauf si vous cochez aussi explicitement les cookies ou les mots de passe.</span></p>
         </details>
         <details>
-          <summary><span data-en>Is it safe to use a browser cleaner?</span><span data-fr>Est-ce sûr d'utiliser un nettoyeur ?</span></summary>
-          <p><span data-en>Yes, when it only touches standard browsing data and sends nothing to external servers. The data it removes rebuilds naturally as you browse. Pick a lightweight cleaner with minimal permissions and a clear privacy policy.</span>
-          <span data-fr>Oui, quand il ne touche qu'aux données de navigation standard et n'envoie rien vers des serveurs externes. Les données supprimées se reconstruisent naturellement au fil de la navigation. Choisissez un nettoyeur léger, aux permissions minimales et à la politique de confidentialité claire.</span></p>
+          <summary><span data-en>How often should I clear the cache?</span><span data-fr>À quelle fréquence faut-il vider le cache ?</span></summary>
+          <p><span data-en>For most people, once a week or month is enough. Clear it more often if a site looks broken or the browser feels slow. A tool like CleanTab can do it automatically on a schedule.</span>
+          <span data-fr>Pour la plupart des gens, une fois par semaine ou par mois suffit. Videz-le plus souvent si un site s'affiche mal ou si le navigateur devient lent. Un outil comme CleanTab peut le faire automatiquement selon un planning.</span></p>
         </details>
         <details>
-          <summary><span data-en>Will it delete my passwords or bookmarks?</span><span data-fr>Va-t-il supprimer mes mots de passe ou favoris ?</span></summary>
-          <p><span data-en>Only if you ask it to. Good cleaners let you choose exactly what to remove. Bookmarks are normally never touched, and passwords are cleared only if you explicitly select that category, usually with a confirmation.</span>
-          <span data-fr>Seulement si vous le demandez. Les bons nettoyeurs vous laissent choisir précisément quoi supprimer. Les favoris ne sont normalement jamais touchés, et les mots de passe ne sont effacés que si vous cochez explicitement cette catégorie, en général avec une confirmation.</span></p>
+          <summary><span data-en>Will I lose any data by clearing the cache?</span><span data-fr>Vais-je perdre des données en vidant le cache ?</span></summary>
+          <p><span data-en>Nothing important. Cache files rebuild themselves as you browse. You'll just notice that already-visited sites take a fraction of a second longer to load the first time after cleaning.</span>
+          <span data-fr>Non, rien d'important. Les fichiers du cache se reconstruisent tout seuls à mesure que vous naviguez. Vous remarquerez juste que les sites déjà visités mettent une fraction de seconde de plus à charger la première fois après le nettoyage.</span></p>
         </details>
       </div>
     </section>
@@ -529,8 +481,8 @@
   <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
   <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
   <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
-  <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l'historique</span></a> ·
-  <a href="whatsnew.html"><span data-en>What's new</span><span data-fr>Nouveautés</span></a> ·
+  <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l historique</span></a> ·
+  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
   <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
   <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
     <div style="margin-top:8px;">
