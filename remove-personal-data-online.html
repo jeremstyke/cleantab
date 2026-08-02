@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<script type="text/javascript" async=true>
+(function() {
+  var host = "www.themoneytizer.com";
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Remove Your Personal Data From the Internet - CleanTab</title>
+<meta name="description" content="Your name, address and phone number are for sale on data broker sites. Here's how to remove your personal data from the internet - manually for free, or automatically with a service." />
+<link rel="canonical" href="https://getcleantab.com/remove-personal-data-online.html" />
+<link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
+<link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
+<meta property="og:title" content="How to Remove Your Personal Data From the Internet - CleanTab" />
+<meta property="og:description" content="Your name, address and phone number are for sale on data broker sites. Here's how to remove your personal data from the internet - manually for free, or automatically with a service." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://getcleantab.com/icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does my personal data end up online?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Data brokers collect your information from public records, social media, online purchases and other sites, then compile and resell it. You often never gave direct consent; the data is aggregated from many sources." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I remove my data myself for free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, but it's slow. Each data broker has its own opt-out process, and there are dozens. You must contact them one by one, and data often reappears after a few months, forcing you to repeat it." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are data removal services worth it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "If your time is valuable or a lot of your data is exposed, yes. They automate opt-out requests across dozens of brokers and monitor for reappearance. That's the main advantage over the tedious, repetitive manual method." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cleaning my browser help my privacy too?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, but differently. Cleaning the browser limits ad tracking and erases local traces. Data broker removal takes down info already collected and resold. The two are complementary." }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:1120px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .hero { max-width:1120px; margin:0 auto; padding:56px 26px 8px; }
+  .hero-in { max-width:700px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:46px; line-height:1.1; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
+
+  .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
+    display:grid; grid-template-columns:210px 1fr; gap:54px; align-items:start; }
+  .rail { position:sticky; top:84px; }
+  .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:#9aa8bd; margin-bottom:14px; }
+  .rail ol { list-style:none; margin:0; padding:0; counter-reset:r; }
+  .rail li { counter-increment:r; }
+  .rail a { display:flex; gap:11px; align-items:baseline; padding:8px 0 8px 13px;
+    border-left:2px solid var(--border); font-size:13.5px; color:var(--muted);
+    text-decoration:none; transition:all .18s; line-height:1.4; }
+  .rail a::before { content:counter(r); font-size:10.5px; font-weight:700; color:#b6c3d6;
+    flex-shrink:0; transition:color .18s; }
+  .rail a:hover { color:var(--navy); border-left-color:#b9cdf2; }
+  .rail a.on { color:var(--blue); border-left-color:var(--blue); font-weight:600; }
+  .rail a.on::before { color:var(--blue); }
+
+  main { max-width:700px; min-width:0; }
+  section { scroll-margin-top:84px; }
+  section + section { margin-top:52px; }
+  .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
+  .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
+    font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
+    color:var(--navy); margin:0; line-height:1.24; }
+  .sec-body { padding-left:47px; }
+  .intro-body { margin-top:8px; }
+  p { margin:0 0 16px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
+
+  .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
+  .fix p { margin:0; font-size:15.5px; color:#33455e; }
+  .fix strong { color:var(--blue); }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:15.5px; }
+
+  .faq { margin-top:14px; }
+  .faq details { border:1px solid var(--border); border-radius:12px; padding:2px 18px; margin-bottom:12px; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; color:var(--navy); font-size:16.5px; padding:14px 0; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; float:right; color:var(--blue); font-weight:700; font-size:20px; line-height:1; }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq details p { padding:0 0 14px; font-size:16px; margin:0; }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:18px; margin:0 0 5px; color:var(--navy); }
+  .cta-box p { font-size:14.5px; color:#4a5f7e; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .partners { max-width:700px; margin:26px auto 0; padding:0 26px; text-align:center;
+    font-size:11.5px; line-height:1.6; color:#9aa8bd; }
+  .partners strong { color:#6a7891; }
+
+  .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
+
+  @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .hero { padding:38px 20px 6px; }
+    .hero-lede { font-size:17px; }
+    h2 { font-size:22px; }
+    .sec-body { padding-left:0; }
+    p,ol.steps li { font-size:16.5px; }
+    .shell { padding:24px 20px 50px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>Privacy guide</span><span data-fr>Guide vie privée</span></div>
+    <h1>
+      <span data-en>How to remove your personal data from the internet</span>
+      <span data-fr>Comment supprimer ses données personnelles d'internet</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-en>Your name, address, phone number and more are quietly bought and sold by data brokers. Here's how to find out what's exposed and get it removed - by hand for free, or automatically.</span>
+      <span data-fr>Votre nom, adresse, numéro de téléphone et plus encore sont discrètement achetés et revendus par des courtiers en données. Voici comment savoir ce qui est exposé et le faire retirer - à la main gratuitement, ou automatiquement.</span>
+    </p>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
+    <ol>
+      <li><a href="#brokers" class="rail-a"><span data-en>Data brokers</span><span data-fr>Les courtiers en données</span></a></li>
+      <li><a href="#check" class="rail-a"><span data-en>Check your exposure</span><span data-fr>Vérifier son exposition</span></a></li>
+      <li><a href="#manual" class="rail-a"><span data-en>Remove it yourself</span><span data-fr>Le retirer soi-même</span></a></li>
+      <li><a href="#auto" class="rail-a"><span data-en>Automated removal</span><span data-fr>Retrait automatisé</span></a></li>
+      <li><a href="#browser" class="rail-a"><span data-en>Don't forget your browser</span><span data-fr>N'oubliez pas le navigateur</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="brokers">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>Where your data actually lives</span><span data-fr>Où vivent réellement vos données</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Companies called <strong>data brokers</strong> quietly build profiles on almost everyone. They pull from public records, social media, online purchases, loyalty cards and countless websites, then compile it all - your name, address, phone, age, relatives, income estimates - and sell it. People-search sites are the visible tip: type your name into one and you'll often find a disturbingly complete profile.</p></span>
+        <span data-fr><p>Des entreprises appelées <strong>courtiers en données</strong> (data brokers) construisent discrètement des profils sur presque tout le monde. Elles puisent dans les registres publics, les réseaux sociaux, les achats en ligne, les cartes de fidélité et d'innombrables sites, puis compilent le tout - votre nom, adresse, téléphone, âge, proches, estimations de revenus - et le revendent. Les sites de recherche de personnes en sont la partie visible : tapez votre nom sur l'un d'eux et vous trouverez souvent un profil complet et troublant.</p></span>
+      </div>
+    </section>
+    <section id="check">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>Check what's exposed about you</span><span data-fr>Vérifiez ce qui est exposé sur vous</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Start by searching your own name, with and without your city, in a search engine. Look at people-search sites that appear. Note which ones list you and what they show. It's often a wake-up call: home address, past addresses, phone numbers and family connections, all freely visible. Make a list - you'll need it for the removal step.</p></span>
+        <span data-fr><p>Commencez par chercher votre propre nom, avec et sans votre ville, dans un moteur de recherche. Regardez les sites de recherche de personnes qui apparaissent. Notez lesquels vous listent et ce qu'ils affichent. C'est souvent un choc : adresse du domicile, anciennes adresses, numéros de téléphone et liens familiaux, tout est librement visible. Faites une liste - vous en aurez besoin pour l'étape de suppression.</p></span>
+      </div>
+    </section>
+    <section id="manual">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>Remove it yourself, for free</span><span data-fr>Le retirer soi-même, gratuitement</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Every data broker is legally required (in many regions) to offer an opt-out. You can do this yourself at no cost: visit each broker's opt-out page, submit a removal request, and verify it. The catch is scale and persistence - there are dozens of brokers, each with its own process, and your data often reappears within months, so you have to repeat the whole thing periodically. It works, but it's genuinely tedious.</p></span>
+        <span data-fr><p>Chaque courtier en données est légalement tenu (dans de nombreuses régions) de proposer une procédure de retrait (opt-out). Vous pouvez le faire vous-même gratuitement : rendez-vous sur la page de retrait de chaque courtier, soumettez une demande de suppression, et vérifiez-la. Le hic, c'est l'ampleur et la persistance - il y a des dizaines de courtiers, chacun avec sa procédure, et vos données réapparaissent souvent en quelques mois, vous obligeant à tout recommencer périodiquement. Ça marche, mais c'est vraiment fastidieux.</p></span>
+      </div>
+    </section>
+    <section id="auto">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2><span data-en>Automated removal services</span><span data-fr>Les services de retrait automatisé</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>If doing it by hand sounds exhausting, this is where removal services come in. They handle the opt-out requests across dozens of brokers for you, and keep monitoring so that when your data reappears, they file removals again. <a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener"><strong>DeleteMe</strong></a> is one of the established options: you tell it what to protect, and it works through the brokers on your behalf and reports back. It's a paid service, and the honest trade-off is simple - you're paying to save yourself many hours of repetitive work and ongoing monitoring. If your time is worth more than the fee, or a lot of your data is exposed, it's worth it.</p></span>
+        <span data-fr><p>Si le faire à la main vous épuise d'avance, c'est là qu'interviennent les services de retrait. Ils gèrent les demandes d'opt-out auprès de dizaines de courtiers à votre place, et surveillent en continu pour redéposer des demandes quand vos données réapparaissent. <a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener"><strong>DeleteMe</strong></a> est l'une des options établies : vous indiquez ce qu'il faut protéger, et il traite les courtiers pour vous puis vous fait un rapport. C'est un service payant, et le compromis honnête est simple - vous payez pour vous épargner de nombreuses heures de travail répétitif et une surveillance continue. Si votre temps vaut plus que l'abonnement, ou si beaucoup de vos données sont exposées, ça vaut le coup.</p></span>
+      </div>
+    </section>
+    <section id="browser">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2><span data-en>Don't forget your browser</span><span data-fr>N'oubliez pas votre navigateur</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Removing your data from brokers tackles information already collected and sold. But your browser keeps generating new traces every day through cookies and history that feed tracking. Cleaning it regularly limits how much new data is gathered about you in the first place. <a href="index.html">CleanTab</a> clears tracking cookies and history automatically, so pair it with data removal for a fuller privacy approach. See our guide on <a href="protect-privacy-online.html">protecting your privacy online</a> for the complete picture.</p></span>
+        <span data-fr><p>Retirer vos données des courtiers s'attaque aux informations déjà collectées et vendues. Mais votre navigateur génère de nouvelles traces chaque jour via les cookies et l'historique qui alimentent le pistage. Le nettoyer régulièrement limite la quantité de nouvelles données collectées sur vous. <a href="index.html">CleanTab</a> efface automatiquement les cookies de pistage et l'historique : associez-le à la suppression de données pour une approche plus complète. Voyez notre guide sur <a href="protect-privacy-online.html">protéger sa vie privée en ligne</a> pour la vue d'ensemble.</p></span>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <img src="icon128.png" alt="CleanTab" />
+      <div class="txt">
+        <h3><span data-en>Limit new tracking while you're at it</span><span data-fr>Limitez le nouveau pistage au passage</span></h3>
+        <p><span data-en>CleanTab clears tracking cookies and history automatically while keeping you logged in to the sites you choose. A simple habit that complements data removal. Free, in 22 languages.</span>
+        <span data-fr>CleanTab efface automatiquement les cookies de pistage et l'historique tout en vous gardant connecté aux sites que vous choisissez. Une habitude simple qui complète la suppression de données. Gratuit, en 22 langues.</span></p>
+      </div>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome</span><span data-fr>Installer</span>
+      </a>
+    </div>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq" style="margin-top:20px;">
+        <details>
+          <summary><span data-en>How does my personal data end up online?</span><span data-fr>Comment mes données personnelles se retrouvent-elles en ligne ?</span></summary>
+          <p><span data-en>Data brokers collect your information from public records, social media, online purchases and other sites, then compile and resell it. You often never gave direct consent; the data is aggregated from many sources.</span>
+          <span data-fr>Les data brokers collectent vos informations depuis des registres publics, des réseaux sociaux, des achats en ligne et d'autres sites, puis les compilent et les revendent. Vous n'avez souvent jamais donné votre accord direct ; les données sont agrégées à partir de nombreuses sources.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Can I remove my data myself for free?</span><span data-fr>Puis-je supprimer mes données gratuitement moi-même ?</span></summary>
+          <p><span data-en>Yes, but it's slow. Each data broker has its own opt-out process, and there are dozens. You must contact them one by one, and data often reappears after a few months, forcing you to repeat it.</span>
+          <span data-fr>Oui, mais c'est long. Chaque data broker a sa propre procédure de retrait (opt-out), et il y en a des dizaines. Il faut les contacter un par un, et les données réapparaissent souvent après quelques mois, obligeant à recommencer.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Are data removal services worth it?</span><span data-fr>Les services de suppression de données valent-ils le coup ?</span></summary>
+          <p><span data-en>If your time is valuable or a lot of your data is exposed, yes. They automate opt-out requests across dozens of brokers and monitor for reappearance. That's the main advantage over the tedious, repetitive manual method.</span>
+          <span data-fr>Si votre temps est précieux ou si beaucoup de vos données sont exposées, oui. Ils automatisent les demandes de retrait auprès de dizaines de courtiers et surveillent la réapparition. C'est le principal avantage face à la méthode manuelle, fastidieuse et répétitive.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Does cleaning my browser help my privacy too?</span><span data-fr>Nettoyer mon navigateur aide-t-il aussi ma vie privée ?</span></summary>
+          <p><span data-en>Yes, but differently. Cleaning the browser limits ad tracking and erases local traces. Data broker removal takes down info already collected and resold. The two are complementary.</span>
+          <span data-fr>Oui, mais différemment. Nettoyer le navigateur limite le pistage publicitaire et efface vos traces locales. La suppression chez les data brokers retire vos informations déjà collectées et revendues. Les deux sont complémentaires.</span></p>
+        </details>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="partners">
+  <span id="dmPartnerText"></span>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="blog.html"><span data-en>Blog</span><span data-fr>Blog</span></a> ·
+  <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
+  <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l historique</span></a> ·
+  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="dm-partner.js"></script>
+</body>
+</html>
