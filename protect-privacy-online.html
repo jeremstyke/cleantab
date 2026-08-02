@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<script type="text/javascript" async=true>
+(function() {
+  var host = "www.themoneytizer.com";
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Protect Your Privacy Online (Free Steps) - CleanTab</title>
+<meta name="description" content="Practical, mostly free ways to protect your privacy online - from rejecting trackers and cleaning your browser to private browsing and VPNs. A clear checklist anyone can follow." />
+<link rel="canonical" href="https://getcleantab.com/protect-privacy-online.html" />
+<link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
+<link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
+<meta property="og:title" content="How to Protect Your Privacy Online (Free Steps) - CleanTab" />
+<meta property="og:description" content="Practical, mostly free ways to protect your privacy online - from rejecting trackers and cleaning your browser to private browsing and VPNs. A clear checklist anyone can follow." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://getcleantab.com/icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can I protect my privacy online for free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Several free steps help: reject tracking cookies, clean your browser regularly, use private browsing on shared computers, enable your browser's tracking protection, and check extension permissions. A VPN adds a layer but is often paid." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does private browsing really protect me?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Only partly. It stops your device from saving history and cookies, but your internet provider and the sites still see your activity. To hide your IP address, you need a VPN." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a VPN to be private online?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not essential, but useful. A VPN hides your IP and encrypts your traffic from your provider, especially on public WiFi. It's just one layer: cleaning your browser and limiting tracking matter just as much." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cleaning my browser improve privacy?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Regularly clearing cookies and history reduces ad tracking and stops other users of a shared computer from seeing your activity. It's one of the simplest, most effective steps." }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:1120px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .hero { max-width:1120px; margin:0 auto; padding:56px 26px 8px; }
+  .hero-in { max-width:700px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:46px; line-height:1.1; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
+
+  .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
+    display:grid; grid-template-columns:210px 1fr; gap:54px; align-items:start; }
+  .rail { position:sticky; top:84px; }
+  .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:#9aa8bd; margin-bottom:14px; }
+  .rail ol { list-style:none; margin:0; padding:0; counter-reset:r; }
+  .rail li { counter-increment:r; }
+  .rail a { display:flex; gap:11px; align-items:baseline; padding:8px 0 8px 13px;
+    border-left:2px solid var(--border); font-size:13.5px; color:var(--muted);
+    text-decoration:none; transition:all .18s; line-height:1.4; }
+  .rail a::before { content:counter(r); font-size:10.5px; font-weight:700; color:#b6c3d6;
+    flex-shrink:0; transition:color .18s; }
+  .rail a:hover { color:var(--navy); border-left-color:#b9cdf2; }
+  .rail a.on { color:var(--blue); border-left-color:var(--blue); font-weight:600; }
+  .rail a.on::before { color:var(--blue); }
+
+  main { max-width:700px; min-width:0; }
+  section { scroll-margin-top:84px; }
+  section + section { margin-top:52px; }
+  .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
+  .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
+    font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
+    color:var(--navy); margin:0; line-height:1.24; }
+  .sec-body { padding-left:47px; }
+  .intro-body { margin-top:8px; }
+  p { margin:0 0 16px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
+
+  .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
+  .fix p { margin:0; font-size:15.5px; color:#33455e; }
+  .fix strong { color:var(--blue); }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:15.5px; }
+
+  .faq { margin-top:14px; }
+  .faq details { border:1px solid var(--border); border-radius:12px; padding:2px 18px; margin-bottom:12px; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; color:var(--navy); font-size:16.5px; padding:14px 0; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; float:right; color:var(--blue); font-weight:700; font-size:20px; line-height:1; }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq details p { padding:0 0 14px; font-size:16px; margin:0; }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:18px; margin:0 0 5px; color:var(--navy); }
+  .cta-box p { font-size:14.5px; color:#4a5f7e; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .partners { max-width:700px; margin:26px auto 0; padding:0 26px; text-align:center;
+    font-size:11.5px; line-height:1.6; color:#9aa8bd; }
+  .partners strong { color:#6a7891; }
+
+  .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
+
+  @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .hero { padding:38px 20px 6px; }
+    .hero-lede { font-size:17px; }
+    h2 { font-size:22px; }
+    .sec-body { padding-left:0; }
+    p,ol.steps li { font-size:16.5px; }
+    .shell { padding:24px 20px 50px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>Guide</span><span data-fr>Guide</span></div>
+    <h1>
+      <span data-en>How to protect your privacy online</span>
+      <span data-fr>Comment protéger sa vie privée en ligne</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-en>You don't need to be a tech expert to take back some privacy online. Here's a practical checklist, mostly free, from the easy wins to the extra layers - and where browser cleaning fits in.</span>
+      <span data-fr>Pas besoin d'être un expert pour reprendre un peu de vie privée en ligne. Voici une checklist pratique, en grande partie gratuite, des gestes simples aux couches supplémentaires - et la place du nettoyage de navigateur.</span>
+    </p>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
+    <ol>
+      <li><a href="#trackers" class="rail-a"><span data-en>Reject trackers</span><span data-fr>Refuser le pistage</span></a></li>
+      <li><a href="#clean" class="rail-a"><span data-en>Clean your browser</span><span data-fr>Nettoyer le navigateur</span></a></li>
+      <li><a href="#private" class="rail-a"><span data-en>Private browsing</span><span data-fr>Navigation privée</span></a></li>
+      <li><a href="#vpn" class="rail-a"><span data-en>Consider a VPN</span><span data-fr>Envisager un VPN</span></a></li>
+      <li><a href="#habits" class="rail-a"><span data-en>Good habits</span><span data-fr>Bonnes habitudes</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="trackers">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>Reject trackers and cookies</span><span data-fr>Refusez le pistage et les cookies</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>The most common way you're followed online is through tracking cookies. Reject non-essential cookies on the consent banners, and enable your browser's built-in tracking protection (strong in Firefox, available in Chrome and Edge). Not sure what to click? See our guide: <a href="should-i-accept-cookies.html">should I accept or reject cookies?</a></p></span>
+        <span data-fr><p>La façon la plus courante d'être suivi en ligne, ce sont les cookies de pistage. Refusez les cookies non essentiels sur les bannières de consentement, et activez la protection anti-pistage intégrée de votre navigateur (forte dans Firefox, disponible dans Chrome et Edge). Pas sûr de quoi cliquer ? Voyez notre guide : <a href="should-i-accept-cookies.html">faut-il accepter ou refuser les cookies ?</a></p></span>
+      </div>
+    </section>
+    <section id="clean">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>Clean your browser regularly</span><span data-fr>Nettoyez régulièrement votre navigateur</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Your browser stores a trail of where you've been: history, cookies, cached data. Clearing it regularly limits tracking and protects you on shared computers. It's one of the simplest, most effective privacy habits. <a href="index.html">CleanTab</a> automates it - wiping tracking data on a schedule while keeping you logged in to the sites you choose.</p></span>
+        <span data-fr><p>Votre navigateur garde une trace de vos passages : historique, cookies, données en cache. L'effacer régulièrement limite le pistage et vous protège sur les ordinateurs partagés. C'est l'une des habitudes de vie privée les plus simples et efficaces. <a href="index.html">CleanTab</a> l'automatise - en effaçant les données de pistage selon un planning tout en vous gardant connecté aux sites que vous choisissez.</p></span>
+      </div>
+    </section>
+    <section id="private">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>Use private browsing when it helps</span><span data-fr>Utilisez la navigation privée quand c'est utile</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Private or incognito mode keeps a session off your device - useful on shared or public computers. Just remember it doesn't make you anonymous: your provider and the sites still see you. Understand exactly what it does in our guide to <a href="private-browsing.html">private browsing</a>.</p></span>
+        <span data-fr><p>Le mode privé ou incognito garde une session hors de votre appareil - utile sur les ordinateurs partagés ou publics. Rappelez-vous juste qu'il ne vous rend pas anonyme : votre fournisseur et les sites vous voient toujours. Comprenez exactement ce qu'il fait dans notre guide sur la <a href="private-browsing.html">navigation privée</a>.</p></span>
+      </div>
+    </section>
+    <section id="vpn">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2><span data-en>Consider a VPN for your connection</span><span data-fr>Envisagez un VPN pour votre connexion</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>A VPN hides your IP address and encrypts your traffic from your internet provider, which is especially valuable on public WiFi. It's one layer among several, not a magic bullet - it doesn't stop cookie tracking or clean your browser. Think of it as complementary to the steps above.</p></span>
+        <span data-fr><p>Un VPN masque votre adresse IP et chiffre votre trafic vis-à-vis de votre fournisseur d'accès, ce qui est précieux sur le WiFi public. C'est une couche parmi d'autres, pas une solution miracle - il n'arrête pas le pistage par cookies et ne nettoie pas votre navigateur. Voyez-le comme complémentaire aux gestes ci-dessus.</p></span>
+      </div>
+    </section>
+    <section id="habits">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2><span data-en>Build a few good habits</span><span data-fr>Prenez quelques bonnes habitudes</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Beyond tools, small habits matter: review the permissions of your browser extensions and remove ones you don't trust, keep your browser updated, use strong unique passwords, and be cautious with what you share on public networks. Privacy online is the sum of many small, consistent choices rather than a single setting.</p></span>
+        <span data-fr><p>Au-delà des outils, les petites habitudes comptent : passez en revue les permissions de vos extensions et retirez celles en qui vous n'avez pas confiance, gardez votre navigateur à jour, utilisez des mots de passe forts et uniques, et soyez prudent avec ce que vous partagez sur les réseaux publics. La vie privée en ligne est la somme de nombreux petits choix constants plutôt qu'un seul réglage.</p></span>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <img src="icon128.png" alt="CleanTab" />
+      <div class="txt">
+        <h3><span data-en>Make browser privacy automatic</span><span data-fr>Rendez la confidentialité automatique</span></h3>
+        <p><span data-en>CleanTab wipes tracking cookies, history and cache on a schedule while keeping you logged in to the sites you choose. A simple privacy habit, automated. Free, in 22 languages.</span>
+        <span data-fr>CleanTab efface cookies de pistage, historique et cache selon un planning tout en vous gardant connecté aux sites que vous choisissez. Une habitude de confidentialité, automatisée. Gratuit, en 22 langues.</span></p>
+      </div>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome</span><span data-fr>Installer</span>
+      </a>
+    </div>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq" style="margin-top:20px;">
+        <details>
+          <summary><span data-en>How can I protect my privacy online for free?</span><span data-fr>Comment protéger sa vie privée en ligne gratuitement ?</span></summary>
+          <p><span data-en>Several free steps help: reject tracking cookies, clean your browser regularly, use private browsing on shared computers, enable your browser's tracking protection, and check extension permissions. A VPN adds a layer but is often paid.</span>
+          <span data-fr>Plusieurs gestes gratuits aident : refuser les cookies de pistage, nettoyer régulièrement son navigateur, utiliser la navigation privée sur les ordinateurs partagés, activer la protection anti-pistage du navigateur, et vérifier les permissions des extensions. Un VPN ajoute une couche mais est souvent payant.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Does private browsing really protect me?</span><span data-fr>La navigation privée protège-t-elle vraiment ?</span></summary>
+          <p><span data-en>Only partly. It stops your device from saving history and cookies, but your internet provider and the sites still see your activity. To hide your IP address, you need a VPN.</span>
+          <span data-fr>En partie seulement. Elle empêche votre appareil d'enregistrer l'historique et les cookies, mais votre fournisseur d'accès et les sites voient toujours votre activité. Pour masquer votre adresse IP, il faut un VPN.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Do I need a VPN to be private online?</span><span data-fr>Faut-il un VPN pour être privé en ligne ?</span></summary>
+          <p><span data-en>Not essential, but useful. A VPN hides your IP and encrypts your traffic from your provider, especially on public WiFi. It's just one layer: cleaning your browser and limiting tracking matter just as much.</span>
+          <span data-fr>Pas indispensable, mais utile. Un VPN masque votre adresse IP et chiffre votre trafic vis-à-vis de votre fournisseur, surtout sur le WiFi public. Ce n'est qu'une couche parmi d'autres : nettoyer son navigateur et limiter le pistage comptent tout autant.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Does cleaning my browser improve privacy?</span><span data-fr>Nettoyer son navigateur améliore-t-il la vie privée ?</span></summary>
+          <p><span data-en>Yes. Regularly clearing cookies and history reduces ad tracking and stops other users of a shared computer from seeing your activity. It's one of the simplest, most effective steps.</span>
+          <span data-fr>Oui. Effacer régulièrement cookies et historique réduit le pistage publicitaire et empêche les autres utilisateurs d'un ordinateur partagé de voir votre activité. C'est un des gestes les plus simples et efficaces.</span></p>
+        </details>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="partners">
+  <span id="dmPartnerText"></span>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="blog.html"><span data-en>Blog</span><span data-fr>Blog</span></a> ·
+  <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
+  <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l historique</span></a> ·
+  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="dm-partner.js"></script>
+</body>
+</html>

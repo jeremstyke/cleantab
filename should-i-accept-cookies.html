@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<script type="text/javascript" async=true>
+(function() {
+  var host = "www.themoneytizer.com";
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Should I Accept or Reject Cookies? A Clear Answer - CleanTab</title>
+<meta name="description" content="Every site asks - but should you accept or reject cookies? A plain explanation of what happens either way, which cookies matter, and how to protect your privacy without breaking sites." />
+<link rel="canonical" href="https://getcleantab.com/should-i-accept-cookies.html" />
+<link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
+<link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
+<meta property="og:title" content="Should I Accept or Reject Cookies? A Clear Answer - CleanTab" />
+<meta property="og:description" content="Every site asks - but should you accept or reject cookies? A plain explanation of what happens either way, which cookies matter, and how to protect your privacy without breaking sites." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://getcleantab.com/icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens if I reject cookies?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The site almost always works normally. You're mainly rejecting advertising trackers; essential cookies (cart, login) stay active because they don't need consent. You'll just see less targeted ads." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it dangerous to accept cookies?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not dangerous like a virus, no. But accepting all cookies allows advertising tracking that follows your browsing across sites. It's a privacy matter, not security. You can accept essentials and reject the rest." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I accept or reject cookies?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For privacy, reject non-essential cookies (or click 'Reject all' when available). Sites stay functional. Only accept if tracking doesn't bother you or a specific service requires it." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I delete cookies I already accepted?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can clear them anytime in your browser settings, or with a tool like CleanTab that removes tracking cookies automatically while keeping your important logins via a whitelist." }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:1120px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .hero { max-width:1120px; margin:0 auto; padding:56px 26px 8px; }
+  .hero-in { max-width:700px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:46px; line-height:1.1; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
+
+  .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
+    display:grid; grid-template-columns:210px 1fr; gap:54px; align-items:start; }
+  .rail { position:sticky; top:84px; }
+  .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:#9aa8bd; margin-bottom:14px; }
+  .rail ol { list-style:none; margin:0; padding:0; counter-reset:r; }
+  .rail li { counter-increment:r; }
+  .rail a { display:flex; gap:11px; align-items:baseline; padding:8px 0 8px 13px;
+    border-left:2px solid var(--border); font-size:13.5px; color:var(--muted);
+    text-decoration:none; transition:all .18s; line-height:1.4; }
+  .rail a::before { content:counter(r); font-size:10.5px; font-weight:700; color:#b6c3d6;
+    flex-shrink:0; transition:color .18s; }
+  .rail a:hover { color:var(--navy); border-left-color:#b9cdf2; }
+  .rail a.on { color:var(--blue); border-left-color:var(--blue); font-weight:600; }
+  .rail a.on::before { color:var(--blue); }
+
+  main { max-width:700px; min-width:0; }
+  section { scroll-margin-top:84px; }
+  section + section { margin-top:52px; }
+  .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
+  .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
+    font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
+    color:var(--navy); margin:0; line-height:1.24; }
+  .sec-body { padding-left:47px; }
+  .intro-body { margin-top:8px; }
+  p { margin:0 0 16px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
+
+  .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
+  .fix p { margin:0; font-size:15.5px; color:#33455e; }
+  .fix strong { color:var(--blue); }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:15.5px; }
+
+  .faq { margin-top:14px; }
+  .faq details { border:1px solid var(--border); border-radius:12px; padding:2px 18px; margin-bottom:12px; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; color:var(--navy); font-size:16.5px; padding:14px 0; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; float:right; color:var(--blue); font-weight:700; font-size:20px; line-height:1; }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq details p { padding:0 0 14px; font-size:16px; margin:0; }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:18px; margin:0 0 5px; color:var(--navy); }
+  .cta-box p { font-size:14.5px; color:#4a5f7e; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .partners { max-width:700px; margin:26px auto 0; padding:0 26px; text-align:center;
+    font-size:11.5px; line-height:1.6; color:#9aa8bd; }
+  .partners strong { color:#6a7891; }
+
+  .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
+
+  @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .hero { padding:38px 20px 6px; }
+    .hero-lede { font-size:17px; }
+    h2 { font-size:22px; }
+    .sec-body { padding-left:0; }
+    p,ol.steps li { font-size:16.5px; }
+    .shell { padding:24px 20px 50px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>Explained</span><span data-fr>Expliqué</span></div>
+    <h1>
+      <span data-en>Should I accept or reject cookies?</span>
+      <span data-fr>Faut-il accepter ou refuser les cookies ?</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-en>You see the banner on every site, and clicking "Accept all" is the easy reflex. But what are you actually agreeing to, and what happens if you refuse? Here's a clear answer.</span>
+      <span data-fr>Vous voyez la bannière sur chaque site, et cliquer « Tout accepter » est le réflexe facile. Mais à quoi consentez-vous vraiment, et que se passe-t-il si vous refusez ? Voici une réponse claire.</span>
+    </p>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
+    <ol>
+      <li><a href="#types" class="rail-a"><span data-en>Two kinds of cookies</span><span data-fr>Deux types de cookies</span></a></li>
+      <li><a href="#accept" class="rail-a"><span data-en>If you accept</span><span data-fr>Si vous acceptez</span></a></li>
+      <li><a href="#reject" class="rail-a"><span data-en>If you reject</span><span data-fr>Si vous refusez</span></a></li>
+      <li><a href="#advice" class="rail-a"><span data-en>What to do</span><span data-fr>Que faire</span></a></li>
+      <li><a href="#clean" class="rail-a"><span data-en>Clean up existing</span><span data-fr>Nettoyer l'existant</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="types">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>There are two kinds of cookies</span><span data-fr>Il existe deux types de cookies</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>The key to the whole question is that not all cookies are equal. <strong>Essential cookies</strong> make the site work - they remember your cart, your login, your language. <strong>Tracking cookies</strong> exist to follow you across the web and build an advertising profile. The consent banner is really about that second kind; the essentials don't need your permission.</p></span>
+        <span data-fr><p>La clé de toute la question : les cookies ne se valent pas. Les <strong>cookies essentiels</strong> font fonctionner le site - ils mémorisent votre panier, votre connexion, votre langue. Les <strong>cookies de pistage</strong> servent à vous suivre sur le web et à construire un profil publicitaire. La bannière de consentement concerne surtout ce second type ; les essentiels ne nécessitent pas votre autorisation.</p></span>
+      </div>
+    </section>
+    <section id="accept">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>What happens if you accept</span><span data-fr>Ce qui se passe si vous acceptez</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Clicking "Accept all" lets the site and its advertising partners place tracking cookies. You'll get more personalised ads, and your browsing gets linked across sites into a profile. Nothing breaks and nothing is dangerous in a virus sense - it's purely a privacy trade-off. Over time, these cookies also pile up in your browser.</p></span>
+        <span data-fr><p>Cliquer « Tout accepter » autorise le site et ses partenaires publicitaires à déposer des cookies de pistage. Vous aurez des pubs plus ciblées, et votre navigation est reliée entre les sites en un profil. Rien ne casse et rien n'est dangereux au sens d'un virus - c'est purement un compromis de vie privée. Avec le temps, ces cookies s'accumulent aussi dans votre navigateur.</p></span>
+      </div>
+    </section>
+    <section id="reject">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>What happens if you reject</span><span data-fr>Ce qui se passe si vous refusez</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Here's the reassuring part: the site almost always works exactly the same. You keep your cart, your login, your settings - because those rely on essential cookies that stay active. You simply avoid the tracking. Look for a "Reject all" button; if there's only "Accept", you can often decline via "Manage preferences".</p></span>
+        <span data-fr><p>Voici le point rassurant : le site fonctionne presque toujours à l'identique. Vous gardez votre panier, votre connexion, vos réglages - car ils reposent sur les cookies essentiels qui restent actifs. Vous évitez simplement le pistage. Cherchez un bouton « Refuser tout » ; s'il n'y a que « Accepter », vous pouvez souvent refuser via « Gérer les préférences ».</p></span>
+      </div>
+    </section>
+    <section id="advice">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2><span data-en>So what should you do?</span><span data-fr>Alors, que faire ?</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>For privacy, the simple rule is: <strong>reject non-essential cookies</strong> whenever you can. Sites stay functional, and you avoid being tracked. Accept only if targeted ads don't bother you, or if a specific feature genuinely needs it. It takes one extra click but keeps your browsing yours.</p></span>
+        <span data-fr><p>Pour la vie privée, la règle simple est : <strong>refusez les cookies non essentiels</strong> dès que possible. Les sites restent fonctionnels, et vous évitez le pistage. N'acceptez que si les pubs ciblées ne vous dérangent pas, ou si une fonction précise l'exige vraiment. Ça demande un clic de plus mais garde votre navigation à vous.</p></span>
+      </div>
+    </section>
+    <section id="clean">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2><span data-en>Clean up the cookies you already have</span><span data-fr>Nettoyez les cookies que vous avez déjà</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Even if you reject from now on, your browser still holds tracking cookies you accepted in the past. Clearing them limits existing tracking. You can do it by hand - here's how to <a href="delete-cookies.html">delete cookies</a> - or let <a href="index.html">CleanTab</a> remove tracking cookies automatically while a whitelist keeps you logged in to the sites you care about.</p></span>
+        <span data-fr><p>Même si vous refusez désormais, votre navigateur garde encore des cookies de pistage acceptés par le passé. Les effacer limite le pistage existant. Vous pouvez le faire à la main - voici comment <a href="delete-cookies.html">supprimer les cookies</a> - ou laisser <a href="index.html">CleanTab</a> retirer les cookies de pistage automatiquement pendant qu'une liste blanche vous garde connecté aux sites qui comptent.</p></span>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <img src="icon128.png" alt="CleanTab" />
+      <div class="txt">
+        <h3><span data-en>Reject tracking, keep your logins</span><span data-fr>Refusez le pistage, gardez vos connexions</span></h3>
+        <p><span data-en>CleanTab automatically clears tracking cookies while a whitelist keeps you signed in to the sites you choose. Free, private, in 22 languages.</span>
+        <span data-fr>CleanTab efface automatiquement les cookies de pistage pendant qu'une liste blanche vous garde connecté aux sites que vous choisissez. Gratuit, privé, en 22 langues.</span></p>
+      </div>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome</span><span data-fr>Installer</span>
+      </a>
+    </div>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq" style="margin-top:20px;">
+        <details>
+          <summary><span data-en>What happens if I reject cookies?</span><span data-fr>Que se passe-t-il si je refuse les cookies ?</span></summary>
+          <p><span data-en>The site almost always works normally. You're mainly rejecting advertising trackers; essential cookies (cart, login) stay active because they don't need consent. You'll just see less targeted ads.</span>
+          <span data-fr>Le site fonctionne presque toujours normalement. Vous refusez surtout les cookies de pistage publicitaire ; les cookies essentiels (panier, connexion) restent actifs car ils ne nécessitent pas votre consentement. Vous verrez juste des pubs moins ciblées.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Is it dangerous to accept cookies?</span><span data-fr>Est-il dangereux d'accepter les cookies ?</span></summary>
+          <p><span data-en>Not dangerous like a virus, no. But accepting all cookies allows advertising tracking that follows your browsing across sites. It's a privacy matter, not security. You can accept essentials and reject the rest.</span>
+          <span data-fr>Pas dangereux au sens d'un virus, non. Mais accepter tous les cookies autorise le pistage publicitaire qui suit votre navigation entre les sites. C'est une question de vie privée, pas de sécurité. Vous pouvez accepter les essentiels et refuser le reste.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Should I accept or reject cookies?</span><span data-fr>Faut-il accepter ou refuser les cookies ?</span></summary>
+          <p><span data-en>For privacy, reject non-essential cookies (or click "Reject all" when available). Sites stay functional. Only accept if tracking doesn't bother you or a specific service requires it.</span>
+          <span data-fr>Pour préserver votre vie privée, refusez les cookies non essentiels (ou cliquez sur « Refuser tout » quand l'option existe). Les sites restent fonctionnels. Acceptez seulement si le pistage ne vous dérange pas ou si un service précis l'exige.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>How do I delete cookies I already accepted?</span><span data-fr>Comment supprimer les cookies déjà acceptés ?</span></summary>
+          <p><span data-en>You can clear them anytime in your browser settings, or with a tool like CleanTab that removes tracking cookies automatically while keeping your important logins via a whitelist.</span>
+          <span data-fr>Vous pouvez les effacer à tout moment dans les réglages de votre navigateur, ou avec un outil comme CleanTab qui supprime les cookies de pistage automatiquement tout en gardant vos connexions importantes via une liste blanche.</span></p>
+        </details>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="partners">
+  <span id="dmPartnerText"></span>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="blog.html"><span data-en>Blog</span><span data-fr>Blog</span></a> ·
+  <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
+  <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l historique</span></a> ·
+  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="dm-partner.js"></script>
+</body>
+</html>
