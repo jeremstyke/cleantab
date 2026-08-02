@@ -369,6 +369,9 @@
       <a class="btn-secondary btn-play" id="btnPlay" href="play.html" style="flex:1 1 100%; background:linear-gradient(135deg,#eef4ff,#e5eeff); border-color:#cfe0fb; color:#1d4fd8; font-weight:700;">🎮 <span id="txtPlay">Play Tab Rush</span></a>
     </div>
     <div class="secondary-row">
+      <a class="btn-secondary" id="btnBlog" href="blog.html" style="flex:1 1 100%; background:linear-gradient(135deg,#fff8ec,#fff2d8); border-color:#f5e2b8; color:#8a6a1a; font-weight:700;">📰 <span id="txtBlog">Blog</span></a>
+    </div>
+    <div class="secondary-row">
       <a class="btn-secondary" id="btnGuide" href="guide.html">📖 <span id="txtGuide">Guide</span></a>
       <a class="btn-secondary" id="btnHowto" href="how-to-use.html">🚀 <span id="txtHowto">How to use</span></a>
     </div>
@@ -399,7 +402,7 @@
         <div style="margin-top:5px; opacity:0.75; font-size:10px;" id="pAff">Affiliate links</div>
       </div>
       <div style="margin-bottom:8px;"><a href="blog.html" style="color:#2563eb; text-decoration:none; font-weight:600; border-bottom:1px dotted #9bbcf5;">Blog</a> · <a href="compare.html" id="lnkCompare" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">CleanTab vs CCleaner &amp; alternatives</a> · <a href="whatsnew.html" id="lnkWhatsnew" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">What's new</a> · <a href="slow-browser.html" id="lnkSlow" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Slow browser?</a> · <a href="delete-history.html" id="lnkDelHist" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Delete history</a> · <a href="what-is-a-browser-cleaner.html" id="lnkWhatIs" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">What is a cleaner?</a></div>
-      <div style="margin-bottom:8px;"><a href="clear-cache.html" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Clear cache</a> · <a href="delete-cookies.html" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Delete cookies</a> · <a href="cache-cookies-history-difference.html" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Cache vs cookies</a> · <a href="private-browsing.html" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Private browsing</a></div>
+      <div style="margin-bottom:8px;"><a href="clear-cache.html" id="lnkClearCache" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Clear cache</a> · <a href="delete-cookies.html" id="lnkDelCookies" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Delete cookies</a> · <a href="cache-cookies-history-difference.html" id="lnkCacheVs" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Cache vs cookies</a> · <a href="private-browsing.html" id="lnkPrivBrow" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Private browsing</a></div>
       © 2026 Jeremstyke
     </div>
     </div><!-- /col-right -->
@@ -453,6 +456,14 @@
     var dEl = document.getElementById('lnkDelHist'); if (dEl) dEl.textContent = delLabels[l] || delLabels.en;
     var whatLabels = {en:'What is a cleaner?',fr:'C\'est quoi ?',es:'¿Qué es?',de:'Was ist das?',it:'Cos\'è?',pt:'O que é?',nl:'Wat is dat?',pl:'Co to jest?',tr:'Nedir?',ru:'Что это?',zh:'这是什么？',ja:'とは？',ko:'무엇인가요?',hi:'यह क्या है?',ar:'ما هو؟',id:'Apa itu?',vi:'Là gì?',th:'คืออะไร?',uk:'Що це?',sv:'Vad är det?',el:'Τι είναι;',cs:'Co to je?',ro:'Ce este?'};
     var wiEl = document.getElementById('lnkWhatIs'); if (wiEl) wiEl.textContent = whatLabels[l] || whatLabels.en;
+    var ccLabels = {en:'Clear cache',fr:'Vider le cache',es:'Borrar caché',de:'Cache leeren',it:'Svuota cache',pt:'Limpar cache',nl:'Cache wissen',pl:'Wyczyść pamięć',tr:'Önbelleği temizle',ru:'Очистить кэш',zh:'清除缓存',ja:'キャッシュ削除',ko:'캐시 삭제',hi:'कैश साफ़ करें',ar:'مسح ذاكرة التخزين',id:'Hapus cache',vi:'Xóa bộ nhớ đệm',th:'ล้างแคช',uk:'Очистити кеш',sv:'Rensa cache',el:'Εκκαθάριση cache',cs:'Vymazat mezipaměť',ro:'Golește cache'};
+    var ccEl = document.getElementById('lnkClearCache'); if (ccEl) ccEl.textContent = ccLabels[l] || ccLabels.en;
+    var dcLabels = {en:'Delete cookies',fr:'Supprimer les cookies',es:'Borrar cookies',de:'Cookies löschen',it:'Elimina cookie',pt:'Apagar cookies',nl:'Cookies verwijderen',pl:'Usuń pliki cookie',tr:'Çerezleri sil',ru:'Удалить cookie',zh:'删除 Cookie',ja:'Cookieを削除',ko:'쿠키 삭제',hi:'कुकीज़ हटाएं',ar:'حذف ملفات تعريف الارتباط',id:'Hapus cookie',vi:'Xóa cookie',th:'ลบคุกกี้',uk:'Видалити cookie',sv:'Radera cookies',el:'Διαγραφή cookies',cs:'Smazat cookies',ro:'Șterge cookie-uri'};
+    var dcEl = document.getElementById('lnkDelCookies'); if (dcEl) dcEl.textContent = dcLabels[l] || dcLabels.en;
+    var cvLabels = {en:'Cache vs cookies',fr:'Cache et cookies',es:'Caché vs cookies',de:'Cache vs Cookies',it:'Cache e cookie',pt:'Cache vs cookies',nl:'Cache vs cookies',pl:'Cache a cookie',tr:'Önbellek vs çerez',ru:'Кэш и cookie',zh:'缓存与 Cookie',ja:'キャッシュとCookie',ko:'캐시와 쿠키',hi:'कैश बनाम कुकीज़',ar:'الذاكرة مقابل الكوكيز',id:'Cache vs cookie',vi:'Cache và cookie',th:'แคชกับคุกกี้',uk:'Кеш і cookie',sv:'Cache vs cookies',el:'Cache vs cookies',cs:'Cache vs cookies',ro:'Cache vs cookie'};
+    var cvEl = document.getElementById('lnkCacheVs'); if (cvEl) cvEl.textContent = cvLabels[l] || cvLabels.en;
+    var pbLabels = {en:'Private browsing',fr:'Navigation privée',es:'Navegación privada',de:'Privates Surfen',it:'Navigazione privata',pt:'Navegação privada',nl:'Privé surfen',pl:'Tryb prywatny',tr:'Gizli tarama',ru:'Приватный просмотр',zh:'隐私浏览',ja:'プライベート閲覧',ko:'비공개 브라우징',hi:'निजी ब्राउज़िंग',ar:'التصفح الخاص',id:'Penjelajahan pribadi',vi:'Duyệt web riêng tư',th:'การเรียกดูแบบส่วนตัว',uk:'Приватний перегляд',sv:'Privat surfning',el:'Ιδιωτική περιήγηση',cs:'Anonymní prohlížení',ro:'Navigare privată'};
+    var pbEl = document.getElementById('lnkPrivBrow'); if (pbEl) pbEl.textContent = pbLabels[l] || pbLabels.en;
     var e1 = document.getElementById('pTitle'); if (e1) e1.textContent = d.pTitle || T.en.pTitle;
     var e2 = document.getElementById('pDm'); if (e2) e2.textContent = d.pDm || T.en.pDm;
     var e3 = document.getElementById('pIpv'); if (e3) e3.textContent = d.pIpv || T.en.pIpv;
