@@ -208,137 +208,151 @@
 }
 </script>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --navy:#0d2440; --blue:#2563eb; --muted:#5a6b82; --border:#e3e9f2; }
+  :root {
+    --navy:#0b1f3a; --ink:#1a2b45; --blue:#2563eb; --blue-dark:#1a4fd6;
+    --sky:#eaf1ff; --muted:#66788f; --line:#e7edf6; --bg:#f6f8fc; --card:#ffffff;
+    --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+    --serif:'Fraunces',Georgia,serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
   body {
-    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-    background: radial-gradient(circle at 50% 0%, rgba(37,99,235,0.10), transparent 55%), linear-gradient(160deg, #eef4fc 0%, #f7faff 100%);
-    color: var(--navy); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+    margin:0; font-family:var(--sans); color:var(--ink); background:var(--bg);
+    line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
-  .card {
-    background: #fff; border: 1px solid var(--border); border-radius: 28px;
-    box-shadow: 0 30px 80px rgba(13,36,64,0.12); padding: 50px 40px 40px; max-width: 480px; width: 100%; text-align: center;
+  a { color:inherit; }
+
+  /* Top bar */
+  .nav { position:sticky; top:0; z-index:40; background:rgba(246,248,252,0.85);
+    backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--line); }
+  .nav-in { max-width:1080px; margin:0 auto; padding:13px 24px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+  .brand { font-family:var(--serif); font-weight:700; font-size:22px; color:var(--navy); letter-spacing:-0.5px; text-decoration:none; }
+  .brand .tab { color:var(--blue); }
+  .nav-right { display:flex; align-items:center; gap:10px; }
+  .lang-wrap select {
+    font-family:inherit; font-size:13px; color:var(--ink); background:#fff;
+    border:1px solid var(--line); border-radius:9px; padding:7px 10px; cursor:pointer; max-width:150px;
   }
-  @media (min-width: 900px) {
-    .card {
-      max-width: 980px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 52px;
-      align-items: start;
-      padding: 56px 52px 44px;
-      text-align: left;
-    }
-    .col-left { position: sticky; top: 40px; }
-    .col-right { padding-top: 4px; }
-    .card h1, .tagline, .features { text-align: center; }
-    .feat-heading { margin-top: 0; }
-    .feature-list { margin-top: 14px; }
+  .nav-cta { display:none; }
+  @media (min-width:720px){ .nav-cta { display:inline-flex; background:var(--blue); color:#fff; text-decoration:none;
+    font-weight:600; font-size:13.5px; padding:9px 16px; border-radius:100px; align-items:center; gap:6px; transition:background .18s; }
+    .nav-cta:hover { background:var(--blue-dark); } }
+
+  /* Hero */
+  .hero { max-width:1080px; margin:0 auto; padding:64px 24px 30px; text-align:center; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:0 0 22px; }
+  .chip { font-size:12.5px; font-weight:600; color:#3f5470; background:#fff; border:1px solid var(--line);
+    padding:7px 13px; border-radius:100px; }
+  h1.hero-title { font-family:var(--serif); font-size:60px; line-height:1.02; letter-spacing:-2px;
+    font-weight:700; color:var(--navy); margin:0 0 16px; }
+  h1.hero-title .tab { color:var(--blue); }
+  .tagline { font-size:21px; color:#42566f; max-width:560px; margin:0 auto 34px; line-height:1.5; }
+
+  /* Install buttons - horizontal row on desktop */
+  .installs { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:760px; margin:0 auto; }
+  .btn-install, .btn-edge, .btn-opera {
+    display:flex; align-items:center; justify-content:center; gap:11px; text-decoration:none; color:#fff;
+    padding:16px 22px; border-radius:15px; font-size:16px; font-weight:700; flex:1 1 230px; min-width:220px;
+    transition:transform .18s, box-shadow .18s;
   }
-  h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
-  h1 .tab { color: var(--blue); }
-  .tagline { font-size: 16px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; min-height: 24px; }
-  .features { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
-  .chip { font-size: 12px; font-weight: 600; color: var(--muted); background: #f1f5fb; border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; }
-  .btn-install {
-    display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 22px 24px; margin-bottom: 16px;
-    border-radius: 17px; font-size: 18.5px; font-weight: 800; text-decoration: none; color: #fff;
-    background: linear-gradient(135deg, #2563eb, #1a73e8); box-shadow: 0 14px 34px rgba(37,99,235,0.40); transition: transform 0.2s, box-shadow 0.2s;
+  .btn-install { background:linear-gradient(135deg,#2f6bff,#1a4fd6); box-shadow:0 12px 30px rgba(37,99,235,0.34); }
+  .btn-edge { background:linear-gradient(135deg,#1b9de2,#0c67b8); box-shadow:0 12px 30px rgba(12,133,208,0.30); }
+  .btn-opera { background:linear-gradient(135deg,#ff1b2d,#ff5c39); box-shadow:0 12px 30px rgba(255,27,45,0.28); }
+  .btn-install:hover, .btn-edge:hover, .btn-opera:hover { transform:translateY(-3px); }
+  .btn-install .sub, .btn-edge .sub, .btn-opera .sub { display:block; font-size:11.5px; font-weight:600; opacity:0.85; margin-top:2px; }
+
+  .hints { max-width:760px; margin:14px auto 0; display:flex; flex-direction:column; gap:5px; }
+  .hint { font-size:12px; color:var(--muted); line-height:1.5; }
+
+  .kofi-wrap { text-align:center; margin:26px 0 0; }
+  .btn-kofi { display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:#5a6b82;
+    background:#eef1f6; border:1px solid var(--line); font-size:13px; font-weight:600; padding:9px 18px; border-radius:10px; transition:background .18s, transform .18s; }
+  .btn-kofi:hover { background:#e6eaf1; transform:translateY(-2px); }
+
+  /* Features section */
+  .features-section { max-width:1080px; margin:0 auto; padding:40px 24px 20px; }
+  .section-label { text-align:center; font-family:var(--serif); font-size:28px; color:var(--navy); font-weight:700;
+    letter-spacing:-0.6px; margin:0 0 30px; }
+  .feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .feature { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px 20px;
+    display:flex; flex-direction:column; gap:11px; transition:transform .16s, box-shadow .16s, border-color .16s; }
+  .feature:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(11,31,58,0.07); border-color:#d6e2f6; }
+  .feature .ico { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; }
+  .feature .ico.i1{ background:#e5f6ec; } .feature .ico.i2{ background:#e4eefe; } .feature .ico.i3{ background:#efe9fd; }
+  .feature .ico.i4{ background:#fef5da; } .feature .ico.i5{ background:#fde7f0; } .feature .ico.i6{ background:#e2f5fb; }
+  .feature .ftxt { font-size:14.5px; font-weight:600; color:#2c3e57; line-height:1.4; }
+
+  /* Secondary links row */
+  .links-section { max-width:1080px; margin:0 auto; padding:22px 24px 10px; }
+  .secondary-grid { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .btn-secondary { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:#33475f;
+    background:#fff; border:1px solid var(--line); border-radius:11px; padding:11px 18px; font-size:14px; font-weight:600;
+    transition:transform .15s, box-shadow .15s, border-color .15s; }
+  .btn-secondary:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(11,31,58,0.06); border-color:#d6e2f6; }
+  .btn-play { background:linear-gradient(135deg,#eef4ff,#e5eeff); border-color:#cfe0fb; color:#1d4fd8; font-weight:700; }
+  .btn-blog { background:linear-gradient(135deg,#fff8ec,#fff2d8); border-color:#f5e2b8; color:#8a6a1a; font-weight:700; }
+
+  /* Footer */
+  .footer { max-width:1080px; margin:30px auto 0; padding:26px 24px 46px; border-top:1px solid var(--line);
+    text-align:center; font-size:13px; color:var(--muted); }
+  #dmPartner { margin-bottom:16px; font-size:11.5px; line-height:1.6; }
+  .footer a { text-decoration:none; }
+  .foot-links { margin-bottom:8px; line-height:1.9; }
+  .foot-links a { color:#9aa8bd; border-bottom:1px dotted #c7cfda; }
+  .foot-links a.hl { color:var(--blue); font-weight:600; border-bottom-color:#9bbcf5; }
+
+  @media (max-width:860px){ .feature-grid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:620px){
+    h1.hero-title { font-size:40px; letter-spacing:-1.2px; }
+    .tagline { font-size:18px; }
+    .hero { padding:40px 16px 24px; }
+    .feature-grid { grid-template-columns:1fr; }
+    .installs { flex-direction:column; }
+    .btn-install, .btn-edge, .btn-opera { flex:1 1 100%; }
+    .features-section, .links-section { padding-left:16px; padding-right:16px; }
   }
-  .btn-install:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(37,99,235,0.50); }
-  .btn-install .chrome-ico { font-size: 24px; }
-  .btn-install .sub { display: block; font-size: 11.5px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
-  .btn-kofi {
-    display: inline-flex; align-items: center; justify-content: center; gap: 7px; width: auto; padding: 9px 18px; margin: 0 auto 18px;
-    border-radius: 10px; font-size: 13px; font-weight: 600; text-decoration: none; color: #5a6b82;
-    background: #f0f2f6; border: 1px solid #e2e6ee; box-shadow: none; transition: background 0.18s, transform 0.18s;
-  }
-  .btn-kofi:hover { transform: translateY(-2px); background: #e8ebf1; }
-  .secondary-row { display: flex; gap: 12px; margin-bottom: 4px; }
-  .secondary-row + .secondary-row { margin-top: 8px; }
-  .btn-secondary {
-    flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 12px 14px; border-radius: 12px;
-    font-size: 14px; font-weight: 600; text-decoration: none; color: #2d3b52; background: #f7faff; border: 1px solid var(--border); transition: background 0.15s;
-  }
-  .btn-secondary:hover { background: #eef4fc; }
-  .lang-wrap { margin-top: 30px; padding-top: 24px; border-top: 1px solid #eef2f8; }
-  select {
-    font-family: inherit; font-size: 14px; font-weight: 600; color: var(--blue);
-    background: #eef4fc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;
-    border: 1px solid #dbe6f5; border-radius: 10px; padding: 10px 38px 10px 14px; cursor: pointer; -webkit-appearance: none; appearance: none;
-  }
-  select:focus { outline: none; border-color: var(--blue); }
-  .footer { margin-top: 22px; font-size: 12px; color: #9aa8bd; }
-    text-decoration: none; transition: background 0.15s; margin-bottom: 4px; }
-    display: flex; align-items: center; justify-content: center; font-size: 22px; }
-  .feat-heading { text-align: left; font-size: 15px; font-weight: 800; color: #0d2440; margin: 26px 0 2px; letter-spacing: -0.2px; }
-  .feature-list { margin: 24px 0 8px; text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .feat {
-    display: flex; align-items: center; gap: 11px; font-size: 13.5px; color: #26364d; font-weight: 600;
-    background: #f7faff; border: 1px solid #e8f0fb; border-radius: 13px; padding: 13px 13px;
-    line-height: 1.35; transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
-  }
-  .feat:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,0.09); border-color: #cfe0fb; }
-  .feat-ico {
-    font-size: 18px; flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #eef4ff, #dfeafe);
-  }
-  .feat:nth-child(1) .feat-ico { background: linear-gradient(135deg, #dcfce7, #bbf7d0); }
-  .feat:nth-child(2) .feat-ico { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
-  .feat:nth-child(3) .feat-ico { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
-  .feat:nth-child(4) .feat-ico { background: linear-gradient(135deg, #fef3c7, #fde68a); }
-  .feat:nth-child(5) .feat-ico { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
-  .feat:nth-child(6) .feat-ico { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
-  @media (min-width: 521px) and (max-width: 899px) {
-    .card { max-width: 620px; padding: 46px 44px 38px; }
-  }
-  @media (max-width: 520px) {
-    body { padding: 8px; }
-    .card { padding: 30px 16px 24px; border-radius: 20px; }
-  }
-  @media (max-width: 420px) {
-    body { padding: 6px; }
-    .card { padding: 26px 13px 22px; border-radius: 18px; }
-    .feature-list { grid-template-columns: 1fr; }
-  }
-  .btn-edge {
-    display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 22px 24px; margin-bottom: 18px;
-    border-radius: 17px; font-size: 18.5px; font-weight: 800; text-decoration: none; color: #fff;
-    background: linear-gradient(135deg, #0c85d0, #33b1e1); box-shadow: 0 14px 34px rgba(12,133,208,0.38); transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-edge:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(12,133,208,0.48); }
-  .btn-edge .sub { display: block; font-size: 11.5px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
-  .edge-hint { font-size: 12px; color: var(--muted); margin: -6px 0 16px; line-height: 1.5; padding: 0 8px; }
-  .btn-opera {
-    display: flex; align-items: center; justify-content: center; gap: 11px; width: 100%; padding: 22px 24px; margin-bottom: 18px;
-    border-radius: 17px; font-size: 18.5px; font-weight: 800; text-decoration: none; color: #fff;
-    background: linear-gradient(135deg, #ff1b2d, #ff5c39); box-shadow: 0 14px 34px rgba(255,27,45,0.34); transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-opera:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(255,27,45,0.46); }
-  .btn-opera .sub { display: block; font-size: 11.5px; font-weight: 600; opacity: 0.85; margin-top: 2px; }
 </style>
 </head>
+
 <body>
-  <div class="card">
-    <div class="col-left">
-    <h1>Clean<span class="tab">Tab</span></h1>
-    <p class="tagline" id="tagline">Your browser, clean. Automatically.</p>
-    <div class="features">
+  <div class="nav">
+    <div class="nav-in">
+      <a class="brand" href="index.html">Clean<span class="tab">Tab</span></a>
+      <div class="nav-right">
+        <div class="lang-wrap">
+          <select id="langSelect" onchange="setLang(this.value)">
+            <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="es">🇪🇸 Español</option>
+            <option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="pt">🇵🇹 Português</option>
+            <option value="nl">🇳🇱 Nederlands</option><option value="pl">🇵🇱 Polski</option><option value="tr">🇹🇷 Türkçe</option>
+            <option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option><option value="hi">🇮🇳 हिन्दी</option><option value="ar">🇸🇦 العربية</option>
+            <option value="id">🇮🇩 Indonesia</option><option value="vi">🇻🇳 Tiếng Việt</option><option value="th">🇹🇭 ไทย</option>
+            <option value="uk">🇺🇦 Українська</option><option value="sv">🇸🇪 Svenska</option><option value="el">🇬🇷 Ελληνικά</option>
+            <option value="cs">🇨🇿 Čeština</option><option value="ro">🇷🇴 Română</option>
+          </select>
+        </div>
+        <a class="nav-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">➕ <span id="txtInstall">Add to Chrome - it's free</span></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="chips">
       <span class="chip" id="chip1">🔒 Private</span>
       <span class="chip" id="chip2">⚡ Lightweight</span>
       <span class="chip" id="chip3">🆓 Free</span>
       <span class="chip" id="chip4">🌍 22 languages</span>
     </div>
-    <a class="btn-install" id="btnInstall" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
-      <svg class="chrome-ico" width="26" height="26" viewBox="0 0 24 24" style="vertical-align:middle;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="#fff"/><circle cx="12" cy="12" r="4" fill="#1a73e8"/><path fill="#ea4335" d="M12 8h8.5A11 11 0 0 0 3.2 6.4L7 12a5 5 0 0 1 5-4z"/><path fill="#4285f4" d="M15.5 12a3.5 3.5 0 0 1-3.5 3.5c-.6 0-1.2-.16-1.7-.43L6.5 21.8A11 11 0 0 0 20.5 8h-7.9a3.5 3.5 0 0 1 2.9 4z"/><path fill="#34a853" d="M7 12 3.2 6.4A11 11 0 0 0 6.5 21.8l3.8-6.73A3.5 3.5 0 0 1 7 12z"/><path fill="#fbbc04" d="M12 8.5a3.5 3.5 0 0 1 0 7 3.5 3.5 0 0 1 0-7z" opacity="0"/></svg>
-      <span>
-        <span id="txtInstall">Add to Chrome - it's free</span>
-        <span class="sub" id="txtInstallSub">Chrome Web Store</span>
-      </span>
-    </a>
-    <a class="btn-edge" id="btnEdge" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
-      <svg class="edge-ico" width="26" height="26" viewBox="0 0 48 48" style="vertical-align:middle;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
+    <h1 class="hero-title">Clean<span class="tab">Tab</span></h1>
+    <p class="tagline" id="tagline">Your browser, clean. Automatically.</p>
+
+    <div class="installs">
+      <a class="btn-install" id="btnInstall2" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <svg class="chrome-ico" width="26" height="26" viewBox="0 0 24 24" style="vertical-align:middle;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" fill="#fff"/><circle cx="12" cy="12" r="4" fill="#1a73e8"/><path fill="#ea4335" d="M12 8h8.5A11 11 0 0 0 3.2 6.4L7 12a5 5 0 0 1 5-4z"/><path fill="#4285f4" d="M15.5 12a3.5 3.5 0 0 1-3.5 3.5c-.6 0-1.2-.16-1.7-.43L6.5 21.8A11 11 0 0 0 20.5 8h-7.9a3.5 3.5 0 0 1 2.9 4z"/><path fill="#34a853" d="M7 12 3.2 6.4A11 11 0 0 0 6.5 21.8l3.8-6.73A3.5 3.5 0 0 1 7 12z"/><path fill="#fbbc04" d="M12 8.5a3.5 3.5 0 0 1 0 7 3.5 3.5 0 0 1 0-7z" opacity="0"/></svg>
+        <span><span id="txtInstall2">Add to Chrome - it's free</span><span class="sub" id="txtInstallSub">Chrome Web Store</span></span>
+      </a>
+      <a class="btn-edge" id="btnEdge" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <svg class="edge-ico" width="26" height="26" viewBox="0 0 48 48" style="vertical-align:middle;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="edgeA" x1="8" y1="34" x2="40" y2="34" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#0c59a4"/><stop offset="1" stop-color="#114a8b"/>
@@ -354,82 +368,66 @@
         <path fill="url(#edgeB)" d="M20 43.3c-2.5-.5-4.7-1.6-6.5-3-6-4.8-5.6-13.4.7-17.4 1.7-1 3.3-1.2 4.5-1.2 1.3 0 2.7.4 3.7 1-2.4.1-4.6 1.5-5.7 3.6-1.6 3-.9 6.6 1.4 8.8 3 2.9 7.5 4.6 12.4 4.6-2.9 1-6.6 1.3-10 1z"/>
         <path fill="url(#edgeC)" d="M24 4c5.5 0 10.5 2.2 14 5.9 2.6 2.7 4 6.2 4 9.6 0 3.4-2.2 5.7-5.4 5.7-2.6 0-5-1.5-5-4.4 0-.9.3-1.7.3-2.6 0-3.5-3-6.8-8.2-6.8-5.6 0-10.3 3.7-12.6 8.3C9.7 12 16.2 4 24 4z"/>
       </svg>
-      <span>
-        <span id="txtEdgeInstall">Add to Edge - it's free</span>
-        <span class="sub" id="txtEdgeSub">Chrome Web Store</span>
-      </span>
-    </a>
-
-    <div class="edge-hint" id="edgeHint">ℹ️ <span id="txtEdgeHint">Edge uses Chrome extensions - install from the Chrome Web Store and click "Allow" if prompted.</span></div>
-
-    <a class="btn-opera" id="btnOpera" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
-      <svg class="opera-ico" width="26" height="26" viewBox="0 0 48 48" style="vertical-align:middle;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
+        <span><span id="txtEdgeInstall">Add to Edge - it's free</span><span class="sub" id="txtEdgeSub">Chrome Web Store</span></span>
+      </a>
+      <a class="btn-opera" id="btnOpera" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <svg class="opera-ico" width="26" height="26" viewBox="0 0 48 48" style="vertical-align:middle;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="24" cy="24" rx="20" ry="22" fill="#fff"/>
         <ellipse cx="24" cy="24" rx="11" ry="16" fill="#ff1b2d"/>
       </svg>
-      <span>
-        <span id="txtOperaInstall">Add to Opera - it's free</span>
-        <span class="sub" id="txtOperaSub">Chrome Web Store</span>
-      </span>
-    </a>
-    <div class="edge-hint" id="operaHint">ℹ️ <span id="txtOperaHint">Opera uses Chrome extensions - install from the Chrome Web Store and confirm if prompted.</span></div>
-
-    <a class="btn-kofi" id="btnKofi" href="https://ko-fi.com/cleantab" target="_blank" rel="noopener">☕ <span id="txtKofi">Buy me a coffee</span></a>
-    </div><!-- /col-left -->
-    <div class="col-right">
-
-    <div class="feat-heading" id="featHeading">Everything CleanTab does</div>
-    <div class="feature-list" id="featureList">
-      <div class="feat"><span class="feat-ico">🧹</span><span id="feat1">One-click cleaning of cache, cookies & history</span></div>
-      <div class="feat"><span class="feat-ico">⏰</span><span id="feat2">Automatic scheduled cleaning</span></div>
-      <div class="feat"><span class="feat-ico">🛡️</span><span id="feat3">Protect your favorite sites (whitelist)</span></div>
-      <div class="feat"><span class="feat-ico">📊</span><span id="feat4">Statistics, badges & 7-day activity chart</span></div>
-      <div class="feat"><span class="feat-ico">🎮</span><span id="feat5">Exclusive Tab Rush mini-game</span></div>
-      <div class="feat"><span class="feat-ico">🔒</span><span id="feat6">100% private - no data leaves your browser</span></div>
+        <span><span id="txtOperaInstall">Add to Opera - it's free</span><span class="sub" id="txtOperaSub">Chrome Web Store</span></span>
+      </a>
+    </div>
+    <div class="hints">
+      <div class="hint">ℹ️ <span id="txtEdgeHint">Edge uses Chrome extensions - install from the Chrome Web Store and click "Allow" if prompted.</span></div>
+      <div class="hint">ℹ️ <span id="txtOperaHint">Opera uses Chrome extensions - install from the Chrome Web Store and confirm if prompted.</span></div>
     </div>
 
-    <div class="secondary-row">
-      <a class="btn-secondary btn-play" id="btnPlay" href="play.html" style="flex:1 1 100%; background:linear-gradient(135deg,#eef4ff,#e5eeff); border-color:#cfe0fb; color:#1d4fd8; font-weight:700;">🎮 <span id="txtPlay">Play Tab Rush</span></a>
+    <div class="kofi-wrap">
+      <a class="btn-kofi" id="btnKofi" href="https://ko-fi.com/cleantab" target="_blank" rel="noopener">☕ <span id="txtKofi">Buy me a coffee</span></a>
     </div>
-    <div class="secondary-row">
-      <a class="btn-secondary" id="btnBlog" href="blog.html" style="flex:1 1 100%; background:linear-gradient(135deg,#fff8ec,#fff2d8); border-color:#f5e2b8; color:#8a6a1a; font-weight:700;">📰 <span id="txtBlog">Blog</span></a>
+  </section>
+
+  <section class="features-section">
+    <h2 class="section-label" id="featHeading">Everything CleanTab does</h2>
+    <div class="feature-grid">
+      <div class="feature"><div class="ico i1">🧹</div><div class="ftxt" id="feat1">One-click cleaning of cache, cookies & history</div></div>
+      <div class="feature"><div class="ico i2">⏰</div><div class="ftxt" id="feat2">Automatic scheduled cleaning</div></div>
+      <div class="feature"><div class="ico i3">🛡️</div><div class="ftxt" id="feat3">Protect your favorite sites (whitelist)</div></div>
+      <div class="feature"><div class="ico i4">📊</div><div class="ftxt" id="feat4">Statistics, badges & 7-day activity chart</div></div>
+      <div class="feature"><div class="ico i5">🎮</div><div class="ftxt" id="feat5">Exclusive Tab Rush mini-game</div></div>
+      <div class="feature"><div class="ico i6">🔒</div><div class="ftxt" id="feat6">100% private - no data leaves your browser</div></div>
     </div>
-    <div class="secondary-row">
+  </section>
+
+  <section class="links-section">
+    <div class="secondary-grid">
+      <a class="btn-secondary btn-play" id="btnPlay" href="play.html">🎮 <span id="txtPlay">Play Tab Rush</span></a>
+      <a class="btn-secondary btn-blog" id="btnBlog" href="blog.html">📰 <span>Blog</span></a>
       <a class="btn-secondary" id="btnGuide" href="guide.html">📖 <span id="txtGuide">Guide</span></a>
       <a class="btn-secondary" id="btnHowto" href="how-to-use.html">🚀 <span id="txtHowto">How to use</span></a>
-    </div>
-    <div class="secondary-row">
       <a class="btn-secondary" id="btnPrivacy" href="privacy.html">🔒 <span id="txtPrivacy">Privacy</span></a>
       <a class="btn-secondary" id="btnSupport" href="support.html">🛟 <span id="txtSupport">Support</span></a>
+      <a class="btn-secondary" id="btnPrivacyTools" href="privacy-tools.html">🛡️ <span id="txtPrivacyTools">Privacy Tools</span></a>
     </div>
-    <div class="secondary-row">
-      <a class="btn-secondary" id="btnPrivacyTools" href="privacy-tools.html" style="flex:1 1 100%;">🛡️ <span id="txtPrivacyTools">Privacy Tools</span></a>
+  </section>
+
+  <footer class="footer">
+    <div id="dmPartner">
+      <div style="font-weight:700; color:#6a7a90; margin-bottom:5px;" id="pTitle">🤝 Official partners</div>
+      <div style="margin-bottom:3px;"><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> - <span id="pDm">removes your personal data from data brokers and people-search sites</span></div>
+      <div><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
+      <div style="margin-top:5px; opacity:0.75; font-size:10px;" id="pAff">Affiliate links</div>
     </div>
-    <div class="lang-wrap">
-      <select id="langSelect" onchange="setLang(this.value)">
-        <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="es">🇪🇸 Español</option>
-        <option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="pt">🇵🇹 Português</option>
-        <option value="nl">🇳🇱 Nederlands</option><option value="pl">🇵🇱 Polski</option><option value="tr">🇹🇷 Türkçe</option>
-        <option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option>
-        <option value="ko">🇰🇷 한국어</option><option value="hi">🇮🇳 हिन्दी</option><option value="ar">🇸🇦 العربية</option>
-        <option value="id">🇮🇩 Indonesia</option><option value="vi">🇻🇳 Tiếng Việt</option><option value="th">🇹🇭 ไทย</option>
-        <option value="uk">🇺🇦 Українська</option><option value="sv">🇸🇪 Svenska</option><option value="el">🇬🇷 Ελληνικά</option>
-        <option value="cs">🇨🇿 Čeština</option><option value="ro">🇷🇴 Română</option>
-      </select>
+    <div class="foot-links">
+      <a href="blog.html" class="hl">Blog</a> · <a href="compare.html" id="lnkCompare">CleanTab vs CCleaner &amp; alternatives</a> · <a href="whatsnew.html" id="lnkWhatsnew">What's new</a> · <a href="slow-browser.html" id="lnkSlow">Slow browser?</a> · <a href="delete-history.html" id="lnkDelHist">Delete history</a> · <a href="what-is-a-browser-cleaner.html" id="lnkWhatIs">What is a cleaner?</a>
     </div>
-    <div class="footer">
-      <div id="dmPartner" style="margin-bottom:10px; font-size:11px; line-height:1.5;">
-        <div style="font-weight:700; color:#6a7a90; margin-bottom:5px;" id="pTitle">🤝 Official partners</div>
-        <div style="margin-bottom:3px;"><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> - <span id="pDm">removes your personal data from data brokers and people-search sites</span></div>
-        <div><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
-        <div style="margin-top:5px; opacity:0.75; font-size:10px;" id="pAff">Affiliate links</div>
-      </div>
-      <div style="margin-bottom:8px;"><a href="blog.html" style="color:#2563eb; text-decoration:none; font-weight:600; border-bottom:1px dotted #9bbcf5;">Blog</a> · <a href="compare.html" id="lnkCompare" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">CleanTab vs CCleaner &amp; alternatives</a> · <a href="whatsnew.html" id="lnkWhatsnew" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">What's new</a> · <a href="slow-browser.html" id="lnkSlow" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Slow browser?</a> · <a href="delete-history.html" id="lnkDelHist" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Delete history</a> · <a href="what-is-a-browser-cleaner.html" id="lnkWhatIs" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">What is a cleaner?</a></div>
-      <div style="margin-bottom:8px;"><a href="clear-cache.html" id="lnkClearCache" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Clear cache</a> · <a href="delete-cookies.html" id="lnkDelCookies" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Delete cookies</a> · <a href="cache-cookies-history-difference.html" id="lnkCacheVs" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Cache vs cookies</a> · <a href="private-browsing.html" id="lnkPrivBrow" style="color:#9aa8bd; text-decoration:none; border-bottom:1px dotted #c7cfda;">Private browsing</a></div>
-      © 2026 Jeremstyke
+    <div class="foot-links">
+      <a href="clear-cache.html" id="lnkClearCache">Clear cache</a> · <a href="delete-cookies.html" id="lnkDelCookies">Delete cookies</a> · <a href="cache-cookies-history-difference.html" id="lnkCacheVs">Cache vs cookies</a> · <a href="private-browsing.html" id="lnkPrivBrow">Private browsing</a>
     </div>
-    </div><!-- /col-right -->
-  </div>
+    © 2026 Jeremstyke
+  </footer>
+
 <script>
   var T = {
     en:{pTitle:"🤝 Official partners",pDm:"removes your personal data from data brokers and people-search sites",pIpv:"VPN that encrypts your connection and hides your IP address",pAff:"Affiliate links",edge:"Add to Edge - it's free",edgeHint:"Edge uses Chrome extensions - install from the Chrome Web Store and click \"Allow\" if prompted.",opera:"Add to Opera - it's free",operaHint:"Opera uses Chrome extensions - install from the Chrome Web Store and confirm if prompted.",tagline:"Your browser, clean. Automatically.",install:"Add to Chrome - it's free",sub:"Chrome Web Store",kofi:"Buy me a coffee",privacy:"Privacy",support:"Support",c:["🔒 Private","⚡ Lightweight","🆓 Free","🌍 22 languages"],f:["One-click cleaning of cache, cookies & history","Automatic scheduled cleaning","Protect your favorite sites (whitelist)","Statistics, badges & 7-day activity chart","Exclusive Tab Rush mini-game","100% private - no data leaves your browser"]},
@@ -460,6 +458,7 @@
     var d = T[l] || T.en;
     document.getElementById('tagline').textContent = d.tagline;
     document.getElementById('txtInstall').textContent = d.install;
+    var ti2=document.getElementById('txtInstall2'); if(ti2) ti2.textContent = d.install;
     document.getElementById('txtInstallSub').textContent = d.sub;
     document.getElementById('txtKofi').textContent = d.kofi;
     document.getElementById('txtPrivacy').textContent = d.privacy;
