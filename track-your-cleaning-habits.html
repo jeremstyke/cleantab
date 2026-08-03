@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<script type="text/javascript" async=true>
+(function() {
+  var host = "www.themoneytizer.com";
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Track and Understand Your Browser Cleaning Habits - CleanTab</title>
+<meta name="description" content="Tracking what you clean and how often makes browser maintenance a real habit. Here's why cleaning stats help, what CleanTab shows for free, and what the Stats Pro module adds." />
+<link rel="canonical" href="https://getcleantab.com/track-your-cleaning-habits.html" />
+<link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
+<link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
+<meta property="og:title" content="How to Track and Understand Your Browser Cleaning Habits - CleanTab" />
+<meta property="og:description" content="Tracking what you clean and how often makes browser maintenance a real habit. Here's why cleaning stats help, what CleanTab shows for free, and what the Stats Pro module adds." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://getcleantab.com/icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why track your cleaning habits?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Seeing what you clean and how often helps you understand what clutters your browser, spot when it slows down, and build a regular maintenance habit. It's small data, but it makes maintenance concrete rather than abstract." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CleanTab show statistics for free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. CleanTab includes a free cleaning counter, badges and a 7-day activity chart. You can already see how many times you've cleaned and your recent consistency, at no cost." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Stats Pro module add?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Stats Pro module adds a more detailed, longer-term view: extended history, trends, and a breakdown by data type. It complements the free stats without ever replacing them, for people who like to track things closely." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Pro remove any free features?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No, never. CleanTab's principle is clear: Pro adds features, it removes none. Everything free stays free. Pro is an optional extra to support the project and unlock advanced statistics." }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:1120px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .hero { max-width:1120px; margin:0 auto; padding:56px 26px 8px; }
+  .hero-in { max-width:700px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:46px; line-height:1.1; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
+
+  .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
+    display:grid; grid-template-columns:210px 1fr; gap:54px; align-items:start; }
+  .rail { position:sticky; top:84px; }
+  .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:#9aa8bd; margin-bottom:14px; }
+  .rail ol { list-style:none; margin:0; padding:0; counter-reset:r; }
+  .rail li { counter-increment:r; }
+  .rail a { display:flex; gap:11px; align-items:baseline; padding:8px 0 8px 13px;
+    border-left:2px solid var(--border); font-size:13.5px; color:var(--muted);
+    text-decoration:none; transition:all .18s; line-height:1.4; }
+  .rail a::before { content:counter(r); font-size:10.5px; font-weight:700; color:#b6c3d6;
+    flex-shrink:0; transition:color .18s; }
+  .rail a:hover { color:var(--navy); border-left-color:#b9cdf2; }
+  .rail a.on { color:var(--blue); border-left-color:var(--blue); font-weight:600; }
+  .rail a.on::before { color:var(--blue); }
+
+  main { max-width:700px; min-width:0; }
+  section { scroll-margin-top:84px; }
+  section + section { margin-top:52px; }
+  .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
+  .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
+    font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
+    color:var(--navy); margin:0; line-height:1.24; }
+  .sec-body { padding-left:47px; }
+  .intro-body { margin-top:8px; }
+  p { margin:0 0 16px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
+
+  .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
+  .fix p { margin:0; font-size:15.5px; color:#33455e; }
+  .fix strong { color:var(--blue); }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:15.5px; }
+
+  .faq { margin-top:14px; }
+  .faq details { border:1px solid var(--border); border-radius:12px; padding:2px 18px; margin-bottom:12px; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; color:var(--navy); font-size:16.5px; padding:14px 0; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; float:right; color:var(--blue); font-weight:700; font-size:20px; line-height:1; }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq details p { padding:0 0 14px; font-size:16px; margin:0; }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:18px; margin:0 0 5px; color:var(--navy); }
+  .cta-box p { font-size:14.5px; color:#4a5f7e; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .partners { max-width:700px; margin:26px auto 0; padding:0 26px; text-align:center;
+    font-size:11.5px; line-height:1.6; color:#9aa8bd; }
+  .partners strong { color:#6a7891; }
+
+  .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
+
+  @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .hero { padding:38px 20px 6px; }
+    .hero-lede { font-size:17px; }
+    h2 { font-size:22px; }
+    .sec-body { padding-left:0; }
+    p,ol.steps li { font-size:16.5px; }
+    .shell { padding:24px 20px 50px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Get it free</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>Guide</span><span data-fr>Guide</span></div>
+    <h1>
+      <span data-en>How to track and understand your cleaning habits</span>
+      <span data-fr>Comment suivre et comprendre vos habitudes de nettoyage</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-en>Cleaning your browser is a habit, and like any habit, it sticks better when you can see it. Here's why tracking what you clean helps, what CleanTab shows you for free, and how to go further.</span>
+      <span data-fr>Nettoyer son navigateur est une habitude, et comme toute habitude, elle tient mieux quand on peut la voir. Voici pourquoi suivre ce que vous nettoyez aide, ce que CleanTab vous montre gratuitement, et comment aller plus loin.</span>
+    </p>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
+    <ol>
+      <li><a href="#why" class="rail-a"><span data-en>Why track it</span><span data-fr>Pourquoi suivre</span></a></li>
+      <li><a href="#free" class="rail-a"><span data-en>What's free</span><span data-fr>Ce qui est gratuit</span></a></li>
+      <li><a href="#habit" class="rail-a"><span data-en>Building the habit</span><span data-fr>Ancrer l'habitude</span></a></li>
+      <li><a href="#pro" class="rail-a"><span data-en>Going further with Pro</span><span data-fr>Aller plus loin avec Pro</span></a></li>
+      <li><a href="#start" class="rail-a"><span data-en>Getting started</span><span data-fr>Pour commencer</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="why">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>Why tracking your cleaning helps</span><span data-fr>Pourquoi suivre son nettoyage aide</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>Browser maintenance usually feels invisible: you clear your cache, and nothing obvious happens. That's exactly why people forget to do it. Seeing a simple record - how many times you've cleaned, how recently, how consistent you've been - turns something abstract into something concrete. It's the same reason step counters work: a visible number makes you want to keep the streak going. Tracking also helps you notice patterns, like your browser slowing down when you haven't cleaned in a while.</p></span>
+        <span data-fr><p>L'entretien du navigateur semble souvent invisible : vous videz le cache, et rien de visible ne se passe. C'est justement pour ça qu'on oublie de le faire. Voir un simple relevé - combien de fois vous avez nettoyé, depuis quand, avec quelle régularité - transforme quelque chose d'abstrait en quelque chose de concret. C'est la même raison qui fait marcher les podomètres : un chiffre visible donne envie de maintenir la série. Le suivi aide aussi à repérer des tendances, comme un navigateur qui ralentit quand vous n'avez pas nettoyé depuis un moment.</p></span>
+      </div>
+    </section>
+    <section id="free">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>What CleanTab shows you for free</span><span data-fr>Ce que CleanTab vous montre gratuitement</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p><a href="index.html">CleanTab</a> already includes useful statistics at no cost. You get a running count of how many times you've cleaned, achievement badges as you reach milestones, and a 7-day activity chart that shows your recent cleaning rhythm at a glance. For most people, this is enough to build and keep the habit. It's all there in the extension, free, and nothing about it leaves your browser.</p></span>
+        <span data-fr><p><a href="index.html">CleanTab</a> inclut déjà des statistiques utiles gratuitement. Vous avez un compteur du nombre de nettoyages effectués, des badges de réussite à mesure que vous franchissez des paliers, et un graphique d'activité sur 7 jours qui montre votre rythme récent en un coup d'oeil. Pour la plupart des gens, cela suffit à créer et garder l'habitude. Tout est dans l'extension, gratuitement, et rien de tout cela ne quitte votre navigateur.</p></span>
+      </div>
+    </section>
+    <section id="habit">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>Turning cleaning into a habit</span><span data-fr>Faire du nettoyage une habitude</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>The trick with any maintenance habit is to make it automatic and to see your progress. Two things help: first, set CleanTab to clean on a schedule so it happens without you thinking about it. Second, glance at your activity chart now and then to see your streak. Combining an automatic routine with a visible record is what makes the habit stick, so your browser stays fast and clean without effort on your part.</p></span>
+        <span data-fr><p>L'astuce avec toute habitude d'entretien, c'est de la rendre automatique et de voir sa progression. Deux choses aident : d'abord, réglez CleanTab pour nettoyer selon un planning, pour que ça se fasse sans y penser. Ensuite, jetez un oeil de temps en temps à votre graphique d'activité pour voir votre série. Combiner une routine automatique et un relevé visible, c'est ce qui ancre l'habitude, pour que votre navigateur reste rapide et propre sans effort de votre part.</p></span>
+      </div>
+    </section>
+    <section id="pro">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2><span data-en>Going further with the Stats Pro module</span><span data-fr>Aller plus loin avec le module Stats Pro</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>If you're the kind of person who likes to track things closely, there's an optional <strong>Stats Pro module</strong> that adds a more detailed view: a longer history beyond the 7-day window, trends over time, and a breakdown by type of data cleaned. It builds on the free stats rather than replacing them. Importantly, it follows CleanTab's core principle: <strong>Pro only ever adds features, it never removes free ones</strong>. Everything you get for free stays free. The Pro module is an optional extra for people who want deeper insight, and a way to support the project. You can find it here: <a href="https://ko-fi.com/s/b078fcd6c4" target="_blank" rel="noopener"><strong>CleanTab Stats Pro on Ko-fi</strong></a>.</p></span>
+        <span data-fr><p>Si vous êtes du genre à aimer suivre les choses de près, il existe un <strong>module Stats Pro</strong> optionnel qui ajoute une vue plus détaillée : un historique plus long que la fenêtre de 7 jours, des tendances dans le temps, et une répartition par type de données nettoyées. Il complète les stats gratuites au lieu de les remplacer. Point important, il respecte le principe fondamental de CleanTab : <strong>le Pro ne fait qu'ajouter des fonctions, il n'en retire jamais</strong>. Tout ce que vous avez gratuitement reste gratuit. Le module Pro est un extra optionnel pour ceux qui veulent une vue plus poussée, et une façon de soutenir le projet. Vous le trouverez ici : <a href="https://ko-fi.com/s/b078fcd6c4" target="_blank" rel="noopener"><strong>CleanTab Stats Pro sur Ko-fi</strong></a>.</p></span>
+      </div>
+    </section>
+    <section id="start">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2><span data-en>Getting started</span><span data-fr>Pour commencer</span></h2>
+      </div>
+      <div class="sec-body">
+        <span data-en><p>You don't need Pro to start. Install <a href="index.html">CleanTab</a>, turn on scheduled cleaning, and let the free stats and 7-day chart show you your progress. Once you've built the habit and you find yourself wanting a longer view of your trends, the Stats Pro module is there if you want it. Start simple, and go deeper only if it genuinely helps you.</p></span>
+        <span data-fr><p>Vous n'avez pas besoin du Pro pour commencer. Installez <a href="index.html">CleanTab</a>, activez le nettoyage programmé, et laissez les stats gratuites et le graphique 7 jours vous montrer votre progression. Une fois l'habitude prise, si vous vous surprenez à vouloir une vue plus longue de vos tendances, le module Stats Pro est là si vous le souhaitez. Commencez simple, et allez plus loin seulement si ça vous aide vraiment.</p></span>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <img src="icon128.png" alt="CleanTab" />
+      <div class="txt">
+        <h3><span data-en>Start with the free stats</span><span data-fr>Commencez avec les stats gratuites</span></h3>
+        <p><span data-en>CleanTab clears cache, cookies and history in one click or on a schedule, and shows your progress with free stats, badges and a 7-day chart. Free, in 22 languages.</span>
+        <span data-fr>CleanTab vide cache, cookies et historique en un clic ou automatiquement, et montre votre progression avec des stats gratuites, des badges et un graphique 7 jours. Gratuit, en 22 langues.</span></p>
+      </div>
+      <a class="cta-btn" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
+        <span data-en>Add to Chrome</span><span data-fr>Installer</span>
+      </a>
+    </div>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq" style="margin-top:20px;">
+        <details>
+          <summary><span data-en>Why track your cleaning habits?</span><span data-fr>Pourquoi suivre ses habitudes de nettoyage ?</span></summary>
+          <p><span data-en>Seeing what you clean and how often helps you understand what clutters your browser, spot when it slows down, and build a regular maintenance habit. It's small data, but it makes maintenance concrete rather than abstract.</span>
+          <span data-fr>Voir ce que vous nettoyez et à quelle fréquence aide à comprendre ce qui encombre votre navigateur, à repérer les périodes où il ralentit, et à prendre l'habitude d'un entretien régulier. Ce sont de petites données, mais elles rendent l'entretien concret plutôt qu'abstrait.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Does CleanTab show statistics for free?</span><span data-fr>CleanTab affiche-t-il des statistiques gratuitement ?</span></summary>
+          <p><span data-en>Yes. CleanTab includes a free cleaning counter, badges and a 7-day activity chart. You can already see how many times you've cleaned and your recent consistency, at no cost.</span>
+          <span data-fr>Oui. CleanTab inclut gratuitement un compteur de nettoyages, des badges et un graphique d'activité sur 7 jours. Vous voyez déjà combien de fois vous avez nettoyé et votre régularité récente, sans rien payer.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>What does the Stats Pro module add?</span><span data-fr>Qu'apporte le module Stats Pro en plus ?</span></summary>
+          <p><span data-en>The Stats Pro module adds a more detailed, longer-term view: extended history, trends, and a breakdown by data type. It complements the free stats without ever replacing them, for people who like to track things closely.</span>
+          <span data-fr>Le module Stats Pro ajoute une vue plus détaillée et sur une plus longue durée : historique étendu, tendances, répartition par type de données. Il complète les stats gratuites sans jamais les remplacer, pour ceux qui aiment suivre les choses de près.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Does Pro remove any free features?</span><span data-fr>Le Pro retire-t-il des fonctions gratuites ?</span></summary>
+          <p><span data-en>No, never. CleanTab's principle is clear: Pro adds features, it removes none. Everything free stays free. Pro is an optional extra to support the project and unlock advanced statistics.</span>
+          <span data-fr>Non, jamais. Le principe de CleanTab est clair : le Pro ajoute des fonctions, il n'en retire aucune. Tout ce qui est gratuit le reste. Le Pro est un plus optionnel pour soutenir le projet et débloquer des statistiques avancées.</span></p>
+        </details>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="partners">
+  <span id="dmPartnerText"></span>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="blog.html"><span data-en>Blog</span><span data-fr>Blog</span></a> ·
+  <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
+  <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l historique</span></a> ·
+  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="dm-partner.js"></script>
+</body>
+</html>
