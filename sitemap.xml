@@ -126,6 +126,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://getcleantab.com/browser-using-too-much-ram.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getcleantab.com/extensions-that-slow-down-browser.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getcleantab.com/auto-delete-browsing-data.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getcleantab.com/does-clearing-cache-delete-passwords.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://getcleantab.com/play.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
