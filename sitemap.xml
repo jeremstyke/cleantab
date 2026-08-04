@@ -111,6 +111,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://getcleantab.com/third-party-cookies.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getcleantab.com/force-refresh-page.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getcleantab.com/private-browsing-vs-vpn.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://getcleantab.com/play.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
