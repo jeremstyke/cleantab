@@ -165,45 +165,23 @@
 <!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to Delete Cookies in Your Browser (Chrome, Edge, Firefox) - CleanTab</title>
-<meta name="description" content="How to delete cookies on Chrome, Edge and Firefox - step by step. Understand what cookies are, why you'd clear them, and how to keep the logins you want with a whitelist." />
-<link rel="canonical" href="https://getcleantab.com/delete-cookies.html" />
+<title>How to clear your browser cache on Mac - CleanTab</title>
+<meta name="description" content="Clear the cache on Mac in Chrome, Safari and Firefox. Step-by-step for each browser, plus how to automate it so you never have to think about it." />
+<link rel="canonical" href="https://getcleantab.com/clear-cache-mac.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
 <link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
-<meta property="og:title" content="How to Delete Cookies in Your Browser (Chrome, Edge, Firefox) - CleanTab" />
-<meta property="og:description" content="How to delete cookies on Chrome, Edge and Firefox - step by step. Understand what cookies are, why you'd clear them, and how to keep the logins you want with a whitelist." />
+<meta property="og:title" content="How to clear your browser cache on Mac - CleanTab" />
+<meta property="og:description" content="Clear the cache on Mac in Chrome, Safari and Firefox. Step-by-step for each browser, plus how to automate it." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What happens if I delete all my cookies?",
-      "acceptedAnswer": { "@type": "Answer", "text": "You'll be logged out of every site and your preferences - language, cart, settings - will be forgotten. It's not harmful: you just log back in. To avoid this on your important sites, use a whitelist." }
-    },
-    {
-      "@type": "Question",
-      "name": "Does deleting cookies speed up the browser?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A little. A browser storing tens of thousands of cookies takes longer to check them. Deleting them mainly helps privacy; for speed, clear the cache too." }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the difference between cookies and cache?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The cache stores site files (images, scripts) to speed up loading. Cookies store data about you: login state, preferences, ad tracking. They're separate categories you can clear independently." }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I delete cookies regularly?",
-      "acceptedAnswer": { "@type": "Answer", "text": "It depends on your priorities. To limit ad tracking, regular clearing helps. But deleting cookies logs you out everywhere, so many people do it only periodically, or protect key sites with a whitelist." }
-    }
-  ]
-}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I clear the cache on a Mac?","acceptedAnswer":{"@type":"Answer","text":"It depends on your browser. In Chrome press Command, Shift and Delete; in Safari use the Develop menu; in Firefox use Settings, Privacy and Security. Each takes under a minute."}},
+{"@type":"Question","name":"Why is there no clear cache option in Safari?","acceptedAnswer":{"@type":"Answer","text":"It is hidden until you enable the Develop menu. Go to Settings, Advanced, and tick \"Show features for web developers\". The Empty Caches option then appears in the Develop menu."}},
+{"@type":"Question","name":"Does clearing the cache log me out on Mac?","acceptedAnswer":{"@type":"Answer","text":"No, as long as you clear only the cache and not cookies. Cached files are just temporary site data; your logins live in cookies, which stay untouched."}},
+{"@type":"Question","name":"How often should I clear the cache on Mac?","acceptedAnswer":{"@type":"Answer","text":"Once a month is plenty for most people, or whenever a site looks broken or outdated. If you would rather not track it, a scheduled cleaner handles it for you."}}]}
 </script>
 <style>
   :root {
@@ -355,13 +333,12 @@
   <div class="hero-in">
     <div class="eyebrow"><span data-en>How-to guide</span><span data-fr>Guide pratique</span></div>
     <h1>
-      <span data-en>How to delete cookies in your browser</span>
-      <span data-fr>Comment supprimer les cookies de votre navigateur</span>
+      <span data-en>How to clear your browser cache on Mac</span>
+      <span data-fr>Comment vider le cache de votre navigateur sur Mac</span>
     </h1>
     <p class="hero-lede">
-      <span data-en>Cookies keep you logged in - but they also track you across the web. Here's how to clear them on any browser, what happens when you do, and how to keep the logins that matter.</span>
-      <span data-fr>Les cookies vous gardent connecté, mais ils vous pistent aussi sur tout le web. Voici comment les supprimer sur tout navigateur, ce qui se passe quand vous le faites, et comment garder les connexions qui comptent.</span>
-    </p>
+      <span data-en>Clearing your cache on a Mac fixes slow loading, broken layouts and outdated pages. The steps differ slightly per browser - here is how to do it in Chrome, Safari and Firefox.</span>
+      <span data-fr>Vider le cache sur un Mac corrige les chargements lents, les mises en page cassées et les pages périmées. Les étapes varient un peu selon le navigateur : voici comment faire dans Chrome, Safari et Firefox.</span></p>
   </div>
 </div>
 
@@ -373,104 +350,100 @@
   <nav class="rail">
     <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
     <ol>
-      <li><a href="#shortcut" class="rail-a"><span data-en>The quick shortcut</span><span data-fr>Le raccourci rapide</span></a></li>
-      <li><a href="#chrome" class="rail-a"><span data-en>On Chrome</span><span data-fr>Sur Chrome</span></a></li>
-      <li><a href="#edge" class="rail-a"><span data-en>On Edge</span><span data-fr>Sur Edge</span></a></li>
-      <li><a href="#firefox" class="rail-a"><span data-en>On Firefox</span><span data-fr>Sur Firefox</span></a></li>
-      <li><a href="#keep" class="rail-a"><span data-en>Keep some logins</span><span data-fr>Garder des connexions</span></a></li>
+      <li><a href="#chrome" class="rail-a"><span data-en>In Chrome</span><span data-fr>Dans Chrome</span></a></li>
+      <li><a href="#safari" class="rail-a"><span data-en>In Safari</span><span data-fr>Dans Safari</span></a></li>
+      <li><a href="#firefox" class="rail-a"><span data-en>In Firefox</span><span data-fr>Dans Firefox</span></a></li>
+      <li><a href="#auto" class="rail-a"><span data-en>Automatically</span><span data-fr>Automatiquement</span></a></li>
       <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
     </ol>
   </nav>
 
-  <main>
-
-    <section id="shortcut">
-      <div class="step-head">
-        <div class="step-num">1</div>
-        <h2><span data-en>The quick shortcut (any browser)</span><span data-fr>Le raccourci rapide (tout navigateur)</span></h2>
-      </div>
-      <div class="sec-body">
-        <span data-en><p>Press <strong>Ctrl+Shift+Delete</strong> (Cmd+Shift+Delete on Mac) in any browser. In the window that opens, tick <strong>Cookies and other site data</strong>, choose a time range, and confirm. Note: this will log you out of sites, so read the section below on keeping the logins you want.</p></span>
-        <span data-fr><p>Appuyez sur <strong>Ctrl+Maj+Suppr</strong> (Cmd+Maj+Suppr sur Mac) dans n'importe quel navigateur. Dans la fenêtre qui s'ouvre, cochez <strong>Cookies et autres données de sites</strong>, choisissez une période, et confirmez. Attention : cela vous déconnecte des sites, donc lisez la section ci-dessous pour garder les connexions voulues.</p></span>
-      </div>
-    </section>
-    <p style="margin:0 0 26px; color:var(--muted); font-size:15.5px;"><span data-en>See also: <a href="what-is-a-cookie.html">what a cookie actually is</a>.</span><span data-fr>À lire aussi : <a href="what-is-a-cookie.html">ce qu est vraiment un cookie</a>.</span></p>
+  
 
     <section id="chrome">
       <div class="step-head">
-        <div class="step-num">2</div>
-        <h2><span data-en>On Google Chrome</span><span data-fr>Sur Google Chrome</span></h2>
+        <div class="step-num">1</div>
+        <h2><span data-en>Clear the cache in Chrome on Mac</span><span data-fr>Vider le cache dans Chrome sur Mac</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>Three-dot menu, then <strong>Delete browsing data</strong>. Tick <strong>Cookies and other site data</strong>, pick a time range, and click Delete. To remove cookies for just one site instead, open that site, click the icon left of the address bar, and manage its cookies there.</p></span>
-        <span data-fr><p>Menu à trois points, puis <strong>Effacer les données de navigation</strong>. Cochez <strong>Cookies et autres données de sites</strong>, choisissez une période, et cliquez sur Effacer. Pour supprimer les cookies d'un seul site, ouvrez ce site, cliquez sur l'icône à gauche de la barre d'adresse, et gérez ses cookies là.</p></span>
+        <span data-en><p>Open Chrome and press Command, Shift and Delete together. Pick a time range, tick "Cached images and files", and click Clear data.</p></span>
+        <span data-fr><p>Ouvrez Chrome et appuyez sur Commande, Maj et Suppr ensemble. Choisissez une période, cochez « Images et fichiers en cache » et cliquez sur Effacer les données.</p></span>
+        <span data-en><p>Leave passwords and autofill unticked unless you want them gone. Clearing only the cache keeps you logged in everywhere.</p></span>
+        <span data-fr><p>Laissez les mots de passe et la saisie automatique décochés, sauf si vous voulez les supprimer. Vider seulement le cache vous garde connecté partout.</p></span>
       </div>
     </section>
-    <section id="edge">
+
+    <section id="safari">
       <div class="step-head">
-        <div class="step-num">3</div>
-        <h2><span data-en>On Microsoft Edge</span><span data-fr>Sur Microsoft Edge</span></h2>
+        <div class="step-num">2</div>
+        <h2><span data-en>Clear the cache in Safari</span><span data-fr>Vider le cache dans Safari</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>Three-dot menu, then <strong>Settings, then Privacy, search, and services</strong>. Under "Clear browsing data", click <strong>Choose what to clear</strong>, tick <strong>Cookies and other site data</strong>, and clear. Edge also lets you clear cookies automatically each time you close the browser, in the same settings area.</p></span>
-        <span data-fr><p>Menu à trois points, puis <strong>Paramètres, puis Confidentialité, recherche et services</strong>. Sous « Effacer les données de navigation », cliquez sur <strong>Choisir les éléments à effacer</strong>, cochez <strong>Cookies et autres données de sites</strong>, et effacez. Edge permet aussi de supprimer les cookies à chaque fermeture, dans les mêmes réglages.</p></span>
+        <span data-en><p>Safari hides this by default. Go to Settings, then Advanced, and tick "Show features for web developers". A Develop menu appears in the menu bar.</p></span>
+        <span data-fr><p>Safari masque cela par défaut. Allez dans Réglages, puis Avancé, et cochez « Afficher les fonctionnalités pour développeurs web ». Un menu Développement apparaît dans la barre de menus.</p></span>
+        <span data-en><p>From the Develop menu, choose "Empty Caches". That clears the cache without touching history or logins. The shortcut is Command, Option and E.</p></span>
+        <span data-fr><p>Dans le menu Développement, choisissez « Vider les caches ». Cela vide le cache sans toucher à l historique ni aux connexions. Le raccourci est Commande, Option et E.</p></span>
       </div>
     </section>
+
     <section id="firefox">
       <div class="step-head">
-        <div class="step-num">4</div>
-        <h2><span data-en>On Mozilla Firefox</span><span data-fr>Sur Mozilla Firefox</span></h2>
+        <div class="step-num">3</div>
+        <h2><span data-en>Clear the cache in Firefox on Mac</span><span data-fr>Vider le cache dans Firefox sur Mac</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>Menu, then <strong>Settings, then Privacy & Security</strong>. Under "Cookies and Site Data", click <strong>Clear Data</strong>, tick <strong>Cookies and Site Data</strong>, and confirm. Firefox also offers strong built-in tracking protection worth enabling.</p></span>
-        <span data-fr><p>Menu, puis <strong>Paramètres, puis Vie privée et sécurité</strong>. Sous « Cookies et données de sites », cliquez sur <strong>Effacer les données</strong>, cochez <strong>Cookies et données de sites</strong>, et confirmez. Firefox propose aussi une bonne protection anti-pistage intégrée qui vaut la peine d'être activée.</p></span>
+        <span data-en><p>Open the menu, go to Settings, then Privacy and Security. Under Cookies and Site Data, click Clear Data, tick "Cached Web Content" and confirm.</p></span>
+        <span data-fr><p>Ouvrez le menu, allez dans Paramètres, puis Vie privée et sécurité. Sous Cookies et données de sites, cliquez sur Effacer les données, cochez « Contenu web en cache » et confirmez.</p></span>
       </div>
     </section>
-    <section id="keep">
+
+    <section id="auto">
       <div class="step-head">
-        <div class="step-num">5</div>
-        <h2><span data-en>Keep the logins you want</span><span data-fr>Garder les connexions voulues</span></h2>
+        <div class="step-num">4</div>
+        <h2><span data-en>Do it automatically</span><span data-fr>Le faire automatiquement</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>The downside of clearing all cookies is being logged out everywhere. The fix is a <strong>whitelist</strong>: you protect the sites you use daily (email, bank, socials) so their cookies survive, while everything else - especially tracking cookies - gets wiped. <a href="index.html">CleanTab</a> does exactly this, and can run automatically so you stay clean without losing your important sessions.</p></span>
-        <span data-fr><p>L'inconvénient de tout supprimer, c'est d'être déconnecté partout. La solution est une <strong>liste blanche</strong> : vous protégez les sites du quotidien (mail, banque, réseaux) pour que leurs cookies survivent, pendant que tout le reste - surtout les cookies de pistage - est effacé. <a href="index.html">CleanTab</a> fait exactement ça, et peut tourner automatiquement pour rester propre sans perdre vos sessions importantes.</p></span>
+        <span data-en><p>Doing this by hand on every browser gets tedious. <a href="index.html">CleanTab</a> clears cache, cookies and history on a schedule, so your Mac browser stays clean and fast without the manual steps.</p></span>
+        <span data-fr><p>Le faire à la main sur chaque navigateur devient fastidieux. <a href="index.html">CleanTab</a> vide le cache, les cookies et l historique selon un planning, pour que votre navigateur reste propre et rapide sur Mac, sans les étapes manuelles.</p></span>
       </div>
     </section>
 
     <div class="cta-box">
       <img src="icon128.png" alt="CleanTab" />
       <div class="txt">
-        <h3><span data-en>Delete tracking cookies, keep your logins</span><span data-fr>Supprimez les cookies de pistage, gardez vos connexions</span></h3>
-        <p><span data-en>CleanTab clears cookies, cache and history in one click - or automatically - while a whitelist keeps you logged in to the sites you choose. Free, in 22 languages.</span>
-        <span data-fr>CleanTab efface cookies, cache et historique en un clic - ou automatiquement - pendant qu'une liste blanche vous garde connecté aux sites que vous choisissez. Gratuit, en 22 langues.</span></p>
+        <h3><span data-en>Keep your browser clean automatically</span><span data-fr>Gardez un navigateur propre automatiquement</span></h3>
+        <p><span data-en>CleanTab clears your cache, cookies and history in one click - or on a schedule - while keeping you logged in to the sites you choose. Free, in 22 languages.</span>
+        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique en un clic - ou automatiquement - tout en vous gardant connecté aux sites que vous choisissez. Gratuit, en 22 langues.</span></p>
       </div>
       <a class="cta-btn" href="index.html" target="_blank" rel="noopener">
         <span data-en>Add to Chrome</span><span data-fr>Installer</span>
       </a>
     </div>
 
+
+
     <section id="faq">
       <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
       <div class="faq" style="margin-top:20px;">
         <details>
-          <summary><span data-en>What happens if I delete all my cookies?</span><span data-fr>Que se passe-t-il si je supprime tous mes cookies ?</span></summary>
-          <p><span data-en>You'll be logged out of every site and your preferences - language, cart, settings - will be forgotten. It's not harmful: you just log back in. To avoid this on your important sites, use a whitelist.</span>
-          <span data-fr>Vous serez déconnecté de tous les sites et vos préférences (langue, panier, réglages) seront oubliées. Ce n'est pas dangereux : il suffit de vous reconnecter. Pour éviter ça sur vos sites importants, utilisez une liste blanche.</span></p>
+          <summary><span data-en>What is the browser cache?</span><span data-fr>Qu'est-ce que le cache du navigateur ?</span></summary>
+          <p><span data-en>The cache is a folder of temporary files - images, scripts, styles - that your browser saves to reload sites faster. Over time it grows and can slow browsing or show outdated versions of pages.</span>
+          <span data-fr>Le cache est un dossier de fichiers temporaires (images, scripts, styles) que votre navigateur enregistre pour recharger les sites plus vite. Avec le temps il grossit et peut ralentir la navigation ou afficher des versions périmées des pages.</span></p>
         </details>
         <details>
-          <summary><span data-en>Does deleting cookies speed up the browser?</span><span data-fr>Supprimer les cookies accélère-t-il le navigateur ?</span></summary>
-          <p><span data-en>A little. A browser storing tens of thousands of cookies takes longer to check them. Deleting them mainly helps privacy; for speed, clear the cache too.</span>
-          <span data-fr>Un peu. Un navigateur qui stocke des dizaines de milliers de cookies met plus de temps à les vérifier. Les supprimer aide surtout pour la vie privée ; pour la vitesse, videz aussi le cache.</span></p>
+          <summary><span data-en>Does clearing the cache delete my passwords?</span><span data-fr>Vider le cache supprime-t-il mes mots de passe ?</span></summary>
+          <p><span data-en>No. The cache holds no passwords or bookmarks. Clearing it removes only temporary files; your logins and bookmarks stay intact unless you also explicitly tick cookies or passwords.</span>
+          <span data-fr>Non. Le cache ne contient ni mots de passe ni favoris. Vider le cache n'efface que des fichiers temporaires ; vos identifiants et marque-pages restent intacts, sauf si vous cochez aussi explicitement les cookies ou les mots de passe.</span></p>
         </details>
         <details>
-          <summary><span data-en>What's the difference between cookies and cache?</span><span data-fr>Quelle différence entre cookies et cache ?</span></summary>
-          <p><span data-en>The cache stores site files (images, scripts) to speed up loading. Cookies store data about you: login state, preferences, ad tracking. They're separate categories you can clear independently.</span>
-          <span data-fr>Le cache stocke des fichiers de sites (images, scripts) pour accélérer le chargement. Les cookies stockent des données sur vous : connexion, préférences, suivi publicitaire. Ce sont deux catégories distinctes qu'on peut effacer séparément.</span></p>
+          <summary><span data-en>How often should I clear the cache?</span><span data-fr>À quelle fréquence faut-il vider le cache ?</span></summary>
+          <p><span data-en>For most people, once a week or month is enough. Clear it more often if a site looks broken or the browser feels slow. A tool like CleanTab can do it automatically on a schedule.</span>
+          <span data-fr>Pour la plupart des gens, une fois par semaine ou par mois suffit. Videz-le plus souvent si un site s'affiche mal ou si le navigateur devient lent. Un outil comme CleanTab peut le faire automatiquement selon un planning.</span></p>
         </details>
         <details>
-          <summary><span data-en>Should I delete cookies regularly?</span><span data-fr>Dois-je supprimer les cookies régulièrement ?</span></summary>
-          <p><span data-en>It depends on your priorities. To limit ad tracking, regular clearing helps. But deleting cookies logs you out everywhere, so many people do it only periodically, or protect key sites with a whitelist.</span>
-          <span data-fr>Ça dépend de vos priorités. Pour limiter le pistage publicitaire, un nettoyage régulier aide. Mais supprimer les cookies vous déconnecte partout, donc beaucoup préfèrent ne le faire que périodiquement, ou protéger leurs sites clés avec une liste blanche.</span></p>
+          <summary><span data-en>Will I lose any data by clearing the cache?</span><span data-fr>Vais-je perdre des données en vidant le cache ?</span></summary>
+          <p><span data-en>Nothing important. Cache files rebuild themselves as you browse. You'll just notice that already-visited sites take a fraction of a second longer to load the first time after cleaning.</span>
+          <span data-fr>Non, rien d'important. Les fichiers du cache se reconstruisent tout seuls à mesure que vous naviguez. Vous remarquerez juste que les sites déjà visités mettent une fraction de seconde de plus à charger la première fois après le nettoyage.</span></p>
         </details>
       </div>
     </section>
