@@ -165,45 +165,20 @@
 <!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to Speed Up Opera (7 Real Fixes) - CleanTab</title>
-<meta name="description" content="Opera running slow? 7 proven fixes - clearing cache, managing built-in features, trimming extensions - to speed up Opera, plus how to keep it fast automatically." />
-<link rel="canonical" href="https://getcleantab.com/speed-up-opera.html" />
+<title>How to clear the cache in Safari - CleanTab</title>
+<meta name="description" content="Clear the Safari cache on Mac and iPhone. Step-by-step for both, why the option is hidden on Mac, and how to keep it clean." />
+<link rel="canonical" href="https://getcleantab.com/clear-cache-safari.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
 <link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
-<meta property="og:title" content="How to Speed Up Opera (7 Real Fixes) - CleanTab" />
-<meta property="og:description" content="Opera running slow? 7 proven fixes - clearing cache, managing built-in features, trimming extensions - to speed up Opera, plus how to keep it fast automatically." />
+<meta property="og:title" content="How to clear the cache in Safari - CleanTab" />
+<meta property="og:description" content="Clear the Safari cache on Mac and iPhone. Step-by-step for both, why the option is hidden on Mac, and how to keep it clean." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why is Opera slow?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Often a large cache and history, too many tabs, or extensions. Opera also bundles features (VPN, messengers, crypto wallet, sidebar) that use resources. Clearing data and disabling extras helps a lot." }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Opera based on Chrome?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Opera is based on Chromium, the same open-source foundation as Chrome and Edge. That's why it accepts Chrome Web Store extensions and shares much of Chrome's behaviour, while adding its own features." }
-    },
-    {
-      "@type": "Question",
-      "name": "Does clearing the cache speed up Opera?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes, especially after a long time without cleaning. An oversized cache slows page loading. Clearing it frees memory and disk, and files rebuild themselves." }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I keep Opera fast?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Clear cache and history regularly, limit extensions, disable built-in features you don't use, and keep Opera updated. CleanTab can automate the data cleaning." }
-    }
-  ]
-}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is there no clear cache option in Safari on Mac?","acceptedAnswer":{"@type":"Answer","text":"It is hidden until you enable the Develop menu. Go to Settings, Advanced, and tick \"Show features for web developers\". The Empty Caches option then appears in the Develop menu."}},{"@type":"Question","name":"Does clearing the Safari cache delete passwords?","acceptedAnswer":{"@type":"Answer","text":"No. Cached files are just temporary site data. On Mac, Empty Caches leaves passwords and history alone. On iPhone the combined option also clears history and cookies, but not saved passwords."}},{"@type":"Question","name":"How often should I clear the Safari cache?","acceptedAnswer":{"@type":"Answer","text":"Once a month is plenty, or whenever a site looks broken or outdated. The cache exists to speed things up, so there is no benefit to clearing it daily."}},{"@type":"Question","name":"Will clearing the cache log me out on iPhone?","acceptedAnswer":{"@type":"Answer","text":"Yes, because on iPhone the option clears history and cookies together. Your logins live in cookies, so you will need to sign in again. On Mac, Empty Caches does not log you out."}}]}
 </script>
 <style>
   :root {
@@ -355,13 +330,12 @@
   <div class="hero-in">
     <div class="eyebrow"><span data-en>How-to guide</span><span data-fr>Guide pratique</span></div>
     <h1>
-      <span data-en>How to speed up Opera</span>
-      <span data-fr>Comment accélérer Opera</span>
+      <span data-en>How to clear the cache in Safari</span>
+      <span data-fr>Comment vider le cache dans Safari</span>
     </h1>
     <p class="hero-lede">
-      <span data-en>Opera is built on the same Chromium engine as Chrome, but adds many built-in features that can weigh it down. Here are 7 fixes tailored to Opera to get it running quick again.</span>
-      <span data-fr>Opera repose sur le même moteur Chromium que Chrome, mais ajoute de nombreuses fonctions intégrées qui peuvent l'alourdir. Voici 7 solutions adaptées à Opera pour le retrouver rapide.</span>
-    </p>
+      <span data-en>Clearing the Safari cache fixes slow loading, broken layouts and outdated pages. It works differently on Mac and iPhone - here is how to do both.</span>
+      <span data-fr>Vider le cache de Safari corrige les chargements lents, les mises en page cassées et les pages périmées. Cela diffère entre Mac et iPhone : voici comment faire les deux.</span></p>
   </div>
 </div>
 
@@ -373,113 +347,88 @@
   <nav class="rail">
     <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
     <ol>
-      <li><a href="#cache" class="rail-a"><span data-en>Clear cache</span><span data-fr>Vider le cache</span></a></li>
-      <li><a href="#features" class="rail-a"><span data-en>Built-in features</span><span data-fr>Fonctions intégrées</span></a></li>
-      <li><a href="#extensions" class="rail-a"><span data-en>Trim extensions</span><span data-fr>Réduire les extensions</span></a></li>
-      <li><a href="#tabs" class="rail-a"><span data-en>Manage tabs</span><span data-fr>Gérer les onglets</span></a></li>
-      <li><a href="#update" class="rail-a"><span data-en>Update Opera</span><span data-fr>Mettre à jour</span></a></li>
-      <li><a href="#auto" class="rail-a"><span data-en>Keep it fast</span><span data-fr>Le garder rapide</span></a></li>
+      <li><a href="#mac" class="rail-a"><span data-en>Clear the cache in Safari on Mac</span><span data-fr>Vider le cache de Safari sur Mac</span></a></li>
+      <li><a href="#iphone" class="rail-a"><span data-en>Clear the cache in Safari on iPhone</span><span data-fr>Vider le cache de Safari sur iPhone</span></a></li>
+      <li><a href="#auto" class="rail-a"><span data-en>Keep it clean automatically</span><span data-fr>Le garder propre automatiquement</span></a></li>
       <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
     </ol>
   </nav>
 
-  <main>
+  
 
-    <section id="cache">
+    <section id="mac">
       <div class="step-head">
         <div class="step-num">1</div>
-        <h2><span data-en>Clear the cache and history</span><span data-fr>Videz le cache et l'historique</span></h2>
+        <h2><span data-en>Clear the cache in Safari on Mac</span><span data-fr>Vider le cache de Safari sur Mac</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>A bloated cache and large history slow Opera just like any browser. Go to Settings (or press Ctrl+Shift+Delete), then clear browsing data, and select cached images and files plus history. Keeping cookies for key sites keeps you logged in. See our full guide to <a href="clear-cache.html">clearing your cache</a>.</p></span>
-        <span data-fr><p>Un cache surchargé et un gros historique ralentissent Opera comme tout navigateur. Allez dans les Réglages (ou appuyez sur Ctrl+Maj+Suppr), puis effacez les données de navigation, et sélectionnez les images et fichiers en cache ainsi que l'historique. Garder les cookies des sites clés vous maintient connecté. Voyez notre guide complet pour <a href="clear-cache.html">vider le cache</a>.</p></span>
+        <span data-en><p>Safari hides this option by default. Open Safari, go to Settings, then Advanced, and tick "Show features for web developers". A Develop menu appears in the menu bar.</p></span>
+        <span data-fr><p>Safari masque cette option par défaut. Ouvrez Safari, allez dans Réglages, puis Avancé, et cochez « Afficher les fonctionnalités pour développeurs web ». Un menu Développement apparaît dans la barre de menus.</p></span>
+        <span data-en><p>From the Develop menu, choose "Empty Caches". You can also use the shortcut Command, Option and E. This clears the cache without touching your history or logins.</p></span>
+        <span data-fr><p>Dans le menu Développement, choisissez « Vider les caches ». Vous pouvez aussi utiliser le raccourci Commande, Option et E. Cela vide le cache sans toucher à votre historique ni à vos connexions.</p></span>
       </div>
     </section>
-    <section id="features">
+
+    <section id="iphone">
       <div class="step-head">
         <div class="step-num">2</div>
-        <h2><span data-en>Disable built-in features you don't use</span><span data-fr>Désactivez les fonctions intégrées inutilisées</span></h2>
+        <h2><span data-en>Clear the cache in Safari on iPhone</span><span data-fr>Vider le cache de Safari sur iPhone</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>Opera ships with a lot built in: a free VPN, ad blocker, messenger integrations, a crypto wallet, the sidebar and more. Each running feature uses resources. If you don't use the VPN, the messengers or the crypto tools, turn them off in Settings. Trimming the sidebar to only what you need makes Opera noticeably lighter.</p></span>
-        <span data-fr><p>Opera est livré avec beaucoup de fonctions intégrées : un VPN gratuit, un bloqueur de pub, des intégrations de messageries, un portefeuille crypto, la barre latérale et plus. Chaque fonction active consomme des ressources. Si vous n'utilisez pas le VPN, les messageries ou les outils crypto, désactivez-les dans les Réglages. Réduire la barre latérale au strict nécessaire rend Opera nettement plus léger.</p></span>
+        <span data-en><p>On iPhone the cache is tied to history. Open Settings, scroll to Safari, then tap "Clear History and Website Data". Confirm, and Safari clears cached files along with history.</p></span>
+        <span data-fr><p>Sur iPhone, le cache est lié à l historique. Ouvrez Réglages, descendez jusqu à Safari, puis appuyez sur « Effacer historique, données de site ». Confirmez, et Safari vide les fichiers en cache avec l historique.</p></span>
+        <span data-en><p>This also logs you out of sites, since cookies are cleared too. If you only want to free space without losing logins, offloading the app is an alternative.</p></span>
+        <span data-fr><p>Cela vous déconnecte aussi des sites, car les cookies sont effacés. Si vous voulez seulement libérer de l espace sans perdre vos connexions, décharger l app est une alternative.</p></span>
       </div>
     </section>
-    <section id="extensions">
-      <div class="step-head">
-        <div class="step-num">3</div>
-        <h2><span data-en>Remove heavy extensions</span><span data-fr>Retirez les extensions lourdes</span></h2>
-      </div>
-      <div class="sec-body">
-        <span data-en><p>Because Opera is built on Chromium, it runs Chrome extensions (<a href="chrome-extensions-on-edge-opera.html">here's why that works</a>), and they carry the same cost: each runs in the background on every page. Open the extensions menu, review the list, and remove any you don't actively use. Fewer extensions means faster page loads.</p></span>
-        <span data-fr><p>Comme Opera repose sur Chromium, il fait tourner les extensions Chrome (<a href="chrome-extensions-on-edge-opera.html">voici pourquoi</a>), avec le même coût : chacune tourne en arrière-plan sur chaque page. Ouvrez le menu des extensions, passez la liste en revue, et retirez celles que vous n'utilisez pas activement. Moins d'extensions, c'est un chargement plus rapide.</p></span>
-      </div>
-    </section>
-    <section id="tabs">
-      <div class="step-head">
-        <div class="step-num">4</div>
-        <h2><span data-en>Close tabs you're not using</span><span data-fr>Fermez les onglets inutiles</span></h2>
-      </div>
-      <div class="sec-body">
-        <span data-en><p>Every open tab uses memory, even idle ones. A large number of tabs can consume a lot of RAM and slow Opera down. Close what you don't need, or use Opera's tab management and workspaces to keep things organised without keeping everything loaded at once.</p></span>
-        <span data-fr><p>Chaque onglet ouvert consomme de la mémoire, même inactif. Un grand nombre d'onglets peut consommer beaucoup de RAM et ralentir Opera. Fermez l'inutile, ou utilisez la gestion des onglets et les espaces de travail d'Opera pour rester organisé sans tout garder chargé en même temps.</p></span>
-      </div>
-    </section>
-    <section id="update">
-      <div class="step-head">
-        <div class="step-num">5</div>
-        <h2><span data-en>Keep Opera up to date</span><span data-fr>Gardez Opera à jour</span></h2>
-      </div>
-      <div class="sec-body">
-        <span data-en><p>Opera ships regular updates with performance and security improvements. Open the main menu, go to Update and recovery (or About Opera), and let it check for and install updates. Restart when prompted to apply them.</p></span>
-        <span data-fr><p>Opera livre régulièrement des mises à jour avec des améliorations de performance et de sécurité. Ouvrez le menu principal, allez dans Mise à jour et récupération (ou À propos d'Opera), et laissez-le vérifier et installer les mises à jour. Redémarrez quand demandé pour les appliquer.</p></span>
-      </div>
-    </section>
+
     <section id="auto">
       <div class="step-head">
-        <div class="step-num">6</div>
-        <h2><span data-en>Keep Opera fast automatically</span><span data-fr>Gardez Opera rapide automatiquement</span></h2>
+        <div class="step-num">3</div>
+        <h2><span data-en>Keep it clean automatically</span><span data-fr>Le garder propre automatiquement</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>Browsing data builds back up over time and slows Opera again. Rather than clearing it manually, <a href="index.html">CleanTab</a> - which works on Opera thanks to its Chromium base - clears your cache, cookies and history automatically on a schedule while keeping you logged in to the sites you choose. On a different browser? We also cover <a href="speed-up-chrome.html">Chrome</a>, <a href="speed-up-edge.html">Edge</a> and <a href="speed-up-firefox.html">Firefox</a>.</p></span>
-        <span data-fr><p>Les données de navigation se réaccumulent avec le temps et ralentissent Opera à nouveau. Plutôt que de les effacer à la main, <a href="index.html">CleanTab</a> - qui fonctionne sur Opera grâce à sa base Chromium - vide votre cache, vos cookies et votre historique automatiquement selon un planning tout en vous gardant connecté aux sites que vous choisissez. Sur un autre navigateur ? Nous couvrons aussi <a href="speed-up-chrome.html">Chrome</a>, <a href="speed-up-edge.html">Edge</a> et <a href="speed-up-firefox.html">Firefox</a>.</p></span>
+        <span data-en><p>On desktop, doing this by hand gets tedious. <a href="index.html">CleanTab</a> clears cache, cookies and history on a schedule for Chromium browsers, so you keep things clean without the manual steps.</p></span>
+        <span data-fr><p>Sur ordinateur, le faire à la main devient fastidieux. <a href="index.html">CleanTab</a> vide le cache, les cookies et l historique selon un planning pour les navigateurs Chromium, pour rester propre sans les étapes manuelles.</p></span>
       </div>
     </section>
 
     <div class="cta-box">
       <img src="icon128.png" alt="CleanTab" />
       <div class="txt">
-        <h3><span data-en>Keep Opera fast, automatically</span><span data-fr>Gardez Opera rapide, automatiquement</span></h3>
-        <p><span data-en>CleanTab works on Opera, Chrome and Edge. It clears cache, cookies and history in one click or on a schedule, while keeping you logged in to the sites you choose. Free, in 22 languages.</span>
-        <span data-fr>CleanTab fonctionne sur Opera, Chrome et Edge. Il vide cache, cookies et historique en un clic ou automatiquement, tout en vous gardant connecté aux sites que vous choisissez. Gratuit, en 22 langues.</span></p>
+        <h3><span data-en>Keep your browser clean automatically</span><span data-fr>Gardez un navigateur propre automatiquement</span></h3>
+        <p><span data-en>CleanTab clears your cache, cookies and history in one click - or on a schedule - while keeping you logged in to the sites you choose. Free, in 22 languages.</span>
+        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique en un clic - ou automatiquement - tout en vous gardant connecté aux sites que vous choisissez. Gratuit, en 22 langues.</span></p>
       </div>
       <a class="cta-btn" href="index.html">
         <span data-en>Clean your browser</span><span data-fr>Nettoyer votre navigateur</span>
       </a>
     </div>
 
+
+
     <section id="faq">
       <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
       <div class="faq" style="margin-top:20px;">
         <details>
-          <summary><span data-en>Why is Opera slow?</span><span data-fr>Pourquoi Opera est-il lent ?</span></summary>
-          <p><span data-en>Often a large cache and history, too many tabs, or extensions. Opera also bundles features (VPN, messengers, crypto wallet, sidebar) that use resources. Clearing data and disabling extras helps a lot.</span>
-          <span data-fr>Souvent à cause d'un cache et d'un historique volumineux, de trop d'onglets, ou d'extensions. Opera intègre aussi des fonctions (VPN, messageries, lecteur de crypto, barre latérale) qui consomment des ressources. Nettoyer les données et désactiver le superflu aide beaucoup.</span></p>
+          <summary><span data-en>Why is there no clear cache option in Safari on Mac?</span><span data-fr>Pourquoi n y a-t-il pas d option vider le cache dans Safari sur Mac ?</span></summary>
+          <p><span data-en>It is hidden until you enable the Develop menu. Go to Settings, Advanced, and tick "Show features for web developers". The Empty Caches option then appears in the Develop menu.</span>
+          <span data-fr>Elle est masquée jusqu à ce que vous activiez le menu Développement. Allez dans Réglages, Avancé, et cochez « Afficher les fonctionnalités pour développeurs web ». L option Vider les caches apparaît alors dans le menu Développement.</span></p>
         </details>
         <details>
-          <summary><span data-en>Is Opera based on Chrome?</span><span data-fr>Opera est-il basé sur Chrome ?</span></summary>
-          <p><span data-en>Opera is based on Chromium, the same open-source foundation as Chrome and Edge. That's why it accepts Chrome Web Store extensions and shares much of Chrome's behaviour, while adding its own features.</span>
-          <span data-fr>Opera est basé sur Chromium, le même socle open source que Chrome et Edge. C'est pourquoi il accepte les extensions du Chrome Web Store et partage beaucoup de son comportement avec Chrome, tout en ajoutant ses propres fonctions.</span></p>
+          <summary><span data-en>Does clearing the Safari cache delete passwords?</span><span data-fr>Vider le cache de Safari supprime-t-il les mots de passe ?</span></summary>
+          <p><span data-en>No. Cached files are just temporary site data. On Mac, Empty Caches leaves passwords and history alone. On iPhone the combined option also clears history and cookies, but not saved passwords.</span>
+          <span data-fr>Non. Les fichiers en cache ne sont que des données temporaires. Sur Mac, Vider les caches ne touche ni les mots de passe ni l historique. Sur iPhone, l option combinée efface aussi historique et cookies, mais pas les mots de passe enregistrés.</span></p>
         </details>
         <details>
-          <summary><span data-en>Does clearing the cache speed up Opera?</span><span data-fr>Vider le cache accélère-t-il Opera ?</span></summary>
-          <p><span data-en>Yes, especially after a long time without cleaning. An oversized cache slows page loading. Clearing it frees memory and disk, and files rebuild themselves.</span>
-          <span data-fr>Oui, surtout après une longue période sans nettoyage. Un cache trop gros ralentit le chargement des pages. Le vider libère mémoire et espace disque, et les fichiers se reconstruisent seuls.</span></p>
+          <summary><span data-en>How often should I clear the Safari cache?</span><span data-fr>À quelle fréquence vider le cache de Safari ?</span></summary>
+          <p><span data-en>Once a month is plenty, or whenever a site looks broken or outdated. The cache exists to speed things up, so there is no benefit to clearing it daily.</span>
+          <span data-fr>Une fois par mois suffit, ou dès qu un site paraît cassé ou périmé. Le cache sert à accélérer les choses, donc aucun intérêt à le vider tous les jours.</span></p>
         </details>
         <details>
-          <summary><span data-en>How do I keep Opera fast?</span><span data-fr>Comment garder Opera rapide ?</span></summary>
-          <p><span data-en>Clear cache and history regularly, limit extensions, disable built-in features you don't use, and keep Opera updated. CleanTab can automate the data cleaning.</span>
-          <span data-fr>Videz régulièrement cache et historique, limitez les extensions, désactivez les fonctions intégrées que vous n'utilisez pas, et gardez Opera à jour. CleanTab peut automatiser le nettoyage des données.</span></p>
+          <summary><span data-en>Will clearing the cache log me out on iPhone?</span><span data-fr>Vider le cache me déconnecte-t-il sur iPhone ?</span></summary>
+          <p><span data-en>Yes, because on iPhone the option clears history and cookies together. Your logins live in cookies, so you will need to sign in again. On Mac, Empty Caches does not log you out.</span>
+          <span data-fr>Oui, car sur iPhone l option efface historique et cookies ensemble. Vos connexions sont dans les cookies, il faudra donc vous reconnecter. Sur Mac, Vider les caches ne vous déconnecte pas.</span></p>
         </details>
       </div>
     </section>
@@ -495,7 +444,6 @@
 
 <footer class="site-foot">
   <a href="index.html">CleanTab</a> ·
-  <a href="blog.html"><span data-en>Blog</span><span data-fr>Blog</span></a> ·
   <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
   <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
   <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
@@ -504,6 +452,12 @@
   <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
   <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
   <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+    <div style="margin-top:8px;">
+  <a href="clear-cache.html"><span data-en>Clear cache</span><span data-fr>Vider le cache</span></a> ·
+  <a href="delete-cookies.html"><span data-en>Delete cookies</span><span data-fr>Supprimer les cookies</span></a> ·
+  <a href="cache-cookies-history-difference.html"><span data-en>Cache vs cookies</span><span data-fr>Les différences</span></a> ·
+  <a href="private-browsing.html"><span data-en>Private browsing</span><span data-fr>Navigation privée</span></a>
+  </div>
   <div class="foot-c">© 2026 Jeremstyke</div>
 </footer>
 
