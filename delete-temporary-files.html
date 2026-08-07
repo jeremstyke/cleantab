@@ -163,28 +163,22 @@
 })();
 </script>
 <!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to Use CleanTab - Getting the Most From Your Browser Cleaner</title>
-<meta name="description" content="A quick guide to using CleanTab: one-click cleaning, automatic schedules, the whitelist to keep your logins, statistics, notifications and more." />
-<link rel="canonical" href="https://getcleantab.com/how-to-use.html" />
-<meta property="og:title" content="How to Use CleanTab" />
-<meta property="og:description" content="Get the most from your browser cleaner - auto-clean, whitelist, statistics and more." />
+<title>How to delete temporary files and free up space - CleanTab</title>
+<meta name="description" content="What temporary files are, why they pile up, and how to delete them on Windows and Mac - including your browser cache." />
+<link rel="canonical" href="https://getcleantab.com/delete-temporary-files.html" />
+<link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
+<link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
+<meta property="og:title" content="How to delete temporary files and free up space - CleanTab" />
+<meta property="og:description" content="What temporary files are, why they pile up, and how to delete them on Windows and Mac - including your browser cache." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
-<link rel="icon" href="icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use CleanTab",
-  "description": "A quick guide to using CleanTab: one-click cleaning, automatic schedules, whitelist, statistics and notifications.",
-  "author": { "@type": "Person", "name": "Jeremstyke" },
-  "datePublished": "2026-07-18",
-  "publisher": { "@type": "Person", "name": "Jeremstyke" }
-}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it safe to delete temporary files?","acceptedAnswer":{"@type":"Answer","text":"Yes. Temporary files are meant to be disposable - your system and apps recreate what they need. Deleting them frees space and does not harm your documents or settings."}},{"@type":"Question","name":"How much space do temporary files take?","acceptedAnswer":{"@type":"Answer","text":"It varies, but they can reach several gigabytes over time, especially with a large browser cache and update leftovers. Clearing them regularly recovers that space."}},{"@type":"Question","name":"Will deleting temporary files delete my passwords?","acceptedAnswer":{"@type":"Answer","text":"No. Passwords are stored separately, not as temporary files. Clearing temporary files, including the browser cache, leaves your passwords and bookmarks in place."}},{"@type":"Question","name":"How often should I delete temporary files?","acceptedAnswer":{"@type":"Answer","text":"Once a month is enough for most people, or when disk space runs low. A scheduled browser cleaner handles the cache part automatically so it never builds up."}}]}
 </script>
 <style>
   :root {
@@ -222,7 +216,7 @@
   .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
 
   .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
-    display:grid; grid-template-columns:200px 1fr; gap:54px; align-items:start; }
+    display:grid; grid-template-columns:210px 1fr; gap:54px; align-items:start; }
   .rail { position:sticky; top:84px; }
   .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
     color:#9aa8bd; margin-bottom:14px; }
@@ -239,20 +233,26 @@
 
   main { max-width:700px; min-width:0; }
   section { scroll-margin-top:84px; }
-  section + section { margin-top:56px; }
+  section + section { margin-top:52px; }
   .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
   .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
     font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
     color:var(--navy); margin:0; line-height:1.24; }
   .sec-body { padding-left:47px; }
+  .intro-body { margin-top:8px; }
   p { margin:0 0 16px; font-size:17px; }
   strong { font-weight:600; color:var(--navy); }
   a { color:var(--blue); }
-  ul { margin:0 0 16px; padding-left:4px; list-style:none; }
-  li { margin-bottom:10px; font-size:17px; padding-left:26px; position:relative; }
-  ul li::before { content:''; position:absolute; left:6px; top:12px; width:6px; height:6px;
-    border-radius:50%; background:#b9cdf2; }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
+
+  .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
+  .fix p { margin:0; font-size:15.5px; color:#33455e; }
+  .fix strong { color:var(--blue); }
 
   .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
     border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
@@ -260,9 +260,13 @@
     background:var(--accent); border-radius:0 3px 3px 0; }
   .note p { margin:0; font-size:15.5px; }
 
-  .tip { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
-    padding:16px 19px; margin:20px 0; font-size:15.5px; }
-  .tip p { margin:0; font-size:15.5px; color:#33455e; }
+  .faq { margin-top:14px; }
+  .faq details { border:1px solid var(--border); border-radius:12px; padding:2px 18px; margin-bottom:12px; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; color:var(--navy); font-size:16.5px; padding:14px 0; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; float:right; color:var(--blue); font-weight:700; font-size:20px; line-height:1; }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq details p { padding:0 0 14px; font-size:16px; margin:0; }
 
   .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
     border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
@@ -275,6 +279,10 @@
     box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
   .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
 
+  .partners { max-width:700px; margin:26px auto 0; padding:0 26px; text-align:center;
+    font-size:11.5px; line-height:1.6; color:#9aa8bd; }
+  .partners strong { color:#6a7891; }
+
   .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
     font-size:13px; color:var(--muted); }
   .site-foot a { color:var(--muted); text-decoration:none; }
@@ -284,6 +292,8 @@
   [data-en],[data-fr] { display:none; }
   html[lang="en"] [data-en] { display:revert; }
   html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
 
   @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
   @media (max-width:600px) {
@@ -292,18 +302,17 @@
     .hero-lede { font-size:17px; }
     h2 { font-size:22px; }
     .sec-body { padding-left:0; }
-    p,li { font-size:16.5px; }
+    p,ol.steps li { font-size:16.5px; }
     .shell { padding:24px 20px 50px; }
     .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
     .logo-link img { height:25px; }
   }
-  @media (prefers-reduced-motion:reduce) { * { transition:none!important; scroll-behavior:auto!important; } }
 </style>
 
+
+<div id="142280-6"><script src="//ads.themoneytizer.com/s/gen.js?type=6"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=142280&formatId=6"></script></div>
 </head>
 <body>
-
-
 <header class="site-head">
   <div class="site-head-in">
     <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
@@ -321,134 +330,116 @@
 
 <div class="hero">
   <div class="hero-in">
-    <div class="eyebrow"><span data-en>How to use</span><span data-fr>Mode d'emploi</span></div>
-    <h1><span data-en>Getting the most from CleanTab</span><span data-fr>Bien utiliser CleanTab</span></h1>
-
+    <div class="eyebrow"><span data-en>How-to guide</span><span data-fr>Guide pratique</span></div>
+    <h1>
+      <span data-en>How to delete temporary files and free up space</span>
+      <span data-fr>Comment supprimer les fichiers temporaires et liberer de l espace</span>
+    </h1>
     <p class="hero-lede">
-      <span data-en>You've installed it - now here's how to make it work for you. Two minutes to set up, then it looks after your browser on its own.</span>
-      <span data-fr>Vous l'avez installé - voici comment le régler à votre main. Deux minutes de configuration, puis il s'occupe de votre navigateur tout seul.</span>
-    </p>
+      <span data-en>Temporary files build up over time and quietly eat disk space. Deleting them is safe and frees room - here is how on Windows, Mac and in your browser.</span>
+      <span data-fr>Les fichiers temporaires s accumulent avec le temps et grignotent le disque. Les supprimer est sans risque et libere de la place : voici comment sur Windows, Mac et dans votre navigateur.</span></p>
+    <div style="max-width:970px; margin:20px auto 10px; padding:0 20px;"><div style="text-align:center;" id="142280-31"><script src="//ads.themoneytizer.com/s/gen.js?type=31"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=142280&formatId=31"></script></div></div>
   </div>
 </div>
 
 
 
 <div class="shell">
-
-  <nav class="rail" aria-label="Steps">
-    <div class="rail-title"><span data-en>Steps</span><span data-fr>Étapes</span></div>
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
     <ol>
-      <li><a href="#pin" class="rail-a"><span data-en>Pin it</span><span data-fr>Épingler</span></a></li>
-      <li><a href="#clean" class="rail-a"><span data-en>Clean in one click</span><span data-fr>Nettoyer en 1 clic</span></a></li>
-      <li><a href="#auto" class="rail-a"><span data-en>Auto-clean</span><span data-fr>Auto-nettoyage</span></a></li>
-      <li><a href="#whitelist" class="rail-a"><span data-en>Whitelist</span><span data-fr>Liste blanche</span></a></li>
-      <li><a href="#notifs" class="rail-a"><span data-en>Notifications</span><span data-fr>Notifications</span></a></li>
-      <li><a href="#stats" class="rail-a"><span data-en>Statistics</span><span data-fr>Statistiques</span></a></li>
+      <li><a href="#what" class="rail-a"><span data-en>What temporary files are</span><span data-fr>Ce que sont les fichiers temporaires</span></a></li>
+      <li><a href="#windows" class="rail-a"><span data-en>Delete temporary files on Windows</span><span data-fr>Supprimer les fichiers temporaires sur Windows</span></a></li>
+      <li><a href="#mac" class="rail-a"><span data-en>Delete temporary files on Mac</span><span data-fr>Supprimer les fichiers temporaires sur Mac</span></a></li>
+      <li><a href="#browser" class="rail-a"><span data-en>Do not forget the browser cache</span><span data-fr>N oubliez pas le cache du navigateur</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
     </ol>
   </nav>
 
   <main>
-
-    <section id="pin">
-      <div class="step-head"><div class="step-num">1</div>
-        <h2><span data-en>Pin CleanTab to your toolbar</span><span data-fr>Épinglez CleanTab à la barre d'outils</span></h2>
+    <section id="what">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>What temporary files are</span><span data-fr>Ce que sont les fichiers temporaires</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>After installing, click the puzzle-piece icon in the top-right of Chrome, find CleanTab, and click the pin. Now its icon stays visible - one click away whenever you need it.</span>
-        <span data-fr>Après l'installation, cliquez sur l'icône puzzle en haut à droite de Chrome, trouvez CleanTab, et cliquez sur l'épingle. Son icône reste alors visible - accessible en un clic dès que vous en avez besoin.</span></p>
+          <p><span data-en>Temporary files are created by your system and apps to hold data they need briefly - installers, update leftovers, thumbnails, and your browser cache. They are meant to be disposable, but they often stick around and pile up.</span>
+          <span data-fr>Les fichiers temporaires sont crees par votre systeme et vos apps pour garder brievement des donnees : installateurs, restes de mises a jour, miniatures, et le cache du navigateur. Ils sont censes etre jetables, mais s accumulent souvent.</span></p>
       </div>
     </section>
 
-    <section id="clean">
-      <div class="step-head"><div class="step-num">2</div>
-        <h2><span data-en>Clean in one click</span><span data-fr>Nettoyez en un clic</span></h2>
+    <section id="windows">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>Delete temporary files on Windows</span><span data-fr>Supprimer les fichiers temporaires sur Windows</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>Click the CleanTab icon and hit the clean button. That's the whole thing - cache, cookies, history and anything else you've selected are gone instantly.</span>
-        <span data-fr>Cliquez sur l'icône CleanTab et appuyez sur le bouton de nettoyage. C'est tout - cache, cookies, historique et tout ce que vous avez coché disparaissent aussitôt.</span></p>
-        <p><span data-en>You choose what gets cleared. Open the options to tick or untick each item - for example, keep your history but clear cache and cookies.</span>
-        <span data-fr>Vous choisissez ce qui est effacé. Ouvrez les options pour cocher ou décocher chaque élément - par exemple, garder l'historique mais effacer cache et cookies.</span></p>
-        <div class="tip"><p><span data-en><strong>Tip:</strong> if a site looks broken or shows old content, clearing just the cache usually fixes it - no need to clear everything.</span>
-        <span data-fr><strong>Astuce :</strong> si un site paraît cassé ou affiche du vieux contenu, effacer seulement le cache suffit généralement - pas besoin de tout supprimer.</span></p></div>
+          <p><span data-en>Open Settings, go to System, then Storage. Click Temporary files, tick what you want to remove, and click Remove files. You can also type "Disk Cleanup" in the search bar for the classic tool.</span>
+          <span data-fr>Ouvrez Parametres, allez dans Systeme, puis Stockage. Cliquez sur Fichiers temporaires, cochez ce que vous voulez retirer, et cliquez sur Supprimer. Vous pouvez aussi taper « Nettoyage de disque » dans la recherche pour l outil classique.</span></p>
       </div>
     </section>
 
-    <section id="auto">
-      <div class="step-head"><div class="step-num">3</div>
-        <h2><span data-en>Set up automatic cleaning</span><span data-fr>Activez le nettoyage automatique</span></h2>
+    <section id="mac">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>Delete temporary files on Mac</span><span data-fr>Supprimer les fichiers temporaires sur Mac</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>This is where CleanTab earns its place. Instead of remembering to clean, let it run on its own. In the options, turn on auto-clean and pick how often it should run.</span>
-        <span data-fr>C'est là que CleanTab prend tout son sens. Au lieu de penser à nettoyer, laissez-le tourner seul. Dans les options, activez l'auto-nettoyage et choisissez la fréquence.</span></p>
-        <p><span data-en>Once it's on, your browser stays clean in the background - you never have to think about it again.</span>
-        <span data-fr>Une fois activé, votre navigateur reste propre en arrière-plan - vous n'avez plus à y penser.</span></p>
-        <div class="note"><p><span data-en><strong>Good to know:</strong> clearing cache too often can slow browsing slightly, since sites re-download their files. Once a day is plenty for most people. Cookies and history can be cleared more freely.</span>
-        <span data-fr><strong>Bon à savoir :</strong> effacer le cache trop souvent peut légèrement ralentir la navigation, car les sites retéléchargent leurs fichiers. Une fois par jour suffit à la plupart. Cookies et historique peuvent l'être plus librement.</span></p></div>
+          <p><span data-en>On Mac, go to the Apple menu, About This Mac, then Storage and Manage. Review recommendations and clear caches and leftovers. Emptying the Trash afterwards frees the space for good.</span>
+          <span data-fr>Sur Mac, allez dans le menu Pomme, A propos de ce Mac, puis Stockage et Gerer. Passez en revue les recommandations et videz les caches et restes. Vider la corbeille ensuite libere l espace definitivement.</span></p>
       </div>
     </section>
 
-    <section id="whitelist">
-      <div class="step-head"><div class="step-num">4</div>
-        <h2><span data-en>Protect your logins with the whitelist</span><span data-fr>Protégez vos connexions avec la liste blanche</span></h2>
+    <section id="browser">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2><span data-en>Do not forget the browser cache</span><span data-fr>N oubliez pas le cache du navigateur</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>The whitelist is what makes automatic cleaning painless. Add the sites you want to stay logged into - your email, your bank, your work tools - and CleanTab will never touch their cookies, even during an auto-clean.</span>
-        <span data-fr>La liste blanche est ce qui rend le nettoyage automatique indolore. Ajoutez les sites où vous voulez rester connecté - votre mail, votre banque, vos outils de travail - et CleanTab ne touchera jamais à leurs cookies, même pendant un auto-nettoyage.</span></p>
-        <p><span data-en>Everything else gets cleaned. So you can wipe aggressively without ever losing the logins that matter.</span>
-        <span data-fr>Tout le reste est nettoyé. Vous pouvez donc effacer sans retenue sans jamais perdre les connexions qui comptent.</span></p>
-        <div class="tip"><p><span data-en><strong>Keep it short:</strong> most people only need four or five sites whitelisted. Everything else takes five seconds to log back into - and those are the cookies most worth clearing.</span>
-        <span data-fr><strong>Restez concis :</strong> quatre ou cinq sites suffisent généralement. Se reconnecter au reste prend cinq secondes - et ce sont justement les cookies les plus utiles à effacer.</span></p></div>
-      </div>
-    </section>
-
-    <section id="notifs">
-      <div class="step-head"><div class="step-num">5</div>
-        <h2><span data-en>Tune your notifications</span><span data-fr>Réglez vos notifications</span></h2>
-      </div>
-      <div class="sec-body">
-        <p><span data-en>CleanTab can let you know what it's doing, and you're in full control. In the options you'll find three independent toggles:</span>
-        <span data-fr>CleanTab peut vous tenir informé de ce qu'il fait, et vous gardez la main. Dans les options, vous trouverez trois interrupteurs indépendants :</span></p>
-        <ul>
-          <li><span data-en><strong>Auto-clean notice</strong> - a small confirmation each time an automatic clean runs.</span>
-          <span data-fr><strong>Avis d'auto-nettoyage</strong> - une petite confirmation à chaque nettoyage automatique.</span></li>
-          <li><span data-en><strong>Reminder</strong> - a nudge after a few days if you haven't cleaned.</span>
-          <span data-fr><strong>Rappel</strong> - un petit rappel après quelques jours sans nettoyage.</span></li>
-          <li><span data-en><strong>Weekly summary</strong> - a recap of what's been cleaned over the week.</span>
-          <span data-fr><strong>Résumé hebdomadaire</strong> - un récapitulatif de ce qui a été nettoyé dans la semaine.</span></li>
-        </ul>
-        <p><span data-en>Turn on the ones you find useful, switch off the rest. They don't affect each other.</span>
-        <span data-fr>Activez ceux qui vous sont utiles, coupez les autres. Ils sont indépendants les uns des autres.</span></p>
-      </div>
-    </section>
-
-    <section id="stats">
-      <div class="step-head"><div class="step-num">6</div>
-        <h2><span data-en>Check your statistics</span><span data-fr>Consultez vos statistiques</span></h2>
-      </div>
-      <div class="sec-body">
-        <p><span data-en>CleanTab keeps track of how much it's cleaned - number of cleans, what was removed, your streak. It's a nice way to see the extension quietly working for you.</span>
-        <span data-fr>CleanTab garde une trace de tout ce qu'il a nettoyé - nombre de nettoyages, ce qui a été supprimé, votre série. Une façon sympa de voir l'extension travailler pour vous.</span></p>
-        <p><span data-en>If you'd like a deeper breakdown, there's an optional <strong>Advanced Statistics</strong> add-on with more detailed charts. It's a small one-time unlock that also helps support development.</span>
-        <span data-fr>Si vous voulez un détail plus poussé, un module optionnel <strong>Statistiques avancées</strong> propose des graphiques plus complets. C'est un petit déblocage unique qui aide aussi à soutenir le développement.</span></p>
-        <div class="tip"><p><span data-en><strong>One more thing:</strong> there's a little cleaning mini-game tucked inside too. Find it and see how you do.</span>
-        <span data-fr><strong>Petit bonus :</strong> un mini-jeu de nettoyage est aussi caché à l'intérieur. Trouvez-le et voyez ce que vous valez.</span></p></div>
+          <p><span data-en>Your browser cache is one of the biggest temporary-file stores, often hundreds of megabytes. Clearing it is safe and keeps your passwords and bookmarks. <a href="index.html">CleanTab</a> clears cache, cookies and history on a schedule so it never piles up.</span>
+          <span data-fr>Le cache du navigateur est l un des plus gros stocks de fichiers temporaires, souvent des centaines de megaoctets. Le vider est sans risque et garde vos mots de passe et favoris. <a href="index.html">CleanTab</a> vide cache, cookies et historique selon un planning pour qu il ne s accumule jamais.</span></p>
       </div>
     </section>
 
     <div class="cta-box">
-      <img src="icon128.png" alt="" />
+      <img src="icon128.png" alt="CleanTab" />
       <div class="txt">
-        <h3><span data-en>Not installed yet?</span><span data-fr>Pas encore installé ?</span></h3>
-        <p><span data-en>Free, Chrome &amp; Edge, 22 languages, nothing leaves your browser.</span>
-        <span data-fr>Gratuit, Chrome &amp; Edge, 22 langues, rien ne quitte votre navigateur.</span></p>
+        <h3><span data-en>Keep your browser clean automatically</span><span data-fr>Gardez un navigateur propre automatiquement</span></h3>
+        <p><span data-en>CleanTab clears your cache, cookies and history in one click - or on a schedule - while keeping you logged in to the sites you choose. Free, in 22 languages.</span>
+        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique en un clic - ou automatiquement - tout en vous gardant connecte aux sites que vous choisissez. Gratuit, en 22 langues.</span></p>
       </div>
       <a class="cta-btn" href="index.html">
         <span data-en>Clean your browser</span><span data-fr>Nettoyer votre navigateur</span>
       </a>
     </div>
 
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq" style="margin-top:20px;">
+        <details>
+          <summary><span data-en>Is it safe to delete temporary files?</span><span data-fr>Est-il sans risque de supprimer les fichiers temporaires ?</span></summary>
+          <p><span data-en>Yes. Temporary files are meant to be disposable - your system and apps recreate what they need. Deleting them frees space and does not harm your documents or settings.</span>
+          <span data-fr>Oui. Les fichiers temporaires sont censes etre jetables : votre systeme et vos apps recreent ce dont ils ont besoin. Les supprimer libere de l espace sans nuire a vos documents ni reglages.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>How much space do temporary files take?</span><span data-fr>Combien d espace prennent les fichiers temporaires ?</span></summary>
+          <p><span data-en>It varies, but they can reach several gigabytes over time, especially with a large browser cache and update leftovers. Clearing them regularly recovers that space.</span>
+          <span data-fr>Cela varie, mais ils peuvent atteindre plusieurs gigaoctets avec le temps, surtout avec un gros cache de navigateur et des restes de mises a jour. Les effacer regulierement recupere cet espace.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Will deleting temporary files delete my passwords?</span><span data-fr>Supprimer les fichiers temporaires efface-t-il mes mots de passe ?</span></summary>
+          <p><span data-en>No. Passwords are stored separately, not as temporary files. Clearing temporary files, including the browser cache, leaves your passwords and bookmarks in place.</span>
+          <span data-fr>Non. Les mots de passe sont stockes separement, pas comme fichiers temporaires. Effacer les fichiers temporaires, y compris le cache, laisse vos mots de passe et favoris en place.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>How often should I delete temporary files?</span><span data-fr>A quelle frequence supprimer les fichiers temporaires ?</span></summary>
+          <p><span data-en>Once a month is enough for most people, or when disk space runs low. A scheduled browser cleaner handles the cache part automatically so it never builds up.</span>
+          <span data-fr>Une fois par mois suffit pour la plupart, ou quand l espace disque manque. Un nettoyeur programme gere la partie cache automatiquement pour qu elle ne s accumule jamais.</span></p>
+        </details>
+      </div>
+    </section>
   
-
+<div style="max-width:970px; margin:10px auto 20px; padding:0 20px;"><div style="text-align:center;" id="142280-28"><script src="//ads.themoneytizer.com/s/gen.js?type=28"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=142280&formatId=28"></script></div></div>
 </main>
 </div>
 
@@ -465,12 +456,11 @@
   <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
   <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
   <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
-  <a href="whatsnew.html"><span data-en>What's new</span><span data-fr>Nouveautés</span></a> ·
-  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
-  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a> ·
   <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
   <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l historique</span></a> ·
-  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a>
+  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
     <div style="margin-top:8px;">
   <a href="clear-cache.html"><span data-en>Clear cache</span><span data-fr>Vider le cache</span></a> ·
   <a href="delete-cookies.html"><span data-en>Delete cookies</span><span data-fr>Supprimer les cookies</span></a> ·
@@ -499,7 +489,6 @@ function setLang(l) {
   function onScroll() {
     var best = 0;
     secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
-    // If we've reached the bottom, highlight the last section (it may be too short to cross the threshold)
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
     links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
   }
@@ -507,7 +496,6 @@ function setLang(l) {
   onScroll();
 })();
 </script>
-
 <script src="dm-partner.js"></script>
 <script>
 var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your personal data from data brokers and people-search sites", "ipv": "VPN that encrypts your connection and hides your IP address", "aff": "Affiliate links"}, "fr": {"t": "🤝 Partenaires officiels", "dm": "supprime vos données personnelles des sites de courtage et annuaires en ligne", "ipv": "VPN qui chiffre votre connexion et masque votre adresse IP", "aff": "Liens affiliés"}, "es": {"t": "🤝 Socios oficiales", "dm": "elimina tus datos personales de los brókeres de datos y directorios en línea", "ipv": "VPN que cifra tu conexión y oculta tu dirección IP", "aff": "Enlaces de afiliado"}, "de": {"t": "🤝 Offizielle Partner", "dm": "entfernt deine persönlichen Daten von Datenhändlern und Personensuchseiten", "ipv": "VPN, das deine Verbindung verschlüsselt und deine IP-Adresse verbirgt", "aff": "Affiliate-Links"}, "it": {"t": "🤝 Partner ufficiali", "dm": "rimuove i tuoi dati personali dai data broker e dagli elenchi online", "ipv": "VPN che cifra la tua connessione e nasconde il tuo indirizzo IP", "aff": "Link di affiliazione"}, "pt": {"t": "🤝 Parceiros oficiais", "dm": "remove seus dados pessoais de corretores de dados e sites de busca", "ipv": "VPN que criptografa sua conexão e oculta seu endereço IP", "aff": "Links de afiliado"}, "nl": {"t": "🤝 Officiële partners", "dm": "verwijdert je persoonlijke gegevens bij datahandelaren en zoeksites", "ipv": "VPN die je verbinding versleutelt en je IP-adres verbergt", "aff": "Affiliate links"}, "pl": {"t": "🤝 Oficjalni partnerzy", "dm": "usuwa Twoje dane osobowe od brokerów danych i z wyszukiwarek osób", "ipv": "VPN, który szyfruje połączenie i ukrywa Twój adres IP", "aff": "Linki afiliacyjne"}, "tr": {"t": "🤝 Resmi ortaklar", "dm": "kişisel verilerinizi veri simsarlarından ve kişi arama sitelerinden kaldırır", "ipv": "bağlantınızı şifreleyen ve IP adresinizi gizleyen VPN", "aff": "Ortaklık bağlantıları"}, "ru": {"t": "🤝 Официальные партнёры", "dm": "удаляет ваши личные данные у брокеров данных и в онлайн-справочниках", "ipv": "VPN, который шифрует соединение и скрывает ваш IP-адрес", "aff": "Партнёрские ссылки"}, "zh": {"t": "🤝 官方合作伙伴", "dm": "从数据经纪商和人肉搜索网站删除你的个人信息", "ipv": "加密你的连接并隐藏 IP 地址的 VPN", "aff": "联盟链接"}, "ja": {"t": "🤝 公式パートナー", "dm": "データブローカーや人物検索サイトから個人情報を削除", "ipv": "通信を暗号化しIPアドレスを隠すVPN", "aff": "アフィリエイトリンク"}, "ko": {"t": "🤝 공식 파트너", "dm": "데이터 브로커와 인물 검색 사이트에서 개인정보를 삭제", "ipv": "연결을 암호화하고 IP 주소를 숨기는 VPN", "aff": "제휴 링크"}, "hi": {"t": "🤝 आधिकारिक साझेदार", "dm": "डेटा ब्रोकर और पीपल-सर्च साइटों से आपका निजी डेटा हटाता है", "ipv": "VPN जो आपके कनेक्शन को एन्क्रिप्ट करता है और IP पता छिपाता है", "aff": "एफ़िलिएट लिंक"}, "ar": {"t": "🤝 الشركاء الرسميون", "dm": "يحذف بياناتك الشخصية من وسطاء البيانات ومواقع البحث عن الأشخاص", "ipv": "شبكة VPN تُشفّر اتصالك وتُخفي عنوان IP الخاص بك", "aff": "روابط تابعة"}, "id": {"t": "🤝 Mitra resmi", "dm": "menghapus data pribadi Anda dari broker data dan situs pencarian orang", "ipv": "VPN yang mengenkripsi koneksi dan menyembunyikan alamat IP Anda", "aff": "Tautan afiliasi"}, "vi": {"t": "🤝 Đối tác chính thức", "dm": "xóa dữ liệu cá nhân của bạn khỏi các nhà môi giới dữ liệu và trang tìm người", "ipv": "VPN mã hóa kết nối và ẩn địa chỉ IP của bạn", "aff": "Liên kết tiếp thị"}, "th": {"t": "🤝 พันธมิตรอย่างเป็นทางการ", "dm": "ลบข้อมูลส่วนตัวของคุณออกจากนายหน้าข้อมูลและเว็บค้นหาบุคคล", "ipv": "VPN ที่เข้ารหัสการเชื่อมต่อและซ่อนที่อยู่ IP ของคุณ", "aff": "ลิงก์พันธมิตร"}, "uk": {"t": "🤝 Офіційні партнери", "dm": "видаляє ваші особисті дані у брокерів даних і в онлайн-довідниках", "ipv": "VPN, який шифрує з'єднання та приховує вашу IP-адресу", "aff": "Партнерські посилання"}, "sv": {"t": "🤝 Officiella partners", "dm": "tar bort dina personuppgifter från datamäklare och personsöksajter", "ipv": "VPN som krypterar din anslutning och döljer din IP-adress", "aff": "Affiliatelänkar"}, "el": {"t": "🤝 Επίσημοι συνεργάτες", "dm": "αφαιρεί τα προσωπικά σου δεδομένα από data brokers και ιστότοπους αναζήτησης ατόμων", "ipv": "VPN που κρυπτογραφεί τη σύνδεσή σου και κρύβει τη διεύθυνση IP σου", "aff": "Σύνδεσμοι συνεργατών"}, "cs": {"t": "🤝 Oficiální partneři", "dm": "odstraní vaše osobní údaje od datových brokerů a z vyhledávačů osob", "ipv": "VPN, která šifruje vaše připojení a skrývá vaši IP adresu", "aff": "Partnerské odkazy"}, "ro": {"t": "🤝 Parteneri oficiali", "dm": "îți elimină datele personale de la brokerii de date și site-urile de căutare persoane", "ipv": "VPN care îți criptează conexiunea și îți ascunde adresa IP", "aff": "Linkuri afiliate"}};
