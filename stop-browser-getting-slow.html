@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YMYG1YDKW8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YMYG1YDKW8');
+</script>
+<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<script type="text/javascript" async=true>
+(function() {
+  var host = "www.themoneytizer.com";
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Stop Your Browser From Getting Slow Over Time - CleanTab</title>
+<meta name="description" content="Browsers get slower the longer you use them. Here is why it happens and how to keep yours fast for good, without reinstalling anything." />
+<link rel="canonical" href="https://getcleantab.com/what-is-a-vpn.html" />
+<link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
+<link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
+<meta property="og:title" content="What is a VPN and how does it work? - CleanTab" />
+<meta property="og:description" content="What a VPN is in plain terms, how it protects your connection and hides your IP, and when it is actually useful." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://getcleantab.com/icon128.png" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does a VPN actually do?","acceptedAnswer":{"@type":"Answer","text":"It encrypts your internet connection and hides your IP address by routing your traffic through a secure server. This stops your provider and network from seeing your activity and hides your location from sites."}},{"@type":"Question","name":"Does a VPN make me anonymous?","acceptedAnswer":{"@type":"Answer","text":"No. It hides your IP and encrypts your connection, but sites you log into still know you, and cookies can still track you. A VPN is one layer of privacy, not full anonymity."}},{"@type":"Question","name":"Do I need a VPN at home?","acceptedAnswer":{"@type":"Answer","text":"It is optional on your own trusted connection. It helps most on public WiFi or to hide activity from your provider. For everyday home browsing, it is a nice-to-have, not a must."}},{"@type":"Question","name":"Are free VPNs safe?","acceptedAnswer":{"@type":"Answer","text":"Be cautious. Some free VPNs log or sell your data, which defeats the purpose. A reputable paid VPN is generally safer if privacy is your goal."}}]}
+</script>
+<style>
+  :root {
+    --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
+    --muted:#62748e; --border:#e6ecf5; --bg:#fdfdfb; --code-bg:#f4f7fb;
+    --accent:#f5b638; --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);
+    line-height:1.72; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+  .site-head { border-bottom:1px solid var(--border); background:rgba(253,253,251,0.9);
+    backdrop-filter:saturate(180%) blur(12px); position:sticky; top:0; z-index:30; }
+  .site-head-in { max-width:1120px; margin:0 auto; padding:12px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo-link { display:flex; align-items:center; text-decoration:none; }
+  .logo-link img { height:30px; width:auto; display:block; }
+  .head-right { display:flex; align-items:center; gap:12px; }
+  .lang-switch { display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fff; }
+  .lang-switch button { border:0; background:transparent; cursor:pointer; font-family:inherit;
+    font-size:12px; font-weight:600; color:var(--muted); padding:6px 11px; transition:all .15s; }
+  .lang-switch button.on { background:var(--blue); color:#fff; }
+  .lang-switch button:not(.on):hover { background:#f2f6fe; color:var(--blue); }
+  .head-cta { font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+    background:var(--blue); padding:8px 15px; border-radius:100px; white-space:nowrap; transition:background .18s; }
+  .head-cta:hover { background:var(--blue-dark); }
+
+  .hero { max-width:1120px; margin:0 auto; padding:56px 26px 8px; }
+  .hero-in { max-width:700px; }
+  .eyebrow { font-size:11.5px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:15px; }
+  h1 { font-family:var(--serif); font-size:46px; line-height:1.1; letter-spacing:-1.3px;
+    font-weight:700; color:var(--navy); margin:0 0 18px; }
+  .hero-lede { font-size:19.5px; line-height:1.6; color:#3d5170; margin:0; }
+
+  .shell { max-width:1120px; margin:0 auto; padding:30px 26px 70px;
+    display:grid; grid-template-columns:210px 1fr; gap:54px; align-items:start; }
+  .rail { position:sticky; top:84px; }
+  .rail-title { font-size:10.5px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase;
+    color:#9aa8bd; margin-bottom:14px; }
+  .rail ol { list-style:none; margin:0; padding:0; counter-reset:r; }
+  .rail li { counter-increment:r; }
+  .rail a { display:flex; gap:11px; align-items:baseline; padding:8px 0 8px 13px;
+    border-left:2px solid var(--border); font-size:13.5px; color:var(--muted);
+    text-decoration:none; transition:all .18s; line-height:1.4; }
+  .rail a::before { content:counter(r); font-size:10.5px; font-weight:700; color:#b6c3d6;
+    flex-shrink:0; transition:color .18s; }
+  .rail a:hover { color:var(--navy); border-left-color:#b9cdf2; }
+  .rail a.on { color:var(--blue); border-left-color:var(--blue); font-weight:600; }
+  .rail a.on::before { color:var(--blue); }
+
+  main { max-width:700px; min-width:0; }
+  section { scroll-margin-top:84px; }
+  section + section { margin-top:52px; }
+  .step-head { display:flex; align-items:center; gap:13px; margin-bottom:6px; }
+  .step-num { width:34px; height:34px; border-radius:10px; background:#eaf1fe; color:var(--blue);
+    font-size:15px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h2 { font-family:var(--serif); font-size:27px; letter-spacing:-0.5px; font-weight:700;
+    color:var(--navy); margin:0; line-height:1.24; }
+  .sec-body { padding-left:47px; }
+  .intro-body { margin-top:8px; }
+  p { margin:0 0 16px; font-size:17px; }
+  strong { font-weight:600; color:var(--navy); }
+  a { color:var(--blue); }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
+
+  .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
+    padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
+  .fix p { margin:0; font-size:15.5px; color:#33455e; }
+  .fix strong { color:var(--blue); }
+
+  .note { background:linear-gradient(180deg,#fffdf6,#fffcf0); border:1px solid #f5e6bd;
+    border-radius:12px; padding:16px 19px; margin:20px 0; font-size:15.5px; position:relative; }
+  .note::before { content:''; position:absolute; left:0; top:14px; bottom:14px; width:3px;
+    background:var(--accent); border-radius:0 3px 3px 0; }
+  .note p { margin:0; font-size:15.5px; }
+
+  .faq { margin-top:14px; }
+  .faq details { border:1px solid var(--border); border-radius:12px; padding:2px 18px; margin-bottom:12px; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; color:var(--navy); font-size:16.5px; padding:14px 0; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:'+'; float:right; color:var(--blue); font-weight:700; font-size:20px; line-height:1; }
+  .faq details[open] summary::after { content:'\2013'; }
+  .faq details p { padding:0 0 14px; font-size:16px; margin:0; }
+
+  .cta-box { background:linear-gradient(145deg,#f6f9ff,#eef4ff); border:1px solid #dce8fb;
+    border-radius:16px; padding:24px 26px; margin:50px 0 0; display:flex; gap:18px; align-items:center; }
+  .cta-box img { width:44px; height:44px; flex-shrink:0; }
+  .cta-box .txt { flex:1; }
+  .cta-box h3 { font-size:18px; margin:0 0 5px; color:var(--navy); }
+  .cta-box p { font-size:14.5px; color:#4a5f7e; margin:0; }
+  .cta-btn { display:inline-block; background:var(--blue); color:#fff; padding:11px 20px;
+    border-radius:10px; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap;
+    box-shadow:0 5px 16px rgba(37,99,235,0.26); transition:all .18s; }
+  .cta-btn:hover { background:var(--blue-dark); transform:translateY(-1px); }
+
+  .partners { max-width:700px; margin:26px auto 0; padding:0 26px; text-align:center;
+    font-size:11.5px; line-height:1.6; color:#9aa8bd; }
+  .partners strong { color:#6a7891; }
+
+  .site-foot { max-width:1120px; margin:0 auto; padding:26px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--muted); }
+  .site-foot a { color:var(--muted); text-decoration:none; }
+  .site-foot a:hover { color:var(--blue); }
+  .foot-c { font-size:12px; color:#9aa8bd; margin-top:10px; }
+
+  [data-en],[data-fr] { display:none; }
+  html[lang="en"] [data-en] { display:revert; }
+  html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
+
+  @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
+  @media (max-width:600px) {
+    h1 { font-size:33px; letter-spacing:-0.8px; }
+    .hero { padding:38px 20px 6px; }
+    .hero-lede { font-size:17px; }
+    h2 { font-size:22px; }
+    .sec-body { padding-left:0; }
+    p,ol.steps li { font-size:16.5px; }
+    .shell { padding:24px 20px 50px; }
+    .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
+    .logo-link img { height:25px; }
+  }
+</style>
+
+
+
+</head>
+<body>
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
+    <div class="head-right">
+      <div class="lang-switch">
+        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
+        <button id="btnFr" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="head-cta" href="index.html">
+        <span data-en>Install</span><span data-fr>Installer</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow"><span data-en>Performance</span><span data-fr>Performance</span></div>
+    <h1>
+      <span data-en>How to Stop Your Browser From Getting Slow Over Time</span>
+      <span data-fr>Comment empecher votre navigateur de ralentir avec le temps</span>
+    </h1>
+    <p class="hero-lede">
+      <span data-en>A fresh browser is fast. A few months later it drags. The buildup of cache, cookies and history is a big reason why. Here is how to stop it.</span>
+      <span data-fr>Un navigateur neuf est rapide. Quelques mois plus tard il rame. L'accumulation de cache, cookies et historique en est une grande cause. Voici comment l'eviter.</span></p>
+    </div>
+</div>
+
+
+
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
+    <ol>
+      <li><a href="#why" class="rail-a"><span data-en>Why it slows down</span><span data-fr>Pourquoi il ralentit</span></a></li>
+      <li><a href="#fix" class="rail-a"><span data-en>The lasting fix</span><span data-fr>La solution durable</span></a></li>
+      <li><a href="#how" class="rail-a"><span data-en>How to keep it fast</span><span data-fr>Comment le garder rapide</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="why">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>Why browsers slow down</span><span data-fr>Pourquoi les navigateurs ralentissent</span></h2>
+      </div>
+      <div class="sec-body">
+          <p><span data-en>As you browse, your browser accumulates cached files, cookies, history and site data. Individually these are tiny, but over months they add up, bloating your profile and slowing page loads and startup.</span>
+          <span data-fr>En naviguant, votre navigateur accumule fichiers en cache, cookies, historique et donnees de sites. Individuellement c'est minuscule, mais sur des mois cela s'additionne, alourdit votre profil et ralentit le chargement des pages et le demarrage.</span></p>
+      </div>
+    </section>
+
+    <section id="fix">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>The lasting fix</span><span data-fr>La solution durable</span></h2>
+      </div>
+      <div class="sec-body">
+          <p><span data-en>Clearing this buildup restores speed, but doing it once only helps for a while, because it accumulates again. The real fix is regular cleaning so the buildup never gets a chance to pile up.</span>
+          <span data-fr>Effacer cette accumulation restaure la vitesse, mais le faire une seule fois n'aide qu'un temps, car cela s'accumule de nouveau. La vraie solution est un nettoyage regulier pour que l'accumulation n'ait jamais le temps de s'installer.</span></p>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>How to keep it fast for good</span><span data-fr>Comment le garder rapide durablement</span></h2>
+      </div>
+      <div class="sec-body">
+          <p><span data-en>The simplest approach is automatic cleaning. CleanTab clears cache, cookies and history on a schedule you set, keeping your browser as fast as the day you installed it, while preserving the logins you whitelist.</span>
+          <span data-fr>L'approche la plus simple est le nettoyage automatique. CleanTab vide cache, cookies et historique selon un planning que vous definissez, gardant votre navigateur aussi rapide qu'au premier jour, tout en preservant les connexions de votre liste blanche.</span></p>
+          <p><span data-en>It is free, runs quietly in the background on Chrome and Edge, and takes a minute to set up.</span>
+          <span data-fr>Il est gratuit, tourne discretement en arriere-plan sur Chrome et Edge, et se configure en une minute.</span></p>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <img src="icon128.png" alt="CleanTab" />
+      <div class="txt">
+        <h3><span data-en>Keep your browser clean automatically</span><span data-fr>Gardez un navigateur propre automatiquement</span></h3>
+        <p><span data-en>CleanTab clears your cache, cookies and history in one click - or on a schedule - while keeping you logged in to the sites you choose. Free, in 22 languages.</span>
+        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique en un clic - ou automatiquement - tout en vous gardant connecte aux sites que vous choisissez. Gratuit, en 22 langues.</span></p>
+      </div>
+      <a class="cta-btn" href="index.html">
+        <span data-en>Clean your browser</span><span data-fr>Nettoyer votre navigateur</span>
+      </a>
+    </div>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq" style="margin-top:20px;">
+        <details>
+          <summary><span data-en>Does clearing cache really speed up my browser?</span><span data-fr>Vider le cache accelere-t-il vraiment mon navigateur ?</span></summary>
+          <p><span data-en>It helps most when the cache has grown large or holds broken files. Regular clearing prevents the slowdown from building up in the first place.</span>
+          <span data-fr>Cela aide surtout quand le cache a beaucoup grossi ou contient des fichiers corrompus. Un nettoyage regulier empeche le ralentissement de s'installer.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Will I lose my saved passwords?</span><span data-fr>Vais-je perdre mes mots de passe enregistres ?</span></summary>
+          <p><span data-en>No. Clearing cache and cookies does not delete saved passwords. CleanTab also asks for confirmation before touching passwords.</span>
+          <span data-fr>Non. Vider le cache et les cookies ne supprime pas les mots de passe enregistres. CleanTab demande aussi confirmation avant de toucher aux mots de passe.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>How often should I clean to stay fast?</span><span data-fr>A quelle frequence nettoyer pour rester rapide ?</span></summary>
+          <p><span data-en>Daily or weekly is plenty for most people. Automatic scheduling means you do not have to track it yourself.</span>
+          <span data-fr>Quotidien ou hebdomadaire suffit largement pour la plupart des gens. Le planning automatique evite d'avoir a y penser.</span></p>
+        </details>
+      </div>
+    </section>
+  
+
+</main>
+</div>
+
+<div id="partnerBlock" style="max-width:640px; margin:26px auto 10px; padding:14px 18px; text-align:center;
+     font-size:12px; line-height:1.6; color:#5a6b82; background:#f7fafc; border:1px solid #e3e9f2; border-radius:12px;">
+  <div style="font-weight:700; color:#6a7a90; margin-bottom:6px;" id="pTitle">🤝 Official partners</div>
+  <div style="margin-bottom:4px;"><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> - <span id="pDm">removes your personal data from data brokers and people-search sites</span></div>
+  <div><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
+  <div style="margin-top:6px; opacity:0.75; font-size:10.5px;" id="pAff">Affiliate links</div>
+</div>
+
+<footer class="site-foot">
+  <a href="index.html">CleanTab</a> ·
+  <a href="play.html"><span data-en>Play</span><span data-fr>Jouer</span></a> ·
+  <a href="guide.html"><span data-en>Guide</span><span data-fr>Guide</span></a> ·
+  <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
+  <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
+  <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l'historique</span></a> ·
+  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
+  <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
+  <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
+    <div style="margin-top:8px;">
+  <a href="clear-cache.html"><span data-en>Clear cache</span><span data-fr>Vider le cache</span></a> ·
+  <a href="delete-cookies.html"><span data-en>Delete cookies</span><span data-fr>Supprimer les cookies</span></a> ·
+  <a href="cache-cookies-history-difference.html"><span data-en>Cache vs cookies</span><span data-fr>Les différences</span></a> ·
+  <a href="private-browsing.html"><span data-en>Private browsing</span><span data-fr>Navigation privée</span></a>
+  </div>
+  <div style="margin-top:10px;">
+    <a href="https://www.linkedin.com/company/cleantab-browser-cleaner/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://twitter.com/getcleantab" target="_blank" rel="noopener">Twitter</a>
+  </div>
+  <div class="foot-c">© 2026 Jeremstyke</div>
+</footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.getElementById('btnEn').classList.toggle('on', l === 'en');
+  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
+  try { localStorage.setItem('guideLang', l); } catch (e) {}
+}
+(function () {
+  var saved = null;
+  try { saved = localStorage.getItem('guideLang'); } catch (e) {}
+  var nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+  setLang(saved || (nav === 'fr' ? 'fr' : 'en'));
+})();
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var best = 0;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 130) best = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) best = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === best); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="dm-partner.js"></script>
+<script>
+var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your personal data from data brokers and people-search sites", "ipv": "VPN that encrypts your connection and hides your IP address", "aff": "Affiliate links"}, "fr": {"t": "🤝 Partenaires officiels", "dm": "supprime vos données personnelles des sites de courtage et annuaires en ligne", "ipv": "VPN qui chiffre votre connexion et masque votre adresse IP", "aff": "Liens affiliés"}, "es": {"t": "🤝 Socios oficiales", "dm": "elimina tus datos personales de los brókeres de datos y directorios en línea", "ipv": "VPN que cifra tu conexión y oculta tu dirección IP", "aff": "Enlaces de afiliado"}, "de": {"t": "🤝 Offizielle Partner", "dm": "entfernt deine persönlichen Daten von Datenhändlern und Personensuchseiten", "ipv": "VPN, das deine Verbindung verschlüsselt und deine IP-Adresse verbirgt", "aff": "Affiliate-Links"}, "it": {"t": "🤝 Partner ufficiali", "dm": "rimuove i tuoi dati personali dai data broker e dagli elenchi online", "ipv": "VPN che cifra la tua connessione e nasconde il tuo indirizzo IP", "aff": "Link di affiliazione"}, "pt": {"t": "🤝 Parceiros oficiais", "dm": "remove seus dados pessoais de corretores de dados e sites de busca", "ipv": "VPN que criptografa sua conexão e oculta seu endereço IP", "aff": "Links de afiliado"}, "nl": {"t": "🤝 Officiële partners", "dm": "verwijdert je persoonlijke gegevens bij datahandelaren en zoeksites", "ipv": "VPN die je verbinding versleutelt en je IP-adres verbergt", "aff": "Affiliate links"}, "pl": {"t": "🤝 Oficjalni partnerzy", "dm": "usuwa Twoje dane osobowe od brokerów danych i z wyszukiwarek osób", "ipv": "VPN, który szyfruje połączenie i ukrywa Twój adres IP", "aff": "Linki afiliacyjne"}, "tr": {"t": "🤝 Resmi ortaklar", "dm": "kişisel verilerinizi veri simsarlarından ve kişi arama sitelerinden kaldırır", "ipv": "bağlantınızı şifreleyen ve IP adresinizi gizleyen VPN", "aff": "Ortaklık bağlantıları"}, "ru": {"t": "🤝 Официальные партнёры", "dm": "удаляет ваши личные данные у брокеров данных и в онлайн-справочниках", "ipv": "VPN, который шифрует соединение и скрывает ваш IP-адрес", "aff": "Партнёрские ссылки"}, "zh": {"t": "🤝 官方合作伙伴", "dm": "从数据经纪商和人肉搜索网站删除你的个人信息", "ipv": "加密你的连接并隐藏 IP 地址的 VPN", "aff": "联盟链接"}, "ja": {"t": "🤝 公式パートナー", "dm": "データブローカーや人物検索サイトから個人情報を削除", "ipv": "通信を暗号化しIPアドレスを隠すVPN", "aff": "アフィリエイトリンク"}, "ko": {"t": "🤝 공식 파트너", "dm": "데이터 브로커와 인물 검색 사이트에서 개인정보를 삭제", "ipv": "연결을 암호화하고 IP 주소를 숨기는 VPN", "aff": "제휴 링크"}, "hi": {"t": "🤝 आधिकारिक साझेदार", "dm": "डेटा ब्रोकर और पीपल-सर्च साइटों से आपका निजी डेटा हटाता है", "ipv": "VPN जो आपके कनेक्शन को एन्क्रिप्ट करता है और IP पता छिपाता है", "aff": "एफ़िलिएट लिंक"}, "ar": {"t": "🤝 الشركاء الرسميون", "dm": "يحذف بياناتك الشخصية من وسطاء البيانات ومواقع البحث عن الأشخاص", "ipv": "شبكة VPN تُشفّر اتصالك وتُخفي عنوان IP الخاص بك", "aff": "روابط تابعة"}, "id": {"t": "🤝 Mitra resmi", "dm": "menghapus data pribadi Anda dari broker data dan situs pencarian orang", "ipv": "VPN yang mengenkripsi koneksi dan menyembunyikan alamat IP Anda", "aff": "Tautan afiliasi"}, "vi": {"t": "🤝 Đối tác chính thức", "dm": "xóa dữ liệu cá nhân của bạn khỏi các nhà môi giới dữ liệu và trang tìm người", "ipv": "VPN mã hóa kết nối và ẩn địa chỉ IP của bạn", "aff": "Liên kết tiếp thị"}, "th": {"t": "🤝 พันธมิตรอย่างเป็นทางการ", "dm": "ลบข้อมูลส่วนตัวของคุณออกจากนายหน้าข้อมูลและเว็บค้นหาบุคคล", "ipv": "VPN ที่เข้ารหัสการเชื่อมต่อและซ่อนที่อยู่ IP ของคุณ", "aff": "ลิงก์พันธมิตร"}, "uk": {"t": "🤝 Офіційні партнери", "dm": "видаляє ваші особисті дані у брокерів даних і в онлайн-довідниках", "ipv": "VPN, який шифрує з'єднання та приховує вашу IP-адресу", "aff": "Партнерські посилання"}, "sv": {"t": "🤝 Officiella partners", "dm": "tar bort dina personuppgifter från datamäklare och personsöksajter", "ipv": "VPN som krypterar din anslutning och döljer din IP-adress", "aff": "Affiliatelänkar"}, "el": {"t": "🤝 Επίσημοι συνεργάτες", "dm": "αφαιρεί τα προσωπικά σου δεδομένα από data brokers και ιστότοπους αναζήτησης ατόμων", "ipv": "VPN που κρυπτογραφεί τη σύνδεσή σου και κρύβει τη διεύθυνση IP σου", "aff": "Σύνδεσμοι συνεργατών"}, "cs": {"t": "🤝 Oficiální partneři", "dm": "odstraní vaše osobní údaje od datových brokerů a z vyhledávačů osob", "ipv": "VPN, která šifruje vaše připojení a skrývá vaši IP adresu", "aff": "Partnerské odkazy"}, "ro": {"t": "🤝 Parteneri oficiali", "dm": "îți elimină datele personale de la brokerii de date și site-urile de căutare persoane", "ipv": "VPN care îți criptează conexiunea și îți ascunde adresa IP", "aff": "Linkuri afiliate"}};
+(function(){
+  function applyPartner(l){
+    var d=(PARTNER_TR[l]||PARTNER_TR.en);
+    var pt=document.getElementById('pTitle'); if(pt)pt.textContent=d.t;
+    var pd=document.getElementById('pDm'); if(pd)pd.textContent=d.dm;
+    var pi=document.getElementById('pIpv'); if(pi)pi.textContent=d.ipv;
+    var pa=document.getElementById('pAff'); if(pa)pa.textContent=d.aff;
+  }
+  var lang=(document.documentElement.lang||localStorage.getItem('guideLang')||'en').slice(0,2);
+  applyPartner(lang);
+  window.applyPartner=applyPartner;
+})();
+</script>
+<div id="142280-6"><script src="//ads.themoneytizer.com/s/gen.js?type=6"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=142280&formatId=6"></script></div>
+</body>
+</html>
