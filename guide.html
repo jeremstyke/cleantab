@@ -426,7 +426,7 @@
         <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
         <button id="btnFr" onclick="setLang('fr')">FR</button>
       </div>
-      <a class="head-cta" href="index.html">
+      <a class="head-cta" id="headInstallCta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
         <span data-en>Install</span><span data-fr>Installer</span>
       </a>
     </div>
@@ -855,5 +855,17 @@ var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your pers
 })();
 </script>
 <div id="142280-6"><script src="//ads.themoneytizer.com/s/gen.js?type=6"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=142280&formatId=6"></script></div>
+<script>
+(function(){
+  var cta = document.getElementById('headInstallCta');
+  if(!cta) return;
+  var ua = navigator.userAgent;
+  if(ua.indexOf('Edg') !== -1){
+    cta.href = 'https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki';
+  } else {
+    cta.href = 'https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod';
+  }
+})();
+</script>
 </body>
 </html>
