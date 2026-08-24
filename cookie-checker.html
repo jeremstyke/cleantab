@@ -174,20 +174,20 @@
 <!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to browse the web more privately - CleanTab</title>
-<meta name="description" content="Practical steps to browse more privately - private mode, clearing data, cookie control, and a VPN - and what each one actually does." />
-<link rel="canonical" href="https://getcleantab.com/how-to-browse-privately.html" />
+<title>Cookie Checker - See the Cookies in Your Browser - CleanTab</title>
+<meta name="description" content="What an IP address is, what it reveals about you, and how to hide it when you want more privacy." />
+<link rel="canonical" href="https://getcleantab.com/cookie-checker.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
 <link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
-<meta property="og:title" content="How to browse the web more privately - CleanTab" />
-<meta property="og:description" content="Practical steps to browse more privately - private mode, clearing data, cookie control, and a VPN - and what each one actually does." />
+<meta property="og:title" content="What is an IP address? - CleanTab" />
+<meta property="og:description" content="What an IP address is, what it reveals about you, and how to hide it when you want more privacy." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the easiest way to browse more privately?","acceptedAnswer":{"@type":"Answer","text":"Clear your history, cookies and cache regularly. It removes your local trail and tracking cookies, and a scheduled cleaner can do it automatically while keeping your chosen logins."}},{"@type":"Question","name":"Is private mode enough for privacy?","acceptedAnswer":{"@type":"Answer","text":"Not on its own. It stops your device from saving that session, but sites, your provider and your network can still see your activity. Combine it with clearing data and, when needed, a VPN."}},{"@type":"Question","name":"Do I need a VPN to browse privately?","acceptedAnswer":{"@type":"Answer","text":"Not always. A VPN helps on public Wi-Fi and to hide activity from your provider. For everyday privacy on your own connection, clearing data and controlling cookies covers most of it."}},{"@type":"Question","name":"Does clearing cookies improve privacy?","acceptedAnswer":{"@type":"Answer","text":"Yes. It removes tracking cookies that build a profile of your browsing across sites. Doing it regularly, or on a schedule, keeps that tracking data from accumulating."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What can someone do with my IP address?","acceptedAnswer":{"@type":"Answer","text":"On its own, an IP address reveals your approximate location and provider, and lets sites track your activity. It does not directly expose your identity or files, but combined with other data it aids profiling."}},{"@type":"Question","name":"How do I hide my IP address?","acceptedAnswer":{"@type":"Answer","text":"The common way is a VPN, which routes your connection through its server so sites see that address instead of yours, while also encrypting your traffic."}},{"@type":"Question","name":"Does my IP address reveal my exact location?","acceptedAnswer":{"@type":"Answer","text":"No, only an approximate one - usually your city or region, not your street address. It also reveals your internet provider."}},{"@type":"Question","name":"Does my IP address change?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. Many providers assign dynamic IPs that change periodically. Some connections have a static IP that stays the same. A VPN gives you the server address regardless."}}]}
 </script>
 <style>
   :root {
@@ -339,14 +339,14 @@
 
 <div class="hero">
   <div class="hero-in">
-    <div class="eyebrow"><span data-en>Privacy</span><span data-fr>Confidentialite</span></div>
+    <div class="eyebrow"><span data-en>Free tool</span><span data-fr>Outil gratuit</span></div>
     <h1>
-      <span data-en>How to browse the web more privately</span>
-      <span data-fr>Comment naviguer sur le web plus discretement</span>
+      <span data-en>Cookie checker</span>
+      <span data-fr>Verificateur de cookies</span>
     </h1>
     <p class="hero-lede">
-      <span data-en>Real privacy comes from a few habits, not one magic setting. Here are the practical steps that actually help, and what each one does and does not cover.</span>
-      <span data-fr>La vraie confidentialite vient de quelques habitudes, pas d'un reglage magique. Voici les etapes concretes qui aident vraiment, et ce que chacune couvre ou non.</span></p>
+      <span data-en>See the cookies stored in your browser for this page right now, and learn what they do - and how to clear them.</span>
+      <span data-fr>Voyez les cookies stockes dans votre navigateur pour cette page, ce qu'ils font, et comment les effacer.</span></p>
     </div>
 </div>
 
@@ -356,104 +356,83 @@
   <nav class="rail">
     <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
     <ol>
-      <li><a href="#data" class="rail-a"><span data-en>Clear your data regularly</span><span data-fr>Videz vos donnees regulierement</span></a></li>
-      <li><a href="#cookies" class="rail-a"><span data-en>Control cookies</span><span data-fr>Controlez les cookies</span></a></li>
-      <li><a href="#private" class="rail-a"><span data-en>Use private mode wisely</span><span data-fr>Utilisez le mode prive a bon escient</span></a></li>
-      <li><a href="#vpn" class="rail-a"><span data-en>Add a VPN when it matters</span><span data-fr>Ajoutez un VPN quand c'est utile</span></a></li>
+      <li><a href="#tool" class="rail-a"><span data-en>Your cookies</span><span data-fr>Vos cookies</span></a></li>
+      <li><a href="#what" class="rail-a"><span data-en>What cookies track</span><span data-fr>Ce que suivent les cookies</span></a></li>
+      <li><a href="#clear" class="rail-a"><span data-en>How to clear them</span><span data-fr>Comment les effacer</span></a></li>
+      <li><a href="#hide" class="rail-a"><span data-en>Going further</span><span data-fr>Aller plus loin</span></a></li>
       <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
     </ol>
   </nav>
 
   <main>
-    <section id="data">
+    <section id="tool" style="text-align:center;">
+      <div class="ip-card" style="max-width:560px; margin:0 auto; padding:26px 24px; border:1px solid var(--border); border-radius:16px; background:linear-gradient(180deg,rgba(37,99,235,0.04),rgba(37,99,235,0.01));">
+        <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#8595ab; margin-bottom:10px;">
+          <span data-en>Cookies on this page</span><span data-fr>Cookies sur cette page</span>
+        </div>
+        <div id="ckCount" style="font-size:34px; font-weight:800; color:var(--ink); margin-bottom:12px;">-</div>
+        <div id="ckList" style="text-align:left; font-size:13px; font-family:monospace; color:#5a6a80; max-height:180px; overflow:auto;"></div>
+        <div id="ckEmpty" style="display:none; font-size:14px; color:#16a34a; font-weight:600;">
+          <span data-en>No cookies found for this page.</span><span data-fr>Aucun cookie trouve pour cette page.</span>
+        </div>
+      </div>
+      <p style="max-width:560px; margin:14px auto 0; font-size:13px; color:#8595ab;">
+        <span data-en>This only reads cookies visible to this page, in your browser. Nothing is sent or stored by CleanTab.</span>
+        <span data-fr>Ceci ne lit que les cookies visibles par cette page, dans votre navigateur. Rien n'est envoye ni conserve par CleanTab.</span>
+      </p>
+    </section>
+
+    <section id="what">
       <div class="step-head">
         <div class="step-num">1</div>
-        <h2><span data-en>Clear your data regularly</span><span data-fr>Videz vos donnees regulierement</span></h2>
+        <h2><span data-en>What cookies track</span><span data-fr>Ce que suivent les cookies</span></h2>
       </div>
       <div class="sec-body">
-          <p><span data-en>The simplest privacy habit is clearing your history, cookies and cache often. This removes the local trail on your device and wipes tracking cookies that follow you across sites.</span>
-          <span data-fr>L habitude de confidentialite la plus simple est d'effacer souvent historique, cookies et cache. Cela retire les traces locales sur votre appareil et efface les cookies de suivi qui vous suivent d'un site a l'autre.</span></p>
-          <p><span data-en><a href="index.html">CleanTab</a> does this on a schedule while keeping you logged in to the sites you choose, so your trail stays short without effort.</span>
-          <span data-fr><a href="index.html">CleanTab</a> le fait selon un planning tout en vous gardant connecte aux sites que vous choisissez, pour que vos traces restent courtes sans effort.</span></p>
+        <p><span data-en>Cookies are small files sites store in your browser. Some are useful - they keep you logged in and remember your settings. Others, especially third-party cookies, follow you across sites to build an advertising profile of you.</span>
+        <span data-fr>Les cookies sont de petits fichiers que les sites stockent dans votre navigateur. Certains sont utiles : ils vous gardent connecte et memorisent vos reglages. D'autres, surtout les cookies tiers, vous suivent de site en site pour construire un profil publicitaire.</span></p>
+        <p><span data-en>Note that this tool can only see cookies this page is allowed to read. The tracking cookies set by other sites are hidden from it by design - but they are still there, which is exactly the problem.</span>
+        <span data-fr>Notez que cet outil ne voit que les cookies que cette page est autorisee a lire. Les cookies de suivi poses par d'autres sites lui sont caches par conception, mais ils sont bien la, et c'est precisement le probleme.</span></p>
       </div>
     </section>
-    <p style="margin:0 0 26px; color:var(--muted); font-size:15.5px;"><span data-en>See also: <a href="how-to-stop-targeted-ads.html">how to stop targeted ads</a>.</span><span data-fr>A lire aussi : <a href="how-to-stop-targeted-ads.html">arreter les publicites ciblees</a>.</span></p>
 
-
-    <section id="cookies">
+    <section id="clear">
       <div class="step-head">
         <div class="step-num">2</div>
-        <h2><span data-en>Control cookies</span><span data-fr>Controlez les cookies</span></h2>
+        <h2><span data-en>How to clear them</span><span data-fr>Comment les effacer</span></h2>
       </div>
       <div class="sec-body">
-          <p><span data-en>Limit or block third-party cookies in your browser settings to cut cross-site tracking. Accept first-party cookies only for the sites you actually use, so they still work smoothly.</span>
-          <span data-fr>Limitez ou bloquez les cookies tiers dans les reglages pour reduire le suivi entre sites. N acceptez les cookies internes que pour les sites que vous utilisez vraiment, pour qu'ils fonctionnent bien.</span></p>
+        <p><span data-en>You can clear cookies from your browser settings, but doing it by hand is tedious and logs you out of everything at once. The better approach is automatic clearing that spares the sites you want to stay signed in to.</span>
+        <span data-fr>Vous pouvez effacer les cookies depuis les reglages du navigateur, mais le faire a la main est fastidieux et vous deconnecte de tout d'un coup. La meilleure approche est un effacement automatique qui epargne les sites ou vous voulez rester connecte.</span></p>
+        <p><span data-en>CleanTab clears cookies, cache and history on a schedule you choose, while a whitelist keeps your important logins. It is free on Chrome and Edge.</span>
+        <span data-fr>CleanTab efface cookies, cache et historique selon un planning que vous choisissez, tandis qu'une liste blanche conserve vos connexions importantes. Il est gratuit sur Chrome et Edge.</span></p>
+        <p><a class="head-cta" id="ckInstall" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;padding:11px 20px;background:#2563eb;color:#fff;border-radius:9px;font-weight:700;text-decoration:none;"><span data-en>Install CleanTab &#8594;</span><span data-fr>Installer CleanTab &#8594;</span></a></p>
       </div>
     </section>
 
-    <section id="private">
+    <section id="hide">
       <div class="step-head">
         <div class="step-num">3</div>
-        <h2><span data-en>Use private mode wisely</span><span data-fr>Utilisez le mode prive a bon escient</span></h2>
+        <h2><span data-en>Going further with your privacy</span><span data-fr>Aller plus loin dans votre vie privee</span></h2>
       </div>
       <div class="sec-body">
-          <p><span data-en>Private or incognito mode stops your device from saving history and cookies for that session. It is useful on shared computers, but it does not hide you from sites, your provider, or your network.</span>
-          <span data-fr>Le mode prive ou incognito empeche votre appareil d'enregistrer historique et cookies pour cette session. Utile sur un ordinateur partage, mais il ne vous cache pas des sites, de votre fournisseur, ni de votre reseau.</span></p>
+        <p><span data-en>Clearing cookies limits tracking inside your browser, but your connection still exposes your IP address to every site. A VPN hides your IP and encrypts your traffic, adding a second layer of privacy.</span>
+        <span data-fr>Effacer les cookies limite le suivi dans votre navigateur, mais votre connexion expose toujours votre adresse IP a chaque site. Un VPN masque votre IP et chiffre votre trafic, ajoutant une deuxieme couche de confidentialite.</span></p>
+        <p><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener sponsored" style="display:inline-block;margin-top:6px;padding:11px 20px;background:#16a34a;color:#fff;border-radius:9px;font-weight:700;text-decoration:none;">Get IPVanish &#8594;</a> <span style="display:block;margin-top:6px;font-size:13px;color:#8595ab;"><span data-en>VPN that hides your IP and encrypts your connection</span><span data-fr>VPN qui masque votre IP et chiffre votre connexion</span></span></p>
       </div>
     </section>
-
-    <section id="vpn">
-      <div class="step-head">
-        <div class="step-num">4</div>
-        <h2><span data-en>Add a VPN when it matters</span><span data-fr>Ajoutez un VPN quand c'est utile</span></h2>
-      </div>
-      <div class="sec-body">
-          <p><span data-en>For hiding your activity from your provider or protecting yourself on public Wi-Fi, a VPN encrypts your connection and hides your IP. It complements clearing your data - the two cover different gaps.</span>
-          <span data-fr>Pour cacher votre activite a votre fournisseur ou vous proteger sur le Wi-Fi public, un VPN chiffre votre connexion et masque votre IP. Il complete l'effacement des donnees : les deux couvrent des failles differentes.</span></p>
-          <p><span data-en>A reputable choice here is our partner <a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener">IPVanish</a>, which encrypts your connection and hides your IP address.</span>
-          <span data-fr>Un choix fiable ici est notre partenaire <a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener">IPVanish</a>, qui chiffre votre connexion et masque votre adresse IP.</span></p>
-      </div>
-    </section>
-
-    <div class="cta-box">
-      <img src="icon128.png" alt="CleanTab" />
-      <div class="txt">
-        <h3><span data-en>Keep your browser clean automatically</span><span data-fr>Gardez un navigateur propre automatiquement</span></h3>
-        <p><span data-en>CleanTab clears your cache, cookies and history in one click - or on a schedule - while keeping you logged in to the sites you choose. Free, in 22 languages.</span>
-        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique en un clic - ou automatiquement - tout en vous gardant connecte aux sites que vous choisissez. Gratuit, en 22 langues.</span></p>
-      </div>
-      <a class="cta-btn" href="index.html">
-        <span data-en>Clean your browser</span><span data-fr>Nettoyer votre navigateur</span>
-      </a>
-    </div>
 
     <section id="faq">
-      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
-      <div class="faq" style="margin-top:20px;">
-        <details>
-          <summary><span data-en>What is the easiest way to browse more privately?</span><span data-fr>Quel est le moyen le plus simple de naviguer plus discretement ?</span></summary>
-          <p><span data-en>Clear your history, cookies and cache regularly. It removes your local trail and tracking cookies, and a scheduled cleaner can do it automatically while keeping your chosen logins.</span>
-          <span data-fr>Videz regulierement historique, cookies et cache. Cela retire vos traces locales et les cookies de suivi, et un nettoyeur programme peut le faire automatiquement en gardant vos connexions choisies.</span></p>
-        </details>
-        <details>
-          <summary><span data-en>Is private mode enough for privacy?</span><span data-fr>Le mode prive suffit-il pour la confidentialite ?</span></summary>
-          <p><span data-en>Not on its own. It stops your device from saving that session, but sites, your provider and your network can still see your activity. Combine it with clearing data and, when needed, a VPN.</span>
-          <span data-fr>Pas a lui seul. Il empeche votre appareil d'enregistrer la session, mais les sites, votre fournisseur et votre reseau voient toujours votre activite. Combinez-le avec l'effacement des donnees et, si besoin, un VPN.</span></p>
-        </details>
-        <details>
-          <summary><span data-en>Do I need a VPN to browse privately?</span><span data-fr>Ai-je besoin d'un VPN pour naviguer discretement ?</span></summary>
-          <p><span data-en>Not always. A VPN helps on public Wi-Fi and to hide activity from your provider. For everyday privacy on your own connection, clearing data and controlling cookies covers most of it.</span>
-          <span data-fr>Pas toujours. Un VPN aide sur le Wi-Fi public et pour cacher l'activite a votre fournisseur. Pour la confidentialite quotidienne sur votre connexion, effacer les donnees et controler les cookies couvre l'essentiel.</span></p>
-        </details>
-        <details>
-          <summary><span data-en>Does clearing cookies improve privacy?</span><span data-fr>Effacer les cookies ameliore-t-il la confidentialite ?</span></summary>
-          <p><span data-en>Yes. It removes tracking cookies that build a profile of your browsing across sites. Doing it regularly, or on a schedule, keeps that tracking data from accumulating.</span>
-          <span data-fr>Oui. Cela retire les cookies de suivi qui construisent un profil de votre navigation entre sites. Le faire regulierement, ou selon un planning, empeche ces donnees de suivi de s accumuler.</span></p>
-        </details>
-      </div>
+      <h2 class="faq-title"><span data-en>Frequently asked questions</span><span data-fr>Questions frequentes</span></h2>
+      <details class="faq-item"><summary><span data-en>Why does it show so few cookies?</span><span data-fr>Pourquoi si peu de cookies affiches ?</span></summary>
+        <div class="faq-a"><span data-en>Browsers only let a page read its own cookies. Third-party tracking cookies exist but are hidden from this tool by design.</span><span data-fr>Les navigateurs ne laissent une page lire que ses propres cookies. Les cookies de suivi tiers existent mais sont caches de cet outil par conception.</span></div>
+      </details>
+      <details class="faq-item"><summary><span data-en>Is it safe to check my cookies here?</span><span data-fr>Est-ce sans risque de verifier mes cookies ici ?</span></summary>
+        <div class="faq-a"><span data-en>Yes. This reads them in your browser only. Nothing is sent to or stored by CleanTab.</span><span data-fr>Oui. Cela les lit uniquement dans votre navigateur. Rien n'est envoye ni conserve par CleanTab.</span></div>
+      </details>
+      <details class="faq-item"><summary><span data-en>Should I delete all my cookies?</span><span data-fr>Dois-je supprimer tous mes cookies ?</span></summary>
+        <div class="faq-a"><span data-en>Clearing them regularly is good for privacy, but keep the ones for sites you use daily. A whitelist, like in CleanTab, handles this for you.</span><span data-fr>Les effacer regulierement est bon pour la vie privee, mais gardez ceux des sites que vous utilisez chaque jour. Une liste blanche, comme dans CleanTab, s'en charge pour vous.</span></div>
+      </details>
     </section>
-  
-
 </main>
 </div>
 
@@ -548,6 +527,24 @@ var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your pers
   } else {
     cta.href = 'https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod';
   }
+})();
+</script>
+
+<script>
+(function(){
+  var count=document.getElementById('ckCount'), list=document.getElementById('ckList'), empty=document.getElementById('ckEmpty');
+  var raw=document.cookie;
+  var cookies = raw ? raw.split(';').map(function(c){return c.trim();}).filter(Boolean) : [];
+  count.textContent = cookies.length;
+  if(cookies.length===0){ empty.style.display='block'; }
+  else {
+    list.innerHTML = cookies.map(function(c){
+      var name=c.split('=')[0];
+      return '<div style="padding:4px 0; border-bottom:1px solid rgba(0,0,0,0.05);">\u{1F36A} '+name+'</div>';
+    }).join('');
+  }
+  var btn=document.getElementById('ckInstall');
+  if(btn){ var ua=navigator.userAgent||''; if(ua.indexOf('Edg')!==-1){ btn.href='https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki'; } }
 })();
 </script>
 </body>
