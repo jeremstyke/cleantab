@@ -411,6 +411,35 @@
     </div>
   </section>
 
+  <section class="tools-section" style="max-width:960px; margin:0 auto; padding:0 20px;">
+    <h2 class="section-label" id="toolsHeading">Free privacy tools</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin-top:8px;">
+      <a href="my-ip.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
+        <div style="font-size:26px; margin-bottom:8px;">🌐</div>
+        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool1t">What is my IP?</div>
+        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool1s">See your public IP address</div>
+      </a>
+      <a href="webrtc-leak-test.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
+        <div style="font-size:26px; margin-bottom:8px;">🛡️</div>
+        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool2t">WebRTC leak test</div>
+        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool2s">Check if your VPN leaks your IP</div>
+      </a>
+      <a href="password-generator.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
+        <div style="font-size:26px; margin-bottom:8px;">🔑</div>
+        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool3t">Password generator</div>
+        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool3s">Create strong random passwords</div>
+      </a>
+      <a href="cookie-checker.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
+        <div style="font-size:26px; margin-bottom:8px;">🍪</div>
+        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool4t">Cookie checker</div>
+        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool4s">See cookies in your browser</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:14px;">
+      <a href="tools.html" style="font-size:13px; color:#2563eb; font-weight:600; text-decoration:none;" id="toolsAll">See all tools →</a>
+    </div>
+  </section>
+
   <section class="links-section">
     <div class="secondary-grid">
       <a class="btn-secondary btn-play" id="btnPlay" href="play.html">🎮 <span id="txtPlay">Play Tab Rush</span></a>
@@ -519,6 +548,16 @@
     for (var i = 0; i < 6; i++) { var fe = document.getElementById('feat' + (i+1)); if (fe && f[i]) fe.textContent = f[i]; }
     var fh = {en:'Everything CleanTab does',fr:'Tout ce que fait CleanTab',es:'Todo lo que hace CleanTab',de:'Alles, was CleanTab kann',it:'Tutto ciò che fa CleanTab',pt:'Tudo o que o CleanTab faz',nl:'Alles wat CleanTab doet',pl:'Wszystko, co robi CleanTab',ru:'Всё, что умеет CleanTab',ja:'CleanTabのすべての機能',zh:'CleanTab 的全部功能',ko:'CleanTab의 모든 기능',ar:'كل ما يفعله CleanTab',hi:'CleanTab जो कुछ करता है','tr':'CleanTab neler yapar','vi':'Mọi thứ CleanTab làm','th':'ทุกสิ่งที่ CleanTab ทำได้','uk':'Усе, що вміє CleanTab','sv':'Allt CleanTab gör','el':'Όλα όσα κάνει το CleanTab','ro':'Tot ce face CleanTab','id':'Semua yang dilakukan CleanTab'};
     var fhEl = document.getElementById('featHeading'); if (fhEl) fhEl.textContent = fh[l] || fh.en;
+    var isFr = (l === 'fr');
+    var th = document.getElementById('toolsHeading'); if (th) th.textContent = isFr ? 'Outils de confidentialité gratuits' : 'Free privacy tools';
+    var tset = [
+      ['tool1t', isFr?'Quelle est mon IP ?':'What is my IP?', 'tool1s', isFr?'Voyez votre adresse IP publique':'See your public IP address'],
+      ['tool2t', isFr?'Test de fuite WebRTC':'WebRTC leak test', 'tool2s', isFr?'Verifiez si votre VPN revele votre IP':'Check if your VPN leaks your IP'],
+      ['tool3t', isFr?'Generateur de mot de passe':'Password generator', 'tool3s', isFr?'Creez des mots de passe forts':'Create strong random passwords'],
+      ['tool4t', isFr?'Verificateur de cookies':'Cookie checker', 'tool4s', isFr?'Voyez les cookies de votre navigateur':'See cookies in your browser']
+    ];
+    tset.forEach(function(t){ var a=document.getElementById(t[0]); if(a)a.textContent=t[1]; var b=document.getElementById(t[2]); if(b)b.textContent=t[3]; });
+    var ta = document.getElementById('toolsAll'); if (ta) ta.textContent = isFr ? 'Voir tous les outils →' : 'See all tools →';
     document.getElementById('langSelect').value = l;
     document.documentElement.lang = l;
     document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
