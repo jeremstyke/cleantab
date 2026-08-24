@@ -175,7 +175,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to Clear Cache Automatically in Chrome - CleanTab</title>
-<meta name="description" content="Chrome can clear some data on close, but not on a real schedule. Here is how to clear your Chrome cache automatically and keep the logins you want." />
+<meta name="description" content="Chrome can clear some data on close, but not on a real schedule. Here is what Chrome can and cannot do, and how to clear your cache automatically while keeping your logins." />
 <link rel="canonical" href="https://getcleantab.com/what-is-a-vpn.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
@@ -345,8 +345,8 @@
       <span data-fr>Comment vider le cache automatiquement dans Chrome</span>
     </h1>
     <p class="hero-lede">
-      <span data-en>Chrome has a basic clear-on-close option, but it is limited. Here is how to get true automatic cache clearing in Chrome.</span>
-      <span data-fr>Chrome dispose d'une option basique d'effacement a la fermeture, mais elle est limitee. Voici comment obtenir un vrai nettoyage automatique du cache dans Chrome.</span></p>
+      <span data-en>Chrome has a basic clear-on-close option, but it only goes so far. Here is exactly what Chrome can do on its own, where it falls short, and how to get genuinely automatic cache clearing.</span>
+      <span data-fr>Chrome propose une option basique d'effacement à la fermeture, mais elle a ses limites. Voici précisément ce que Chrome sait faire seul, là où ça coince, et comment obtenir un vrai nettoyage automatique du cache.</span></p>
     </div>
 </div>
 
@@ -356,9 +356,11 @@
   <nav class="rail">
     <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
     <ol>
-      <li><a href="#builtin" class="rail-a"><span data-en>Chrome built-in option</span><span data-fr>L'option integree de Chrome</span></a></li>
-      <li><a href="#limits" class="rail-a"><span data-en>Why it falls short</span><span data-fr>Pourquoi c'est insuffisant</span></a></li>
-      <li><a href="#better" class="rail-a"><span data-en>The better way</span><span data-fr>La meilleure methode</span></a></li>
+      <li><a href="#builtin" class="rail-a"><span data-en>Chrome's built-in option</span><span data-fr>L'option intégrée de Chrome</span></a></li>
+      <li><a href="#limits" class="rail-a"><span data-en>Where it falls short</span><span data-fr>Là où ça coince</span></a></li>
+      <li><a href="#better" class="rail-a"><span data-en>The better way</span><span data-fr>La meilleure méthode</span></a></li>
+      <li><a href="#setup" class="rail-a"><span data-en>Setting it up</span><span data-fr>La mise en place</span></a></li>
+      <li><a href="#logins" class="rail-a"><span data-en>Keeping your logins</span><span data-fr>Garder vos connexions</span></a></li>
       <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
     </ol>
   </nav>
@@ -367,35 +369,65 @@
     <section id="builtin">
       <div class="step-head">
         <div class="step-num">1</div>
-        <h2><span data-en>What Chrome can do on its own</span><span data-fr>Ce que Chrome peut faire seul</span></h2>
+        <h2><span data-en>What Chrome can do on its own</span><span data-fr>Ce que Chrome sait faire seul</span></h2>
       </div>
       <div class="sec-body">
-          <p><span data-en>Chrome has a setting to clear cookies and site data when you close all windows, found under Privacy and security. But it does not cover the cache the same way, it is all-or-nothing, and it has no whitelist for sites you want to stay signed in to.</span>
-          <span data-fr>Chrome a un reglage pour effacer cookies et donnees de sites a la fermeture de toutes les fenetres, dans Confidentialite et securite. Mais il ne couvre pas le cache de la meme facon, c'est tout ou rien, et sans liste blanche pour les sites ou vous voulez rester connecte.</span></p>
+          <p><span data-en>Chrome has a setting to clear cookies and site data when you close every window, tucked under Privacy and security. It is genuinely useful, and for some people it is enough. If you fully close Chrome regularly, it will tidy up after you.</span>
+          <span data-fr>Chrome dispose d'un réglage pour effacer cookies et données de sites à la fermeture de toutes les fenêtres, niché dans Confidentialité et sécurité. C'est vraiment utile, et pour certains cela suffit. Si vous fermez complètement Chrome régulièrement, il fera le ménage derrière vous.</span></p>
+          <p><span data-en>But it does not treat the cache the same way, it is all-or-nothing, and there is no whitelist for the sites you want to stay signed in to.</span>
+          <span data-fr>Mais il ne traite pas le cache de la même façon, c'est tout ou rien, et il n'existe aucune liste blanche pour les sites où vous voulez rester connecté.</span></p>
       </div>
     </section>
 
     <section id="limits">
       <div class="step-head">
         <div class="step-num">2</div>
-        <h2><span data-en>Why the built-in option falls short</span><span data-fr>Pourquoi l'option integree est insuffisante</span></h2>
+        <h2><span data-en>Where the built-in option falls short</span><span data-fr>Là où l'option intégrée coince</span></h2>
       </div>
       <div class="sec-body">
-          <p><span data-en>It only runs when you fully close Chrome, offers no daily or hourly schedule, and clears the same things for every site. If you want fine control and to keep some logins, you need more.</span>
-          <span data-fr>Elle ne s'execute qu'a la fermeture complete de Chrome, n'offre aucun planning quotidien ou horaire, et efface la meme chose pour tous les sites. Pour un controle fin et garder certaines connexions, il faut mieux.</span></p>
+          <p><span data-en>It only fires when you fully close Chrome - which many people rarely do - offers no daily or hourly schedule, and treats every site the same. If you keep Chrome open for days, it may never run at all.</span>
+          <span data-fr>Elle ne se déclenche qu'à la fermeture complète de Chrome - ce que beaucoup font rarement - n'offre aucun planning quotidien ou horaire, et traite tous les sites pareil. Si vous laissez Chrome ouvert des jours durant, elle peut ne jamais s'exécuter.</span></p>
+          <p><span data-en>Want finer control, a proper schedule, and to keep a few logins? You will need more than the built-in toggle.</span>
+          <span data-fr>Envie d'un contrôle plus fin, d'un vrai planning, et de garder quelques connexions ? Il vous faudra plus que le simple interrupteur intégré.</span></p>
       </div>
     </section>
 
     <section id="better">
       <div class="step-head">
         <div class="step-num">3</div>
-        <h2><span data-en>The better way: automatic cleaning</span><span data-fr>La meilleure methode : le nettoyage automatique</span></h2>
+        <h2><span data-en>The better way: automatic cleaning</span><span data-fr>La meilleure méthode : le nettoyage automatique</span></h2>
       </div>
       <div class="sec-body">
-          <p><span data-en>CleanTab adds real scheduled cleaning to Chrome: pick what to clear (cache, cookies, history), how often, and which sites to keep via a whitelist. Set it once and Chrome stays clean on its own.</span>
-          <span data-fr>CleanTab ajoute un vrai nettoyage planifie a Chrome : choisissez quoi effacer (cache, cookies, historique), a quelle frequence, et quels sites garder via une liste blanche. Reglez-le une fois et Chrome reste propre tout seul.</span></p>
+          <p><span data-en>CleanTab adds proper scheduled cleaning to Chrome: choose what to clear - cache, cookies, history - how often, and which sites to spare via a whitelist. Set it once and Chrome keeps itself clean whether you close it or not.</span>
+          <span data-fr>CleanTab ajoute un vrai nettoyage planifié à Chrome : choisissez quoi effacer - cache, cookies, historique - à quelle fréquence, et quels sites épargner via une liste blanche. Réglez-le une fois et Chrome reste propre, que vous le fermiez ou non.</span></p>
           <p><span data-en>It is free, private, and installs from the Chrome Web Store in seconds.</span>
-          <span data-fr>Il est gratuit, prive, et s'installe depuis le Chrome Web Store en quelques secondes.</span></p>
+          <span data-fr>Il est gratuit, privé, et s'installe depuis le Chrome Web Store en quelques secondes.</span></p>
+      </div>
+    </section>
+
+    <section id="setup">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <h2><span data-en>Setting it up in Chrome</span><span data-fr>La configuration dans Chrome</span></h2>
+      </div>
+      <div class="sec-body">
+          <p><span data-en>After installing, open CleanTab, turn on automatic cleaning in the Automatic tab, and choose your interval. Add the sites you want to stay logged in to your whitelist, and pick what to clear each run.</span>
+          <span data-fr>Après l'installation, ouvrez CleanTab, activez le nettoyage automatique dans l'onglet Automatique, et choisissez votre intervalle. Ajoutez à votre liste blanche les sites où vous voulez rester connecté, et choisissez ce qui est effacé à chaque passage.</span></p>
+          <p><span data-en>From then on Chrome cleans its cache on your schedule, with no menus to dig through and nothing to remember.</span>
+          <span data-fr>Dès lors, Chrome vide son cache selon votre planning, sans menu à fouiller ni rien à retenir.</span></p>
+      </div>
+    </section>
+
+    <section id="logins">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <h2><span data-en>Staying logged in to your main sites</span><span data-fr>Rester connecté à ses sites principaux</span></h2>
+      </div>
+      <div class="sec-body">
+          <p><span data-en>The built-in Chrome option logs you out of everything when it clears cookies. CleanTab's whitelist fixes that: add your email, bank, or work sites and their logins are preserved while everything else is cleared.</span>
+          <span data-fr>L'option intégrée de Chrome vous déconnecte de tout quand elle efface les cookies. La liste blanche de CleanTab règle ça : ajoutez votre messagerie, votre banque ou vos sites de travail, et leurs connexions sont préservées pendant que le reste est effacé.</span></p>
+          <p><span data-en>It is the difference between a cleanup that helps and one that annoys you into turning it off.</span>
+          <span data-fr>C'est la différence entre un nettoyage qui aide et un nettoyage qui vous agace au point de le désactiver.</span></p>
       </div>
     </section>
 
@@ -416,18 +448,23 @@
       <div class="faq" style="margin-top:20px;">
         <details>
           <summary><span data-en>Does Chrome clear the cache automatically?</span><span data-fr>Chrome vide-t-il le cache automatiquement ?</span></summary>
-          <p><span data-en>Only partially, and only when you fully close the browser with a specific setting on. For real scheduling, use an extension.</span>
-          <span data-fr>Seulement en partie, et uniquement a la fermeture complete avec un reglage specifique active. Pour un vrai planning, utilisez une extension.</span></p>
+          <p><span data-en>Only partly, and only when you fully close it with a specific setting turned on. For real scheduling, use an extension.</span>
+          <span data-fr>Seulement en partie, et uniquement à la fermeture complète avec un réglage précis activé. Pour un vrai planning, utilisez une extension.</span></p>
         </details>
         <details>
-          <summary><span data-en>Where is the clear-on-close setting in Chrome?</span><span data-fr>Ou se trouve le reglage d'effacement a la fermeture dans Chrome ?</span></summary>
-          <p><span data-en>Under Settings, Privacy and security, Cookies and other site data, there is an option to clear cookies when you close all windows.</span>
-          <span data-fr>Dans Parametres, Confidentialite et securite, Cookies et autres donnees des sites, une option permet d'effacer les cookies a la fermeture de toutes les fenetres.</span></p>
+          <summary><span data-en>Where is the clear-on-close setting in Chrome?</span><span data-fr>Où se trouve le réglage d'effacement à la fermeture dans Chrome ?</span></summary>
+          <p><span data-en>Under Settings, Privacy and security, Cookies and other site data, there is an option to clear cookies when all windows close.</span>
+          <span data-fr>Dans Paramètres, Confidentialité et sécurité, Cookies et autres données des sites, une option permet d'effacer les cookies à la fermeture de toutes les fenêtres.</span></p>
         </details>
         <details>
-          <summary><span data-en>Will I stay logged in to my main sites?</span><span data-fr>Vais-je rester connecte a mes sites principaux ?</span></summary>
-          <p><span data-en>With CleanTab, yes: add them to your whitelist and their logins are preserved while everything else is cleared.</span>
-          <span data-fr>Avec CleanTab, oui : ajoutez-les a votre liste blanche et leurs connexions sont preservees pendant que le reste est efface.</span></p>
+          <summary><span data-en>Will I stay logged in to my main sites?</span><span data-fr>Vais-je rester connecté à mes sites principaux ?</span></summary>
+          <p><span data-en>With CleanTab, yes - add them to your whitelist and their logins are preserved while everything else is cleared.</span>
+          <span data-fr>Avec CleanTab, oui - ajoutez-les à votre liste blanche et leurs connexions sont préservées pendant que le reste est effacé.</span></p>
+        </details>
+        <details>
+          <summary><span data-en>Does this work on Edge and Opera too?</span><span data-fr>Cela fonctionne-t-il aussi sur Edge et Opera ?</span></summary>
+          <p><span data-en>Yes. CleanTab works on Chrome, Edge and other Chromium browsers. It is on the Chrome Web Store and the Edge Add-ons store.</span>
+          <span data-fr>Oui. CleanTab fonctionne sur Chrome, Edge et les autres navigateurs Chromium. Il est sur le Chrome Web Store et le store Edge Add-ons.</span></p>
         </details>
       </div>
     </section>
