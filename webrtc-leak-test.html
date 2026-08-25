@@ -175,19 +175,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>WebRTC Leak Test - Is Your VPN Leaking Your IP? - CleanTab</title>
-<meta name="description" content="What an IP address is, what it reveals about you, and how to hide it when you want more privacy." />
+<meta name="description" content="Check whether your browser leaks your real IP address through WebRTC, even when a VPN is on." />
 <link rel="canonical" href="https://getcleantab.com/webrtc-leak-test.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
 <link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
-<meta property="og:title" content="What is an IP address? - CleanTab" />
-<meta property="og:description" content="What an IP address is, what it reveals about you, and how to hide it when you want more privacy." />
+<meta property="og:title" content="WebRTC leak test - CleanTab" />
+<meta property="og:description" content="Check whether your browser leaks your real IP address through WebRTC, even when a VPN is on." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What can someone do with my IP address?","acceptedAnswer":{"@type":"Answer","text":"On its own, an IP address reveals your approximate location and provider, and lets sites track your activity. It does not directly expose your identity or files, but combined with other data it aids profiling."}},{"@type":"Question","name":"How do I hide my IP address?","acceptedAnswer":{"@type":"Answer","text":"The common way is a VPN, which routes your connection through its server so sites see that address instead of yours, while also encrypting your traffic."}},{"@type":"Question","name":"Does my IP address reveal my exact location?","acceptedAnswer":{"@type":"Answer","text":"No, only an approximate one - usually your city or region, not your street address. It also reveals your internet provider."}},{"@type":"Question","name":"Does my IP address change?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. Many providers assign dynamic IPs that change periodically. Some connections have a static IP that stays the same. A VPN gives you the server address regardless."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does a WebRTC leak mean my VPN is broken?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. WebRTC works at the browser level, so even a working VPN can leak unless it or your browser blocks it."}},{"@type":"Question","name":"Is it safe to see my IP here?","acceptedAnswer":{"@type":"Answer","text":"Yes. The test runs in your browser only. Nothing is sent to or stored by CleanTab."}},{"@type":"Question","name":"Does clearing my browser stop WebRTC leaks?","acceptedAnswer":{"@type":"Answer","text":"No. Cleaning removes local tracking data but does not change how WebRTC works. Use a VPN with leak protection."}}]}
 </script>
 <style>
   :root {
@@ -346,7 +346,7 @@
     </h1>
     <p class="hero-lede">
       <span data-en>WebRTC can leak your real IP address even when a VPN is on. This test checks what your browser exposes right now.</span>
-      <span data-fr>WebRTC peut reveler votre vraie adresse IP meme avec un VPN actif. Ce test verifie ce que votre navigateur expose en ce moment.</span></p>
+      <span data-fr>WebRTC peut révéler votre vraie adresse IP même avec un VPN actif. Ce test vérifie ce que votre navigateur expose en ce moment.</span></p>
     </div>
 </div>
 
@@ -378,7 +378,7 @@
       </div>
       <p style="max-width:560px; margin:14px auto 0; font-size:13px; color:#8595ab;">
         <span data-en>This test runs entirely in your browser. Nothing is sent to or stored by CleanTab.</span>
-        <span data-fr>Ce test se fait entierement dans votre navigateur. Rien n'est envoye ni conserve par CleanTab.</span>
+        <span data-fr>Ce test se fait entièrement dans votre navigateur. Rien n'est envoye ni conserve par CleanTab.</span>
       </p>
     </section>
 
@@ -389,9 +389,9 @@
       </div>
       <div class="sec-body">
         <p><span data-en>WebRTC is a browser feature for video calls and peer-to-peer connections. To work, it can ask your device for its IP addresses - and in some cases it reveals your real public IP even when you are connected to a VPN. That is called a WebRTC leak.</span>
-        <span data-fr>WebRTC est une fonctionnalite du navigateur pour les appels video et les connexions pair-a-pair. Pour fonctionner, elle peut demander a votre appareil ses adresses IP, et dans certains cas elle revele votre vraie IP publique meme lorsque vous etes connecte a un VPN. C'est ce qu'on appelle une fuite WebRTC.</span></p>
+        <span data-fr>WebRTC est une fonctionnalite du navigateur pour les appels video et les connexions pair-a-pair. Pour fonctionner, elle peut demander à votre appareil ses adresses IP, et dans certains cas elle révèle votre vraie IP publique même lorsque vous êtes connecté à un VPN. C'est ce qu'on appelle une fuite WebRTC.</span></p>
         <p><span data-en>If the test above shows a public IP address, your browser may be exposing it to any site you visit, undoing part of what a VPN is supposed to protect.</span>
-        <span data-fr>Si le test ci-dessus affiche une adresse IP publique, votre navigateur l'expose peut-etre a tous les sites que vous visitez, annulant une partie de ce qu'un VPN est cense proteger.</span></p>
+        <span data-fr>Si le test ci-dessus affiche une adresse IP publique, votre navigateur l'expose peut-être a tous les sites que vous visitez, annulant une partie de ce qu'un VPN est cense protéger.</span></p>
       </div>
     </section>
 
@@ -402,9 +402,9 @@
       </div>
       <div class="sec-body">
         <p><span data-en>You can disable WebRTC with a browser extension, but the simplest reliable fix is a VPN that protects against WebRTC leaks at the app level. A good VPN routes and masks this traffic so your real IP stays hidden.</span>
-        <span data-fr>Vous pouvez desactiver WebRTC avec une extension, mais la solution fiable la plus simple est un VPN qui protege contre les fuites WebRTC au niveau de l'application. Un bon VPN achemine et masque ce trafic pour que votre vraie IP reste cachee.</span></p>
+        <span data-fr>Vous pouvez désactiver WebRTC avec une extension, mais la solution fiable la plus simple est un VPN qui protège contre les fuites WebRTC au niveau de l'application. Un bon VPN achemine et masque ce trafic pour que votre vraie IP reste cachée.</span></p>
         <p><span data-en>IPVanish is a reputable no-logs VPN that hides your IP and encrypts your connection in one click, across unlimited devices.</span>
-        <span data-fr>IPVanish est un VPN no-logs reconnu qui masque votre IP et chiffre votre connexion en un clic, sur un nombre illimite d'appareils.</span></p>
+        <span data-fr>IPVanish est un VPN no-logs reconnu qui masque votre IP et chiffre votre connexion en un clic, sur un nombre illimité d'appareils.</span></p>
         <p><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener sponsored" style="display:inline-block;margin-top:6px;padding:11px 20px;background:#16a34a;color:#fff;border-radius:9px;font-weight:700;text-decoration:none;">Get IPVanish &#8594;</a> <span style="display:block;margin-top:6px;font-size:13px;color:#8595ab;"><span data-en>VPN that hides your IP and encrypts your connection</span><span data-fr>VPN qui masque votre IP et chiffre votre connexion</span></span></p>
       </div>
     </section>
@@ -416,9 +416,9 @@
       </div>
       <div class="sec-body">
         <p><span data-en>Stopping IP leaks protects your connection, but your browser still stores cache, cookies and history that track you locally. For full privacy, pair a VPN with regular browser cleaning.</span>
-        <span data-fr>Stopper les fuites d'IP protege votre connexion, mais votre navigateur stocke toujours cache, cookies et historique qui vous suivent en local. Pour une confidentialite complete, associez un VPN a un nettoyage regulier du navigateur.</span></p>
+        <span data-fr>Stopper les fuites d'IP protège votre connexion, mais votre navigateur stocke toujours cache, cookies et historique qui vous suivent en local. Pour une confidentialité complète, associez un VPN à un nettoyage régulier du navigateur.</span></p>
         <p><span data-en>CleanTab clears your cache, cookies and history on a schedule while keeping you logged in to the sites you choose. It is free on Chrome and Edge.</span>
-        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique selon un planning tout en vous gardant connecte aux sites que vous choisissez. Il est gratuit sur Chrome et Edge.</span></p>
+        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique selon un planning tout en vous gardant connecté aux sites que vous choisissez. Il est gratuit sur Chrome et Edge.</span></p>
       </div>
     </section>
 
@@ -426,13 +426,13 @@
       <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions frequentes</span></h2>
       <div class="faq">
       <details><summary><span data-en>Does a WebRTC leak mean my VPN is broken?</span><span data-fr>Une fuite WebRTC signifie-t-elle que mon VPN est defaillant ?</span></summary>
-        <p><span data-en>Not necessarily. WebRTC works at the browser level, so even a working VPN can leak unless it or your browser blocks it. A VPN with leak protection prevents this.</span><span data-fr>Pas forcement. WebRTC agit au niveau du navigateur, donc meme un VPN fonctionnel peut fuiter s'il ne le bloque pas, ou si votre navigateur ne le fait pas. Un VPN avec protection anti-fuite l'empeche.</span></p>
+        <p><span data-en>Not necessarily. WebRTC works at the browser level, so even a working VPN can leak unless it or your browser blocks it. A VPN with leak protection prevents this.</span><span data-fr>Pas forcement. WebRTC agit au niveau du navigateur, donc même un VPN fonctionnel peut fuiter s'il ne le bloque pas, ou si votre navigateur ne le fait pas. Un VPN avec protection anti-fuite l'empêche.</span></p>
       </details>
       <details><summary><span data-en>Is it safe to see my IP here?</span><span data-fr>Est-ce sans risque de voir mon IP ici ?</span></summary>
         <p><span data-en>Yes. The test runs in your browser only. Nothing is sent to or stored by CleanTab.</span><span data-fr>Oui. Le test se fait uniquement dans votre navigateur. Rien n'est envoye ni conserve par CleanTab.</span></p>
       </details>
       <details><summary><span data-en>Does clearing my browser stop WebRTC leaks?</span><span data-fr>Nettoyer mon navigateur stoppe-t-il les fuites WebRTC ?</span></summary>
-        <p><span data-en>No. Cleaning removes local tracking data but does not change how WebRTC works. Use a VPN with leak protection to hide your IP.</span><span data-fr>Non. Le nettoyage supprime les donnees de suivi locales mais ne change pas le fonctionnement de WebRTC. Utilisez un VPN avec protection anti-fuite pour masquer votre IP.</span></p>
+        <p><span data-en>No. Cleaning removes local tracking data but does not change how WebRTC works. Use a VPN with leak protection to hide your IP.</span><span data-fr>Non. Le nettoyage supprime les données de suivi locales mais ne change pas le fonctionnement de WebRTC. Utilisez un VPN avec protection anti-fuite pour masquer votre IP.</span></p>
       </details>
     </div>
     </section>
@@ -463,13 +463,7 @@
   <a href="cache-cookies-history-difference.html"><span data-en>Cache vs cookies</span><span data-fr>Les différences</span></a> ·
   <a href="private-browsing.html"><span data-en>Private browsing</span><span data-fr>Navigation privée</span></a>
     ·
-    <a href="my-ip.html"><span data-en>My IP</span><span data-fr>Mon IP</span></a>
-    ·
-    <a href="password-generator.html"><span data-en>Password gen</span><span data-fr>Mot de passe</span></a>
-    ·
-    <a href="webrtc-leak-test.html"><span data-en>WebRTC test</span><span data-fr>Test WebRTC</span></a>
-    ·
-    <a href="cookie-checker.html"><span data-en>Cookie checker</span><span data-fr>Cookies</span></a>
+    <a href="tools.html"><span data-en>Free tools</span><span data-fr>Outils gratuits</span></a>
   </div>
   <div style="margin-top:10px;">
     <a href="https://www.linkedin.com/company/cleantab-browser-cleaner/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://twitter.com/getcleantab" target="_blank" rel="noopener">Twitter</a>
