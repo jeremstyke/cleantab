@@ -429,10 +429,10 @@
         <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool3t">Password generator</div>
         <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool3s">Create strong random passwords</div>
       </a>
-      <a href="cookie-checker.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
-        <div style="font-size:26px; margin-bottom:8px;">🍪</div>
-        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool4t">Cookie checker</div>
-        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool4s">See cookies in your browser</div>
+      <a href="my-browser.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
+        <div style="font-size:26px; margin-bottom:8px;">🖥️</div>
+        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool4t">What is my browser?</div>
+        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool4s">See what your browser reveals</div>
       </a>
     </div>
     <div style="text-align:center; margin-top:14px;">
@@ -554,7 +554,7 @@
       ['tool1t', isFr?'Quelle est mon IP ?':'What is my IP?', 'tool1s', isFr?'Voyez votre adresse IP publique':'See your public IP address'],
       ['tool2t', isFr?'Test de fuite WebRTC':'WebRTC leak test', 'tool2s', isFr?'Verifiez si votre VPN revele votre IP':'Check if your VPN leaks your IP'],
       ['tool3t', isFr?'Generateur de mot de passe':'Password generator', 'tool3s', isFr?'Creez des mots de passe forts':'Create strong random passwords'],
-      ['tool4t', isFr?'Verificateur de cookies':'Cookie checker', 'tool4s', isFr?'Voyez les cookies de votre navigateur':'See cookies in your browser']
+      ['tool4t', isFr?'Quel est mon navigateur ?':'What is my browser?', 'tool4s', isFr?'Voyez ce que votre navigateur révèle':'See what your browser reveals']
     ];
     tset.forEach(function(t){ var a=document.getElementById(t[0]); if(a)a.textContent=t[1]; var b=document.getElementById(t[2]); if(b)b.textContent=t[3]; });
     var ta = document.getElementById('toolsAll'); if (ta) ta.textContent = isFr ? 'Voir tous les outils →' : 'See all tools →';
