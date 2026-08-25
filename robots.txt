@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jeremstyke.github.io/cleantab/sitemap.xml
+Sitemap: https://getcleantab.com/sitemap.xml
