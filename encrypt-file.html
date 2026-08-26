@@ -174,18 +174,21 @@
 <!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Free Privacy Tools - CleanTab</title>
-<meta name="description" content="Free privacy tools that run entirely in your browser: check your IP, test for WebRTC leaks, generate passwords and more." />
-<link rel="canonical" href="https://getcleantab.com/tools.html" />
+<title>Encrypt a File - Password-Protect Any File in Your Browser - CleanTab</title>
+<meta name="description" content="Password-protect any file with strong AES encryption, entirely in your browser. Your file never leaves your device." />
+<link rel="canonical" href="https://getcleantab.com/encrypt-file.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
 <link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
-<meta property="og:title" content="Free privacy tools - CleanTab" />
-<meta property="og:description" content="Free privacy tools that run entirely in your browser: check your IP, test for WebRTC leaks, generate passwords and more." />
+<meta property="og:title" content="Encrypt a file - CleanTab" />
+<meta property="og:description" content="Password-protect any file with strong AES encryption, entirely in your browser. Your file never leaves your device." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Encryption and decryption happen entirely in your browser. Your file and password never leave your device."}},{"@type":"Question","name":"What if I forget the password?","acceptedAnswer":{"@type":"Answer","text":"The file cannot be recovered without it. There is no backdoor, which is what makes it secure. Store your password somewhere safe."}},{"@type":"Question","name":"What encryption is used?","acceptedAnswer":{"@type":"Answer","text":"AES-256 via the browser's built-in Web Crypto API, with a key derived from your password using PBKDF2."}}]}
+</script>
 <style>
   :root {
     --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
@@ -337,87 +340,108 @@
 
 <div class="hero">
   <div class="hero-in">
-    <div class="eyebrow"><span data-en>Free tools</span><span data-fr>Outils gratuits</span></div>
+    <div class="eyebrow"><span data-en>Free tool</span><span data-fr>Outil gratuit</span></div>
     <h1>
-      <span data-en>Free privacy tools</span>
-      <span data-fr>Outils de confidentialité gratuits</span>
+      <span data-en>Encrypt a file</span>
+      <span data-fr>Chiffrer un fichier</span>
     </h1>
     <p class="hero-lede">
-      <span data-en>A set of simple, free tools that run entirely in your browser. Nothing is ever sent or stored.</span>
-      <span data-fr>Un ensemble d'outils simples et gratuits qui fonctionnent entièrement dans votre navigateur. Rien n'est jamais envoye ni conserve.</span></p>
+      <span data-en>Password-protect any file with strong AES encryption. Everything happens in your browser - your file never leaves your device.</span>
+      <span data-fr>Protégez n'importe quel fichier par mot de passe avec un chiffrement AES fort. Tout se passe dans votre navigateur : votre fichier ne quitte jamais votre appareil.</span></p>
     </div>
 </div>
 
 
 
-<div class="shell" style="display:block; max-width:1040px; margin:0 auto;">
-  
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
+    <ol>
+      <li><a href="#tool" class="rail-a"><span data-en>Encrypt / decrypt</span><span data-fr>Chiffrer / déchiffrer</span></a></li>
+      <li><a href="#how" class="rail-a"><span data-en>How it works</span><span data-fr>Comment ça marche</span></a></li>
+      <li><a href="#when" class="rail-a"><span data-en>When to use it</span><span data-fr>Quand l'utiliser</span></a></li>
+      <li><a href="#clean" class="rail-a"><span data-en>Do not forget your browser</span><span data-fr>N'oubliez pas votre navigateur</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
 
   <main>
-    <section id="grid">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,320px)); gap:18px; max-width:1000px; margin:0 auto; justify-content:center;">
-      <a href="my-ip.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🌐</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>What is my IP?</span><span data-fr>Quelle est mon IP ?</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>See your public IP address and what it reveals about you.</span><span data-fr>Voyez votre IP publique et ce qu’elle révèle sur vous.</span></div>
-      </a>
-      <a href="webrtc-leak-test.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🛡️</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>WebRTC leak test</span><span data-fr>Test de fuite WebRTC</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Check if your browser leaks your real IP, even with a VPN.</span><span data-fr>Vérifiez si votre navigateur révèle votre vraie IP, même avec un VPN.</span></div>
-      </a>
-      <a href="password-generator.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🔑</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Password generator</span><span data-fr>Générateur de mot de passe</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Create strong, random passwords right in your browser.</span><span data-fr>Creez des mots de passe forts et aléatoires dans votre navigateur.</span></div>
-      </a>
-      <a href="password-strength-test.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">💪</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Password strength test</span><span data-fr>Test de force de mot de passe</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Check how strong a password is and how long to crack it.</span><span data-fr>Vérifiez la solidité d'un mot de passe et le temps pour le casser.</span></div>
-      </a>
-      <a href="my-browser.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🖥️</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>What is my browser?</span><span data-fr>Quel est mon navigateur ?</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>See what your browser and device reveal about you.</span><span data-fr>Voyez ce que votre navigateur et appareil révèlent sur vous.</span></div>
-      </a>
-      <a href="am-i-secure.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🛡️</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Am I secure?</span><span data-fr>Suis-je protégé ?</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>A quick privacy check-up of your IP, WebRTC and browser in one place.</span><span data-fr>Un bilan rapide de votre IP, WebRTC et navigateur au même endroit.</span></div>
-      </a>
-      <a href="passphrase-generator.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🗝️</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Passphrase generator</span><span data-fr>Générateur de phrase de passe</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Create strong, memorable passphrases from random words.</span><span data-fr>Créez des phrases de passe fortes et mémorisables à partir de mots aléatoires.</span></div>
-      </a>
-      <a href="encrypt-file.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🔐</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Encrypt a file</span><span data-fr>Chiffrer un fichier</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Password-protect any file with AES encryption, in your browser.</span><span data-fr>Protégez un fichier par mot de passe avec un chiffrement AES, dans votre navigateur.</span></div>
-      </a>
-      <a href="clean-metadata.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🧹</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Remove image metadata</span><span data-fr>Nettoyer les métadonnées</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Strip hidden GPS and camera data from your photos before sharing.</span><span data-fr>Supprimez les données GPS et appareil cachées de vos photos avant de les partager.</span></div>
-      </a>
+    <section id="tool" style="text-align:center;">
+      <div class="ip-card" style="max-width:560px; margin:0 auto; padding:26px 24px; border:1px solid var(--border); border-radius:16px; background:linear-gradient(180deg,rgba(37,99,235,0.04),rgba(37,99,235,0.01)); text-align:left;">
+        <div style="display:flex; gap:8px; margin-bottom:18px; border:1px solid var(--border); border-radius:10px; overflow:hidden;">
+          <button id="tabEnc" style="flex:1; padding:11px; font-size:14px; font-weight:700; border:none; background:#2563eb; color:#fff; cursor:pointer;"><span data-en>Encrypt</span><span data-fr>Chiffrer</span></button>
+          <button id="tabDec" style="flex:1; padding:11px; font-size:14px; font-weight:600; border:none; background:#fff; color:#2563eb; cursor:pointer;"><span data-en>Decrypt</span><span data-fr>Déchiffrer</span></button>
+        </div>
+        <label style="display:block; font-size:13px; color:#8595ab; margin-bottom:6px;"><span data-en>Choose a file</span><span data-fr>Choisir un fichier</span></label>
+        <input type="file" id="fileInput" style="width:100%; box-sizing:border-box; font-size:13px; margin-bottom:14px;">
+        <label style="display:block; font-size:13px; color:#8595ab; margin-bottom:6px;"><span data-en>Password</span><span data-fr>Mot de passe</span></label>
+        <input type="password" id="pwInput" autocomplete="off" placeholder="..." style="width:100%; box-sizing:border-box; font-size:15px; padding:11px; border:1px solid var(--border); border-radius:9px; margin-bottom:14px;">
+        <button id="goBtn" style="width:100%; padding:13px; font-size:15px; font-weight:700; background:#16a34a; color:#fff; border:none; border-radius:9px; cursor:pointer;"><span data-en>Encrypt file</span><span data-fr>Chiffrer le fichier</span></button>
+        <div id="status" style="font-size:13px; margin-top:12px; text-align:center; min-height:18px;"></div>
       </div>
-      <p style="text-align:center; max-width:600px; margin:22px auto 0; font-size:13px; color:#8595ab;">
-        <span data-en>All tools run locally in your browser. CleanTab never sees or stores your data.</span>
-        <span data-fr>Tous les outils fonctionnent en local dans votre navigateur. CleanTab ne voit ni ne conserve jamais vos données.</span>
+      <p style="max-width:560px; margin:14px auto 0; font-size:13px; color:#8595ab;">
+        <span data-en>Encryption runs entirely in your browser using AES-256. Your file and password are never sent or stored.</span>
+        <span data-fr>Le chiffrement se fait entièrement dans votre navigateur avec AES-256. Votre fichier et votre mot de passe ne sont jamais envoyés ni conservés.</span>
       </p>
     </section>
 
-    <section id="cta" style="margin-top:28px;">
-      <div class="sec-body" style="text-align:center; max-width:1000px; margin:0 auto;">
-        <p><span data-en>Want to keep your browser clean automatically? CleanTab clears your cache, cookies and history on a schedule while keeping you logged in to the sites you choose.</span>
-        <span data-fr>Envie de garder votre navigateur propre automatiquement ? CleanTab vide votre cache, vos cookies et votre historique selon un planning tout en vous gardant connecté aux sites que vous choisissez.</span></p>
+    <section id="how">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>How it works</span><span data-fr>Comment ça marche</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>You pick a file and a password. Your browser derives a key from the password and encrypts the file with AES-256, a strong industry-standard algorithm. You get back an encrypted file you can store or share safely.</span>
+        <span data-fr>Vous choisissez un fichier et un mot de passe. Votre navigateur dérive une cle à partir du mot de passe et chiffre le fichier avec AES-256, un algorithme standard et robuste. Vous obtenez un fichier chiffre que vous pouvez stocker ou partager en sécurité.</span></p>
+        <p><span data-en>To open it again, use the Decrypt tab with the same password. Without the password, the file cannot be read - so keep it somewhere safe, because it cannot be recovered.</span>
+        <span data-fr>Pour le rouvrir, utilisez l'onglet Dechiffrer avec le même mot de passe. Sans le mot de passe, le fichier est illisible : gardez-le en lieu sûr, car il ne peut pas être récupéré.</span></p>
+      </div>
+    </section>
+
+    <section id="when">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>When to use it</span><span data-fr>Quand l'utiliser</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>Encrypt sensitive documents before uploading them to the cloud, emailing them, or storing them on a shared computer. Even if someone gets the file, they cannot open it without your password.</span>
+        <span data-fr>Chiffrez vos documents sensibles avant de les envoyer sur le cloud, par email, ou de les stocker sur un ordinateur partage. Même si quelqu'un obtient le fichier, il ne peut pas l'ouvrir sans votre mot de passe.</span></p>
+        <p><span data-en>Because everything happens locally, this is safer than online encryption tools that upload your file to a server.</span>
+        <span data-fr>Comme tout se passe en local, c'est plus sûr que les outils de chiffrement en ligne qui envoient votre fichier sur un serveur.</span></p>
+      </div>
+    </section>
+
+    <section id="clean">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>Do not forget your browser</span><span data-fr>N'oubliez pas votre navigateur</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>Encrypting files protects your documents, but your browser still stores cache, cookies and history that track you. For a cleaner, more private setup, clear that data regularly.</span>
+        <span data-fr>Chiffrer vos fichiers protège vos documents, mais votre navigateur stocke toujours cache, cookies et historique qui vous suivent. Pour une configuration plus propre et plus privée, effacez ces données regulierement.</span></p>
+        <p><span data-en>CleanTab clears your cache, cookies and history on a schedule while keeping you logged in to the sites you choose. It is free on Chrome and Edge.</span>
+        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique selon un planning tout en vous gardant connecte aux sites que vous choisissez. Il est gratuit sur Chrome et Edge.</span></p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions frequentes</span></h2>
+      <div class="faq">
+      <details><summary><span data-en>Is my file uploaded anywhere?</span><span data-fr>Mon fichier est-il envoye quelque part ?</span></summary>
+        <p><span data-en>No. Encryption and decryption happen entirely in your browser. Your file and password never leave your device.</span><span data-fr>Non. Le chiffrement et le dechiffrement se font entierement dans votre navigateur. Votre fichier et votre mot de passe ne quittent jamais votre appareil.</span></p>
+      </details>
+      <details><summary><span data-en>What if I forget the password?</span><span data-fr>Et si j'oublie le mot de passe ?</span></summary>
+        <p><span data-en>The file cannot be recovered without it. There is no backdoor - that is what makes it secure. Store your password somewhere safe.</span><span data-fr>Le fichier ne peut pas être récupéré sans lui. Il n'y a pas de porte dérobée : c'est ce qui le rend sur. Conservez votre mot de passe en lieu sûr.</span></p>
+      </details>
+      <details><summary><span data-en>What encryption is used?</span><span data-fr>Quel chiffrement est utilise ?</span></summary>
+        <p><span data-en>AES-256 via the browser's built-in Web Crypto API, with a key derived from your password using PBKDF2.</span><span data-fr>AES-256 via l'API Web Crypto intégrée au navigateur, avec une cle derivee de votre mot de passe par PBKDF2.</span></p>
+      </details>
       </div>
     </section>
 </main>
 </div>
 
-<div id="partnerBlock" style="max-width:1000px; margin:26px auto 10px; padding:14px 18px; text-align:center;
+<div id="partnerBlock" style="max-width:640px; margin:26px auto 10px; padding:14px 18px; text-align:center;
      font-size:12px; line-height:1.6; color:#5a6b82; background:#f7fafc; border:1px solid #e3e9f2; border-radius:12px;">
   <div style="font-weight:700; color:#6a7a90; margin-bottom:6px;" id="pTitle">🤝 Official partners</div>
   <div style="margin-bottom:4px;"><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
@@ -502,6 +526,65 @@ var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your pers
   } else {
     cta.href = 'https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod';
   }
+})();
+</script>
+<script>
+(function(){
+  var mode='encrypt';
+  var tabE=document.getElementById('tabEnc'), tabD=document.getElementById('tabDec');
+  var fileInput=document.getElementById('fileInput'), pwInput=document.getElementById('pwInput');
+  var goBtn=document.getElementById('goBtn'), status=document.getElementById('status');
+  var isFr=function(){return document.documentElement.lang==='fr';};
+  function setMode(m){
+    mode=m;
+    if(m==='encrypt'){ tabE.style.background='#2563eb';tabE.style.color='#fff';tabD.style.background='#fff';tabD.style.color='#2563eb';
+      goBtn.innerHTML='<span data-en>Encrypt file</span><span data-fr>Chiffrer le fichier</span>'; }
+    else { tabD.style.background='#2563eb';tabD.style.color='#fff';tabE.style.background='#fff';tabE.style.color='#2563eb';
+      goBtn.innerHTML='<span data-en>Decrypt file</span><span data-fr>Déchiffrer le fichier</span>'; }
+    if(window.applyLang)window.applyLang();
+    status.textContent='';
+  }
+  tabE.addEventListener('click',function(){setMode('encrypt');});
+  tabD.addEventListener('click',function(){setMode('decrypt');});
+  function buf2hex(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return('00'+x.toString(16)).slice(-2);}).join('');}
+  async function deriveKey(pw,salt){
+    var enc=new TextEncoder();
+    var base=await crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']);
+    return crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:150000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+  }
+  function download(blob,name){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},1000);}
+  goBtn.addEventListener('click',async function(){
+    var f=fileInput.files[0], pw=pwInput.value;
+    if(!f){ status.style.color='#dc2626'; status.textContent=isFr()?'Choisissez un fichier.':'Please choose a file.'; return; }
+    if(!pw){ status.style.color='#dc2626'; status.textContent=isFr()?'Entrez un mot de passe.':'Please enter a password.'; return; }
+    status.style.color='#8595ab'; status.textContent=isFr()?'Traitement...':'Working...';
+    try{
+      var data=await f.arrayBuffer();
+      if(mode==='encrypt'){
+        var salt=crypto.getRandomValues(new Uint8Array(16));
+        var iv=crypto.getRandomValues(new Uint8Array(12));
+        var key=await deriveKey(pw,salt);
+        var ct=await crypto.subtle.encrypt({name:'AES-GCM',iv:iv},key,data);
+        // format: [salt(16)][iv(12)][ciphertext]
+        var out=new Uint8Array(16+12+ct.byteLength);
+        out.set(salt,0); out.set(iv,16); out.set(new Uint8Array(ct),28);
+        download(new Blob([out],{type:'application/octet-stream'}), f.name+'.enc');
+        status.style.color='#16a34a'; status.textContent=isFr()?'Fichier chiffre telecharge.':'Encrypted file downloaded.';
+      } else {
+        var raw=new Uint8Array(data);
+        if(raw.length<28){ throw new Error('bad'); }
+        var salt2=raw.slice(0,16), iv2=raw.slice(16,28), ct2=raw.slice(28);
+        var key2=await deriveKey(pw,salt2);
+        var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:iv2},key2,ct2);
+        var name=f.name.replace(/\.enc$/,'')||'decrypted';
+        download(new Blob([pt],{type:'application/octet-stream'}), name);
+        status.style.color='#16a34a'; status.textContent=isFr()?'Fichier dechiffre telecharge.':'Decrypted file downloaded.';
+      }
+    }catch(e){
+      status.style.color='#dc2626';
+      status.textContent=isFr()?'Echec. Mauvais mot de passe ou fichier invalide.':'Failed. Wrong password or invalid file.';
+    }
+  });
 })();
 </script>
 </body>
