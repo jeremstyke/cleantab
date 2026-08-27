@@ -419,20 +419,20 @@
         <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool1t">What is my IP?</div>
         <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool1s">See your public IP address</div>
       </a>
-      <a href="webrtc-leak-test.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
-        <div style="font-size:26px; margin-bottom:8px;">🛡️</div>
-        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool2t">WebRTC leak test</div>
-        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool2s">Check if your VPN leaks your IP</div>
-      </a>
       <a href="password-generator.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
         <div style="font-size:26px; margin-bottom:8px;">🔑</div>
-        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool3t">Password generator</div>
-        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool3s">Create strong random passwords</div>
+        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool2t">Password generator</div>
+        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool2s">Create strong random passwords</div>
       </a>
-      <a href="my-browser.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
-        <div style="font-size:26px; margin-bottom:8px;">🖥️</div>
-        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool4t">What is my browser?</div>
-        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool4s">See what your browser reveals</div>
+      <a href="am-i-secure.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
+        <div style="font-size:26px; margin-bottom:8px;">🛡️</div>
+        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool3t">Am I secure?</div>
+        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool3s">Quick privacy check-up</div>
+      </a>
+      <a href="webrtc-leak-test.html" style="display:block; padding:18px 16px; border:1px solid #e3e9f2; border-radius:12px; text-decoration:none; background:#fff; text-align:center;">
+        <div style="font-size:26px; margin-bottom:8px;">📡</div>
+        <div style="font-size:15px; font-weight:700; color:#1a2540;" id="tool4t">WebRTC leak test</div>
+        <div style="font-size:12.5px; color:#8595ab; margin-top:4px;" id="tool4s">Check if your VPN leaks your IP</div>
       </a>
     </div>
     <div style="text-align:center; margin-top:14px;">
@@ -552,9 +552,9 @@
     var th = document.getElementById('toolsHeading'); if (th) th.textContent = isFr ? 'Outils de confidentialité gratuits' : 'Free privacy tools';
     var tset = [
       ['tool1t', isFr?'Quelle est mon IP ?':'What is my IP?', 'tool1s', isFr?'Voyez votre adresse IP publique':'See your public IP address'],
-      ['tool2t', isFr?'Test de fuite WebRTC':'WebRTC leak test', 'tool2s', isFr?'Verifiez si votre VPN revele votre IP':'Check if your VPN leaks your IP'],
-      ['tool3t', isFr?'Generateur de mot de passe':'Password generator', 'tool3s', isFr?'Creez des mots de passe forts':'Create strong random passwords'],
-      ['tool4t', isFr?'Quel est mon navigateur ?':'What is my browser?', 'tool4s', isFr?'Voyez ce que votre navigateur révèle':'See what your browser reveals']
+      ['tool2t', isFr?'Generateur de mot de passe':'Password generator', 'tool2s', isFr?'Creez des mots de passe forts':'Create strong random passwords'],
+      ['tool3t', isFr?'Suis-je securise ?':'Am I secure?', 'tool3s', isFr?'Verification rapide de confidentialite':'Quick privacy check-up'],
+      ['tool4t', isFr?'Test de fuite WebRTC':'WebRTC leak test', 'tool4s', isFr?'Verifiez si votre VPN revele votre IP':'Check if your VPN leaks your IP']
     ];
     tset.forEach(function(t){ var a=document.getElementById(t[0]); if(a)a.textContent=t[1]; var b=document.getElementById(t[2]); if(b)b.textContent=t[3]; });
     var ta = document.getElementById('toolsAll'); if (ta) ta.textContent = isFr ? 'Voir tous les outils →' : 'See all tools →';
