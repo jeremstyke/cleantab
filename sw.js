@@ -1,6 +1,6 @@
 // CleanTab service worker - light PWA (installable + faster repeat loads)
 // Bump this version when you push updates so clients refresh their cache.
-const CACHE = 'cleantab-v1';
+const CACHE = 'cleantab-v2';
 const CORE = [
   '/index.html',
   '/tools.html',
