@@ -174,18 +174,21 @@
 <!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Free Privacy Tools - CleanTab</title>
-<meta name="description" content="Free privacy tools that run entirely in your browser: check your IP, test for WebRTC leaks, generate passwords and more." />
-<link rel="canonical" href="https://getcleantab.com/tools.html" />
+<title>Clean a URL - Remove Tracking Parameters - CleanTab</title>
+<meta name="description" content="Remove tracking parameters (utm, fbclid, gclid and more) from any link. Get a clean URL, right in your browser." />
+<link rel="canonical" href="https://getcleantab.com/clean-url.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
 <link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
-<meta property="og:title" content="Free privacy tools - CleanTab" />
-<meta property="og:description" content="Free privacy tools that run entirely in your browser: check your IP, test for WebRTC leaks, generate passwords and more." />
+<meta property="og:title" content="Clean a URL - CleanTab" />
+<meta property="og:description" content="Remove tracking parameters (utm, fbclid, gclid and more) from any link. Get a clean URL, right in your browser." />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my URL sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Cleaning happens entirely in your browser. Your URL is never uploaded or stored."}},{"@type":"Question","name":"Which parameters are removed?","acceptedAnswer":{"@type":"Answer","text":"Common tracking parameters such as utm, fbclid, gclid, msclkid, igshid and others. The rest of the link is kept intact."}},{"@type":"Question","name":"Will the link still work?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tracking parameters are not needed to reach the page, so the clean link points to the same place."}}]}
+</script>
 <style>
   :root {
     --navy:#0d2440; --ink:#1c2e47; --blue:#2563eb; --blue-dark:#1d4fd8;
@@ -341,92 +344,110 @@
 
 <div class="hero">
   <div class="hero-in">
-    <div class="eyebrow"><span data-en>Free tools</span><span data-fr>Outils gratuits</span></div>
+    <div class="eyebrow"><span data-en>Free tool</span><span data-fr>Outil gratuit</span></div>
     <h1>
-      <span data-en>Free privacy tools</span>
-      <span data-fr>Outils de confidentialité gratuits</span>
+      <span data-en>Clean a URL</span>
+      <span data-fr>Nettoyer une URL</span>
     </h1>
     <p class="hero-lede">
-      <span data-en>A set of simple, free tools that run entirely in your browser. Nothing is ever sent or stored.</span>
-      <span data-fr>Un ensemble d'outils simples et gratuits qui fonctionnent entièrement dans votre navigateur. Rien n'est jamais envoye ni conserve.</span></p>
+      <span data-en>Links you share often carry tracking parameters. Paste a URL below to strip them out - right in your browser, nothing is sent.</span>
+      <span data-fr>Les liens que vous partagez contiennent souvent des paramètres de suivi. Collez une URL ci-dessous pour les retirer : dans votre navigateur, rien n'est envoyé.</span></p>
     </div>
 </div>
 
 
 
-<div class="shell" style="display:block; max-width:1040px; margin:0 auto;">
-  
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
+    <ol>
+      <li><a href="#tool" class="rail-a"><span data-en>Clean a link</span><span data-fr>Nettoyer un lien</span></a></li>
+      <li><a href="#what" class="rail-a"><span data-en>What are tracking parameters</span><span data-fr>Les paramètres de suivi</span></a></li>
+      <li><a href="#why" class="rail-a"><span data-en>Why remove them</span><span data-fr>Pourquoi les retirer</span></a></li>
+      <li><a href="#clean" class="rail-a"><span data-en>Do not forget your browser</span><span data-fr>N'oubliez pas votre navigateur</span></a></li>
+      <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
+    </ol>
+  </nav>
 
   <main>
-    <section id="grid">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,320px)); gap:18px; max-width:1000px; margin:0 auto; justify-content:center;">
-      <a href="my-ip.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🌐</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>What is my IP?</span><span data-fr>Quelle est mon IP ?</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>See your public IP address and what it reveals about you.</span><span data-fr>Voyez votre IP publique et ce qu’elle révèle sur vous.</span></div>
-      </a>
-      <a href="password-generator.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🔑</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Password generator</span><span data-fr>Générateur de mot de passe</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Create strong, random passwords right in your browser.</span><span data-fr>Créez des mots de passe forts et aléatoires dans votre navigateur.</span></div>
-      </a>
-      <a href="am-i-secure.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🛡️</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Am I secure?</span><span data-fr>Suis-je protégé ?</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>A quick privacy check-up of your IP, WebRTC and browser in one place.</span><span data-fr>Un bilan rapide de votre IP, WebRTC et navigateur au même endroit.</span></div>
-      </a>
-      <a href="webrtc-leak-test.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🛡️</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>WebRTC leak test</span><span data-fr>Test de fuite WebRTC</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Check if your browser leaks your real IP, even with a VPN.</span><span data-fr>Vérifiez si votre navigateur révèle votre vraie IP, même avec un VPN.</span></div>
-      </a>
-      <a href="password-strength-test.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">💪</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Password strength test</span><span data-fr>Test de force de mot de passe</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Check how strong a password is and how long to crack it.</span><span data-fr>Vérifiez la solidité d'un mot de passe et le temps pour le casser.</span></div>
-      </a>
-      <a href="my-browser.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🖥️</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>What is my browser?</span><span data-fr>Quel est mon navigateur ?</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>See what your browser and device reveal about you.</span><span data-fr>Voyez ce que votre navigateur et appareil révèlent sur vous.</span></div>
-      </a>
-      <a href="encrypt-file.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🔐</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Encrypt a file</span><span data-fr>Chiffrer un fichier</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Password-protect any file with AES encryption, in your browser.</span><span data-fr>Protégez un fichier par mot de passe avec un chiffrement AES, dans votre navigateur.</span></div>
-      </a>
-      <a href="clean-metadata.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🧹</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Remove image metadata</span><span data-fr>Nettoyer les métadonnées</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Strip hidden GPS and camera data from your photos before sharing.</span><span data-fr>Supprimez les données GPS et appareil cachées de vos photos avant de les partager.</span></div>
-      </a>
-      <a href="clean-url.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🔗</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Clean a URL</span><span data-fr>Nettoyer une URL</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Remove tracking parameters (utm, fbclid...) from any link.</span><span data-fr>Retirez les paramètres de suivi (utm, fbclid...) de n'importe quel lien.</span></div>
-      </a>
-      <a href="passphrase-generator.html" style="display:block; padding:22px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; background:#fff;">
-        <div style="font-size:30px; margin-bottom:10px;">🗝️</div>
-        <div style="font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px;"><span data-en>Passphrase generator</span><span data-fr>Générateur de phrase de passe</span></div>
-        <div style="font-size:14px; color:#8595ab; line-height:1.5;"><span data-en>Create strong, memorable passphrases from random words.</span><span data-fr>Créez des phrases de passe fortes et mémorisables à partir de mots aléatoires.</span></div>
-      </a>
+    <section id="tool" style="text-align:center;">
+      <div class="ip-card" style="max-width:580px; margin:0 auto; padding:26px 24px; border:1px solid var(--border); border-radius:16px; background:linear-gradient(180deg,rgba(37,99,235,0.04),rgba(37,99,235,0.01)); text-align:left;">
+        <label style="display:block; font-size:13px; color:#8595ab; margin-bottom:6px;"><span data-en>Paste your URL</span><span data-fr>Collez votre URL</span></label>
+        <textarea id="urlInput" rows="3" placeholder="https://example.com/page?utm_source=..." style="width:100%; box-sizing:border-box; font-size:14px; padding:11px; border:1px solid var(--border); border-radius:9px; margin-bottom:14px; font-family:inherit; resize:vertical;"></textarea>
+        <button id="cleanBtn" style="width:100%; padding:13px; font-size:15px; font-weight:700; background:#16a34a; color:#fff; border:none; border-radius:9px; cursor:pointer;"><span data-en>Clean URL</span><span data-fr>Nettoyer l'URL</span></button>
+        <div id="resultBox" style="display:none; margin-top:16px;">
+          <label style="display:block; font-size:13px; color:#8595ab; margin-bottom:6px;"><span data-en>Clean URL</span><span data-fr>URL nettoyée</span></label>
+          <div style="display:flex; gap:8px;">
+            <input type="text" id="resultUrl" readonly style="flex:1; min-width:0; font-size:14px; padding:11px; border:1px solid var(--border); border-radius:9px; background:#fff;">
+            <button id="copyBtn" style="flex-shrink:0; padding:11px 16px; font-size:13px; font-weight:700; background:#2563eb; color:#fff; border:none; border-radius:9px; cursor:pointer;"><span data-en>Copy</span><span data-fr>Copier</span></button>
+          </div>
+          <div id="removedInfo" style="font-size:12.5px; color:#8595ab; margin-top:10px;"></div>
+        </div>
+        <div id="status" style="font-size:13px; margin-top:12px; text-align:center; min-height:18px;"></div>
       </div>
-      <p style="text-align:center; max-width:600px; margin:22px auto 0; font-size:13px; color:#8595ab;">
-        <span data-en>All tools run locally in your browser. CleanTab never sees or stores your data.</span>
-        <span data-fr>Tous les outils fonctionnent en local dans votre navigateur. CleanTab ne voit ni ne conserve jamais vos données.</span>
+      <p style="max-width:580px; margin:14px auto 0; font-size:13px; color:#8595ab;">
+        <span data-en>Everything happens in your browser. Your URL is never sent or stored.</span>
+        <span data-fr>Tout se passe dans votre navigateur. Votre URL n'est jamais envoyée ni conservée.</span>
       </p>
     </section>
 
-    <section id="cta" style="margin-top:28px;">
-      <div class="sec-body" style="text-align:center; max-width:1000px; margin:0 auto;">
-        <p><span data-en>Want to keep your browser clean automatically? CleanTab clears your cache, cookies and history on a schedule while keeping you logged in to the sites you choose.</span>
-        <span data-fr>Envie de garder votre navigateur propre automatiquement ? CleanTab vide votre cache, vos cookies et votre historique selon un planning tout en vous gardant connecté aux sites que vous choisissez.</span></p>
+    <section id="what">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <h2><span data-en>What are tracking parameters</span><span data-fr>Les paramètres de suivi</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>When you copy a link from a newsletter, an ad or a social network, it often has extra bits added to the end: things like utm_source, fbclid or gclid. These are tracking parameters. They tell the destination site where you came from and can be used to follow you.</span>
+        <span data-fr>Quand vous copiez un lien depuis une newsletter, une publicité ou un réseau social, il contient souvent des morceaux ajoutés à la fin : des choses comme utm_source, fbclid ou gclid. Ce sont des paramètres de suivi. Ils indiquent au site de destination d'où vous venez et peuvent servir à vous suivre.</span></p>
+        <p><span data-en>This tool removes those parameters and gives you back a clean link that points to the same page.</span>
+        <span data-fr>Cet outil retire ces paramètres et vous rend un lien propre qui pointe vers la même page.</span></p>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <h2><span data-en>Why remove them</span><span data-fr>Pourquoi les retirer</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>Sharing clean links protects your privacy and the privacy of people you send links to. Tracking parameters can reveal which email, ad or post you clicked, and let companies build a profile of your activity.</span>
+        <span data-fr>Partager des liens propres protège votre vie privée et celle des personnes à qui vous envoyez des liens. Les paramètres de suivi peuvent révéler quel email, quelle publicité ou quel post vous avez cliqué, et permettre aux entreprises de construire un profil de votre activité.</span></p>
+        <p><span data-en>Clean links are also shorter and tidier, which looks better when you paste them in a message or a document.</span>
+        <span data-fr>Les liens propres sont aussi plus courts et plus nets, ce qui est plus agréable quand vous les collez dans un message ou un document.</span></p>
+      </div>
+    </section>
+
+    <section id="clean">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <h2><span data-en>Do not forget your browser</span><span data-fr>N'oubliez pas votre navigateur</span></h2>
+      </div>
+      <div class="sec-body">
+        <p><span data-en>Cleaning links protects what you share, but your browser still stores cache, cookies and history that track you. For a cleaner, more private setup, clear that data regularly.</span>
+        <span data-fr>Nettoyer les liens protège ce que vous partagez, mais votre navigateur stocke toujours cache, cookies et historique qui vous suivent. Pour une configuration plus propre et plus privée, effacez ces données régulièrement.</span></p>
+        <p><span data-en>CleanTab clears your cache, cookies and history on a schedule while keeping you logged in to the sites you choose. It is free on Chrome and Edge.</span>
+        <span data-fr>CleanTab vide votre cache, vos cookies et votre historique selon un planning tout en vous gardant connecté aux sites que vous choisissez. Il est gratuit sur Chrome et Edge.</span></p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
+      <div class="faq">
+      <details><summary><span data-en>Is my URL sent anywhere?</span><span data-fr>Mon URL est-elle envoyée quelque part ?</span></summary>
+        <p><span data-en>No. Cleaning happens entirely in your browser. Your URL is never uploaded or stored.</span><span data-fr>Non. Le nettoyage se fait entièrement dans votre navigateur. Votre URL n'est jamais envoyée ni conservée.</span></p>
+      </details>
+      <details><summary><span data-en>Which parameters are removed?</span><span data-fr>Quels paramètres sont retirés ?</span></summary>
+        <p><span data-en>Common tracking parameters such as utm_*, fbclid, gclid, gbraid, wbraid, msclkid, mc_eid, igshid, and others. The rest of the link is kept intact.</span><span data-fr>Les paramètres de suivi courants comme utm_*, fbclid, gclid, gbraid, wbraid, msclkid, mc_eid, igshid, et d'autres. Le reste du lien reste intact.</span></p>
+      </details>
+      <details><summary><span data-en>Will the link still work?</span><span data-fr>Le lien fonctionnera-t-il toujours ?</span></summary>
+        <p><span data-en>Yes. Tracking parameters are not needed to reach the page, so the clean link points to the same place.</span><span data-fr>Oui. Les paramètres de suivi ne sont pas nécessaires pour atteindre la page, donc le lien propre pointe au même endroit.</span></p>
+      </details>
       </div>
     </section>
 </main>
 </div>
 
-<div id="partnerBlock" style="max-width:1000px; margin:26px auto 10px; padding:14px 18px; text-align:center;
+<div id="partnerBlock" style="max-width:640px; margin:26px auto 10px; padding:14px 18px; text-align:center;
      font-size:12px; line-height:1.6; color:#5a6b82; background:#f7fafc; border:1px solid #e3e9f2; border-radius:12px;">
   <div style="font-weight:700; color:#6a7a90; margin-bottom:6px;" id="pTitle">🤝 Official partners</div>
   <div style="margin-bottom:4px;"><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
@@ -511,6 +532,76 @@ var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your pers
   } else {
     cta.href = 'https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod';
   }
+})();
+</script>
+<script>
+(function(){
+  var input=document.getElementById('urlInput'), btn=document.getElementById('cleanBtn');
+  var box=document.getElementById('resultBox'), out=document.getElementById('resultUrl');
+  var copyBtn=document.getElementById('copyBtn'), removedInfo=document.getElementById('removedInfo'), status=document.getElementById('status');
+  var isFr=function(){return document.documentElement.lang==='fr';};
+
+  // paramètres de suivi à retirer (préfixes exacts et motifs)
+  var TRACK=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','utm_name','utm_cid','utm_reader','utm_referrer','utm_social','utm_social-type',
+    'fbclid','gclid','gclsrc','dclid','gbraid','wbraid','msclkid','mc_eid','mc_cid','igshid','igsh','yclid','_openstat','vero_id','vero_conv','wickedid','twclid','ttclid','li_fat_id',
+    'oly_anon_id','oly_enc_id','rb_clickid','s_cid','ml_subscriber','ml_subscriber_hash','ref','referrer','source','campaign_id','ad_id','adset_id','sr_share','spm','scm','pk_campaign','pk_kwd','piwik_campaign','piwik_kwd','matomo_campaign','hsa_acc','hsa_cam','hsa_grp','hsa_ad','hsa_src','hsa_tgt','hsa_kw','hsa_mt','hsa_net','hsa_ver','_hsenc','_hsmi','__hstc','__hssc','__hsfp'];
+
+  function isTracker(key){
+    var k=key.toLowerCase();
+    if(TRACK.indexOf(k)!==-1) return true;
+    if(k.indexOf('utm_')===0) return true;
+    return false;
+  }
+
+  btn.addEventListener('click',function(){
+    var raw=(input.value||'').trim();
+    status.textContent='';
+    if(!raw){ status.style.color='#dc2626'; status.textContent=isFr()?'Collez une URL.':'Please paste a URL.'; box.style.display='none'; return; }
+    var url;
+    try{
+      // ajouter https:// si manquant
+      var test=raw;
+      if(!/^https?:\/\//i.test(test)) test='https://'+test;
+      url=new URL(test);
+      // le domaine doit contenir un point (ex: example.com) sinon ce n'est pas une vraie URL
+      if(url.hostname.indexOf('.')===-1){ throw new Error('no dot'); }
+    }catch(e){
+      status.style.color='#dc2626'; status.textContent=isFr()?'URL invalide.':'Invalid URL.'; box.style.display='none'; return;
+    }
+    var removed=[];
+    var params=url.searchParams;
+    var keys=[];
+    params.forEach(function(v,k){ keys.push(k); });
+    keys.forEach(function(k){
+      if(isTracker(k)){ removed.push(k); }
+    });
+    removed.forEach(function(k){ params.delete(k); });
+    // reconstruire proprement
+    url.search=params.toString();
+    var clean=url.toString();
+    // retirer un éventuel ? ou & résiduel en fin
+    clean=clean.replace(/[?&]$/,'');
+    out.value=clean;
+    box.style.display='block';
+    if(removed.length){
+      removedInfo.style.color='#16a34a';
+      removedInfo.textContent=(isFr()?'Retirés : ':'Removed: ')+removed.join(', ');
+    } else {
+      removedInfo.style.color='#8595ab';
+      removedInfo.textContent=isFr()?'Aucun paramètre de suivi trouvé. Lien déjà propre.':'No tracking parameters found. Link already clean.';
+    }
+    status.textContent='';
+    if(window.applyLang)window.applyLang();
+  });
+
+  copyBtn.addEventListener('click',function(){
+    out.select();
+    try{
+      navigator.clipboard.writeText(out.value);
+      copyBtn.innerHTML=isFr()?'<span>Copié !</span>':'<span>Copied!</span>';
+      setTimeout(function(){ copyBtn.innerHTML='<span data-en>Copy</span><span data-fr>Copier</span>'; if(window.applyLang)window.applyLang(); },1500);
+    }catch(e){ document.execCommand('copy'); }
+  });
 })();
 </script>
 <script>
