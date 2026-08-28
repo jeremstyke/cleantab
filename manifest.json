@@ -1,8 +1,8 @@
 {
-  "name": "CleanTab - Browser Cleaner",
-  "short_name": "CleanTab",
-  "description": "Clear your cache, cookies and history on a schedule while staying logged in. Plus free privacy tools.",
-  "start_url": "/index.html",
+  "name": "CleanTab Tools",
+  "short_name": "CleanTab Tools",
+  "description": "Free privacy tools and guides from CleanTab. Check your IP, generate passwords, encrypt files and more - right in your browser.",
+  "start_url": "/tools.html",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
