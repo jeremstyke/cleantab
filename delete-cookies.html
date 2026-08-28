@@ -345,6 +345,10 @@
 
 
 
+
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#2563eb">
+<link rel="apple-touch-icon" href="/icon-192.png">
 </head>
 <body>
 <header class="site-head">
@@ -595,5 +599,76 @@ var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your pers
 })();
 </script>
 <div id="142280-6"><script src="//ads.themoneytizer.com/s/gen.js?type=6"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=142280&formatId=6"></script></div>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}
+</script>
+<div id="pwaInstallBar" style="display:none; position:fixed; left:12px; right:12px; bottom:12px; max-width:520px; margin:0 auto; z-index:9999; background:#ffffff; border:1px solid #e3e9f2; border-radius:14px; box-shadow:0 6px 24px rgba(20,40,80,0.14); padding:14px 16px; font-family:'DM Sans',system-ui,sans-serif;">
+  <div style="display:flex; align-items:center; gap:12px;">
+    <img src="/icon-192.png" alt="CleanTab" width="40" height="40" style="border-radius:9px; flex-shrink:0;">
+    <div style="flex:1; min-width:0;">
+      <div id="pwaTitle" style="font-size:14px; font-weight:700; color:#1a2540;"></div>
+      <div id="pwaMsg" style="font-size:12.5px; color:#8595ab; line-height:1.4; margin-top:2px;"></div>
+    </div>
+    <button id="pwaInstallBtn" style="flex-shrink:0; padding:9px 16px; font-size:13px; font-weight:700; background:#2563eb; color:#fff; border:none; border-radius:9px; cursor:pointer; font-family:inherit;"></button>
+    <button id="pwaCloseBtn" aria-label="Close" style="flex-shrink:0; width:28px; height:28px; padding:0; font-size:18px; line-height:1; background:none; border:none; color:#8595ab; cursor:pointer;">&times;</button>
+  </div>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('pwaInstallBar');
+  if(!bar) return;
+  var titleEl=document.getElementById('pwaTitle');
+  var msgEl=document.getElementById('pwaMsg');
+  var btn=document.getElementById('pwaInstallBtn');
+  var closeBtn=document.getElementById('pwaCloseBtn');
+
+  // langue : basée sur l'attribut lang du document (mis a jour par la page)
+  function fr(){ return (document.documentElement.lang||'en').indexOf('fr')===0; }
+
+  var T = {
+    title: {en:'Install CleanTab', fr:'Installer CleanTab'},
+    btn:   {en:'Install', fr:'Installer'},
+    msgDesktop: {en:'Add it to your device for quick access.', fr:'Ajoutez-la a votre appareil pour un acces rapide.'},
+    msgIOS: {en:'Tap the Share button, then "Add to Home Screen".', fr:'Touchez Partager, puis « Sur l\'ecran d\'accueil ».'}
+  };
+  var isIOS=/iPhone|iPad|iPod/.test(navigator.userAgent||'') && !window.MSStream;
+
+  function render(){
+    var f=fr();
+    titleEl.textContent = f?T.title.fr:T.title.en;
+    btn.textContent = f?T.btn.fr:T.btn.en;
+    msgEl.textContent = isIOS ? (f?T.msgIOS.fr:T.msgIOS.en) : (f?T.msgDesktop.fr:T.msgDesktop.en);
+  }
+
+  var dismissed=false;
+  try{ dismissed = localStorage.getItem('pwaDismissed')==='1'; }catch(e){}
+  var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone===true;
+  if(standalone || dismissed) return;
+
+  function show(){ render(); bar.style.display='block'; }
+  function hide(){ bar.style.display='none'; }
+
+  closeBtn.addEventListener('click',function(){ hide(); try{localStorage.setItem('pwaDismissed','1');}catch(e){} });
+
+  var deferredPrompt=null;
+  if(isIOS){
+    btn.style.display='none';
+    show();
+  } else {
+    window.addEventListener('beforeinstallprompt',function(e){
+      e.preventDefault(); deferredPrompt=e; show();
+    });
+    btn.addEventListener('click',function(){
+      if(!deferredPrompt) return;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function(){ deferredPrompt=null; hide(); });
+    });
+    window.addEventListener('appinstalled',function(){ hide(); try{localStorage.setItem('pwaDismissed','1');}catch(e){} });
+  }
+  // re-rendre si la langue change
+  var obs=new MutationObserver(render);
+  obs.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
 </body>
 </html>
