@@ -349,14 +349,26 @@
       <span data-en>Free privacy tools</span>
       <span data-fr>Outils de confidentialité gratuits</span>
     </h1>
-
-<div style="max-width:600px; margin:28px auto 0; padding:0 20px;">
+<p class="hero-lede">
+      <span data-en>A set of simple, free tools that run entirely in your browser. Nothing is ever sent or stored.</span>
+      <span data-fr>Un ensemble d'outils simples et gratuits qui fonctionnent entièrement dans votre navigateur. Rien n'est jamais envoye ni conserve.</span></p>
+<div style="max-width:600px; margin:32px auto 8px; padding:0 20px; text-align:center;">
+  <div style="max-width:600px; margin:0 auto 24px; border-top:1px solid #e3e9f2;"></div>
+  <div class="gcse-label" style="font-size:13px; color:#8595ab; margin-bottom:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Search the site</div>
   <script async src="https://cse.google.com/cse.js?cx=b7a483e57ebad4aee"></script>
   <div class="gcse-search"></div>
 </div>
-    <p class="hero-lede">
-      <span data-en>A set of simple, free tools that run entirely in your browser. Nothing is ever sent or stored.</span>
-      <span data-fr>Un ensemble d'outils simples et gratuits qui fonctionnent entièrement dans votre navigateur. Rien n'est jamais envoye ni conserve.</span></p>
+<script>
+(function(){
+  function setLabel(){
+    var els=document.querySelectorAll('.gcse-label'); if(!els.length) return;
+    var fr=(document.documentElement.lang||'en').indexOf('fr')===0;
+    els.forEach(function(el){ el.textContent = fr ? 'Rechercher sur le site' : 'Search the site'; });
+  }
+  setLabel();
+  new MutationObserver(setLabel).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
     </div>
 </div>
 

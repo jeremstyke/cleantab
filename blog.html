@@ -308,15 +308,27 @@
       <span data-en>Browser tips, privacy & speed</span>
       <span data-fr>Astuces navigateur, vie privée et vitesse</span>
     </h1>
-
-<div style="max-width:600px; margin:28px auto 0; padding:0 20px;">
-  <script async src="https://cse.google.com/cse.js?cx=b7a483e57ebad4aee"></script>
-  <div class="gcse-search"></div>
-</div>
-    <p class="hero-lede">
+<p class="hero-lede">
       <span data-en>Practical, no-jargon guides on keeping your browser fast, clean and private. Everything you need to understand and control your browsing data.</span>
       <span data-fr>Des guides pratiques et sans jargon pour garder votre navigateur rapide, propre et privé. Tout pour comprendre et maîtriser vos données de navigation.</span>
     </p>
+<div style="max-width:600px; margin:32px auto 8px; padding:0 20px; text-align:center;">
+  <div style="max-width:600px; margin:0 auto 24px; border-top:1px solid #e3e9f2;"></div>
+  <div class="gcse-label" style="font-size:13px; color:#8595ab; margin-bottom:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Search the site</div>
+  <script async src="https://cse.google.com/cse.js?cx=b7a483e57ebad4aee"></script>
+  <div class="gcse-search"></div>
+</div>
+<script>
+(function(){
+  function setLabel(){
+    var els=document.querySelectorAll('.gcse-label'); if(!els.length) return;
+    var fr=(document.documentElement.lang||'en').indexOf('fr')===0;
+    els.forEach(function(el){ el.textContent = fr ? 'Rechercher sur le site' : 'Search the site'; });
+  }
+  setLabel();
+  new MutationObserver(setLabel).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
     </div>
 </div>
 
