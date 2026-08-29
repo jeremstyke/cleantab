@@ -1,0 +1,45 @@
+# CleanTab
+
+> CleanTab is a free, lightweight browser cleaner extension for Chrome, Edge and Opera that clears cache, cookies and history in one click or automatically on a schedule, while keeping you logged in to the sites you choose. The site getcleantab.com also offers free, browser-based privacy tools and plain-English guides about online privacy. Everything in the tools runs locally in the browser, and no user data is collected or stored.
+
+## About
+
+- [Home](https://getcleantab.com/): Overview of the CleanTab extension and its features.
+- [About](https://getcleantab.com/about.html): Who builds CleanTab and the philosophy behind it.
+- [Guide](https://getcleantab.com/guide.html): How to use CleanTab and get the most out of it.
+- [Compare](https://getcleantab.com/compare.html): How CleanTab compares to other cleaning options.
+
+## Free privacy tools
+
+All tools are free, run entirely in the browser, and store no data.
+
+- [What is my IP](https://getcleantab.com/my-ip.html): Shows your public IPv4 and IPv6 address and what it reveals.
+- [Password generator](https://getcleantab.com/password-generator.html): Creates strong random passwords.
+- [Am I secure](https://getcleantab.com/am-i-secure.html): A quick privacy check-up of your connection and browser.
+- [WebRTC leak test](https://getcleantab.com/webrtc-leak-test.html): Checks whether your VPN is leaking your real IP.
+- [Password strength test](https://getcleantab.com/password-strength-test.html): Estimates how strong a password is.
+- [What is my browser](https://getcleantab.com/my-browser.html): Shows what your browser reveals about you.
+- [Encrypt a file](https://getcleantab.com/encrypt-file.html): Password-protects any file locally using AES-256.
+- [Remove image metadata](https://getcleantab.com/clean-metadata.html): Strips EXIF and location data from images.
+- [Passphrase generator](https://getcleantab.com/passphrase-generator.html): Creates strong, memorable passphrases.
+- [Clean a URL](https://getcleantab.com/clean-url.html): Removes tracking parameters (utm, fbclid, gclid and more) from links.
+
+## Guides and articles
+
+- [What is a VPN](https://getcleantab.com/what-is-a-vpn.html): A plain-English explanation of VPNs.
+- [What makes a good browser cleaner](https://getcleantab.com/best-browser-cleaner.html): What to look for in a browser cleaning tool.
+- [CleanTab vs CCleaner](https://getcleantab.com/cleantab-vs-ccleaner.html): How CleanTab compares as a lightweight, browser-focused alternative to CCleaner.
+- [What is a cookie](https://getcleantab.com/what-is-a-cookie.html): A simple guide to browser cookies.
+- [How to clear the cache in Chrome](https://getcleantab.com/clear-cache-chrome.html): Step-by-step cache clearing.
+- [Best VPN in 2026](https://getcleantab.com/best-vpn-2026.html): What to look for when choosing a VPN.
+- [Blog](https://getcleantab.com/blog.html): Full list of privacy articles and guides.
+
+## Tools and recommendations
+
+- [Free privacy tools](https://getcleantab.com/tools.html): All ten free, browser-based privacy tools in one place.
+- [Recommended privacy services](https://getcleantab.com/privacy-tools.html): Third-party services (VPN, personal data removal) recommended to go further than browser cleaning.
+
+## Install CleanTab
+
+- [Chrome Web Store](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod): Install the free CleanTab extension on Chrome.
+- [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki): Install the free CleanTab extension on Edge.
