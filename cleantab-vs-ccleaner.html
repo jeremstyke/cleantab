@@ -172,60 +172,22 @@
 })();
 </script>
 <!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.3) -->
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>What Is a Browser Cleaner? A Simple Explanation - CleanTab</title>
-<meta name="description" content="What is a browser cleaner, what does it actually clean, and do you need one? A plain-language guide to cache, cookies, history and how cleaning them keeps your browser fast and private." />
-<link rel="canonical" href="https://getcleantab.com/what-is-a-browser-cleaner.html" />
+<title>CleanTab - A Lightweight CCleaner Alternative for Your Browser</title>
+<meta name="description" content="Looking for a lighter CCleaner alternative to clean your browser? CleanTab clears cache, cookies and history automatically, with no bloat."> />
+<link rel="canonical" href="https://getcleantab.com/cleantab-vs-ccleaner.html" />
 <link rel="icon" type="image/png" sizes="128x128" href="https://getcleantab.com/icon128.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="https://getcleantab.com/icon48.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="https://getcleantab.com/icon16.png" />
 <link rel="shortcut icon" href="https://getcleantab.com/favicon.ico" />
-<meta property="og:title" content="What Is a Browser Cleaner?" />
-<meta property="og:description" content="What a browser cleaner does, what it cleans, and whether you need one - in plain language." />
+<meta property="og:title" content="CleanTab - A Lightweight CCleaner Alternative" />
+<meta property="og:description" content="A simple, browser-focused alternative to CCleaner. Clean cache, cookies and history automatically."> />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://getcleantab.com/icon128.png" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a browser cleaner?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A browser cleaner is a tool that removes the temporary data your browser builds up as you use it - cached files, cookies and browsing history. Clearing this data frees up space, can speed up the browser, and protects your privacy on shared computers. Some cleaners run on demand, others clean automatically on a schedule."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I really need a browser cleaner?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You don't strictly need one - every browser can clear its own data manually. But a dedicated cleaner makes it faster, lets you clean automatically so you never forget, and can protect chosen sites with a whitelist so you stay logged in. It's about convenience and consistency rather than doing something the browser can't."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it safe to use a browser cleaner?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, when the cleaner only touches standard browsing data and doesn't send anything to external servers. The data it removes - cache, cookies, history - is rebuilt naturally as you browse. Choose a lightweight cleaner with minimal permissions and a clear privacy policy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will a browser cleaner delete my passwords or bookmarks?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Only if you ask it to. Good cleaners let you choose exactly what to remove. Bookmarks are normally never touched, and passwords are only cleared if you explicitly select that category, usually with a confirmation step."
-      }
-    }
-  ]
-}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is CleanTab a full CCleaner replacement?","acceptedAnswer":{"@type":"Answer","text":"No. CleanTab cleans your browser, not your whole system. For browser cleaning specifically, it is a lighter, simpler alternative."}},{"@type":"Question","name":"Is CleanTab free?","acceptedAnswer":{"@type":"Answer","text":"Yes, CleanTab is free on Chrome, Edge and Opera."}},{"@type":"Question","name":"Does CleanTab collect my data?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser. No data is collected, stored on external servers or shared."}}]}
 </script>
 <style>
   :root {
@@ -291,10 +253,10 @@
   p { margin:0 0 16px; font-size:17px; }
   strong { font-weight:600; color:var(--navy); }
   a { color:var(--blue); }
-  ul { margin:0 0 16px; padding-left:4px; list-style:none; }
-  li { margin-bottom:10px; font-size:17px; padding-left:26px; position:relative; }
-  ul li::before { content:''; position:absolute; left:6px; top:12px; width:6px; height:6px;
-    border-radius:50%; background:#b9cdf2; }
+  ol.steps { margin:0 0 16px; padding-left:22px; }
+  ol.steps li { margin-bottom:9px; font-size:17px; padding-left:4px; }
+  kbd { background:var(--code-bg); border:1px solid #d8e2f0; border-bottom-width:2px;
+    border-radius:6px; padding:2px 7px; font-family:monospace; font-size:14px; color:var(--navy); white-space:nowrap; }
 
   .fix { background:#f2f6fe; border:1px solid #dbe6fb; border-radius:12px;
     padding:15px 19px; margin:18px 0 0; font-size:15.5px; }
@@ -339,6 +301,8 @@
   [data-en],[data-fr] { display:none; }
   html[lang="en"] [data-en] { display:revert; }
   html[lang="fr"] [data-fr] { display:revert; }
+  html[lang="en"] kbd[data-en] { display:inline-block; }
+  html[lang="fr"] kbd[data-fr] { display:inline-block; }
 
   @media (max-width:940px) { .shell { grid-template-columns:1fr; gap:0; } .rail { display:none; } }
   @media (max-width:600px) {
@@ -347,7 +311,7 @@
     .hero-lede { font-size:17px; }
     h2 { font-size:22px; }
     .sec-body { padding-left:0; }
-    p,li { font-size:16.5px; }
+    p,ol.steps li { font-size:16.5px; }
     .shell { padding:24px 20px 50px; }
     .cta-box { flex-direction:column; align-items:flex-start; gap:12px; }
     .logo-link img { height:25px; }
@@ -383,15 +347,14 @@
 
 <div class="hero">
   <div class="hero-in">
-    <div class="eyebrow"><span data-en>Explained</span><span data-fr>Expliqué</span></div>
+    <div class="eyebrow"><span data-en>Comparison</span><span data-fr>Comparatif</span></div>
     <h1>
-      <span data-en>What is a browser cleaner?</span>
-      <span data-fr>C'est quoi un nettoyeur de navigateur ?</span>
+      <span data-en>CleanTab: a lightweight CCleaner alternative for your browser</span>
+      <span data-fr>CleanTab : une alternative légère à CCleaner pour votre navigateur</span>
     </h1>
     <p class="hero-lede">
-      <span data-en>As you browse, your browser quietly stores a lot of data. A browser cleaner is simply a tool that clears it out. Here's what that means, what gets cleaned, and whether it's something you actually need.</span>
-      <span data-fr>Au fil de votre navigation, votre navigateur stocke discrètement beaucoup de données. Un nettoyeur de navigateur, c'est simplement un outil qui les efface. Voici ce que ça veut dire, ce qui est nettoyé, et si vous en avez vraiment besoin.</span>
-    </p>
+      <span data-en>CCleaner is powerful, but for many people it is more than they need. If all you want is a clean browser, here is a simpler, lighter option.</span>
+      <span data-fr>CCleaner est puissant, mais pour beaucoup de gens c'est plus que nécessaire. Si tout ce que vous voulez, c'est un navigateur propre, voici une option plus simple et plus légère.</span></p>
     </div>
 </div>
 
@@ -401,160 +364,95 @@
   <nav class="rail">
     <div class="rail-title"><span data-en>On this page</span><span data-fr>Sur cette page</span></div>
     <ol>
-      <li><a href="#definition" class="rail-a"><span data-en>The short answer</span><span data-fr>La réponse courte</span></a></li>
-      <li><a href="#what" class="rail-a"><span data-en>What it cleans</span><span data-fr>Ce qu'il nettoie</span></a></li>
-      <li><a href="#why" class="rail-a"><span data-en>Why clean it</span><span data-fr>Pourquoi nettoyer</span></a></li>
-      <li><a href="#need" class="rail-a"><span data-en>Do you need one?</span><span data-fr>En avez-vous besoin ?</span></a></li>
-      <li><a href="#choose" class="rail-a"><span data-en>How to choose one</span><span data-fr>Comment en choisir un</span></a></li>
+      <li><a href="#difference" class="rail-a"><span data-en>An honest difference</span><span data-fr>Une différence honnête</span></a></li>
+      <li><a href="#why-lighter" class="rail-a"><span data-en>Why lighter is better</span><span data-fr>Pourquoi plus léger</span></a></li>
+      <li><a href="#what-it-does" class="rail-a"><span data-en>What CleanTab does</span><span data-fr>Ce que fait CleanTab</span></a></li>
+      <li><a href="#which" class="rail-a"><span data-en>Which to use</span><span data-fr>Lequel choisir</span></a></li>
       <li><a href="#faq" class="rail-a"><span data-en>FAQ</span><span data-fr>FAQ</span></a></li>
     </ol>
   </nav>
 
   <main>
-    <section id="definition">
-      <div class="step-head">
-        <div class="step-num">?</div>
-        <h2><span data-en>The short answer</span><span data-fr>La réponse courte</span></h2>
-      </div>
-      <div class="sec-body">
-        <p>
-          <span data-en>A <strong>browser cleaner</strong> is a tool that removes the temporary data your browser accumulates as you use it - cached files, cookies and browsing history. Clearing this data frees up space, can make the browser faster, and protects your privacy. Some cleaners work on demand with a single click; others do it automatically on a schedule.</span>
-          <span data-fr>Un <strong>nettoyeur de navigateur</strong> est un outil qui supprime les données temporaires que votre navigateur accumule à l'usage - fichiers en cache, cookies et historique de navigation. Effacer ces données libère de l'espace, peut accélérer le navigateur et protège votre vie privée. Certains nettoyeurs agissent à la demande en un clic ; d'autres le font automatiquement selon un planning.</span>
-        </p>
-      </div>
-    </section>
-
-    <section id="what">
+    <section id="difference">
       <div class="step-head">
         <div class="step-num">1</div>
-        <h2><span data-en>What it actually cleans</span><span data-fr>Ce qu'il nettoie réellement</span></h2>
+        <h2><span data-en>First, an honest difference</span><span data-fr>D'abord, une différence honnête</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>"Browsing data" sounds vague, so here's what it really covers:</span><span data-fr>« Données de navigation » reste vague, voici concrètement ce que ça recouvre :</span></p>
-        <ul>
-          <li><span data-en><strong>Cache</strong> - copies of images, scripts and files saved to load sites faster next time.</span><span data-fr><strong>Cache</strong> - copies d'images, scripts et fichiers enregistrés pour charger les sites plus vite ensuite.</span></li>
-          <li><span data-en><strong>Cookies</strong> - small files that keep you logged in and remember your preferences (but also track you).</span><span data-fr><strong>Cookies</strong> - petits fichiers qui vous gardent connecté et mémorisent vos préférences (mais vous pistent aussi).</span></li>
-          <li><span data-en><strong>History</strong> - the list of pages you've visited.</span><span data-fr><strong>Historique</strong> - la liste des pages que vous avez visitées.</span></li>
-          <li><span data-en>Not sure how these differ? See <a href="cache-cookies-history-difference.html">cache vs cookies vs history</a>.</span><span data-fr>Pas sûr de la différence ? Voyez <a href="cache-cookies-history-difference.html">cache, cookies, historique</a>.</span></li>
-          <li><span data-en><strong>Local storage</strong> - data websites keep on your device between visits.</span><span data-fr><strong>Stockage local</strong> - données que les sites conservent sur votre appareil entre les visites.</span></li>
-        </ul>
-        <div class="fix">
-          <p><span data-en>Curious how to remove just one of these? See our guide on <a href="delete-history.html">deleting your browsing history</a>.</span>
-          <span data-fr>Envie de n'en supprimer qu'un seul ? Voyez notre guide sur <a href="delete-history.html">comment supprimer l'historique de navigation</a>.</span></p>
-        </div>
+        <p><span data-en>CCleaner and CleanTab are not the same kind of tool. CCleaner is a desktop program that cleans your whole computer: system files, the Windows registry, application caches and more. CleanTab is a browser extension that focuses on one thing: keeping your browser clean.</span>
+        <span data-fr>CCleaner et CleanTab ne sont pas le même type d'outil. CCleaner est un programme de bureau qui nettoie tout votre ordinateur : fichiers système, registre Windows, caches d'applications et plus encore. CleanTab est une extension de navigateur qui se concentre sur une seule chose : garder votre navigateur propre.</span></p>
+        <p><span data-en>So CleanTab is not a full replacement for everything CCleaner does. But if the reason you use CCleaner is mainly to clear your browsing data, CleanTab does that job in a lighter, simpler way.</span>
+        <span data-fr>CleanTab n'est donc pas un remplacement complet de tout ce que fait CCleaner. Mais si la raison pour laquelle vous utilisez CCleaner est surtout d'effacer vos données de navigation, CleanTab fait ce travail de façon plus légère et plus simple.</span></p>
       </div>
     </section>
-<section id="why">
+
+    <section id="why-lighter">
       <div class="step-head">
         <div class="step-num">2</div>
-        <h2><span data-en>Why clean it at all</span><span data-fr>Pourquoi le nettoyer</span></h2>
+        <h2><span data-en>Why a lighter option can be better</span><span data-fr>Pourquoi une option plus légère peut être mieux</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>Three reasons people clean their browser:</span><span data-fr>Trois raisons pour lesquelles on nettoie son navigateur :</span></p>
-        <ul>
-          <li><span data-en><strong>Speed</strong> - an overloaded cache and huge history can slow the browser down. Clearing them helps. (More on <a href="slow-browser.html">why browsers get slow</a>.)</span><span data-fr><strong>Vitesse</strong> - un cache surchargé et un historique énorme peuvent ralentir le navigateur. Les vider aide. (Plus de détails sur <a href="slow-browser.html">pourquoi les navigateurs ralentissent</a>.)</span></li>
-          <li><span data-en><strong>Privacy</strong> - clearing history and cookies stops the next person on a shared computer from seeing where you've been, and limits tracking.</span><span data-fr><strong>Vie privée</strong> - effacer l'historique et les cookies empêche la personne suivante sur un ordinateur partagé de voir où vous êtes allé, et limite le pistage.</span></li>
-          <li><span data-en><strong>Space</strong> - cached files can grow to hundreds of megabytes. Clearing them frees disk space.</span><span data-fr><strong>Espace</strong> - les fichiers en cache peuvent atteindre des centaines de mégaoctets. Les vider libère de l'espace disque.</span></li>
-        </ul>
+        <p><span data-en>A full system cleaner runs as a separate program, asks for broad permissions, and can touch sensitive areas like the registry. For most people who just want a tidy browser, that is a lot of power for a simple need.</span>
+        <span data-fr>Un nettoyeur système complet tourne comme un programme séparé, demande de larges permissions et peut toucher des zones sensibles comme le registre. Pour la plupart des gens qui veulent simplement un navigateur propre, c'est beaucoup de puissance pour un besoin simple.</span></p>
+        <p><span data-en>CleanTab runs inside your browser only. It cannot touch your system files or your registry, which also means it cannot break anything outside the browser. It does one job and does it well.</span>
+        <span data-fr>CleanTab tourne uniquement dans votre navigateur. Il ne peut pas toucher vos fichiers système ni votre registre, ce qui veut aussi dire qu'il ne peut rien casser en dehors du navigateur. Il fait un seul travail et le fait bien.</span></p>
       </div>
     </section>
-<section id="need">
+
+    <section id="what-it-does">
       <div class="step-head">
         <div class="step-num">3</div>
-        <h2><span data-en>Do you actually need one?</span><span data-fr>En avez-vous vraiment besoin ?</span></h2>
+        <h2><span data-en>What CleanTab does</span><span data-fr>Ce que fait CleanTab</span></h2>
       </div>
       <div class="sec-body">
-        <p>
-          <span data-en>Honestly? Not strictly. Every browser can already clear its own data manually - we even show you how. So what does a dedicated cleaner add? Three things: it's <strong>faster</strong> (one click instead of digging through menus), it can run <strong>automatically</strong> so you never forget, and it can <strong>protect chosen sites</strong> with a whitelist so you stay logged in where it matters. It's about convenience and consistency, not doing something impossible.</span>
-          <span data-fr>Honnêtement ? Pas indispensable. Chaque navigateur peut déjà effacer ses données manuellement - on vous montre même comment. Alors qu'apporte un nettoyeur dédié ? Trois choses : il est <strong>plus rapide</strong> (un clic au lieu de fouiller les menus), il peut agir <strong>automatiquement</strong> pour ne jamais oublier, et il peut <strong>protéger certains sites</strong> via une liste blanche pour rester connecté là où ça compte. C'est une question de confort et de régularité, pas de faire l'impossible.</span>
-        </p>
+        <p><span data-en>CleanTab clears your cache, cookies, history and local storage, in one click or automatically on a schedule you choose: on startup, hourly, daily or weekly. You decide exactly what gets cleared.</span>
+        <span data-fr>CleanTab efface votre cache, vos cookies, votre historique et le stockage local, en un clic ou automatiquement selon un planning que vous choisissez : au démarrage, chaque heure, chaque jour ou chaque semaine. Vous décidez exactement ce qui est effacé.</span></p>
+        <p><span data-en>A whitelist lets you protect the sites that matter, like your email or your bank, so you stay logged in there while everything else is cleaned. It is available on Chrome, Edge and Opera, in English and French, and it collects no data.</span>
+        <span data-fr>Une liste blanche vous laisse protéger les sites importants, comme votre messagerie ou votre banque, pour y rester connecté pendant que tout le reste est nettoyé. Disponible sur Chrome, Edge et Opera, en anglais et en français, et il ne collecte aucune donnée.</span></p>
       </div>
     </section>
 
-    <section id="choose">
+    <section id="which">
       <div class="step-head">
         <div class="step-num">4</div>
-        <h2><span data-en>How to choose a good one</span><span data-fr>Comment en choisir un bon</span></h2>
+        <h2><span data-en>Which one should you use</span><span data-fr>Lequel choisir</span></h2>
       </div>
       <div class="sec-body">
-        <p><span data-en>Not all cleaners are equal. A few things to look for:</span><span data-fr>Tous les nettoyeurs ne se valent pas. Quelques points à vérifier :</span></p>
-        <ul>
-          <li><span data-en><strong>Minimal permissions</strong> - it should only ask for what it needs to clean, nothing more.</span><span data-fr><strong>Permissions minimales</strong> - il ne devrait demander que ce qui est nécessaire au nettoyage, rien de plus.</span></li>
-          <li><span data-en><strong>Nothing leaves your device</strong> - a good cleaner processes everything locally and sends no data to external servers.</span><span data-fr><strong>Rien ne quitte votre appareil</strong> - un bon nettoyeur traite tout localement et n'envoie aucune donnée vers des serveurs externes.</span></li>
-          <li><span data-en><strong>Lightweight</strong> - it shouldn't slow down the very browser it's meant to speed up.</span><span data-fr><strong>Léger</strong> - il ne devrait pas ralentir le navigateur qu'il est censé accélérer.</span></li>
-          <li><span data-en><strong>Control</strong> - you choose what gets cleaned and what stays.</span><span data-fr><strong>Contrôle</strong> - vous choisissez ce qui est nettoyé et ce qui reste.</span></li>
-        </ul>
-        <div class="fix">
-          <p><span data-en>Want to see how tools stack up? We put together a <a href="compare.html">comparison of CleanTab and other cleaners</a>.</span>
-          <span data-fr>Envie de comparer les outils ? On a préparé un <a href="compare.html">comparatif de CleanTab et d'autres nettoyeurs</a>.</span></p>
-        </div>
+        <p><span data-en>If you need to clean your whole computer, including system files and the registry, a full desktop cleaner still makes sense. If you mainly want your browser cleaned regularly, without installing a heavy program, CleanTab is the simpler choice.</span>
+        <span data-fr>Si vous devez nettoyer tout votre ordinateur, y compris les fichiers système et le registre, un nettoyeur de bureau complet garde du sens. Si vous voulez surtout que votre navigateur soit nettoyé régulièrement, sans installer un programme lourd, CleanTab est le choix plus simple.</span></p>
+        <p><span data-en>Many people even use both: a system cleaner now and then for the computer, and CleanTab running quietly in the browser every day.</span>
+        <span data-fr>Beaucoup de gens utilisent même les deux : un nettoyeur système de temps en temps pour l'ordinateur, et CleanTab qui tourne discrètement dans le navigateur chaque jour.</span></p>
       </div>
     </section>
-
-    <div class="note">
-      <p>
-        <span data-en>One honest caveat: a browser cleaner tidies <em>your</em> device. It doesn't hide your activity from your internet provider or the websites themselves - that needs <a href="private-browsing.html">private browsing</a> or a VPN. A cleaner is about keeping your own machine fast, clear and private, which is exactly what it's good at.</span>
-        <span data-fr>Une précision honnête : un nettoyeur de navigateur range <em>votre</em> appareil. Il ne cache pas votre activité à votre fournisseur d'accès ou aux sites eux-mêmes - ça, il faut la <a href="private-browsing.html">navigation privée</a> ou un VPN. Un nettoyeur sert à garder votre propre machine rapide, nette et privée, et c'est précisément ce qu'il fait bien.</span>
-      </p>
-    </div>
-
-    <div class="cta-box">
-      <img src="icon128.png" alt="CleanTab" />
-      <div class="txt">
-        <h3><span data-en>CleanTab is a browser cleaner done right</span><span data-fr>CleanTab, le nettoyeur de navigateur bien fait</span></h3>
-        <p><span data-en>One click or automatic. Minimal permissions, nothing leaves your browser, and a whitelist to stay logged in where you want. Free, in 22 languages.</span>
-        <span data-fr>En un clic ou automatique. Permissions minimales, rien ne quitte votre navigateur, et une liste blanche pour rester connecté où vous voulez. Gratuit, en 22 langues.</span></p>
-      </div>
-      <a class="cta-btn" href="index.html">
-        <span data-en>Clean your browser</span><span data-fr>Nettoyer votre navigateur</span>
-      </a>
-    </div>
 
     <section id="faq">
       <h2 style="margin-top:52px;"><span data-en>Frequently asked questions</span><span data-fr>Questions fréquentes</span></h2>
-      <div class="faq" style="margin-top:20px;">
-        <details>
-          <summary><span data-en>What is a browser cleaner in simple terms?</span><span data-fr>C'est quoi un nettoyeur de navigateur, simplement ?</span></summary>
-          <p><span data-en>It's a tool that removes the temporary data your browser piles up - cache, cookies and history. That frees space, can speed things up, and protects your privacy. Some clean on demand, others automatically.</span>
-          <span data-fr>C'est un outil qui supprime les données temporaires que votre navigateur accumule - cache, cookies et historique. Ça libère de l'espace, peut accélérer, et protège votre vie privée. Certains nettoient à la demande, d'autres automatiquement.</span></p>
-        </details>
-        <details>
-          <summary><span data-en>Do I really need a browser cleaner?</span><span data-fr>Ai-je vraiment besoin d'un nettoyeur ?</span></summary>
-          <p><span data-en>Not strictly - every browser can clear its data manually. A dedicated cleaner just makes it faster, can run automatically so you never forget, and protects chosen sites with a whitelist. It's convenience, not something the browser can't do.</span>
-          <span data-fr>Pas indispensable - chaque navigateur peut effacer ses données manuellement. Un nettoyeur dédié rend juste ça plus rapide, peut agir automatiquement pour ne jamais oublier, et protège certains sites via une liste blanche. C'est du confort, pas une fonction impossible autrement.</span></p>
-        </details>
-        <details>
-          <summary><span data-en>Is it safe to use a browser cleaner?</span><span data-fr>Est-ce sûr d'utiliser un nettoyeur ?</span></summary>
-          <p><span data-en>Yes, when it only touches standard browsing data and sends nothing to external servers. The data it removes rebuilds naturally as you browse. Pick a lightweight cleaner with minimal permissions and a clear privacy policy.</span>
-          <span data-fr>Oui, quand il ne touche qu'aux données de navigation standard et n'envoie rien vers des serveurs externes. Les données supprimées se reconstruisent naturellement au fil de la navigation. Choisissez un nettoyeur léger, aux permissions minimales et à la politique de confidentialité claire.</span></p>
-        </details>
-        <details>
-          <summary><span data-en>Will it delete my passwords or bookmarks?</span><span data-fr>Va-t-il supprimer mes mots de passe ou favoris ?</span></summary>
-          <p><span data-en>Only if you ask it to. Good cleaners let you choose exactly what to remove. Bookmarks are normally never touched, and passwords are cleared only if you explicitly select that category, usually with a confirmation.</span>
-          <span data-fr>Seulement si vous le demandez. Les bons nettoyeurs vous laissent choisir précisément quoi supprimer. Les favoris ne sont normalement jamais touchés, et les mots de passe ne sont effacés que si vous cochez explicitement cette catégorie, en général avec une confirmation.</span></p>
-        </details>
+      <div class="faq">
+      <details><summary><span data-en>Is CleanTab a full CCleaner replacement?</span><span data-fr>CleanTab remplace-t-il complètement CCleaner ?</span></summary>
+        <p><span data-en>No. CleanTab cleans your browser, not your whole system. For browser cleaning specifically, it is a lighter, simpler alternative.</span><span data-fr>Non. CleanTab nettoie votre navigateur, pas tout votre système. Pour le nettoyage du navigateur en particulier, c'est une alternative plus légère et plus simple.</span></p>
+      </details>
+      <details><summary><span data-en>Is CleanTab free?</span><span data-fr>CleanTab est-il gratuit ?</span></summary>
+        <p><span data-en>Yes, CleanTab is free on Chrome, Edge and Opera.</span><span data-fr>Oui, CleanTab est gratuit sur Chrome, Edge et Opera.</span></p>
+      </details>
+      <details><summary><span data-en>Does CleanTab collect my data?</span><span data-fr>CleanTab collecte-t-il mes données ?</span></summary>
+        <p><span data-en>No. Everything runs locally in your browser. No data is collected, stored on external servers or shared.</span><span data-fr>Non. Tout se passe localement dans votre navigateur. Aucune donnée n'est collectée, stockée sur des serveurs externes ni partagée.</span></p>
+      </details>
       </div>
     </section>
-  
-
 </main>
 </div>
 
 <div style="max-width:760px; margin:30px auto 10px; padding:0 20px;">
   <h2 style="font-size:18px; margin-bottom:14px; color:var(--ink);"><span data-en>Keep reading</span><span data-fr>À lire aussi</span></h2>
   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
-      <a href="cleantab-vs-ccleaner.html" style="display:block; padding:14px 16px; border:1px solid var(--border); border-radius:10px; text-decoration:none; background:#fff;">
-        <span style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;"><span data-en>CleanTab: a lightweight CCleaner alternative</span><span data-fr>CleanTab : une alternative légère à CCleaner</span></span>
+      <a href="is-a-vpn-worth-it.html" style="display:block; padding:14px 16px; border:1px solid var(--border); border-radius:10px; text-decoration:none; background:#fff;">
+        <span style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;"><span data-en>Is a VPN Worth It? An Honest Look</span><span data-fr>Un VPN en vaut-il la peine ? Un avis honnête</span></span>
       </a>
-
-      <a href="do-i-need-antivirus.html" style="display:block; padding:14px 16px; border:1px solid var(--border); border-radius:10px; text-decoration:none; background:#fff;">
-        <span style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;"><span data-en>Do I need antivirus software?</span><span data-fr>Ai-je besoin d'un antivirus ?</span></span>
+      <a href="best-vpn-2026.html" style="display:block; padding:14px 16px; border:1px solid var(--border); border-radius:10px; text-decoration:none; background:#fff;">
+        <span style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;"><span data-en>Best VPN in 2026: What to Look For</span><span data-fr>Meilleur VPN en 2026 : ce qu'il faut regarder</span></span>
       </a>
-      <a href="keep-browser-clean-without-effort.html" style="display:block; padding:14px 16px; border:1px solid var(--border); border-radius:10px; text-decoration:none; background:#fff;">
-        <span style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;"><span data-en>How to Keep Your Browser Clean Without Doing It Manually</span><span data-fr>Comment garder votre navigateur propre sans le faire à la main</span></span>
-      </a>
-      <a href="track-your-cleaning-habits.html" style="display:block; padding:14px 16px; border:1px solid var(--border); border-radius:10px; text-decoration:none; background:#fff;">
-        <span style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;"><span data-en>How to track and understand your cleaning habits</span><span data-fr>Comment suivre et comprendre vos habitudes de nettoyage</span></span>
+      <a href="private-browsing-vs-vpn.html" style="display:block; padding:14px 16px; border:1px solid var(--border); border-radius:10px; text-decoration:none; background:#fff;">
+        <span style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;"><span data-en>Private browsing vs VPN: which do you need?</span><span data-fr>Navigation privée ou VPN : lequel choisir ?</span></span>
       </a>
   </div>
 </div>
@@ -577,7 +475,7 @@
   <a href="compare.html"><span data-en>Compare</span><span data-fr>Comparatif</span></a> ·
   <a href="slow-browser.html"><span data-en>Slow browser?</span><span data-fr>Navigateur lent ?</span></a> ·
   <a href="delete-history.html"><span data-en>Delete history</span><span data-fr>Effacer l'historique</span></a> ·
-  <a href="whatsnew.html"><span data-en>What's new</span><span data-fr>Nouveautés</span></a> ·
+  <a href="what-is-a-browser-cleaner.html"><span data-en>What is a cleaner?</span><span data-fr>C'est quoi ?</span></a> ·
   <a href="privacy.html"><span data-en>Privacy</span><span data-fr>Confidentialité</span></a> ·
   <a href="support.html"><span data-en>Support</span><span data-fr>Assistance</span></a>
     <div style="margin-top:8px;">
