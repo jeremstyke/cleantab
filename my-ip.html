@@ -378,8 +378,15 @@
         <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#8595ab; margin-bottom:8px;">
           <span data-en>Your public IP address</span><span data-fr>Votre adresse IP publique</span>
         </div>
-        <div id="ipValue" style="font-size:34px; font-weight:800; color:var(--ink); letter-spacing:-0.5px; word-break:break-all; margin-bottom:6px;">
-          <span class="ip-loading" data-en>Detecting...</span><span class="ip-loading" data-fr>Detection...</span>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px; color:#8595ab; font-weight:700; margin-bottom:2px;">IPv4</div>
+          <div id="ipValue" style="font-size:30px; font-weight:800; color:var(--ink); letter-spacing:-0.5px; word-break:break-all;">
+            <span class="ip-loading" data-en>Detecting...</span><span class="ip-loading" data-fr>Detection...</span>
+          </div>
+        </div>
+        <div id="ipv6Wrap" style="margin-bottom:6px; display:none;">
+          <div style="font-size:12px; color:#8595ab; font-weight:700; margin-bottom:2px;">IPv6</div>
+          <div id="ipv6Value" style="font-size:18px; font-weight:700; color:var(--ink); word-break:break-all;"></div>
         </div>
         <button id="copyIp" style="display:none; margin:4px auto 0; padding:6px 14px; font-size:12px; font-weight:600; border:1px solid var(--border); background:#fff; border-radius:8px; cursor:pointer; color:#2563eb;">
           <span data-en>Copy</span><span data-fr>Copier</span>
@@ -401,6 +408,11 @@
         </div>
       </div>
 
+      <div style="max-width:560px; margin:16px auto 0; padding:14px 16px; background:#f5f8ff; border:1px solid #e3e9f2; border-radius:10px; text-align:left; font-size:13px; color:#5a6b82; line-height:1.55;">
+        <strong style="color:var(--ink);"><span data-en>IPv4 vs IPv6</span><span data-fr>IPv4 et IPv6</span></strong><br>
+        <span data-en>An IPv4 address looks like 86.245.12.8 (numbers only). An IPv6 address is longer and mixes numbers and letters, like 2a01:e0a:1c2... They do the same job: identifying your connection online. IPv6 exists because the internet ran out of IPv4 addresses, so many connections now use both.</span>
+        <span data-fr>Une adresse IPv4 ressemble à 86.245.12.8 (uniquement des chiffres). Une adresse IPv6 est plus longue et mélange chiffres et lettres, comme 2a01:e0a:1c2... Elles font le même travail : identifier votre connexion en ligne. L'IPv6 existe car il n'y avait plus assez d'adresses IPv4, donc beaucoup de connexions utilisent aujourd'hui les deux.</span>
+      </div>
       <p style="max-width:560px; margin:14px auto 0; font-size:13px; color:#8595ab;">
         <span data-en>This lookup runs in your browser. CleanTab does not store your IP address.</span>
         <span data-fr>Cette recherche se fait dans votre navigateur. CleanTab ne conserve pas votre adresse IP.</span>
@@ -427,7 +439,7 @@
         <span data-fr>Un VPN masque votre vraie adresse IP en faisant passer votre connexion par ses propres serveurs, si bien que les sites voient l'IP du VPN au lieu de la votre. Il chiffre aussi votre trafic, ce qui empêche votre fournisseur et toute personne sur un WiFi public de voir ce que vous faites.</span></p>
         <p><span data-en>IPVanish is a reputable no-logs VPN that hides your IP and encrypts your connection in one click, across unlimited devices.</span>
         <span data-fr>IPVanish est un VPN no-logs reconnu qui masque votre IP et chiffre votre connexion en un clic, sur un nombre illimité d'appareils.</span></p>
-        <p><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener sponsored" style="display:inline-block;margin-top:6px;padding:11px 20px;background:#16a34a;color:#fff;border-radius:9px;font-weight:700;text-decoration:none;">Get IPVanish &#8594;</a> <span style="display:block;margin-top:6px;font-size:13px;color:#8595ab;"><span data-en>VPN that hides your IP and encrypts your connection</span><span data-fr>VPN qui masque votre IP et chiffre votre connexion</span></span></p>
+        <p><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener sponsored" style="display:inline-block;margin-top:6px;padding:11px 20px;background:#16a34a;color:#fff;border-radius:9px;font-weight:700;text-decoration:none;"><span data-en>Get IPVanish &#8594;</span><span data-fr>Obtenez IPVanish &#8594;</span></a> <span style="display:block;margin-top:6px;font-size:13px;color:#8595ab;"><span data-en>VPN that hides your IP and encrypts your connection</span><span data-fr>VPN qui masque votre IP et chiffre votre connexion</span></span></p>
       </div>
     </section>
 
@@ -550,33 +562,45 @@ var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your pers
 </script>
 <script>
 (function(){
-  function setText(id, val){ var e=document.getElementById(id); if(e) e.textContent = val; }
-  fetch('https://ipapi.co/json/').then(function(r){ return r.json(); }).then(function(d){
-    var ipEl = document.getElementById('ipValue');
-    if(ipEl){ ipEl.textContent = d.ip || 'N/A'; }
-    var copy = document.getElementById('copyIp');
-    if(copy && d.ip){
-      copy.style.display = 'inline-block';
-      copy.addEventListener('click', function(){
-        navigator.clipboard && navigator.clipboard.writeText(d.ip);
-        var isFr = document.documentElement.lang === 'fr';
-        copy.textContent = isFr ? 'Copie !' : 'Copied!';
-        setTimeout(function(){ copy.innerHTML = '<span data-en>Copy</span><span data-fr>Copier</span>'; if(window.applyLang) window.applyLang(); }, 1500);
-      });
+  var isFr = function(){ return document.documentElement.lang === 'fr'; };
+
+  // IPv4 : service qui force IPv4
+  fetch('https://api.ipify.org?format=json').then(function(r){return r.json();}).then(function(d){
+    var el=document.getElementById('ipValue');
+    if(el && d.ip){
+      el.textContent=d.ip;
+      var copy=document.getElementById('copyIp');
+      if(copy){
+        copy.style.display='inline-block';
+        copy.addEventListener('click', function(){
+          navigator.clipboard && navigator.clipboard.writeText(d.ip);
+          copy.textContent = isFr() ? 'Copie !' : 'Copied!';
+          setTimeout(function(){ copy.innerHTML='<span data-en>Copy</span><span data-fr>Copier</span>'; if(window.applyLang) window.applyLang(); }, 1500);
+        });
+      }
     }
-    var details = document.getElementById('ipDetails');
-    if(details){ details.style.display = 'block'; }
-    var loc = [d.city, d.region, d.country_name].filter(Boolean).join(', ');
-    setText('ipLoc', loc || '-');
-    setText('ipIsp', d.org || '-');
-    setText('ipTz', d.timezone || '-');
   }).catch(function(){
-    var ipEl = document.getElementById('ipValue');
-    if(ipEl){
-      var isFr = document.documentElement.lang === 'fr';
-      ipEl.textContent = isFr ? 'Indisponible' : 'Unavailable';
-    }
+    var el=document.getElementById('ipValue');
+    if(el) el.textContent = isFr() ? 'Non disponible' : 'Not available';
   });
+
+  // IPv6 : service qui force IPv6 (n'affiche le bloc que si dispo et différent)
+  fetch('https://api6.ipify.org?format=json').then(function(r){return r.json();}).then(function(d){
+    if(d && d.ip && d.ip.indexOf(':')!==-1){
+      var wrap=document.getElementById('ipv6Wrap');
+      var v6=document.getElementById('ipv6Value');
+      if(wrap && v6){ v6.textContent=d.ip; wrap.style.display='block'; }
+    }
+  }).catch(function(){ /* pas d'IPv6, on laisse caché */ });
+
+  // Détails (localisation, FAI, fuseau) via ipapi.co
+  fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(d){
+    function setText(id,val){ var e=document.getElementById(id); if(e && val) e.textContent=val; }
+    var loc=[d.city, d.region, d.country_name].filter(Boolean).join(', ');
+    setText('ipLoc', loc);
+    setText('ipIsp', d.org);
+    setText('ipTz', d.timezone);
+  }).catch(function(){});
 })();
 </script>
 <script>
