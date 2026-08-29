@@ -378,19 +378,26 @@
         <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#8595ab; margin-bottom:8px;">
           <span data-en>Your public IP address</span><span data-fr>Votre adresse IP publique</span>
         </div>
-        <div style="margin-bottom:10px;">
+        <div style="margin-bottom:12px;">
           <div style="font-size:12px; color:#8595ab; font-weight:700; margin-bottom:2px;">IPv4</div>
-          <div id="ipValue" style="font-size:30px; font-weight:800; color:var(--ink); letter-spacing:-0.5px; word-break:break-all;">
-            <span class="ip-loading" data-en>Detecting...</span><span class="ip-loading" data-fr>Detection...</span>
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap;">
+            <div id="ipValue" style="font-size:30px; font-weight:800; color:var(--ink); letter-spacing:-0.5px; word-break:break-all;">
+              <span class="ip-loading" data-en>Detecting...</span><span class="ip-loading" data-fr>Detection...</span>
+            </div>
+            <button id="copyIp" style="display:none; padding:5px 12px; font-size:12px; font-weight:600; border:1px solid var(--border); background:#fff; border-radius:8px; cursor:pointer; color:#2563eb;">
+              <span data-en>Copy</span><span data-fr>Copier</span>
+            </button>
           </div>
         </div>
         <div id="ipv6Wrap" style="margin-bottom:6px; display:none;">
           <div style="font-size:12px; color:#8595ab; font-weight:700; margin-bottom:2px;">IPv6</div>
-          <div id="ipv6Value" style="font-size:18px; font-weight:700; color:var(--ink); word-break:break-all;"></div>
+          <div style="display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap;">
+            <div id="ipv6Value" style="font-size:18px; font-weight:700; color:var(--ink); word-break:break-all;"></div>
+            <button id="copyIpv6" style="padding:5px 12px; font-size:12px; font-weight:600; border:1px solid var(--border); background:#fff; border-radius:8px; cursor:pointer; color:#2563eb;">
+              <span data-en>Copy</span><span data-fr>Copier</span>
+            </button>
+          </div>
         </div>
-        <button id="copyIp" style="display:none; margin:4px auto 0; padding:6px 14px; font-size:12px; font-weight:600; border:1px solid var(--border); background:#fff; border-radius:8px; cursor:pointer; color:#2563eb;">
-          <span data-en>Copy</span><span data-fr>Copier</span>
-        </button>
 
         <div id="ipDetails" style="display:none; margin-top:22px; text-align:left; border-top:1px solid var(--border); padding-top:18px;">
           <div class="ip-row" style="display:flex; justify-content:space-between; padding:7px 0; font-size:14px; border-bottom:1px solid rgba(0,0,0,0.04);">
@@ -590,6 +597,14 @@ var PARTNER_TR = {"en": {"t": "🤝 Official partners", "dm": "removes your pers
       var wrap=document.getElementById('ipv6Wrap');
       var v6=document.getElementById('ipv6Value');
       if(wrap && v6){ v6.textContent=d.ip; wrap.style.display='block'; }
+      var copy6=document.getElementById('copyIpv6');
+      if(copy6){
+        copy6.addEventListener('click', function(){
+          navigator.clipboard && navigator.clipboard.writeText(d.ip);
+          copy6.textContent = isFr() ? 'Copie !' : 'Copied!';
+          setTimeout(function(){ copy6.innerHTML='<span data-en>Copy</span><span data-fr>Copier</span>'; if(window.applyLang) window.applyLang(); }, 1500);
+        });
+      }
     }
   }).catch(function(){ /* pas d'IPv6, on laisse caché */ });
 
