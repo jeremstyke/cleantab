@@ -365,6 +365,23 @@
     <h1 class="hero-title">Clean<span class="tab">Tab</span></h1>
     <p class="tagline" id="tagline">Your browser, clean. Automatically.</p>
 
+<div style="max-width:600px; margin:30px auto 0; padding:0 20px; text-align:center;">
+  <div id="searchLabel" style="font-size:14px; color:#8595ab; margin-bottom:10px; font-weight:600;">Search the site</div>
+  <script async src="https://cse.google.com/cse.js?cx=b7a483e57ebad4aee"></script>
+  <div class="gcse-search"></div>
+</div>
+<script>
+(function(){
+  function setLabel(){
+    var el=document.getElementById('searchLabel'); if(!el) return;
+    var fr=(document.documentElement.lang||'en').indexOf('fr')===0;
+    el.textContent = fr ? 'Rechercher sur le site' : 'Search the site';
+  }
+  setLabel();
+  new MutationObserver(setLabel).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
+
 
     <div class="installs">
       <a class="btn-install" id="btnInstall2" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
