@@ -9,7 +9,7 @@
 [![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Install-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
 [![Edge Add-ons](https://img.shields.io/badge/Edge_Add--ons-Install-0c85d0?style=for-the-badge&logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)
 [![Website](https://img.shields.io/badge/Website-Visit-16a34a?style=for-the-badge)](https://getcleantab.com/)
-[![Version](https://img.shields.io/badge/version-1.8.4-2563eb?style=for-the-badge)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
+[![Version](https://img.shields.io/badge/version-1.8.5-2563eb?style=for-the-badge)](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/cleantab)
 
 [🇬🇧 English](#lang-en) · [🇫🇷 Français](#lang-fr) · [🇪🇸 Español](#lang-es) · [🇵🇹 Português](#lang-pt) · [🇩🇪 Deutsch](#lang-de) · [🇮🇹 Italiano](#lang-it) · [🇯🇵 日本語](#lang-ja) · [🇨🇳 中文](#lang-zh) · [🇷🇺 Русский](#lang-ru) · [🇮🇳 हिन्दी](#lang-hi) · [🇮🇩 Indonesia](#lang-id) · [🇸🇦 العربية](#lang-ar) · [🇰🇷 한국어](#lang-ko) · [🇳🇱 Nederlands](#lang-nl) · [🇵🇱 Polski](#lang-pl) · [🇹🇷 Türkçe](#lang-tr) · [🇻🇳 Tiếng Việt](#lang-vi) · [🇹🇭 ไทย](#lang-th) · [🇺🇦 Українська](#lang-uk) · [🇸🇪 Svenska](#lang-sv) · [🇬🇷 Ελληνικά](#lang-el) · [🇷🇴 Română](#lang-ro)
@@ -173,7 +173,9 @@ CleanTab no recopila, almacena ni transmite ningún dato personal. Todo ocurre l
 
 CleanTab es gratis, centrado en la privacidad, desarrollado por un desarrollador indie en solitario. ¡Apóyalo en [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Instalar - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Añadir a Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Sitio web](https://getcleantab.com/)** · **[Privacidad](https://getcleantab.com/privacy.html)** · > CleanTab es socio oficial de [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), un servicio que elimina tus datos personales de la web. Algunos banners de la extensión enlazan a DeleteMe como afiliado. CleanTab también es socio de [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), una VPN que cifra tu conexión y oculta tu dirección IP, como enlace de afiliado.
+**[Instalar - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Añadir a Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Sitio web](https://getcleantab.com/)** · **[Privacidad](https://getcleantab.com/privacy.html)**
+
+> CleanTab es socio oficial de [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), un servicio que elimina tus datos personales de la web. Algunos banners de la extensión enlazan a DeleteMe como afiliado. CleanTab también es socio de [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), una VPN que cifra tu conexión y oculta tu dirección IP, como enlace de afiliado.
 
 **[Instalar - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Adicionar ao Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Soporte](https://getcleantab.com/support.html)**
 
@@ -226,7 +228,9 @@ O CleanTab não coleta, armazena ou transmite nenhum dado pessoal. Tudo acontece
 
 O CleanTab é gratuito, focado na privacidade, desenvolvido por um desenvolvedor indie solo. Apoie no [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Installieren - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Zu Edge hinzufügen](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Site](https://getcleantab.com/)** · **[Privacidade](https://getcleantab.com/privacy.html)** · > O CleanTab é parceiro oficial do [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), um serviço que remove seus dados pessoais da web. Alguns banners da extensão têm links de afiliado para o DeleteMe. O CleanTab também é parceiro do [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), uma VPN que criptografa sua conexão e oculta seu endereço IP, como link de afiliado.
+**[Instalar - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Adicionar ao Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Site](https://getcleantab.com/)** · **[Privacidade](https://getcleantab.com/privacy.html)**
+
+> O CleanTab é parceiro oficial do [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), um serviço que remove seus dados pessoais da web. Alguns banners da extensão têm links de afiliado para o DeleteMe. O CleanTab também é parceiro do [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), uma VPN que criptografa sua conexão e oculta seu endereço IP, como link de afiliado.
 
 **[Installa - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Aggiungi a Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Suporte](https://getcleantab.com/support.html)**
 
@@ -279,7 +283,9 @@ CleanTab sammelt, speichert und überträgt keine personenbezogenen Daten. Alles
 
 CleanTab ist kostenlos, datenschutzorientiert und wird von einem Solo-Indie-Entwickler entwickelt. Unterstütze es auf [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[インストール - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Edge に追加](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Website](https://getcleantab.com/)** · **[Datenschutz](https://getcleantab.com/privacy.html)** · > CleanTab ist offizieller Partner von [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), einem Dienst, der deine persönlichen Daten aus dem Web entfernt. Einige Banner in der Erweiterung verlinken als Affiliate zu DeleteMe. CleanTab ist außerdem Partner von [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), einem VPN, das deine Verbindung verschlüsselt und deine IP-Adresse verbirgt, als Affiliate verlinkt.
+**[Installieren - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Zu Edge hinzufügen](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Website](https://getcleantab.com/)** · **[Datenschutz](https://getcleantab.com/privacy.html)**
+
+> CleanTab ist offizieller Partner von [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), einem Dienst, der deine persönlichen Daten aus dem Web entfernt. Einige Banner in der Erweiterung verlinken als Affiliate zu DeleteMe. CleanTab ist außerdem Partner von [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), einem VPN, das deine Verbindung verschlüsselt und deine IP-Adresse verbirgt, als Affiliate verlinkt.
 
 **[安装 - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[添加到 Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Support](https://getcleantab.com/support.html)**
 
@@ -332,7 +338,9 @@ CleanTab non raccoglie, memorizza o trasmette alcun dato personale. Tutto avvien
 
 CleanTab è gratuito, attento alla privacy, sviluppato da uno sviluppatore indie solitario. Sostienilo su [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Установить - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Добавить в Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Sito web](https://getcleantab.com/)** · **[Privacy](https://getcleantab.com/privacy.html)** · > CleanTab è partner ufficiale di [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), un servizio che rimuove i tuoi dati personali dal web. Alcuni banner nell'estensione rimandano a DeleteMe come affiliato. CleanTab è anche partner di [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), una VPN che cifra la tua connessione e nasconde il tuo indirizzo IP, come link affiliato.
+**[Installa - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Aggiungi a Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Sito web](https://getcleantab.com/)** · **[Privacy](https://getcleantab.com/privacy.html)**
+
+> CleanTab è partner ufficiale di [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), un servizio che rimuove i tuoi dati personali dal web. Alcuni banner nell'estensione rimandano a DeleteMe come affiliato. CleanTab è anche partner di [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), una VPN che cifra la tua connessione e nasconde il tuo indirizzo IP, come link affiliato.
 
 **[इंस्टॉल करें - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Edge में जोड़ें](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Supporto](https://getcleantab.com/support.html)**
 
@@ -385,7 +393,9 @@ CleanTab は個人データを収集・保存・送信しません。すべて�
 
 CleanTab は無料でプライバシー重視で、個人開発者が開発しています。[Ko-fi](https://ko-fi.com/cleantab) で応援してください！
 
-**[Instal - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Tambahkan ke Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[ウェブサイト](https://getcleantab.com/)** · **[プライバシー](https://getcleantab.com/privacy.html)** · > CleanTab は、あなたの個人データをウェブから削除するサービス [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) の公式パートナーです。拡張機能内の一部バナーはアフィリエイトとして DeleteMe にリンクしています。 CleanTab は、接続を暗号化して IP アドレスを隠す VPN [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) のパートナーでもあり、アフィリエイトとしてリンクしています。
+**[インストール - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Edge に追加](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[ウェブサイト](https://getcleantab.com/)** · **[プライバシー](https://getcleantab.com/privacy.html)**
+
+> CleanTab は、あなたの個人データをウェブから削除するサービス [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) の公式パートナーです。拡張機能内の一部バナーはアフィリエイトとして DeleteMe にリンクしています。 CleanTab は、接続を暗号化して IP アドレスを隠す VPN [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) のパートナーでもあり、アフィリエイトとしてリンクしています。
 
 **[تثبيت - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[أضف إلى Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[サポート](https://getcleantab.com/support.html)**
 
@@ -438,7 +448,9 @@ CleanTab 不收集、存储或传输任何个人数据。一切都在你的浏�
 
 CleanTab 免费、注重隐私，由独立开发者单独开发。在 [Ko-fi](https://ko-fi.com/cleantab) 上支持它！
 
-**[설치 - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Edge에 추가](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[网站](https://getcleantab.com/)** · **[隐私政策](https://getcleantab.com/privacy.html)** · > CleanTab 是 [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) 的官方合作伙伴，这是一项从网络上移除你个人数据的服务。扩展中的部分横幅通过联盟链接指向 DeleteMe。 CleanTab 也是 [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) 的合作伙伴，这是一款加密你的连接并隐藏 IP 地址的 VPN，以联盟链接形式提供。
+**[安装 - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[添加到 Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[网站](https://getcleantab.com/)** · **[隐私政策](https://getcleantab.com/privacy.html)**
+
+> CleanTab 是 [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) 的官方合作伙伴，这是一项从网络上移除你个人数据的服务。扩展中的部分横幅通过联盟链接指向 DeleteMe。 CleanTab 也是 [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) 的合作伙伴，这是一款加密你的连接并隐藏 IP 地址的 VPN，以联盟链接形式提供。
 
 **[Installeren - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Toevoegen aan Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[支持](https://getcleantab.com/support.html)**
 
@@ -491,7 +503,9 @@ CleanTab не собирает, не хранит и не передаёт ли�
 
 CleanTab бесплатный, ориентированный на приватность, разработан соло-разработчиком. Поддержите на [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Zainstaluj - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Dodaj do Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Сайт](https://getcleantab.com/)** · **[Конфиденциальность](https://getcleantab.com/privacy.html)** · > CleanTab - официальный партнёр [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), сервиса, удаляющего ваши персональные данные из сети. Некоторые баннеры в расширении ведут на DeleteMe по партнёрской ссылке. CleanTab также является партнёром [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), VPN, который шифрует ваше соединение и скрывает ваш IP-адрес, по партнёрской ссылке.
+**[Установить - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Добавить в Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Сайт](https://getcleantab.com/)** · **[Конфиденциальность](https://getcleantab.com/privacy.html)**
+
+> CleanTab - официальный партнёр [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), сервиса, удаляющего ваши персональные данные из сети. Некоторые баннеры в расширении ведут на DeleteMe по партнёрской ссылке. CleanTab также является партнёром [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), VPN, который шифрует ваше соединение и скрывает ваш IP-адрес, по партнёрской ссылке.
 
 **[Yükle - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Edge'e ekle](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Поддержка](https://getcleantab.com/support.html)**
 
@@ -544,7 +558,9 @@ CleanTab कोई व्यक्तिगत डेटा एकत्र, स
 
 CleanTab मुफ़्त, विज्ञापन-मुक्त है, और एक स्वतंत्र डेवलपर द्वारा बनाया गया है। [Ko-fi](https://ko-fi.com/cleantab) पर समर्थन करें!
 
-**[Cài đặt - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Thêm vào Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[वेबसाइट](https://getcleantab.com/)** · **[गोपनीयता](https://getcleantab.com/privacy.html)** · > CleanTab, [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) का आधिकारिक साझेदार है, जो आपके व्यक्तिगत डेटा को वेब से हटाता है। एक्सटेंशन के कुछ बैनर संबद्ध (affiliate) रूप में DeleteMe से लिंक होते हैं। CleanTab, [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) का भी साझेदार है, एक VPN जो आपके कनेक्शन को एन्क्रिप्ट करता है और आपका IP पता छिपाता है, संबद्ध लिंक के रूप में।
+**[इंस्टॉल करें - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Edge में जोड़ें](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[वेबसाइट](https://getcleantab.com/)** · **[गोपनीयता](https://getcleantab.com/privacy.html)**
+
+> CleanTab, [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) का आधिकारिक साझेदार है, जो आपके व्यक्तिगत डेटा को वेब से हटाता है। एक्सटेंशन के कुछ बैनर संबद्ध (affiliate) रूप में DeleteMe से लिंक होते हैं। CleanTab, [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) का भी साझेदार है, एक VPN जो आपके कनेक्शन को एन्क्रिप्ट करता है और आपका IP पता छिपाता है, संबद्ध लिंक के रूप में।
 
 **[ติดตั้ง - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[เพิ่มไปยัง Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[समर्थन](https://getcleantab.com/support.html)**
 
@@ -597,7 +613,9 @@ CleanTab tidak mengumpulkan, menyimpan, atau mengirim data pribadi apa pun. Semu
 
 CleanTab gratis, bebas iklan, dikembangkan oleh developer indie solo. Dukung di [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Встановити - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Додати в Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Situs web](https://getcleantab.com/)** · **[Privasi](https://getcleantab.com/privacy.html)** · > CleanTab adalah mitra resmi [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), layanan yang menghapus data pribadi Anda dari web. Beberapa banner di ekstensi tertaut ke DeleteMe sebagai afiliasi. CleanTab juga mitra [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), VPN yang mengenkripsi koneksi Anda dan menyembunyikan alamat IP Anda, sebagai tautan afiliasi.
+**[Instal - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Tambahkan ke Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Situs web](https://getcleantab.com/)** · **[Privasi](https://getcleantab.com/privacy.html)**
+
+> CleanTab adalah mitra resmi [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), layanan yang menghapus data pribadi Anda dari web. Beberapa banner di ekstensi tertaut ke DeleteMe sebagai afiliasi. CleanTab juga mitra [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), VPN yang mengenkripsi koneksi Anda dan menyembunyikan alamat IP Anda, sebagai tautan afiliasi.
 
 **[Installera - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Lägg till i Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[Dukungan](https://getcleantab.com/support.html)**
 
@@ -650,7 +668,9 @@ CleanTab gratis, bebas iklan, dikembangkan oleh developer indie solo. Dukung di 
 
 CleanTab مجاني وبدون إعلانات، طوّره مطوّر مستقل منفرد. ادعمه على [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Εγκατάσταση - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Προσθήκη στον Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[الموقع](https://getcleantab.com/)** · **[الخصوصية](https://getcleantab.com/privacy.html)** · > CleanTab شريك رسمي لـ [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/)، وهي خدمة تحذف بياناتك الشخصية من الويب. بعض اللافتات في الإضافة ترتبط بـ DeleteMe كتابع (affiliate). CleanTab شريك أيضًا لـ [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126)، وهو VPN يشفّر اتصالك ويخفي عنوان IP الخاص بك، عبر رابط تابع.
+**[تثبيت - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[إضافة إلى Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[الموقع](https://getcleantab.com/)** · **[الخصوصية](https://getcleantab.com/privacy.html)**
+
+> CleanTab شريك رسمي لـ [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/)، وهي خدمة تحذف بياناتك الشخصية من الويب. بعض اللافتات في الإضافة ترتبط بـ DeleteMe كتابع (affiliate). CleanTab شريك أيضًا لـ [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126)، وهو VPN يشفّر اتصالك ويخفي عنوان IP الخاص بك، عبر رابط تابع.
 
 **[Instalează - Chrome](https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod)** · **[Adaugă în Edge](https://microsoftedge.microsoft.com/addons/detail/maoagfgbdhopoelahkgncponaomjjfki)** · **[الدعم](https://getcleantab.com/support.html)**
 
@@ -703,7 +723,9 @@ CleanTab은 개인 데이터를 수집·저장·전송하지 않습니다. 모�
 
 CleanTab은 무료이며 광고가 없고 1인 인디 개발자가 개발합니다. [Ko-fi](https://ko-fi.com/cleantab)에서 후원해주세요!
 
-**[웹사이트](https://getcleantab.com/)** · **[개인정보](https://getcleantab.com/privacy.html)** · > CleanTab은 웹에서 개인 데이터를 삭제하는 서비스 [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/)의 공식 파트너입니다. 확장 프로그램의 일부 배너는 제휴 링크로 DeleteMe에 연결됩니다. CleanTab은 연결을 암호화하고 IP 주소를 숨기는 VPN [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126)의 파트너이기도 하며 제휴 링크로 연결됩니다.
+**[웹사이트](https://getcleantab.com/)** · **[개인정보](https://getcleantab.com/privacy.html)**
+
+> CleanTab은 웹에서 개인 데이터를 삭제하는 서비스 [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/)의 공식 파트너입니다. 확장 프로그램의 일부 배너는 제휴 링크로 DeleteMe에 연결됩니다. CleanTab은 연결을 암호화하고 IP 주소를 숨기는 VPN [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126)의 파트너이기도 하며 제휴 링크로 연결됩니다.
 
 **[지원](https://getcleantab.com/support.html)**
 
@@ -756,7 +778,9 @@ CleanTab verzamelt, bewaart of verzendt geen persoonlijke gegevens. Alles gebeur
 
 CleanTab is gratis, privacygericht en ontwikkeld door een solo indie-ontwikkelaar. Steun het op [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Website](https://getcleantab.com/)** · **[Privacy](https://getcleantab.com/privacy.html)** · > CleanTab is een officiële partner van [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), een dienst die je persoonlijke gegevens van het web verwijdert. Sommige banners in de extensie linken als affiliate naar DeleteMe. CleanTab is ook partner van [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), een VPN die je verbinding versleutelt en je IP-adres verbergt, als affiliate.
+**[Website](https://getcleantab.com/)** · **[Privacy](https://getcleantab.com/privacy.html)**
+
+> CleanTab is een officiële partner van [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), een dienst die je persoonlijke gegevens van het web verwijdert. Sommige banners in de extensie linken als affiliate naar DeleteMe. CleanTab is ook partner van [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), een VPN die je verbinding versleutelt en je IP-adres verbergt, als affiliate.
 
 **[Ondersteuning](https://getcleantab.com/support.html)**
 
@@ -809,7 +833,9 @@ CleanTab nie zbiera, nie przechowuje ani nie przesyła żadnych danych osobowych
 
 CleanTab jest darmowy, dbający o prywatność, tworzony przez niezależnego dewelopera. Wesprzyj na [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Strona](https://getcleantab.com/)** · **[Prywatność](https://getcleantab.com/privacy.html)** · > CleanTab jest oficjalnym partnerem [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), usługi usuwającej Twoje dane osobowe z sieci. Niektóre banery w rozszerzeniu prowadzą do DeleteMe jako link afiliacyjny. CleanTab jest także partnerem [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), sieci VPN, która szyfruje Twoje połączenie i ukrywa Twój adres IP, jako link afiliacyjny.
+**[Strona](https://getcleantab.com/)** · **[Prywatność](https://getcleantab.com/privacy.html)**
+
+> CleanTab jest oficjalnym partnerem [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), usługi usuwającej Twoje dane osobowe z sieci. Niektóre banery w rozszerzeniu prowadzą do DeleteMe jako link afiliacyjny. CleanTab jest także partnerem [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), sieci VPN, która szyfruje Twoje połączenie i ukrywa Twój adres IP, jako link afiliacyjny.
 
 **[Wsparcie](https://getcleantab.com/support.html)**
 
@@ -862,7 +888,9 @@ CleanTab hiçbir kişisel veriyi toplamaz, saklamaz veya iletmez. Her şey taray
 
 CleanTab ücretsiz, gizliliğe önem veren ve tek kişilik bir bağımsız geliştirici tarafından geliştiriliyor. [Ko-fi](https://ko-fi.com/cleantab) üzerinden destekleyin!
 
-**[Web sitesi](https://getcleantab.com/)** · **[Gizlilik](https://getcleantab.com/privacy.html)** · > CleanTab, kişisel verilerinizi web'den kaldıran [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) hizmetinin resmi ortağıdır. Uzantıdaki bazı afişler, iş ortağı bağlantısı olarak DeleteMe'ye yönlendirir. CleanTab ayrıca bağlantınızı şifreleyen ve IP adresinizi gizleyen bir VPN olan [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) ile iş ortağıdır, iş ortağı bağlantısı olarak.
+**[Web sitesi](https://getcleantab.com/)** · **[Gizlilik](https://getcleantab.com/privacy.html)**
+
+> CleanTab, kişisel verilerinizi web'den kaldıran [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) hizmetinin resmi ortağıdır. Uzantıdaki bazı afişler, iş ortağı bağlantısı olarak DeleteMe'ye yönlendirir. CleanTab ayrıca bağlantınızı şifreleyen ve IP adresinizi gizleyen bir VPN olan [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) ile iş ortağıdır, iş ortağı bağlantısı olarak.
 
 **[Destek](https://getcleantab.com/support.html)**
 
@@ -915,7 +943,9 @@ CleanTab không thu thập, lưu trữ hay truyền bất kỳ dữ liệu cá n
 
 CleanTab miễn phí, không quảng cáo, được phát triển bởi một nhà phát triển độc lập. Ủng hộ tại [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Trang web](https://getcleantab.com/)** · **[Quyền riêng tư](https://getcleantab.com/privacy.html)** · > CleanTab là đối tác chính thức của [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), dịch vụ xóa dữ liệu cá nhân của bạn khỏi web. Một số banner trong tiện ích liên kết tới DeleteMe dưới dạng liên kết tiếp thị. CleanTab cũng là đối tác của [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), một VPN mã hóa kết nối và ẩn địa chỉ IP của bạn, dưới dạng liên kết tiếp thị.
+**[Trang web](https://getcleantab.com/)** · **[Quyền riêng tư](https://getcleantab.com/privacy.html)**
+
+> CleanTab là đối tác chính thức của [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), dịch vụ xóa dữ liệu cá nhân của bạn khỏi web. Một số banner trong tiện ích liên kết tới DeleteMe dưới dạng liên kết tiếp thị. CleanTab cũng là đối tác của [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), một VPN mã hóa kết nối và ẩn địa chỉ IP của bạn, dưới dạng liên kết tiếp thị.
 
 **[Hỗ trợ](https://getcleantab.com/support.html)**
 
@@ -968,7 +998,9 @@ CleanTab ไม่เก็บ จัดเก็บ หรือส่งข้
 
 CleanTab ฟรี ไม่มีโฆษณา พัฒนาโดยนักพัฒนาอิสระคนเดียว สนับสนุนที่ [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[เว็บไซต์](https://getcleantab.com/)** · **[ความเป็นส่วนตัว](https://getcleantab.com/privacy.html)** · > CleanTab เป็นพันธมิตรอย่างเป็นทางการของ [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) บริการที่ลบข้อมูลส่วนตัวของคุณออกจากเว็บ แบนเนอร์บางส่วนในส่วนขยายลิงก์ไปยัง DeleteMe แบบพันธมิตร CleanTab ยังเป็นพันธมิตรกับ [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) VPN ที่เข้ารหัสการเชื่อมต่อและซ่อนที่อยู่ IP ของคุณ ในรูปแบบพันธมิตร
+**[เว็บไซต์](https://getcleantab.com/)** · **[ความเป็นส่วนตัว](https://getcleantab.com/privacy.html)**
+
+> CleanTab เป็นพันธมิตรอย่างเป็นทางการของ [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/) บริการที่ลบข้อมูลส่วนตัวของคุณออกจากเว็บ แบนเนอร์บางส่วนในส่วนขยายลิงก์ไปยัง DeleteMe แบบพันธมิตร CleanTab ยังเป็นพันธมิตรกับ [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126) VPN ที่เข้ารหัสการเชื่อมต่อและซ่อนที่อยู่ IP ของคุณ ในรูปแบบพันธมิตร
 
 **[สนับสนุน](https://getcleantab.com/support.html)**
 
@@ -1021,7 +1053,9 @@ CleanTab не збирає, не зберігає й не передає жод�
 
 CleanTab безкоштовний, без реклами, розроблений соло-розробником. Підтримайте на [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Вебсайт](https://getcleantab.com/)** · **[Конфіденційність](https://getcleantab.com/privacy.html)** · > CleanTab - офіційний партнер [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), сервісу, що видаляє ваші персональні дані з мережі. Деякі банери в розширенні ведуть на DeleteMe за партнерським посиланням. CleanTab також є партнером [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), VPN, який шифрує ваше з'єднання та приховує вашу IP-адресу, за партнерським посиланням.
+**[Вебсайт](https://getcleantab.com/)** · **[Конфіденційність](https://getcleantab.com/privacy.html)**
+
+> CleanTab - офіційний партнер [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), сервісу, що видаляє ваші персональні дані з мережі. Деякі банери в розширенні ведуть на DeleteMe за партнерським посиланням. CleanTab також є партнером [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), VPN, який шифрує ваше з'єднання та приховує вашу IP-адресу, за партнерським посиланням.
 
 **[Підтримка](https://getcleantab.com/support.html)**
 
@@ -1074,7 +1108,9 @@ CleanTab samlar inte in, lagrar eller överför några personuppgifter. Allt ske
 
 CleanTab är gratis, integritetsfokuserat och utvecklat av en ensam indie-utvecklare. Stötta det på [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Webbplats](https://getcleantab.com/)** · **[Integritet](https://getcleantab.com/privacy.html)** · > CleanTab är en officiell partner till [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), en tjänst som tar bort dina personuppgifter från webben. Vissa banners i tillägget länkar till DeleteMe som affiliate. CleanTab är också partner med [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), en VPN som krypterar din anslutning och döljer din IP-adress, som affiliate.
+**[Webbplats](https://getcleantab.com/)** · **[Integritet](https://getcleantab.com/privacy.html)**
+
+> CleanTab är en officiell partner till [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), en tjänst som tar bort dina personuppgifter från webben. Vissa banners i tillägget länkar till DeleteMe som affiliate. CleanTab är också partner med [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), en VPN som krypterar din anslutning och döljer din IP-adress, som affiliate.
 
 **[Support](https://getcleantab.com/support.html)**
 
@@ -1127,7 +1163,9 @@ CleanTab är gratis, integritetsfokuserat och utvecklat av en ensam indie-utveck
 
 Το CleanTab είναι δωρεάν, χωρίς διαφημίσεις, από έναν μόνο indie developer. Στήριξέ το στο [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Ιστότοπος](https://getcleantab.com/)** · **[Απόρρητο](https://getcleantab.com/privacy.html)** · > Το CleanTab είναι επίσημος συνεργάτης του [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), μιας υπηρεσίας που αφαιρεί τα προσωπικά σου δεδομένα από το web. Ορισμένα banner στην επέκταση συνδέονται με το DeleteMe ως affiliate. Το CleanTab είναι επίσης συνεργάτης του [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), ενός VPN που κρυπτογραφεί τη σύνδεσή σου και κρύβει τη διεύθυνση IP σου, ως affiliate.
+**[Ιστότοπος](https://getcleantab.com/)** · **[Απόρρητο](https://getcleantab.com/privacy.html)**
+
+> Το CleanTab είναι επίσημος συνεργάτης του [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), μιας υπηρεσίας που αφαιρεί τα προσωπικά σου δεδομένα από το web. Ορισμένα banner στην επέκταση συνδέονται με το DeleteMe ως affiliate. Το CleanTab είναι επίσης συνεργάτης του [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), ενός VPN που κρυπτογραφεί τη σύνδεσή σου και κρύβει τη διεύθυνση IP σου, ως affiliate.
 
 **[Υποστήριξη](https://getcleantab.com/support.html)**
 
@@ -1180,7 +1218,9 @@ CleanTab nu colectează, stochează sau transmite date personale. Totul se înt�
 
 CleanTab este gratuit, fără reclame, dezvoltat de un dezvoltator indie solo. Susține-l pe [Ko-fi](https://ko-fi.com/cleantab)!
 
-**[Site web](https://getcleantab.com/)** · **[Confidențialitate](https://getcleantab.com/privacy.html)** · > CleanTab este partener oficial [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), un serviciu care îți elimină datele personale de pe web. Unele bannere din extensie trimit către DeleteMe ca link de afiliere. CleanTab este de asemenea partener [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), un VPN care îți criptează conexiunea și îți ascunde adresa IP, ca link de afiliere.
+**[Site web](https://getcleantab.com/)** · **[Confidențialitate](https://getcleantab.com/privacy.html)**
+
+> CleanTab este partener oficial [DeleteMe](https://www.de33watrk.com/WCKMXS/KMKS9/), un serviciu care îți elimină datele personale de pe web. Unele bannere din extensie trimit către DeleteMe ca link de afiliere. CleanTab este de asemenea partener [IPVanish](https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126), un VPN care îți criptează conexiunea și îți ascunde adresa IP, ca link de afiliere.
 
 **[Suport](https://getcleantab.com/support.html)**
 
