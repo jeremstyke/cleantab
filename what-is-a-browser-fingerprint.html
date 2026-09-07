@@ -334,9 +334,7 @@
     <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
     <div class="head-right">
       <div class="lang-switch">
-        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
-        <button id="btnFr" onclick="setLang('fr')">FR</button>
-      </div>
+        </div>
       <a class="head-cta" id="headInstallCta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
         <span data-en>Install</span><span data-fr>Installer</span>
       </a>
@@ -401,8 +399,8 @@
       <div class="sec-body">
           <p><span data-en>Use a browser with fingerprinting protection, keep your setup common rather than heavily customized, limit unusual extensions, and consider a VPN to hide your IP as one more identifying signal. No method is perfect, but these lower your uniqueness.</span>
           <span data-fr>Utilisez un navigateur avec protection anti-fingerprinting, gardez une configuration commune plutot que très personnalisee, limitez les extensions inhabituelles, et envisagez un VPN pour masquer votre IP, un signal identifiant de plus. Aucune méthode n'est parfaite, mais elles reduisent votre unicite.</span></p>
-          <p><span data-en>Hiding your IP is one useful layer. Our partner <a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener">IPVanish</a> masks your IP address, removing one of the signals used alongside a fingerprint.</span>
-          <span data-fr>Masquer votre IP est une couche utile. Notre partenaire <a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener">IPVanish</a> masque votre adresse IP, retirant l'un des signaux utilises avec une empreinte.</span></p>
+          <p><span data-en>Hiding your IP is one useful layer. Our partner <a href="https://go.nordvpn.net/aff_c?offer_id=1002&amp;aff_id=155375" target="_blank" rel="noopener">NordVPN</a> masks your IP address, removing one of the signals used alongside a fingerprint.</span>
+          <span data-fr>Masquer votre IP est une couche utile. Notre partenaire <a href="https://go.nordvpn.net/aff_c?offer_id=1002&amp;aff_id=155375" target="_blank" rel="noopener">NordVPN</a> masque votre adresse IP, retirant l'un des signaux utilises avec une empreinte.</span></p>
       </div>
     </section>
 
@@ -467,7 +465,7 @@
 <div id="partnerBlock" style="max-width:640px; margin:26px auto 10px; padding:14px 18px; text-align:center;
      font-size:12px; line-height:1.6; color:#5a6b82; background:#f7fafc; border:1px solid #e3e9f2; border-radius:12px;">
   <div style="font-weight:700; color:#6a7a90; margin-bottom:6px;" id="pTitle">🤝 Official partners</div>
-  <div style="margin-bottom:4px;"><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
+  <div style="margin-bottom:4px;"><a href="https://go.nordvpn.net/aff_c?offer_id=1002&amp;aff_id=155375" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">NordVPN</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
   <div><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> - <span id="pDm">removes your personal data from data brokers and people-search sites</span></div>
   <div style="margin-top:6px; opacity:0.75; font-size:10.5px;" id="pAff">Affiliate links</div>
 </div>
@@ -499,12 +497,7 @@
 </footer>
 
 <script>
-function setLang(l) {
-  document.documentElement.lang = l;
-  document.getElementById('btnEn').classList.toggle('on', l === 'en');
-  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
-  try { localStorage.setItem('guideLang', l); } catch (e) {}
-}
+function setLang(l) { document.documentElement.lang = 'en'; }
 (function () {
   var saved = null;
   try { saved = localStorage.getItem('guideLang'); } catch (e) {}

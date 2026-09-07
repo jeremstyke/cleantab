@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMYG1YDKW8"></script>
@@ -160,12 +160,12 @@ html[lang="fr"] [data-fr]{display:revert}
     <div class="modes" id="modeSelect">
       <div class="mode-btn active" data-mode="timeattack">
         <div class="mode-icon">⏱️</div>
-        <div class="mode-name" data-i18n="game_mode_time">Temps limité</div>
-        <div class="mode-desc" data-i18n="game_mode_time_desc">Max d'onglets en 30s</div>
+        <div class="mode-name" data-i18n="game_mode_time">Time limité</div>
+        <div class="mode-desc" data-i18n="game_mode_time_desc">Max tabs in 30s</div>
       </div>
       <div class="mode-btn" data-mode="sprint">
         <div class="mode-icon">🏁</div>
-        <div class="mode-name" data-i18n="game_mode_sprint">Contre-la-montre</div>
+        <div class="mode-name" data-i18n="game_mode_sprint">Time trial</div>
         <div class="mode-desc" data-i18n="game_mode_sprint_desc">30 onglets le + vite</div>
       </div>
     </div>
@@ -178,7 +178,7 @@ html[lang="fr"] [data-fr]{display:revert}
       </div>
       <div class="hud-item">
         <div class="hud-value" id="hudTime">30.0</div>
-        <div class="hud-label" data-i18n="game_time">Temps</div>
+        <div class="hud-label" data-i18n="game_time">Time</div>
       </div>
     </div>
 
@@ -187,8 +187,8 @@ html[lang="fr"] [data-fr]{display:revert}
       <!-- Start overlay -->
       <div class="overlay show" id="startOverlay">
         <div class="overlay-emoji">🎮</div>
-        <div class="overlay-title" data-i18n="game_ready">Prêt à jouer ?</div>
-        <div class="overlay-sub" id="startSub" data-i18n="game_ready_sub">Cliquez sur les onglets pour les fermer le plus vite possible !</div>
+        <div class="overlay-title" data-i18n="game_ready">Ready to play?</div>
+        <div class="overlay-sub" id="startSub" data-i18n="game_ready_sub">Click the tabs to close them as fast as you can!</div>
         <button class="btn btn-big" id="startBtn" data-i18n="game_start">▶ Jouer</button>
       </div>
       <!-- Countdown overlay -->
@@ -200,7 +200,7 @@ html[lang="fr"] [data-fr]{display:revert}
         <div class="overlay-emoji" id="endEmoji">🏆</div>
         <div class="overlay-score" id="endScore">0</div>
         <div class="overlay-sub" id="endSub" data-i18n="game_result">onglets fermés !</div>
-        <button class="btn btn-big" id="replayBtn" data-i18n="game_replay">↻ Rejouer</button>
+        <button class="btn btn-big" id="replayBtn" data-i18n="game_replay">↻ Play again</button>
       </div>
     </div>
 
@@ -208,7 +208,7 @@ html[lang="fr"] [data-fr]{display:revert}
   </div>
 
   <div class="footer">
-    <span data-i18n="game_footer">Un petit jeu pour se détendre 🧹</span>
+    <span data-i18n="game_footer">A little game to relax 🧹</span>
   </div>
 
   <script>
@@ -216,18 +216,18 @@ html[lang="fr"] [data-fr]{display:revert}
 const I18N = {
   fr: {
     game_back: '← Retour', game_subtitle: '🎮 Tab Rush - Fermez les onglets le plus vite possible !',
-    game_mode_time: 'Temps limité', game_mode_time_desc: "Max d'onglets en 30s",
+    game_mode_time: 'Time limité', game_mode_time_desc: "Max d'onglets en 30s",
     game_mode_sprint: 'Contre-la-montre', game_mode_sprint_desc: '30 onglets le + vite',
-    game_closed: 'Fermés', game_time: 'Temps', game_ready: 'Prêt à jouer ?',
+    game_closed: 'Fermés', game_time: 'Time', game_ready: 'Prêt à jouer ?',
     game_ready_sub: 'Cliquez sur les onglets pour les fermer le plus vite possible !',
-    game_start: '▶ Jouer', game_replay: '↻ Rejouer', game_result: 'onglets fermés !',
-    game_result_sprint: 'Temps final', game_footer: 'Un petit jeu pour se détendre 🧹',
-    game_best_time: 'Meilleur score', game_best_sprint: 'Meilleur temps', game_tabs: 'onglets',
+    game_start: '▶ Jouer', game_replay: '↻ Play again', game_result: 'onglets fermés !',
+    game_result_sprint: 'Time final', game_footer: 'Un petit jeu pour se détendre 🧹',
+    game_best_time: 'Best score', game_best_sprint: 'Meilleur temps', game_tabs: 'onglets',
     game_new_record: '🎉 Nouveau record !',
     topbanner_review: 'Votre avis fait vivre CleanTab ❤️ Laissez 5 étoiles', topbanner_review_btn: 'Noter',
     topbanner_support: 'CleanTab est gratuit - un café m\'aide à continuer ☕❤️', topbanner_support_btn: 'Faire un don',
     topbanner_dm: 'Protégez vos données : supprimez-les du web avec DeleteMe', topbanner_dm_btn: 'Découvrir',
-    topbanner_ipv: 'Naviguez en privé : chiffrez votre connexion avec IPVanish 🔒', topbanner_ipv_btn: 'Essayer',
+    topbanner_ipv: 'Naviguez en privé : chiffrez votre connexion avec NordVPN 🔒', topbanner_ipv_btn: 'Essayer',
   },
   en: {
     game_back: '← Back', game_subtitle: '🎮 Tab Rush - Close tabs as fast as you can!',
@@ -242,7 +242,7 @@ const I18N = {
     topbanner_review: 'Your review keeps CleanTab alive ❤️ Leave 5 stars', topbanner_review_btn: 'Rate',
     topbanner_support: 'CleanTab is free - a coffee helps me keep going ☕❤️', topbanner_support_btn: 'Donate',
     topbanner_dm: 'Protect your data: remove it from the web with DeleteMe', topbanner_dm_btn: 'Learn more',
-    topbanner_ipv: 'Browse privately: encrypt your connection with IPVanish 🔒', topbanner_ipv_btn: 'Try it',
+    topbanner_ipv: 'Browse privately: encrypt your connection with NordVPN 🔒', topbanner_ipv_btn: 'Try it',
   },
   es: {
     game_back: '← Volver', game_subtitle: '🎮 Tab Rush - ¡Cierra las pestañas lo más rápido posible!',
@@ -563,7 +563,7 @@ detectLang();
 <div id="partnerBlock" style="max-width:640px; margin:26px auto 10px; padding:14px 18px; text-align:center; font-size:12px; line-height:1.6; color:#5a6b82; background:#f7fafc; border:1px solid #e3e9f2; border-radius:12px;">
   <div style="font-weight:700; color:#6a7a90; margin-bottom:6px;"><span data-en>🤝 Official partners</span><span data-fr>🤝 Partenaires officiels</span></div>
   <div style="margin-bottom:4px;"><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> - <span data-en>removes your personal data from data brokers and people-search sites</span><span data-fr>supprime vos données personnelles des sites de courtage et annuaires en ligne</span></div>
-  <div><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span data-en>VPN that encrypts your connection and hides your IP address</span><span data-fr>VPN qui chiffre votre connexion et masque votre adresse IP</span></div>
+  <div><a href="https://go.nordvpn.net/aff_c?offer_id=1002&amp;aff_id=155375" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">NordVPN</a> - <span data-en>VPN that encrypts your connection and hides your IP address</span><span data-fr>VPN that encrypts your connection and hides your IP address</span></div>
   <div style="margin-top:6px; opacity:0.75; font-size:10.5px;"><span data-en>Affiliate links</span><span data-fr>Liens affilies</span></div>
 </div>
 <div style="text-align:center; margin:10px auto 0; padding:10px 0;"><div id="142280-28"><script src="//ads.themoneytizer.com/s/gen.js?type=28"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId=142280&formatId=28"></script></div></div>

@@ -292,9 +292,7 @@
     <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
     <div class="head-right">
       <div class="lang-switch">
-        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
-        <button id="btnFr" onclick="setLang('fr')">FR</button>
-      </div>
+        </div>
       <a class="head-cta" id="headInstallCta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
         <span data-en>Install</span><span data-fr>Installer</span>
       </a>
@@ -318,7 +316,64 @@
   <!--  LATEST VERSION - update THIS block at each release           -->
   <!--  1) change the version + date                                 -->
   <!--  2) replace the .change items with what's new                 -->
+  <div class="release">
+    <div class="release-top">
+      <img src="icon128.png" alt="" />
+      <div>
+        <span class="vtag">v1.8.6</span>
+        <span class="vdate"><span data-en>August 2026</span><span data-fr>Août 2026</span></span>
+      </div>
+    </div>
+    <h2><span data-en>Everything is now free</span><span data-fr>Tout est maintenant gratuit</span></h2>
+
+    <div class="change">
+      <div class="change-ico i-notif">🎁</div>
+      <div class="change-body">
+        <h3><span data-en>All advanced features unlocked, for free</span><span data-fr>Toutes les fonctionnalités avancées débloquées, gratuitement</span></h3>
+        <p><span data-en>Advanced statistics, advanced cookie controls, unlimited whitelist and advanced auto-clean schedules are now available to everyone at no cost.</span>
+        <span data-fr>Les statistiques avancées, les contrôles cookies avancés, la liste blanche illimitée et les fréquences de nettoyage automatique avancées sont désormais accessibles à tous, gratuitement.</span></p>
+      </div>
+    </div>
+
+    <div class="change">
+      <div class="change-ico i-notif">🛡️</div>
+      <div class="change-body">
+        <h3><span data-en>Tracker blocker</span><span data-fr>Bloqueur de trackers</span></h3>
+        <p><span data-en>Block known trackers as you browse and see how many were stopped, right from the extension.</span>
+        <span data-fr>Bloquez les traqueurs connus pendant votre navigation et voyez combien ont été stoppés, directement depuis l'extension.</span></p>
+      </div>
+    </div>
+
+    <div class="change">
+      <div class="change-ico i-notif">🍪</div>
+      <div class="change-body">
+        <h3><span data-en>Advanced cookie controls</span><span data-fr>Contrôles cookies avancés</span></h3>
+        <p><span data-en>A blocked-banner counter, an aggressive mode for stubborn overlays, and an unlimited per-site whitelist.</span>
+        <span data-fr>Un compteur de bannières bloquées, un mode agressif pour les overlays tenaces, et une liste blanche illimitée par site.</span></p>
+      </div>
+    </div>
+
+    <div class="change">
+      <div class="change-ico i-notif">⏰</div>
+      <div class="change-body">
+        <h3><span data-en>Advanced auto-clean</span><span data-fr>Nettoyage auto avancé</span></h3>
+        <p><span data-en>New cleaning schedules: every hour or when you close a tab, for a browser that stays clean automatically.</span>
+        <span data-fr>De nouvelles fréquences de nettoyage : chaque heure ou à la fermeture d'un onglet, pour un navigateur toujours propre automatiquement.</span></p>
+      </div>
+    </div>
+
+    <div class="change">
+      <div class="change-ico i-notif">✨</div>
+      <div class="change-body">
+        <h3><span data-en>Simpler, clearer interface</span><span data-fr>Interface plus simple et plus claire</span></h3>
+        <p><span data-en>The Clean button is now always visible without scrolling, and the toolbar icons show helpful tooltips.</span>
+        <span data-fr>Le bouton Nettoyer est maintenant toujours visible sans défiler, et les icônes affichent des infobulles utiles.</span></p>
+      </div>
+    </div>
+  </div>
+
   <!-- ============================================================= -->
+ 
   <div class="release">
     <div class="release-top">
       <img src="icon128.png" alt="" />
@@ -397,7 +452,7 @@
 <div id="partnerBlock" style="max-width:640px; margin:26px auto 10px; padding:14px 18px; text-align:center;
      font-size:12px; line-height:1.6; color:#5a6b82; background:#f7fafc; border:1px solid #e3e9f2; border-radius:12px;">
   <div style="font-weight:700; color:#6a7a90; margin-bottom:6px;" id="pTitle">🤝 Official partners</div>
-  <div style="margin-bottom:4px;"><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
+  <div style="margin-bottom:4px;"><a href="https://go.nordvpn.net/aff_c?offer_id=1002&amp;aff_id=155375" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">NordVPN</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
   <div><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> - <span id="pDm">removes your personal data from data brokers and people-search sites</span></div>
   <div style="margin-top:6px; opacity:0.75; font-size:10.5px;" id="pAff">Affiliate links</div>
 </div>
@@ -429,12 +484,7 @@
 </footer>
 
 <script>
-function setLang(l) {
-  document.documentElement.lang = l;
-  document.getElementById('btnEn').classList.toggle('on', l === 'en');
-  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
-  try { localStorage.setItem('guideLang', l); } catch (e) {}
-}
+function setLang(l) { document.documentElement.lang = 'en'; }
 (function () {
   var saved = null;
   try { saved = localStorage.getItem('guideLang'); } catch (e) {}

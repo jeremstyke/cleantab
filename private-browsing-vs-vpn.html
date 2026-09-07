@@ -359,9 +359,7 @@
     <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
     <div class="head-right">
       <div class="lang-switch">
-        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
-        <button id="btnFr" onclick="setLang('fr')">FR</button>
-      </div>
+        </div>
       <a class="head-cta" id="headInstallCta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
         <span data-en>Install</span><span data-fr>Installer</span>
       </a>
@@ -417,8 +415,8 @@
         <h2><span data-en>What a VPN actually does</span><span data-fr>Ce que fait vraiment un VPN</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>A VPN works on <strong>your connection</strong>. It routes your traffic through its own servers, so websites see the VPN's IP address instead of yours, and it encrypts your traffic so your internet provider - or anyone snooping on public WiFi - can't see what you're doing. That's a real protection private browsing simply can't offer. But a VPN doesn't manage what your browser stores locally: used alone, your history and cookies still pile up on your device. Providers like <a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126" target="_blank" rel="noopener"><strong>IPVanish</strong></a> offer this across many countries and devices. Honest caveat: a VPN hides your location and secures your connection, but it isn't a magic cloak of total anonymity.</p></span>
-        <span data-fr><p>Un VPN agit sur <strong>votre connexion</strong>. Il achemine votre trafic via ses propres serveurs, de sorte que les sites voient l'IP du VPN et non la vôtre, et il chiffre votre trafic pour que votre fournisseur - ou quiconque espionne sur le WiFi public - ne voie pas ce que vous faites. C'est une protection que la navigation privée ne peut pas offrir. Mais un VPN ne gère pas ce que votre navigateur stocke localement : utilisé seul, votre historique et vos cookies s'accumulent quand même sur l'appareil. Des fournisseurs comme <a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126" target="_blank" rel="noopener"><strong>IPVanish</strong></a> le proposent dans de nombreux pays et sur la plupart des appareils. Précision honnête : un VPN masque votre localisation et sécurise votre connexion, mais ce n'est pas une cape d'anonymat total.</p></span>
+        <span data-en><p>A VPN works on <strong>your connection</strong>. It routes your traffic through its own servers, so websites see the VPN's IP address instead of yours, and it encrypts your traffic so your internet provider - or anyone snooping on public WiFi - can't see what you're doing. That's a real protection private browsing simply can't offer. But a VPN doesn't manage what your browser stores locally: used alone, your history and cookies still pile up on your device. Providers like <a href="https://go.nordvpn.net/aff_c?offer_id=1002&aff_id=155375" target="_blank" rel="noopener"><strong>NordVPN</strong></a> offer this across many countries and devices. Honest caveat: a VPN hides your location and secures your connection, but it isn't a magic cloak of total anonymity.</p></span>
+        <span data-fr><p>Un VPN agit sur <strong>votre connexion</strong>. Il achemine votre trafic via ses propres serveurs, de sorte que les sites voient l'IP du VPN et non la vôtre, et il chiffre votre trafic pour que votre fournisseur - ou quiconque espionne sur le WiFi public - ne voie pas ce que vous faites. C'est une protection que la navigation privée ne peut pas offrir. Mais un VPN ne gère pas ce que votre navigateur stocke localement : utilisé seul, votre historique et vos cookies s'accumulent quand même sur l'appareil. Des fournisseurs comme <a href="https://go.nordvpn.net/aff_c?offer_id=1002&aff_id=155375" target="_blank" rel="noopener"><strong>NordVPN</strong></a> le proposent dans de nombreux pays et sur la plupart des appareils. Précision honnête : un VPN masque votre localisation et sécurise votre connexion, mais ce n'est pas une cape d'anonymat total.</p></span>
       </div>
     </section>
 <section id="table">
@@ -513,7 +511,7 @@
 <div id="partnerBlock" style="max-width:640px; margin:26px auto 10px; padding:14px 18px; text-align:center;
      font-size:12px; line-height:1.6; color:#5a6b82; background:#f7fafc; border:1px solid #e3e9f2; border-radius:12px;">
   <div style="font-weight:700; color:#6a7a90; margin-bottom:6px;" id="pTitle">🤝 Official partners</div>
-  <div style="margin-bottom:4px;"><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
+  <div style="margin-bottom:4px;"><a href="https://go.nordvpn.net/aff_c?offer_id=1002&amp;aff_id=155375" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">NordVPN</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
   <div><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> - <span id="pDm">removes your personal data from data brokers and people-search sites</span></div>
   <div style="margin-top:6px; opacity:0.75; font-size:10.5px;" id="pAff">Affiliate links</div>
 </div>
@@ -538,12 +536,7 @@
 </footer>
 
 <script>
-function setLang(l) {
-  document.documentElement.lang = l;
-  document.getElementById('btnEn').classList.toggle('on', l === 'en');
-  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
-  try { localStorage.setItem('guideLang', l); } catch (e) {}
-}
+function setLang(l) { document.documentElement.lang = 'en'; }
 (function () {
   var saved = null;
   try { saved = localStorage.getItem('guideLang'); } catch (e) {}
