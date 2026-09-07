@@ -359,9 +359,7 @@
     <a class="logo-link" href="index.html"><img src="logo.png" alt="CleanTab" /></a>
     <div class="head-right">
       <div class="lang-switch">
-        <button id="btnEn" class="on" onclick="setLang('en')">EN</button>
-        <button id="btnFr" onclick="setLang('fr')">FR</button>
-      </div>
+        </div>
       <a class="head-cta" id="headInstallCta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">
         <span data-en>Install</span><span data-fr>Installer</span>
       </a>
@@ -442,8 +440,8 @@
         <h2><span data-en>Use a VPN to mask your IP</span><span data-fr>Utilisez un VPN pour masquer votre IP</span></h2>
       </div>
       <div class="sec-body">
-        <span data-en><p>The standard way to hide your IP is a <strong>VPN</strong> (virtual private network). It routes your traffic through its own servers, so sites see the VPN's IP address instead of yours, and it encrypts your connection so your provider and anyone on public WiFi can't see what you're doing. <a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126" target="_blank" rel="noopener"><strong>IPVanish</strong></a> is one established option, with servers in many countries and apps for most devices. The honest picture: a VPN is a real, useful layer of privacy - especially on public networks - but it's not a magic cloak of anonymity. Your accounts and login habits can still identify you. Think of it as hiding your location and securing your connection, which it does well.</p></span>
-        <span data-fr><p>La façon standard de cacher son IP est un <strong>VPN</strong> (réseau privé virtuel). Il achemine votre trafic via ses propres serveurs, de sorte que les sites voient l'adresse IP du VPN et non la vôtre, et il chiffre votre connexion pour que votre fournisseur et quiconque sur le WiFi public ne puissent voir ce que vous faites. <a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&aff_id=5126" target="_blank" rel="noopener"><strong>IPVanish</strong></a> est une option établie, avec des serveurs dans de nombreux pays et des applications pour la plupart des appareils. Le tableau honnête : un VPN est une couche de confidentialité réelle et utile - surtout sur les réseaux publics - mais ce n'est pas une cape d'anonymat magique. Vos comptes et habitudes de connexion peuvent toujours vous identifier. Voyez-le comme un moyen de masquer votre localisation et sécuriser votre connexion, ce qu'il fait bien.</p></span>
+        <span data-en><p>The standard way to hide your IP is a <strong>VPN</strong> (virtual private network). It routes your traffic through its own servers, so sites see the VPN's IP address instead of yours, and it encrypts your connection so your provider and anyone on public WiFi can't see what you're doing. <a href="https://go.nordvpn.net/aff_c?offer_id=1002&aff_id=155375" target="_blank" rel="noopener"><strong>NordVPN</strong></a> is one established option, with servers in many countries and apps for most devices. The honest picture: a VPN is a real, useful layer of privacy - especially on public networks - but it's not a magic cloak of anonymity. Your accounts and login habits can still identify you. Think of it as hiding your location and securing your connection, which it does well.</p></span>
+        <span data-fr><p>La façon standard de cacher son IP est un <strong>VPN</strong> (réseau privé virtuel). Il achemine votre trafic via ses propres serveurs, de sorte que les sites voient l'adresse IP du VPN et non la vôtre, et il chiffre votre connexion pour que votre fournisseur et quiconque sur le WiFi public ne puissent voir ce que vous faites. <a href="https://go.nordvpn.net/aff_c?offer_id=1002&aff_id=155375" target="_blank" rel="noopener"><strong>NordVPN</strong></a> est une option établie, avec des serveurs dans de nombreux pays et des applications pour la plupart des appareils. Le tableau honnête : un VPN est une couche de confidentialité réelle et utile - surtout sur les réseaux publics - mais ce n'est pas une cape d'anonymat magique. Vos comptes et habitudes de connexion peuvent toujours vous identifier. Voyez-le comme un moyen de masquer votre localisation et sécuriser votre connexion, ce qu'il fait bien.</p></span>
       </div>
     </section>
     <section id="browser">
@@ -518,7 +516,7 @@
 <div id="partnerBlock" style="max-width:640px; margin:26px auto 10px; padding:14px 18px; text-align:center;
      font-size:12px; line-height:1.6; color:#5a6b82; background:#f7fafc; border:1px solid #e3e9f2; border-radius:12px;">
   <div style="font-weight:700; color:#6a7a90; margin-bottom:6px;" id="pTitle">🤝 Official partners</div>
-  <div style="margin-bottom:4px;"><a href="https://affiliate.ipvanish.com/aff_c?offer_id=1&amp;aff_id=5126" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">IPVanish</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
+  <div style="margin-bottom:4px;"><a href="https://go.nordvpn.net/aff_c?offer_id=1002&amp;aff_id=155375" target="_blank" rel="noopener" style="color:#00a86b; text-decoration:none; font-weight:700;">NordVPN</a> - <span id="pIpv">VPN that encrypts your connection and hides your IP address</span></div>
   <div><a href="https://www.de33watrk.com/WCKMXS/KMKS9/" target="_blank" rel="noopener" style="color:#e8534e; text-decoration:none; font-weight:700;">DeleteMe</a> - <span id="pDm">removes your personal data from data brokers and people-search sites</span></div>
   <div style="margin-top:6px; opacity:0.75; font-size:10.5px;" id="pAff">Affiliate links</div>
 </div>
@@ -543,12 +541,7 @@
 </footer>
 
 <script>
-function setLang(l) {
-  document.documentElement.lang = l;
-  document.getElementById('btnEn').classList.toggle('on', l === 'en');
-  document.getElementById('btnFr').classList.toggle('on', l === 'fr');
-  try { localStorage.setItem('guideLang', l); } catch (e) {}
-}
+function setLang(l) { document.documentElement.lang = 'en'; }
 (function () {
   var saved = null;
   try { saved = localStorage.getItem('guideLang'); } catch (e) {}
