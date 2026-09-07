@@ -338,18 +338,7 @@
     <div class="nav-in">
       <a class="brand" href="index.html">Clean<span class="tab">Tab</span></a>
       <div class="nav-right">
-        <div class="lang-wrap">
-          <select id="langSelect" onchange="setLang(this.value)">
-            <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="es">🇪🇸 Español</option>
-            <option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="pt">🇵🇹 Português</option>
-            <option value="nl">🇳🇱 Nederlands</option><option value="pl">🇵🇱 Polski</option><option value="tr">🇹🇷 Türkçe</option>
-            <option value="ru">🇷🇺 Русский</option><option value="zh">🇨🇳 中文</option><option value="ja">🇯🇵 日本語</option>
-            <option value="ko">🇰🇷 한국어</option><option value="hi">🇮🇳 हिन्दी</option><option value="ar">🇸🇦 العربية</option>
-            <option value="id">🇮🇩 Indonesia</option><option value="vi">🇻🇳 Tiếng Việt</option><option value="th">🇹🇭 ไทย</option>
-            <option value="uk">🇺🇦 Українська</option><option value="sv">🇸🇪 Svenska</option><option value="el">🇬🇷 Ελληνικά</option>
-            <option value="cs">🇨🇿 Čeština</option><option value="ro">🇷🇴 Română</option>
-          </select>
-        </div>
+        
         <a class="nav-cta" href="https://chromewebstore.google.com/detail/eghdcennpmcmcdjkdnbggkeikkikdhod" target="_blank" rel="noopener">➕ <span id="txtInstall">Clean your browser</span></a>
       </div>
     </div>
@@ -586,14 +575,12 @@
     ];
     tset.forEach(function(t){ var a=document.getElementById(t[0]); if(a)a.textContent=t[1]; var b=document.getElementById(t[2]); if(b)b.textContent=t[3]; });
     var ta = document.getElementById('toolsAll'); if (ta) ta.textContent = isFr ? 'Voir tous les outils →' : 'See all tools →';
-    document.getElementById('langSelect').value = l;
+    var _ls=document.getElementById('langSelect'); if(_ls) _ls.value = l;
     document.documentElement.lang = l;
     document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
   }
   (function() {
-    var supported = ['en','fr','es','de','it','pt','nl','pl','tr','ru','zh','ja','ko','hi','ar','id','vi','th','uk','sv','el','cs','ro'];
-    var nav = (navigator.language || 'en').slice(0,2);
-    setLang(supported.indexOf(nav) >= 0 ? nav : 'en');
+    setLang('en');
   })();
 </script>
 <script src="dm-partner.js"></script>
