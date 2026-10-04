@@ -1231,3 +1231,11 @@ CleanTab este gratuit, fără reclame, dezvoltat de un dezvoltator indie solo. S
 © 2026 Jeremstyke
 
 </div>
+
+---
+
+### ⚽ Also by @jeremstyke: Daily Score
+
+Guess the score of one big football match a day, climb the rankings and play leagues with your friends. Free, 9 languages, no betting.
+
+👉 [Play Daily Score](https://dailyscoreapp.com/?src=github_cleantab) · [Play on Telegram](https://t.me/DailyScorefootbot?start=src_github_cleantab)
